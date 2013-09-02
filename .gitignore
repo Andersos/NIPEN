@@ -6,3 +6,6 @@
 *.toc
 *.log
 *.pdf
+*.blg
+*.gz
+*.bbl
