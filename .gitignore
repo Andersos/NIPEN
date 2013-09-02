@@ -9,3 +9,7 @@
 *.blg
 *.gz
 *.bbl
+
+# ignore redundant java files
+*.jar
+*.class
