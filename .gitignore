@@ -13,3 +13,8 @@
 # ignore redundant java files
 *.jar
 *.class
+
+# ignore mavne build files
+pom.properties
+*.txt
+*.xml
