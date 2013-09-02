@@ -190,7 +190,7 @@
 %-------------------------------------------------   
 \degree{Doctor of Philosophy} % Your degree name - this is currently used in the title page and abstract
 %-------------------------------------------------   
-\authors{Anders Olsen \textsc{Sandvik} \newline Sebastian \textsc{Zalewski} \newline Emanuele \textsc{Di Santo}} % Your name - this is used in the title page and abstract
+\authors{Anders Olsen \textsc{Sandvik} \\ Sebastian \textsc{Zalewski} \\ Emanuele \textsc{Di Santo}} % Your name - this is used in the title page and abstract
 %-------------------------------------------------   
 \addresses{} % Your address - this is not currently used anywhere in the template, cite it with \addressnames if you want it
 %-------------------------------------------------   
