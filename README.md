@@ -1,18 +1,16 @@
-TDT429-17
+TDT4290 - Group 17
 =========
+[![Build Status](https://travis-ci.org/Andersos/NIPEN.png?branch=master)](https://travis-ci.org/Andersos/NIPEN)
 
 ## Participants
 Anders Olsen Sandvik  
 Sebastian Zalewski  
 Emanuele Di Santo   
 
-#
-[![Build Status](https://travis-ci.org/Andersos/NIPEN.png?branch=master)](https://travis-ci.org/Andersos/NIPEN)
-
-## Setup
+### Setup
     Java version 7
     Maven version 3
 
-## Installation
+### Installation
     mvn clean install
 
