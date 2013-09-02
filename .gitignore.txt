@@ -1,0 +1,7 @@
+# ignore redundant latex files
+*.aux
+*.lof
+*.lot
+*.out
+*.toc
+*.log
