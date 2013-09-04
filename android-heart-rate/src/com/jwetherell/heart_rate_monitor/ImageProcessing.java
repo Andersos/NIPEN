@@ -1,4 +1,4 @@
-package no.helsenorge.heart_rate_monitor;
+package com.jwetherell.heart_rate_monitor;
 
 
 public abstract class ImageProcessing {
