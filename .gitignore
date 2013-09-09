@@ -21,4 +21,4 @@ pom.properties
 *.iml
 target
 .idea
-
+android-heart-rate/out
