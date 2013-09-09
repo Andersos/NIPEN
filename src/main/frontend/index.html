@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="Scripts/Chart.min.js"></script>
+		<script type="text/javascript" src="Scripts/jquery-1.10.1.js"></script>
+
+		<style>
+			body {
+				background-color: #f2f2f2;
+			}
+
+			.heart_rate {
+				text-align: center;
+				font-family: verdana; 
+				color: #666666;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="heart_rate">
+			<h2>Heart Rate</h2>
+			<canvas id="heart_rate_chart" width="1200" height="550"></canvas>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$.ajax({
+					url: 'api/heart_rate',
+					dataType: 'json',
+					success: function(data) {
+						timestamps = [];
+						values = [];
+
+						for (var i = 0; i < data.length; i++) {
+							timestamps.push(data[i].timestamp);
+							values.push(data[i].value);
+						}
+
+						var lineChartData = {
+							labels: timestamps,
+							datasets: [
+								{
+									fillColor: "rgba(200,0,0,0.5)",
+									strokeColor: "rgba(0,0,0,0.9)",
+									data: values
+								}
+							]
+						}
+
+						var opts = {
+							scaleShowLabels: true
+						}
+
+						new Chart($("#heart_rate_chart")[0].getContext("2d")).Bar(lineChartData, opts);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
