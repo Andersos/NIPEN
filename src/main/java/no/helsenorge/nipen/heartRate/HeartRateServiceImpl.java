@@ -14,7 +14,7 @@ public class HeartRateServiceImpl implements HeartRateService {
     }
 
     @Override
-    public void deleteHeartRate(HeartRate heartRate) {
+    public void deleteHeartRate(long id) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 }
