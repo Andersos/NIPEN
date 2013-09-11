@@ -28,4 +28,11 @@ public class HeartRateController {
        // return heartRateService.insertHeartRate((new HeartRateJsonParser(heartRate).toHeartRate()));
         return heartRate;
     }
+
+    // For testing
+    @RequestMapping(value="/api/human/test", method =  GET)
+    @ResponseBody
+    public String getHello() {
+        return "Hello World!";
+    }
 }
