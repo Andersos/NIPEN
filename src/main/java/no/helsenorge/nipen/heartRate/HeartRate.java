@@ -1,4 +1,4 @@
-package main.java.no.helsenorge.nipen.heart_rate;
+package main.java.no.helsenorge.nipen.heartRate;
 
 import java.sql.Timestamp;
 

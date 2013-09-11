@@ -1,8 +1,8 @@
-package main.java.no.helsenorge.nipen.heart_rate;
+package main.java.no.helsenorge.nipen.heartRate;
 
 import java.util.List;
 
-public class HeartRateServiceImpl implements HeartRateService {
+public class HeartRateServiceImplDB implements HeartRateService {
     @Override
     public void insertHeartRate(HeartRate heartRate) {
         //To change body of implemented methods use File | Settings | File Templates.
