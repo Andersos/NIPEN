@@ -1,4 +1,4 @@
-package main.java.no.helsenorge.nipen.heartRate;
+package no.helsenorge.nipen.heartRate;
 
 import java.util.List;
 

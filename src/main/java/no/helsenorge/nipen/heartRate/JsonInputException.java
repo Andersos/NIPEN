@@ -1,4 +1,4 @@
-package main.java.no.helsenorge.nipen.heartRate;
+package no.helsenorge.nipen.heartRate;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
