@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="Scripts/Chart.min.js"></script>
+		<script type="text/javascript" src="Scripts/jquery-1.10.1.js"></script>
+		<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			body {
+				background-color: #f2f2f2;
+			}
+
+			.data_type {
+				padding-top: 70px;
+				font-family: verdana; 
+				color: #666666;
+			}
+
+			.caption {
+				font-size: 20pt;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="#">NIPEN</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	    <div class="container">
+			<div class="data_type">
+				<div>
+					<span class="caption">Heart Rate</span>
+					<a href="api/heart_rate">(json)</a>
+				</div>
+
+				<canvas id="heart_rate_chart" width="900" height="550"></canvas>
+			</div>
+
+			<div class="data_type">
+				<div>
+					<span class="caption">Weight</span>
+					<a href="api/weight">(json)</a>
+				</div>
+
+				<canvas id="weight_chart" width="900" height="550"></canvas>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function () {
+				initChart("heart_rate_chart", "api/human/heart_rates", "hard_coded_json/heart_rate");
+				initChart("weight_chart", "api/human/weights", "hard_coded_json/weight");
+			});
+
+			function initChart(canvasId, url, altUrl) {
+				$.ajax({
+					url: url,
+					dataType: 'json',
+					success: function(data) {
+						createChart(canvasId, data);
+					},
+					error: function() {
+						$.ajax({
+							url: altUrl,
+							dataType: 'json',
+							success: function(data) {
+								createChart(canvasId, data);
+							}
+						});
+					}
+				});
+
+			}
+
+			function createChart(canvasId, data) {
+				timestamps = [];
+				values = [];
+
+				for (var i = 0; i < data.length; i++) {
+					timestamps.push(data[i].timestamp);
+					values.push(data[i].value);
+				}
+
+				var lineChartData = {
+					labels: timestamps,
+					datasets: [
+						{
+							fillColor: "rgba(200,0,0,0.5)",
+							strokeColor: "rgba(0,0,0,0.9)",
+							data: values
+						}
+					]
+				}
+
+				var opts = {
+					scaleShowLabels: true
+				}
+
+				new Chart($("#" + canvasId)[0].getContext("2d")).Bar(lineChartData, opts);
+			}
+		</script>
+	</body>
+</html>
