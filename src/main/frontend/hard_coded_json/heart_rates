@@ -3,7 +3,8 @@
     "id": "1",
     "userId": "2",
     "timestamp": "8/10/2013",
-    "value": 62
+    "value": 62,
+    "unit": "bpm"
   },
   {
     "id": "2",
@@ -236,7 +237,7 @@
   {
     "id": "5",
     "userId": "2",
-    "timestamp": "8/20/2013",
+    "timestamp": "20/8/2013",
     "value": 67
   }
 ]

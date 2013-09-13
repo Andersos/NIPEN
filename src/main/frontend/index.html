@@ -11,15 +11,47 @@
 				background-color: #f2f2f2;
 			}
 
-			.data_type {
+			.data-type {
 				padding-top: 70px;
 				font-family: verdana; 
 				color: #666666;
 			}
 
 			.caption {
+				padding-bottom: 20px;
+			}
+
+			.caption span {
 				font-size: 20pt;
 				font-weight: bold;
+			}
+
+			#user-name {
+				position: absolute;
+				right: 0px;
+			}
+
+			.newest-measure {
+				float: left;
+				text-align: center;
+				vertical-align: middle;
+				font-size: 45pt;
+				border-style: groove;
+				border-width: 3.5px;
+				border-radius: 25px;
+				background-color: #f5f5f5;
+			}
+
+			.newest-measure i {
+				display: block;
+				text-align: left;
+				padding-left: 15px;
+				padding-top: 5px;
+				font-size: 15px;
+			}
+
+			.newest-measure span {
+				font-size: 100pt;
 			}
 		</style>
 	</head>
@@ -36,59 +68,91 @@
 					<a class="brand" href="#">NIPEN</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#about">About</a></li>
-							<li><a href="#contact">Contact</a></li>
+							<li id="home-button" class="active" onclick="changePage('home-button');"><a href="#">Home</a></li>
+							<li id="heart-rate-button" onclick="changePage('heart-rate-button');"><a href="#">Heart Rate</a></li>
+							<li id="weight-button" onclick="changePage('weight-button');"><a href="#">Weight</a></li>
+							<li id="health-vault-button" onclick="changePage('health-vault-button');"><a href="#">HealthVault</a></li>
 						</ul>
 					</div>
+					<a id="user-name" class="brand" href="#">Ola Nordmann</a>
 				</div>
 			</div>
 		</div>
 
 	    <div class="container">
-			<div class="data_type">
-				<div>
-					<span class="caption">Heart Rate</span>
-					<a href="api/heart_rate">(json)</a>
+			<div id="heart-rate" class="data-type">
+				<div class="caption">
+					<span>Heart Rate</span>
+					<a href="api/human/heart_rates">(json)</a>
 				</div>
 
-				<canvas id="heart_rate_chart" width="900" height="550"></canvas>
+				<div class="newest-measure" id="newest-heart-rate"></div>
+				<canvas id="heart-rate-chart"></canvas>
 			</div>
 
-			<div class="data_type">
-				<div>
-					<span class="caption">Weight</span>
-					<a href="api/weight">(json)</a>
+			<div id="weight" class="data-type">
+				<div class="caption">
+					<span>Weight</span>
+					<a href="api/human/weights">(json)</a>
 				</div>
 
-				<canvas id="weight_chart" width="900" height="550"></canvas>
+				<div class="newest-measure" id="newest-weight"></div>
+				<canvas id="weight-chart"></canvas>
+			</div>
+
+			<div id="health-vault" class="data-type">
+				<div class="caption">
+					<span>HealthVault</span>
+					<a href="#">(json)</a>
+				</div>
 			</div>
 		</div>
 
 		<script type="text/javascript">
-			$(document).ready(function () {
-				initChart("heart_rate_chart", "api/human/heart_rates", "hard_coded_json/heart_rate");
-				initChart("weight_chart", "api/human/weights", "hard_coded_json/weight");
+			var activePageButton = "home-button";
+			var chartWidthFullSize = "900";
+			var chartHeightFullSize = "550";
+
+			$(document).ready(function() {
+				updatePage();
 			});
 
-			function initChart(canvasId, url, altUrl) {
+			function updatePage() {
+				initDataType("newest-heart-rate", "heart-rate-chart", "api/human/heart_rates", "hard_coded_json/heart_rates");
+				initDataType("newest-weight", "weight-chart", "api/human/weights", "hard_coded_json/weights");
+			}
+
+			function initDataType(divId, canvasId, url, altUrl) {
 				$.ajax({
 					url: url,
 					dataType: 'json',
 					success: function(data) {
-						createChart(canvasId, data);
+						visualizeData(divId, canvasId, data);
 					},
 					error: function() {
 						$.ajax({
 							url: altUrl,
 							dataType: 'json',
 							success: function(data) {
-								createChart(canvasId, data);
+								visualizeData(divId, canvasId, data);
 							}
 						});
 					}
 				});
+			}
 
+			function visualizeData(divId, canvasId, data) {
+				if (data.length != 0)
+					createNewestMeasureDisplay(divId, data[data.length-1].value, data[0].unit, data[data.length-1].timestamp);
+				createChart(canvasId, data);
+			}
+
+			function createNewestMeasureDisplay(divId, value, unit, time) {
+				$("#" + divId).html("<i>Latest meausure (" + time + "): </i><span>" + value + "</span> " + unit);
+
+				$("#" + divId).css("width", chartWidthFullSize / 2.0);
+				$("#" + divId).css("height", chartHeightFullSize / 2.0);
+				$("#" + divId).find("span:first").css("line-height", (chartHeightFullSize / 2.0 - 60) + "px");
 			}
 
 			function createChart(canvasId, data) {
@@ -115,7 +179,66 @@
 					scaleShowLabels: true
 				}
 
+				$("#" + canvasId).attr("width", chartWidthFullSize);
+				$("#" + canvasId).attr("height", chartHeightFullSize);
 				new Chart($("#" + canvasId)[0].getContext("2d")).Bar(lineChartData, opts);
+
+				if (activePageButton == "home-button") {
+					$("#" + canvasId).css("width", chartWidthFullSize / 2.0);
+					$("#" + canvasId).css("height", chartHeightFullSize / 2.0);
+				}
+			}
+
+			function changePage(buttonId) {
+				var animationTime = 400;
+
+				updatePage();
+
+				$("#" + buttonId).attr("class", "active");
+				$("#" + activePageButton).attr("class", "");
+				activePageButton = buttonId;
+
+				switch (buttonId) {
+				case "home-button":
+					$("#heart-rate-chart").css("width", chartWidthFullSize / 2.0);
+					$("#heart-rate-chart").css("height", chartHeightFullSize / 2.0);
+					$("#weight-chart").css("width", chartWidthFullSize / 2.0);
+					$("#weight-chart").css("height", chartHeightFullSize / 2.0);
+					showAllDataTypes(animationTime);
+					break;
+				case "heart-rate-button":
+					hideAllDataTypes();
+					$("#heart-rate-chart").css("width", chartWidthFullSize);
+					$("#heart-rate-chart").css("height", chartHeightFullSize);
+					$("#heart-rate").show(animationTime);
+					break;
+				case "weight-button":
+					hideAllDataTypes();
+					$("#weight-chart").css("width", chartWidthFullSize);
+					$("#weight-chart").css("height", chartHeightFullSize);
+					$("#weight").show(animationTime);
+					break;
+				case "health-vault-button":
+					hideAllDataTypes();
+					$("#health-vault").show(animationTime);
+					break;
+				}
+			}
+
+			function showAllDataTypes(animationTime) {
+				$("#heart-rate").show(animationTime);
+				$("#newest-heart-rate").show(animationTime);
+				$("#weight").show(animationTime);
+				$("#newest-weight").show(animationTime);
+				$("#health-vault").show(animationTime);
+			}
+
+			function hideAllDataTypes() {
+				$("#heart-rate").hide();
+				$("#newest-heart-rate").hide();
+				$("#weight").hide();
+				$("#newest-weight").hide();
+				$("#health-vault").hide();
 			}
 		</script>
 	</body>
