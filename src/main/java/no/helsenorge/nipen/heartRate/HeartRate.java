@@ -8,12 +8,14 @@ public class HeartRate {
     private long  userId;
     private Timestamp timestamp;
     private long value;
+    private String unit;
 
-    public HeartRate(long id, long userId, Timestamp timestamp, long value){
+    public HeartRate(long id, long userId, Timestamp timestamp, long value, String unit){
         this.id = id;
         this.userId = userId;
         this.timestamp = timestamp;
         this.value = value;
+        this.unit = unit;
     }
 
     public long getId() {
@@ -30,5 +32,9 @@ public class HeartRate {
 
     public long getValue() {
         return value;
+    }
+
+    public String getUnit() {
+        return unit;
     }
 }

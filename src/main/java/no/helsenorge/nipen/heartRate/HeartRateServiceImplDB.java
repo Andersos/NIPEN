@@ -33,8 +33,9 @@ public final class HeartRateServiceImplDB implements HeartRateService {
         long userId = 1;
         Timestamp timestamp = heartRate.getTimestamp();
         long value = heartRate.getValue();
-        return jdbcTemplate.query("INSERT INTO heart_rate (userId, timestamp, value) " +
-                "VALUES (?,?,?)", userId, timestamp, value);
+        String unit = heartRate.getUnit();
+        return jdbcTemplate.query("INSERT INTO heart_rate (userId, timestamp, value, unit) " +
+                "VALUES (?,?,?,?)", userId, timestamp, value, unit);
     }
 
     @Override
@@ -47,7 +48,8 @@ public final class HeartRateServiceImplDB implements HeartRateService {
                 long userId = resultSet.getLong(2);
                 Timestamp timestamp = resultSet.getTimestamp(3);
                 long value = resultSet.getLong(4);
-                return new HeartRate(id, userId, timestamp, value);
+                String unit = resultSet.getString(5);
+                return new HeartRate(id, userId, timestamp, value, unit);
             }
         });
     }

@@ -21,8 +21,9 @@ public final class HeartRateJsonParser {
         long userId = readUserId();
         Timestamp timestamp = readTimestamp();
         long value = readValue();
+        String unit = readUnit();
 
-        return new HeartRate(id, userId, timestamp, value);
+        return new HeartRate(id, userId, timestamp, value, unit);
     }
 
     private long readId() {
@@ -39,6 +40,10 @@ public final class HeartRateJsonParser {
 
     private long readValue() {
         return 0;  //To change body of created methods use File | Settings | File Templates.
+    }
+
+    private String readUnit() {
+        return null;  //To change body of created methods use File | Settings | File Templates.
     }
 
     private void jsonToHashMap() {
