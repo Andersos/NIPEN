@@ -22,4 +22,4 @@ pom.properties
 target
 .idea
 android-heart-rate/out
-android-heart-rate/gen
+android-heart-rate/gen/*
