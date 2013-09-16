@@ -3,6 +3,10 @@ package no.helsenorge.nipen.heartRate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -13,7 +17,7 @@ import java.sql.Timestamp;
 @Component
 public final class HeartRateServiceImplDB implements HeartRateService {
 
-    private DatabaseDataModelImpl databaseDataModel;
+    //private DatabaseDataModelImpl databaseDataModel;
     private JdbcTemplate jdbcTemplate;
 
     @Resource
@@ -22,11 +26,12 @@ public final class HeartRateServiceImplDB implements HeartRateService {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /*
     @Resource
     @Required
     public void setDatamodel(DatabaseDataModelImpl dbmodal) {
         databaseDataModel = dbmodal;
-    }
+    } */
 
     @Override
     public void insertHeartRate(HeartRate heartRate) throws DataAccessException {
@@ -34,7 +39,8 @@ public final class HeartRateServiceImplDB implements HeartRateService {
         Timestamp timestamp = heartRate.getTimestamp();
         long value = heartRate.getValue();
         String unit = heartRate.getUnit();
-        return jdbcTemplate.query("INSERT INTO heart_rate (userId, timestamp, value, unit) " +
+
+        jdbcTemplate.update("INSERT INTO heart_rate (userId, timestamp, value, unit) " +
                 "VALUES (?,?,?,?)", userId, timestamp, value, unit);
     }
 
