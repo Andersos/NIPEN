@@ -17,7 +17,6 @@
 # ignore build files
 pom.properties
 *.txt
-*.xml
 *.iml
 target
 .idea
