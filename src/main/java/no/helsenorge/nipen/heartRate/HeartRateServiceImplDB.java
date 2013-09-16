@@ -35,13 +35,13 @@ public final class HeartRateServiceImplDB implements HeartRateService {
 
     @Override
     public void insertHeartRate(HeartRate heartRate) throws DataAccessException {
-        long userId = 1;
+        long userId = heartRate.getId();
         Timestamp timestamp = heartRate.getTimestamp();
         long value = heartRate.getValue();
         String unit = heartRate.getUnit();
 
-        jdbcTemplate.update("INSERT INTO heart_rate (userId, timestamp, value, unit) " +
-                "VALUES (?,?,?,?)", userId, timestamp, value, unit);
+        jdbcTemplate.update("INSERT INTO heart_rate (user_id, value, timestamp, unit) " +
+                "VALUES (?,?,?,?)", userId, value, timestamp, unit);
     }
 
     @Override

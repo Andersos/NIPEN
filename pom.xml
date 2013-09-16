@@ -1,16 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.helsenorge.nipen</groupId>
     <artifactId>nipen</artifactId>
-    <!--packaging>war</packaging-->
-    <version>1.0-SNAPSHOT</version>
-    <name>nipen</name>
-    <url>http://maven.apache.org</url>
-    <build>
-        <finalName>NIPEN</finalName>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>0.5.0.M2</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>3.2.3.RELEASE</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <start-class>no.helsenorge.nipen.runnable.App</start-class>
+    </properties>
+
+    <build>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -22,97 +49,8 @@
             </plugin>
         </plugins>
     </build>
-    <properties>
-        <!--<spring.maven.artifact.version>2.5.1</spring.maven.artifact.version>-->
-        <spring.maven.artifact.version>3.2.3.RELEASE</spring.maven.artifact.version>
-        <start-class>no.helsenorge.nipen.App</start-class>
-    </properties>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>0.5.0.M2</version>
-    </parent>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.maven.artifact.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.maven.artifact.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring.maven.artifact.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.maven.artifact.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.maven.artifact.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.maven.artifact.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
-            <version>1.9.12</version>
-        </dependency>
-
-        <dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.9</version>
-		</dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>0.5.0.M2</version>
-        </dependency>
-    </dependencies>
-
 
     <repositories>
-    <!--repository>
-        <id>spring-ext</id>
-        <name>Spring External Dependencies Repository</name>
-        <url>
-            https://springframework.svn.sourceforge.net/svnroot/springframework/repos/repo-ext/
-        </url>
-    </repository>
-
-    <repository>
-        <id>i21-s3-maven-repo</id>
-        <name>i21 S3 milestone repo</name>
-        <url>http://s3.amazonaws.com/maven.springframework.org/milestone</url>
-    </repository-->
-
         <repository>
             <id>spring-snapshots</id>
             <url>http://repo.springsource.org/libs-snapshot</url>
@@ -126,16 +64,4 @@
             <snapshots><enabled>true</enabled></snapshots>
         </pluginRepository>
     </pluginRepositories>
-
-
-
-    <!--pluginRepositories>
-        <pluginRepository>
-            <id>maven-repo</id>
-            <name>maven repo</name>
-            <url>http://repo1.maven.org/maven2/</url>
-        </pluginRepository>
-
-    </pluginRepositories-->
-
 </project>

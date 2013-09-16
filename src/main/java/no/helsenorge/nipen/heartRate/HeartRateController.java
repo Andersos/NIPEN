@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -26,8 +27,8 @@ public class HeartRateController {
     @RequestMapping(value = "/api/human/heart_rate", method = POST)
     @ResponseBody
     public String addHeartRate(@RequestBody String heartRate){
-       // return heartRateService.insertHeartRate((new HeartRateJsonParser(heartRate).toHeartRate()));
-        return heartRate;
+        return "";//heartRateService.insertHeartRate((new HeartRateJsonParser(heartRate).toHeartRate()));
+        //return no.helsenorge.nipen.resources.heartRate;
     }
 
     // For testing
@@ -36,4 +37,9 @@ public class HeartRateController {
     public String getHello() {
         return "Hello World!";
     }
+
+    //@RequestMapping("api/human/test")
+    //public @ResponseBody HeartRate no.helsenorge.nipen.resources.heartRate() {
+    //    return new HeartRate(12313, 1231, new Timestamp(213232312), 80, "bmp");
+    //}
 }

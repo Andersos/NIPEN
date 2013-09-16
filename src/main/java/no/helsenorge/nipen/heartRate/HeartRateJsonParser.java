@@ -1,11 +1,10 @@
 package no.helsenorge.nipen.heartRate;
 
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Map;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.map.ObjectMapper;
+//import org.codehaus.jackson.JsonFactory;
+//import org.codehaus.jackson.map.ObjectMapper;
 
 public final class HeartRateJsonParser {
     private String json;
@@ -16,7 +15,7 @@ public final class HeartRateJsonParser {
     }
 
     public HeartRate toHeartRate(){
-        jsonToHashMap();
+        //jsonToHashMap();
         long id = readId();
         long userId = readUserId();
         Timestamp timestamp = readTimestamp();
@@ -46,7 +45,7 @@ public final class HeartRateJsonParser {
         return null;  //To change body of created methods use File | Settings | File Templates.
     }
 
-    private void jsonToHashMap() {
+    /*private void jsonToHashMap() {
         try {
             JsonFactory factory = new JsonFactory();
             ObjectMapper mapper = new ObjectMapper(factory);
@@ -54,5 +53,5 @@ public final class HeartRateJsonParser {
         } catch (IOException e) {
             throw new JsonInputException(e);
         }
-    }
+    }*/
 }
