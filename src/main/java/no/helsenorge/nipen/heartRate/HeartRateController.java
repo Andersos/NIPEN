@@ -1,45 +1,42 @@
 package no.helsenorge.nipen.heartRate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.sql.Timestamp;
 import java.util.List;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HeartRateController {
 
-    @Autowired
-    private HeartRateService heartRateService;
+    /*@Autowired
+    private HeartRateService heartRateService;*/
+    private HeartRateService heartRateService = new HeartRateServiceImplDB();
 
-    @RequestMapping(value="/api/human/heart_rates", method =  GET)
+    @RequestMapping(value="/api/human/heart_rates", method =  RequestMethod.GET)
     @ResponseBody
-    public List<HeartRate> getHeartRates(@RequestParam(required = true) Integer userId) {
-        return heartRateService.getHeartRates(userId);
+    public List<HeartRate> getHeartRates(@RequestParam(value="id", required=false, defaultValue="0") Integer userId) {
+        return heartRateService.getHeartRates();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/api/human/heart_rate", method = POST)
+    @RequestMapping(value="/api/human/heart_rate", method = RequestMethod.POST)
     @ResponseBody
-    public String addHeartRate(@RequestBody String heartRate){
-        return "";//heartRateService.insertHeartRate((new HeartRateJsonParser(heartRate).toHeartRate()));
-        //return no.helsenorge.nipen.resources.heartRate;
+    public String addHeartRate(/*@ModelAttribute*//*@RequestBody HeartRate snooze*/){
+        //heartRateService.insertHeartRate(snooze);
+        return "Yuppi !!";
     }
 
     // For testing
-    @RequestMapping(value="/api/human/test", method =  GET)
+    @RequestMapping(value="/api/human/test", method =  RequestMethod.GET)
     @ResponseBody
     public String getHello() {
         return "Hello World!";
     }
-
-    //@RequestMapping("api/human/test")
-    //public @ResponseBody HeartRate no.helsenorge.nipen.resources.heartRate() {
-    //    return new HeartRate(12313, 1231, new Timestamp(213232312), 80, "bmp");
-    //}
 }

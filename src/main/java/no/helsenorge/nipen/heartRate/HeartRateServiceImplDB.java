@@ -9,12 +9,14 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Timestamp;
 
-@Component
+//@Component
+//@Service
 public final class HeartRateServiceImplDB implements HeartRateService {
 
     //private DatabaseDataModelImpl databaseDataModel;
@@ -45,17 +47,16 @@ public final class HeartRateServiceImplDB implements HeartRateService {
     }
 
     @Override
-    public List<HeartRate> getHeartRates(int userId) {
-        return jdbcTemplate.query("SELECT id, userId, timestamp, value " +
+    public List<HeartRate> getHeartRates() {
+        return jdbcTemplate.query("SELECT * " +
                 "FROM heart_rate ORDER BY timestamp desc", new RowMapper<HeartRate>() {
             @Override
             public HeartRate mapRow(ResultSet resultSet, int i) throws SQLException {
                 long id = resultSet.getLong(1);
-                long userId = resultSet.getLong(2);
+                long value = resultSet.getLong(2);
                 Timestamp timestamp = resultSet.getTimestamp(3);
-                long value = resultSet.getLong(4);
-                String unit = resultSet.getString(5);
-                return new HeartRate(id, userId, timestamp, value, unit);
+                String unit = resultSet.getString(4);
+                return new HeartRate(id, value, timestamp, unit);
             }
         });
     }

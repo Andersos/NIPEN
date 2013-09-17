@@ -3,8 +3,8 @@ package no.helsenorge.nipen.heartRate;
 import java.sql.Timestamp;
 import java.util.Map;
 
-//import org.codehaus.jackson.JsonFactory;
-//import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.JsonFactory;
+import org.codehaus.jackson.map.ObjectMapper;
 
 public final class HeartRateJsonParser {
     private String json;
@@ -15,43 +15,39 @@ public final class HeartRateJsonParser {
     }
 
     public HeartRate toHeartRate(){
-        //jsonToHashMap();
+        jsonToHashMap();
         long id = readId();
-        long userId = readUserId();
         Timestamp timestamp = readTimestamp();
         long value = readValue();
         String unit = readUnit();
 
-        return new HeartRate(id, userId, timestamp, value, unit);
+        return new HeartRate(id, value, timestamp, unit);
     }
 
     private long readId() {
-        return 0;  //To change body of created methods use File | Settings | File Templates.
-    }
 
-    private long readUserId() {
-        return 0;  //To change body of created methods use File | Settings | File Templates.
+        return ((Integer)parseResult.get("id")).intValue();
     }
 
     private Timestamp readTimestamp() {
-        return null;  //To change body of created methods use File | Settings | File Templates.
+        return ((Timestamp)parseResult.get("timestamp"));
     }
 
     private long readValue() {
-        return 0;  //To change body of created methods use File | Settings | File Templates.
+        return ((Integer)parseResult.get("value")).intValue();
     }
 
     private String readUnit() {
-        return null;  //To change body of created methods use File | Settings | File Templates.
+        return ((String)parseResult.get("id"));
     }
 
-    /*private void jsonToHashMap() {
+    private void jsonToHashMap() {
         try {
             JsonFactory factory = new JsonFactory();
             ObjectMapper mapper = new ObjectMapper(factory);
             parseResult = mapper.readValue(json, Map.class);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new JsonInputException(e);
         }
-    }*/
+    }
 }
