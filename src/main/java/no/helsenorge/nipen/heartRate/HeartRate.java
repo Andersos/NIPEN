@@ -4,29 +4,32 @@ import java.sql.Timestamp;
 
 public class HeartRate {
 
-    private long id;
+    private long id = -1;
     private long  userId;
-    private Timestamp timestamp;
+    private String timestamp;
     private long value;
     private String unit;
 
-    public HeartRate(long id, long value, Timestamp timestamp, String unit) {
-        this.id = id;
-        //this.userId = userId;
+    public HeartRate(long userId, long value, String timestamp, String unit) {
+        this.userId = userId;
         this.timestamp = timestamp;
         this.value = value;
         this.unit = unit;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getId() {
         return id;
     }
 
-    /*public long getUserId() {
+    public long getUserId() {
         return userId;
-    }*/
+    }
 
-    public Timestamp getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 

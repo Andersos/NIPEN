@@ -1,23 +1,19 @@
 package no.helsenorge.nipen.heartRate;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HeartRateController {
-
-    /*@Autowired
-    private HeartRateService heartRateService;*/
-    private HeartRateService heartRateService = new HeartRateServiceImplDB();
+    private ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+    private HeartRateService heartRateService = (HeartRateServiceImplDB)context.getBean("heartRateService");
 
     @RequestMapping(value="/api/human/heart_rates", method =  RequestMethod.GET)
     @ResponseBody
@@ -27,10 +23,8 @@ public class HeartRateController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value="/api/human/heart_rate", method = RequestMethod.POST)
-    @ResponseBody
-    public String addHeartRate(/*@ModelAttribute*//*@RequestBody HeartRate snooze*/){
-        //heartRateService.insertHeartRate(snooze);
-        return "Yuppi !!";
+    public void addHeartRate(@RequestBody String jsonHeartRate) {
+        heartRateService.insertHeartRate(new HeartRateJsonParser(jsonHeartRate).toHeartRate());
     }
 
     // For testing

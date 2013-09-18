@@ -9,11 +9,12 @@ USE `mydb` ;
 -- Table `mydb`.`heart_rate`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `mydb`.`heart_rate` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL ,
   `value` INT NOT NULL ,
   `timestamp` VARCHAR(45) NOT NULL ,
   `unit` VARCHAR(45) NULL ,
-  PRIMARY KEY (`user_id`) )
+  PRIMARY KEY (`id`, `user_id`) )
 ENGINE = InnoDB;
 
 
@@ -27,8 +28,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`heart_rate` (`user_id`, `value`, `timestamp`, `unit`) VALUES (0, 60, '11/09/2013', '');
-INSERT INTO `mydb`.`heart_rate` (`user_id`, `value`, `timestamp`, `unit`) VALUES (1, 70, '10/09/2013', NULL);
-INSERT INTO `mydb`.`heart_rate` (`user_id`, `value`, `timestamp`, `unit`) VALUES (2, 80, '09/09/2013', NULL);
+INSERT INTO `mydb`.`heart_rate` (`user_id`, `value`, `timestamp`, `unit`) VALUES (0, 60, '2000-10-01 22:22:22', 'bmp');
+INSERT INTO `mydb`.`heart_rate` (`user_id`, `value`, `timestamp`, `unit`) VALUES (1, 70, '2000-10-12 22:22:22', 'bmp');
+INSERT INTO `mydb`.`heart_rate` (`user_id`, `value`, `timestamp`, `unit`) VALUES (2, 80, '2000-10-15 22:22:12', 'bmp');
 
 COMMIT;

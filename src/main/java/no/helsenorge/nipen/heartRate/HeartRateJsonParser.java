@@ -1,6 +1,7 @@
 package no.helsenorge.nipen.heartRate;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.codehaus.jackson.JsonFactory;
@@ -8,7 +9,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 public final class HeartRateJsonParser {
     private String json;
-    private Map<String,Object> parseResult;
+    private Map<String,Object> parseResult = new HashMap<String, Object>();
 
     public HeartRateJsonParser(String json) {
         this.json = json;
@@ -16,29 +17,28 @@ public final class HeartRateJsonParser {
 
     public HeartRate toHeartRate(){
         jsonToHashMap();
-        long id = readId();
-        Timestamp timestamp = readTimestamp();
+        long userId = readUserId();
+        String timestamp = readTimestamp();
         long value = readValue();
         String unit = readUnit();
 
-        return new HeartRate(id, value, timestamp, unit);
+        return new HeartRate(userId, value, timestamp, unit);
     }
 
-    private long readId() {
-
-        return ((Integer)parseResult.get("id")).intValue();
+    private long readUserId() {
+        return (Integer)parseResult.get("user_id");  // FIXME: WHY CAN'T THIS BE CAST TO LONG!?!?!?!?
     }
 
-    private Timestamp readTimestamp() {
-        return ((Timestamp)parseResult.get("timestamp"));
+    private String readTimestamp() {
+        return (String)parseResult.get("timestamp");
     }
 
     private long readValue() {
-        return ((Integer)parseResult.get("value")).intValue();
+        return (Integer)parseResult.get("value");     // FIXME: WHY CAN'T THIS BE CAST TO LONG!?!?!?!?
     }
 
     private String readUnit() {
-        return ((String)parseResult.get("id"));
+        return (String)parseResult.get("unit");
     }
 
     private void jsonToHashMap() {
