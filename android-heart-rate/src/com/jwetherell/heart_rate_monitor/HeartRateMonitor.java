@@ -1,5 +1,11 @@
 package com.jwetherell.heart_rate_monitor;
 
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import android.app.Activity;
@@ -14,7 +20,15 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
+
+import java.util.Calendar;
+import java.lang.StringBuilder;
+import java.util.Formatter;
 
 
 public class HeartRateMonitor extends Activity {
@@ -27,6 +41,10 @@ public class HeartRateMonitor extends Activity {
     private static Camera camera = null;
     private static View image = null;
     private static TextView text = null;
+    private Button button;
+
+    private URL endPoint;
+    private HttpURLConnection httpConnection;
 
     private static WakeLock wakeLock = null;
 
@@ -65,6 +83,66 @@ public class HeartRateMonitor extends Activity {
 
         image = findViewById(R.id.image);
         text = (TextView) findViewById(R.id.text);
+        button = (Button) findViewById(R.id.button);
+
+        final StringBuilder buf = new StringBuilder();
+        final Formatter formatter = new Formatter(buf);
+        final Calendar cal = Calendar.getInstance();
+
+        //final SimpleDateFormat timestamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        //timestamp.
+
+        try {
+            endPoint = new URL("http://mhealthdemo03.cloudapp.net/nipen/api/human/heart_rate");
+        } catch (MalformedURLException e) {
+            //
+        }
+
+        //StringBuilder payload = new
+        //final String payload = "{\"user_id\":1,\"timestamp\":\"2013-09-18 19:00:00\",\"value\":400,\"unit\":\"bpm\"}";
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String response = new String();
+
+                formatter.format("{\"user_id\":1,\"timestamp\":\"%1$tY-%1$tm-%1$te %1$tH:%1$tM:%1$tS\",\"value\":%2$s,\"unit\":\"bpm\"}",
+                        cal, text.getText());
+
+                System.out.println("HEARTH:" + buf.toString());
+
+                try {
+                    httpConnection = (HttpURLConnection)endPoint.openConnection();
+                    httpConnection.setRequestMethod("POST");
+                    //httpConnection.setDoInput(true);
+                    httpConnection.setDoOutput(true);
+                    httpConnection.addRequestProperty("Content-Type", "application/json");
+
+                    DataOutputStream dos = new DataOutputStream(httpConnection.getOutputStream());
+
+                    dos.write(buf.toString().getBytes());
+                    dos.flush();
+                    dos.close();
+
+                    DataInputStream dis = new DataInputStream(httpConnection.getInputStream());
+
+                    while (dis.available()>0) {
+                        //System.out.println("HEART: " + bis.readLine());
+                        response += dis.readLine();
+
+                    }
+                           dis.close();
+                    httpConnection.disconnect();
+                } catch (IOException e) {
+                    System.out.println("HEART EXCEPTION:" + e.getMessage() + e.toString());
+                }
+
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
