@@ -34,7 +34,7 @@ public final class HeartRateServiceImplDB implements HeartRateService {
 
     @Override
     public List<HeartRate> getHeartRates() {
-        return jdbcTemplate.query("SELECT * FROM heart_rate ORDER BY timestamp desc", new RowMapper<HeartRate>() {
+        return jdbcTemplate.query("SELECT * FROM heart_rate ORDER BY timestamp ASC", new RowMapper<HeartRate>() {
             @Override
             public HeartRate mapRow(ResultSet resultSet, int i) throws SQLException {
                 long id = resultSet.getLong(1);
