@@ -199,8 +199,8 @@
 \keywords{} % Keywords for your thesis - this is not currently used anywhere in the template, cite it with \keywordnames if you want it
 %-------------------------------------------------   
 \university{\texorpdfstring{\href{http://www.ntnu.edu} % Your university's URL
-                {Norwegian University of Science and Technology}} % Your university's name - this is currently used in the title page
-                {Norwegian University of Science and Technology}}
+                {Norwegian University of \\Science and Technology}} % Your university's name - this is currently used in the title page
+                {Norwegian University of \\Science and Technology}}
 %-------------------------------------------------   
 \UNIVERSITY{\texorpdfstring{\href{University Web Site URL Here (http://www.ntnu.edu} % Your university's URL
                 {NORWEGIAN UNIVERSITY OF \\ SCIENCE AND TECHNOLOGY}} % Your university's name in capitals - this is currently used in the abstract page
