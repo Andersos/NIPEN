@@ -5,7 +5,6 @@ import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
 
-
 public class HeartbeatView extends View {
 
     private static final Matrix matrix = new Matrix();

@@ -3,41 +3,38 @@ package no.helsenorge.nipen.android.HeartRate;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.hardware.Camera;
-import android.hardware.Camera.PreviewCallback;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.hardware.Camera;
+import android.hardware.Camera.PreviewCallback;
 import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
+import android.view.SurfaceView;
+import android.view.SurfaceHolder;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
+import java.io.*;
 import java.net.URL;
+import java.net.HttpURLConnection;
 import java.util.Calendar;
 import java.util.Formatter;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 
 public class HeartRateMonitor extends Activity {
 
     private static final String TAG = "HeartRateMonitor";
     private static final AtomicBoolean processing = new AtomicBoolean(false);
 
-    private static SurfaceView preview = null;
-    private static SurfaceHolder previewHolder = null;
+    private static final String jsonMessage =
+            "{\"user_id\":1,\"timestamp\":\"%1$tY-%1$tm-%1$te %1$tH:%1$tM:%1$tS\",\"value\":%2$s,\"unit\":\"bpm\"}";
+
     private static Camera camera = null;
     private static View image = null;
     private static TextView text = null;
-    private Button button;
+    private static SurfaceView preview = null;
+    private static SurfaceHolder previewHolder = null;
 
     private URL endPoint;
     private HttpURLConnection httpConnection;
@@ -79,69 +76,65 @@ public class HeartRateMonitor extends Activity {
 
         image = findViewById(R.id.image);
         text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
 
-        final StringBuilder buf = new StringBuilder();
-        final Formatter formatter = new Formatter(buf);
-        final Calendar cal = Calendar.getInstance();
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
 
-        //final SimpleDateFormat timestamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        //timestamp.
+        final Button button = (Button) findViewById(R.id.button);
 
         try {
             endPoint = new URL("http://mhealthdemo03.cloudapp.net/nipen/api/human/heart_rate");
-        } catch (MalformedURLException e) {
-            //
+        } catch (Exception e) {
+            //ignore
         }
-
-        //StringBuilder payload = new
-        //final String payload = "{\"user_id\":1,\"timestamp\":\"2013-09-18 19:00:00\",\"value\":400,\"unit\":\"bpm\"}";
-
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String response = new String();
+                InputStream inputStream;
+                OutputStream outputStream;
 
-                formatter.format("{\"user_id\":1,\"timestamp\":\"%1$tY-%1$tm-%1$te %1$tH:%1$tM:%1$tS\",\"value\":%2$s,\"unit\":\"bpm\"}",
-                        cal, text.getText());
+                //String response = new String();
+                StringBuilder buf = new StringBuilder();
 
-                System.out.println("HEARTH:" + buf.toString());
+                Formatter formatter = new Formatter(buf);
+                formatter.format(jsonMessage, Calendar.getInstance(), text.getText());
+
+                System.out.println("[HEARTH] " + buf.toString());
 
                 try {
+
                     httpConnection = (HttpURLConnection)endPoint.openConnection();
-                    httpConnection.setRequestMethod("POST");
-                    //httpConnection.setDoInput(true);
+
                     httpConnection.setDoOutput(true);
+                    httpConnection.setRequestMethod("POST");
                     httpConnection.addRequestProperty("Content-Type", "application/json");
 
-                    DataOutputStream dos = new DataOutputStream(httpConnection.getOutputStream());
+                    httpConnection.connect();
 
-                    dos.write(buf.toString().getBytes());
-                    dos.flush();
-                    dos.close();
+                    outputStream = httpConnection.getOutputStream();
 
-                    DataInputStream dis = new DataInputStream(httpConnection.getInputStream());
+                    outputStream.write(buf.toString().getBytes());
+                    outputStream.flush();
+                    outputStream.close();
 
-                    while (dis.available()>0) {
-                        //System.out.println("HEART: " + bis.readLine());
-                        response += dis.readLine();
+                    // we must read anyway !
+                    inputStream = httpConnection.getInputStream();
+                    inputStream.close();
 
-                    }
-                           dis.close();
-                    httpConnection.disconnect();
                 } catch (IOException e) {
-                    System.out.println("HEART EXCEPTION:" + e.getMessage() + e.toString());
+
+                    System.out.println("[HEART] EXCEPTION: " + e.getMessage() + e.toString());
+
+                } finally {
+
+                    httpConnection.disconnect();
                 }
 
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Data sent", Toast.LENGTH_SHORT).show();
             }
         });
-
-        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
     }
 
     /**
@@ -160,9 +153,7 @@ public class HeartRateMonitor extends Activity {
         super.onResume();
 
         wakeLock.acquire();
-
         camera = Camera.open();
-
         startTime = System.currentTimeMillis();
     }
 
