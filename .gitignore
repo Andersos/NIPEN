@@ -21,4 +21,4 @@ pom.properties
 target
 .idea
 nipen-heart-rate/out
-nipen-heart-rate/gen/*
+android-heart-rate/gen/*
