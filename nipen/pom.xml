@@ -48,7 +48,7 @@
 
     <properties>
         <start-class>no.helsenorge.nipen.runnable.App</start-class>
-    </properties>>
+    </properties>
 
     <build>
         <finalName>nipen</finalName>
