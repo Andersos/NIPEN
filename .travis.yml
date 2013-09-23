@@ -1,2 +1,2 @@
 language: java
-script: "mvn .nipen/pom.xml clean validate package"
+script: "mvn -f .nipen/pom.xml clean validate package"
