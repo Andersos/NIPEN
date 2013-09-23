@@ -46,9 +46,9 @@
         </dependency>
     </dependencies>
 
-    <!--<properties>
-        <start-class>no.helsenorge.nipen.no.helsenorge.nipen.runnable.App</start-class>
-    </properties>-->
+    <<properties>
+        <start-class>no.helsenorge.nipen.runnable.App</start-class>
+    </properties>>
 
     <build>
         <finalName>nipen</finalName>
