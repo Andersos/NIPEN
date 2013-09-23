@@ -203,8 +203,8 @@
                 {Norwegian University of \\Science and Technology}}
 %-------------------------------------------------   
 \UNIVERSITY{\texorpdfstring{\href{University Web Site URL Here (http://www.ntnu.edu} % Your university's URL
-                {NORWEGIAN UNIVERSITY OF \\ SCIENCE AND TECHNOLOGY}} % Your university's name in capitals - this is currently used in the abstract page
-                {NORWEGIAN UNIVERSITY OF \\ SCIENCE AND TECHNOLOGY}}
+                {NORWEGIAN UNIVERSITY OF \\SCIENCE AND TECHNOLOGY}} % Your university's name in capitals - this is currently used in the abstract page
+                {NORWEGIAN UNIVERSITY OF \\SCIENCE AND TECHNOLOGY}}
 %-------------------------------------------------                
 \department{\texorpdfstring{\href{Department or School Web Site URL Here (include http://)} % Your department's URL
                 {Department of Computer and Information Science}} % Your department's name - used in the title page and abstract
