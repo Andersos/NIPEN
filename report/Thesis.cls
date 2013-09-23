@@ -286,9 +286,9 @@
   \global\let\and\relax
   \cleardoublepage
 }
-%----------------------------------------------------------------------------------------
+%----------------------
 %	ABSTRACT PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%----------------------
 \newenvironment{abstract}
 {
   \btypeout{Abstract Page}
@@ -311,7 +311,20 @@
     %\bigskip
   \end{center}
 }
-%----------------------------------------------------------------------------------------
+
+%----------------------
+% PREFACE PAGE DESIGN
+%----------------------
+\newenvironment{preface}
+{
+  \btypeout{Preface Page}
+  \thispagestyle{empty}
+  \begin{center}
+    {\huge{\textit{Preface}} \par}
+    \bigskip
+  \end{center}
+}
+%----------------------
 {
   \vfil\vfil\vfil\null
   \cleardoublepage
