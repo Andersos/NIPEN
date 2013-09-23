@@ -20,6 +20,5 @@ pom.properties
 *.iml
 target
 .idea
-*.apk
 android-heart-rate/out
 android-heart-rate/gen/*
