@@ -147,6 +147,8 @@ Thank the people from usability tests valuable feedback
 {
 \textbf{API} & \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\
 \textbf{App} & \textbf{A}pplication \\
+\textbf{IDI} & \textbf{I}nstitutt for \textbf{D}atateknikk og \textbf{I}nformasjonsvitenskap  \\
+Department of Computer and Information Science \\
 \textbf{NIP} & \textbf{N}ational \textbf{I}ntegration \textbf{P}latform \\
 \textbf{NTNU} & \textbf{N}orges \textbf{T}eknisk-\textbf{N}aturvitenskalige \textbf{U}niversitet i Trondheim
 \\Norwegian University of Science and Technology\\
@@ -180,35 +182,28 @@ Thank the people from usability tests valuable feedback
 \input{./Chapters/Reflection} 
 
 
-%----------------------------------------------------------------------------------------
+%------------------------------
 %	THESIS CONTENT - APPENDICES
-%----------------------------------------------------------------------------------------
+%------------------------------
+\addtocontents{toc}{\vspace{2em}}
+\appendix
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\input{./Appendices/Assignment} % A Assignment 
+\input{./Appendices/Build} % B How to build
+\input{./Appendices/Templates} % C Templates
+\input{./Appendices/Agendas} % D Agendas 
+\input{./Appendices/Minutes} % E Minutes
 
-\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
 
-% Include the appendices of the thesis as separate files from the Appendices folder
-% Uncomment the lines as you write the Appendices
 
-\input{./Appendices/AppendixA}
-%\input{./Appendices/AppendixB}
-%\input{./Appendices/AppendixC}
-
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-
+\addtocontents{toc}{\vspace{2em}}
 \backmatter
 
-%----------------------------------------------------------------------------------------
+%-----------------
 %	BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-
+%-----------------
 \label{Bibliography}
-
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
-
 \bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-
 \bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
-
 \end{document}  
