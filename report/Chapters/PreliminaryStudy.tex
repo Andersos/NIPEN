@@ -11,7 +11,6 @@ This chapter contains
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-
 \section{Development Methodology}
 
 TODO
@@ -26,6 +25,7 @@ Before moving to the next phase the preceding task needs to be finished.
 The progress of the project is seen as flowing downwards through the different phases, hence the name waterfall.
 In the original model the phases consisted of seven different tasks:
 
+
 \begin{enumerate}
 \item Requirements specification
 \item Design
@@ -35,6 +35,8 @@ In the original model the phases consisted of seven different tasks:
 \item Installation
 \item Maintenance
 \end{enumerate}
+
+\includegraphics[scale=0.6]{../Figures/Waterfall-model.pdf}
 
 Because each phase needs to be perfected and completed before moving to the next phase, this brings up some difficulties if the requirements were to change during the development process. 
 However the model is easily understandable, structured, and disciplined. 
@@ -46,17 +48,28 @@ Another problem is that the customer is not always sure about the system require
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
-
 \subsection{SCRUM Model}
 
-TODO
+The SCRUM model is an agile software development process that is iterative and incremental.
+It consists of multiple sprints, where a sprint usually lasts from 14-30 days depending on the size of the task.
+Each sprint is focusing on a set of concrete goals that are in the sprint backlog.
+The sprint backlog consists of tasks that are chosen from the product backlog. 
+They are usually chosen in the sprint planning meeting that is performed before each sprint.
+The product backlog consists of all the features the product should contain, and is usually made in the initial phase of the project.
+It can however be changed and adjusted during the development of the product.
+For each day a daily scrum meeting should be performed. 
+Usually a scrum meeting consists of getting to know what each person did yesterday, what they will do today and if they are facing any problems.
+If there are any problems the Scrum master is responsible to resolve the problem.
+After each sprint a sprint review meeting should be held.
+An overview of what goals where achieved and which one where not should be made.
+The meeting can also consist of a demo of the new features implemented.
 
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
 \subsection{Conclusion}
 
-TODO
+We decided to choose the SCRUM model as our development process.	
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -64,7 +77,7 @@ TODO
 
 \section{Existing Solutions}
 
-TODO
+This section contains some of the similar existing solutions that are already created.
 
 %-----------------------------------
 %	SUBSECTION 1
@@ -110,22 +123,27 @@ TODO
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
-
 \section{Technologies}
 
-TODO
+This section contains the technologies we used in our prototype.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Server}
 
-Java \\
-Spring Framework \\
+\textbf{Java}
+
 TODO
 
-Apache Tomcat Server \\ 
+\textbf{Spring Framework}
+
 TODO
+
+\textbf{Apache Tomcat}
+
+Apache Tomcat is an implementation of the JSP (JavaServer Pages) and Java Servlet technologies.
+It makes it possible to deploy and run a web page with its services on a server.
 
 %-----------------------------------
 %	SUBSECTION 3
@@ -134,7 +152,7 @@ TODO
 
 \textbf{MySQL}
 
-TODO
+MySQL is one of the most widely used relational database management system.
 
 %-----------------------------------
 %	SUBSECTION 4
@@ -150,25 +168,28 @@ It is used to structure and visualize web pages on the internet.
 
 CSS describes the look and format of a document written in HTML.
 
-\textbf{Javascript}
+\textbf{JavaScript}
 
-TODO
+JavaScript is an interpreted computer programming language that is run in the browser of the user.
+It is allowed to make changes in the HTML DOM, interact with the user, control the browser and communicate asynchronously.
 
-\textbf{JQuery}
+\textbf{jQuery}
 
-TODO
+jQuery is a JavaScript library for manipulating and traversing the HTML DOM.
+It also makes it easier to communicate with the server through AJAX.
 
 \textbf{Chart.js}
 
-Chart.js is a Javascript library for creating graphs TODO
+Chart.js is a JavaScript library for creating graphs and charts.
 
 %-----------------------------------
 %	SUBSECTION 5
 %-----------------------------------
 \subsection{Mobile Technologies}
 
-Android SDK \\
-TODO
+\textbf{Android SDK}
+
+Android SDK contains the tools necessary for developing, debugging and testing an Android app.
 
 %-----------------------------------
 %	SUBSECTION 6
@@ -180,8 +201,14 @@ TODO
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-
 \section{Testing}
+
+TODO
+
+%-----------------------------------
+%	SUBSECTION 1
+%-----------------------------------
+\subsection{JUnit}
 
 TODO
 
