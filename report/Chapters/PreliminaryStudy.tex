@@ -23,6 +23,14 @@ It is important to divide the work into task and work in a structured manner, in
 %-----------------------------------
 \subsection{Waterfall Model}
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/Waterfall-model.pdf}
+\end{center}
+\caption{Waterfall model}
+\label{figure:waterfall-model}
+\end{figure}
+
 The waterfall model is a software development process where each task is performed in a sequential order.
 Before moving to the next phase the preceding task needs to be finished.
 The progress of the project is seen as flowing downwards through the different phases, hence the name waterfall.
@@ -47,14 +55,6 @@ In practice it can be very hard to adapt to this kind of development model.
 It can be hard for a system designer to predict future implementation difficulties of a type of design, hence the design of the system may change during the process.
 Another problem is that the customer is not always sure about the system requirements, and often the customer will change them during the development.
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.6]{../Figures/Waterfall-model.pdf}
-\end{center}
-\caption{Waterfall model}
-\label{figure:waterfall-model}
-\end{figure}
-
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
@@ -75,7 +75,7 @@ An overview of what goals where achieved and which one where not should be made.
 The meeting can also consist of a demo of the new features implemented. 
 Figure \ref{figure:scrum-workflow} shows the workflow of scrum.
 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.5]{../Figures/Scrum-workflow.pdf}
 \end{center}
@@ -90,7 +90,8 @@ Figure \ref{figure:scrum-workflow} shows the workflow of scrum.
 
 We decided to choose the scrum model as our development process. 
 The reason for this is that we didn't have a formal requirement list of the project from the beginning.
-Thus it was a high probability that we didn't understand the problem completely, and might have done some wrong design decisions in the first phase of the project.
+Thus it was a high probability that we didn't understand the problem completely, and might have done some wrong design decisions in the first phase of the project. 
+With the Scrum method it is also a lot easier to adjust the project direction if we are going down the wrong path.
 Our customer also advised us to use an agile method as our development methodology.
 We thought that scrum would be a good methodology as it is a widely known and respected development process in the programming community.
 The ability to change the design and choices we had made earlier in the project was very important to us.
@@ -163,16 +164,14 @@ The following technologies were a good inspiration source and help in our projec
 %-----------------------------------
 \subsection{HealthVault}
 
-TODO
+TODO: LEMMON?
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 \subsection{Open eHealth Foundation}
 
-Emanuele could write something here...
-
-TODO
+TODO: LEMMON?
 
 %-----------------------------------
 %	SUBSECTION 3
@@ -180,7 +179,8 @@ TODO
 \subsection{Heart Rate App}
 
 Maybe we should write something about the open source heart rate app here?
-
+Lets take about this on monday. - Anders
+Link to page: https://code.google.com/p/android-heart-rate-monitor/
 TODO
 
 %-----------------------------------
@@ -210,13 +210,16 @@ For example heart rate is defined by an id, user id, time, value and unit in the
 
 TODO
 
+We landed on using the same API structure as the Human API.
+
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
 \section{Used Technologies}
 
 This section contains the technologies we used in our project.
-We are going to go through what type of technologies we used for the server (back end), web page (front end), database and for the development of applications for mobile units. 
+We are going to go through what type of technologies we used for the server (back-end), web page (front-end), database and for the development of applications for mobile units. 
 It also contains some other technologies that were needed in the project.
 
 %-----------------------------------
@@ -228,21 +231,25 @@ It also contains some other technologies that were needed in the project.
 
 Java is a general-purpose programming language, which means that it can be used in a wide variety of application domains.
 It is platform independent, and thus makes it easy to develop software for different operation systems.
-Web programming is one of the domains that Java is used for, hence makes it possible to write a service that runs in the back end of a web page.
-The web services created with Java allows creating a bridge between the database and the front end. 
-This makes it possible to create a secure communication between the user and the database at the server.
+Web programming is one of the domains that Java is used for, hence makes it possible to write a service that runs in the back-end of a website.
+The web services created with Java allows creating a bridge between the database and the front-end. 
+This makes it possible to create a communication between the user and the database at the server.
 
 \textbf{Spring Framework}
 
-Anders could write something here...
+The Spring Framework is an open source application framework and inversion of controll container for Java. 
+We use the Spring framework to set up a RESTful service and to handle the data access from the database. 
 
-TODO
+[ADD TO BIB] http://en.wikipedia.org/wiki/Spring_Framework
+http://spring.io/
 
 \textbf{Apache Tomcat}
 
 Apache Tomcat is an implementation of the JSP (JavaServer Pages) and Java Servlet technologies.
-It makes it possible to deploy and run a web page with its services on a server.
+It makes it possible to deploy and run a website with its services on a server.
 Numerous industries and organizations use the Tomcat server as it has support for large-scale and mission-critical web applications.
+[ADD TO BIB]
+http://tomcat.apache.org/
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -255,29 +262,37 @@ MySQL is one of the most widely used relational database management system.
 The MySQL Community Edition is open source and freely available.
 It is developed to handle large databases, support many users at the same time and it is also scalable.
 It makes it possible to store and retrieve data in an efficient and structured manner.
+[ADD TO BIB]
+http://www.mysql.com/
 
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
-\subsection{Web Page}
+\subsection{Website}
 
 \textbf{HTML5}
 
 HTML is the standard World Wide Web's markup language, where HTML5 is the newest HTML version as of this writing.
 It is used to structure and visualize web pages on the internet.
 By writing a document with HTML a web browser is later on able to interpret the document and visualize it in a structured manner.
+[ADD TO BIB]
+http://www.w3.org/TR/html5/
 
 \textbf{CSS3}
 
 CSS describes the look and format of a document written in HTML.
 It allows one to use different fonts, colors and adjust the layout of a web page.
-By using CSS and separating it from the HTML, it is possible to allow multiple pages share the same style sheet.
+By using CSS and separating it from the HTML, it is possible to allow multiple pages share the same style.
 Thus it is easier to maintain and adapt the web pages to different environments through CSS.
+[ADD TO BIB]
+http://www.w3.org/Style/CSS/
 
 \textbf{Bootstrap}
 
 Bootstrap contains HTML and CSS templates for web designers.
 This makes it easier to make a good looking web page without putting too much effort into the design.
+[ADD TO BIB]
+http://getbootstrap.com/
 
 \textbf{JavaScript}
 
@@ -292,6 +307,8 @@ jQuery is a JavaScript library for manipulating and traversing the HTML DOM.
 All the features jQuery contains are also possible to do with pure JavaScript, but jQuery helps the developer to implement the different features in an easier way.
 For example it contains predefined methods for event handling and animation.
 It also makes it easier to communicate with the server through AJAX.
+[ADD TO BIB]
+http://jquery.com/
 
 \textbf{Chart.js}
 
@@ -299,6 +316,8 @@ Chart.js is a JavaScript library for creating graphs and charts.
 It helps the developer to visualize data through different types of graphs in an easy manner.
 The library has support for different types of two dimensional data, e.g. value per time.
 It also has the ability to display multiple graphs in the same chart.
+[ADD TO BIB]
+http://www.chartjs.org/
 
 %-----------------------------------
 %	SUBSECTION 4
@@ -310,6 +329,9 @@ It also has the ability to display multiple graphs in the same chart.
 Android SDK contains the tools necessary for developing, debugging and testing an Android app.
 With the SDK it is possible to write and modify applications for an Android phone.
 
+[ADD TO BIB]
+http://developer.android.com/sdk/index.html
+
 %-----------------------------------
 %	SUBSECTION 5
 %-----------------------------------
@@ -320,6 +342,8 @@ With the SDK it is possible to write and modify applications for an Android phon
 Maven is a software tool for managing a programming project.
 It has the ability to build and compile programming code based on the content of a POM (Project Object Model) file.
 It keeps track of all the frameworks used, and is able to download them before building the project.
+[ADD TO BIB]
+http://maven.apache.org/
 
 \textbf{Git}
 
@@ -330,6 +354,8 @@ It also has the possibility to divide the project into different branches.
 Which means that the code can be copied into multiple different places, and developed separately in cases where trying out different solutions is necessary.
 If a good solution is made, the branch can later on be merged together with the main branch.
 It is also possible to have a branch for release versions and a development branch.
+[ADD TO BIB]
+http://git-scm.com/
 
 %-----------------------------------
 %	SUBSECTION 6
@@ -351,11 +377,14 @@ This made it clear for us to use those technologies.
 
 TODO
 
+Lets talk about testing om Monday. If you want I can write some tests for the codebase we have now. -Anders
+
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{JUnit}
 
+Same goes for the earlier point. - Anders
 TODO
 
 %-----------------------------------
@@ -364,6 +393,7 @@ TODO
 \subsection{Conclusion}
 
 TODO
+Test Driven Developement.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6
