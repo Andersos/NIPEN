@@ -8,6 +8,7 @@
 *.blg
 *.gz
 *.bbl
+*.pdf
 
 # ignore redundant java files
 *.jar
