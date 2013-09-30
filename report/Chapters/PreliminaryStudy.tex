@@ -21,7 +21,7 @@ It is important to divide the work into task and work in a structured manner, in
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Waterfall Model}
+\subsection{Waterfall Model \cite{WaterfallModel}}
 
 \begin{figure}
 \begin{center}
@@ -53,12 +53,12 @@ However, the model is easily understandable, structured, and disciplined.
 All the phases are divided into different sections, and this makes it easier to understand the progress of the project.
 In practice it can be very hard to adapt to this kind of development model. 
 It can be hard for a system designer to predict future implementation difficulties of a type of design, hence the design of the system may change during the process.
-Another problem is that the customer is not always sure about the system requirements, and often the customer will change them during the development.
+Another problem is that the customer is not always sure about the system requirements, and will often change them during the development.
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
-\subsection{Scrum Model}
+\subsection{Scrum Model \cite{Compendium}}
 
 The scrum model is an agile software development process that is iterative and incremental.
 It consists of multiple sprints, where a sprint usually lasts from 14-30 days depending on the size of the task.
@@ -186,7 +186,7 @@ TODO
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
-\subsection{human/api}
+\subsection{human/api \cite{HumanAPI}}
 
 The human API is a platform for human health data. 
 They have an API that contains multiple different well defined JSON strings for different kinds of human related data.
@@ -227,7 +227,7 @@ It also contains some other technologies that were needed in the project.
 %-----------------------------------
 \subsection{Server}
 
-\textbf{Java}
+\textbf{Java} \cite{Java}
 
 Java is a general-purpose programming language, which means that it can be used in a wide variety of application domains.
 It is platform independent, and thus makes it easy to develop software for different operation systems.
@@ -235,117 +235,95 @@ Web programming is one of the domains that Java is used for, hence makes it poss
 The web services created with Java allows creating a bridge between the database and the front-end. 
 This makes it possible to create a communication between the user and the database at the server.
 
-\textbf{Spring Framework}
+\textbf{Spring Framework} \cite{SpringFramework1}\cite{SpringFramework2}
 
 The Spring Framework is an open source application framework and inversion of controll container for Java. 
 We use the Spring framework to set up a RESTful service and to handle the data access from the database. 
 
-[ADD TO BIB] http://en.wikipedia.org/wiki/Spring Framework
-http://spring.io/
-
-\textbf{Apache Tomcat}
+\textbf{Apache Tomcat} \cite{ApacheTomcat}
 
 Apache Tomcat is an implementation of the JSP (JavaServer Pages) and Java Servlet technologies.
 It makes it possible to deploy and run a website with its services on a server.
 Numerous industries and organizations use the Tomcat server as it has support for large-scale and mission-critical web applications.
-[ADD TO BIB]
-http://tomcat.apache.org/
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 \subsection{Database}
 
-\textbf{MySQL}
+\textbf{MySQL} \cite{MySQL}
 
 MySQL is one of the most widely used relational database management system.
 The MySQL Community Edition is open source and freely available.
 It is developed to handle large databases, support many users at the same time and it is also scalable.
 It makes it possible to store and retrieve data in an efficient and structured manner.
-[ADD TO BIB]
-http://www.mysql.com/
 
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
 \subsection{Website}
 
-\textbf{HTML5}
+\textbf{HTML5} \cite{HTML5}
 
 HTML is the standard World Wide Web's markup language, where HTML5 is the newest HTML version as of this writing.
 It is used to structure and visualize web pages on the internet.
 By writing a document with HTML a web browser is later on able to interpret the document and visualize it in a structured manner.
-[ADD TO BIB]
-http://www.w3.org/TR/html5/
 
-\textbf{CSS3}
+\textbf{CSS3} \cite{CSS3}
 
 CSS describes the look and format of a document written in HTML.
 It allows one to use different fonts, colors and adjust the layout of a web page.
 By using CSS and separating it from the HTML, it is possible to allow multiple pages share the same style.
 Thus it is easier to maintain and adapt the web pages to different environments through CSS.
-[ADD TO BIB]
-http://www.w3.org/Style/CSS/
 
-\textbf{Bootstrap}
+\textbf{Bootstrap} \cite{Bootstrap}
 
 Bootstrap contains HTML and CSS templates for web designers.
 This makes it easier to make a good looking web page without putting too much effort into the design.
-[ADD TO BIB]
-http://getbootstrap.com/
 
-\textbf{JavaScript}
+\textbf{JavaScript} \cite{JavaScript}
 
 JavaScript is an interpreted computer programming language that runs in the browser of the user.
 It is allowed to make changes in the HTML DOM, interact with the user, control the browser and communicate asynchronously.
 Since it can communicate with the server asynchronously, it makes the web page more dynamic.
 What this means is that a web page can acquire new information and change the site without reloading.
 
-\textbf{jQuery}
+\textbf{jQuery} \cite{jQuery}
 
 jQuery is a JavaScript library for manipulating and traversing the HTML DOM.
 All the features jQuery contains are also possible to do with pure JavaScript, but jQuery helps the developer to implement the different features in an easier way.
 For example it contains predefined methods for event handling and animation.
 It also makes it easier to communicate with the server through AJAX.
-[ADD TO BIB]
-http://jquery.com/
 
-\textbf{Chart.js}
+\textbf{Chart.js} \cite{Chartjs}
 
 Chart.js is a JavaScript library for creating graphs and charts.
 It helps the developer to visualize data through different types of graphs in an easy manner.
 The library has support for different types of two dimensional data, e.g. value per time.
 It also has the ability to display multiple graphs in the same chart.
-[ADD TO BIB]
-http://www.chartjs.org/
 
 %-----------------------------------
 %	SUBSECTION 4
 %-----------------------------------
 \subsection{Mobile Technologies}
 
-\textbf{Android SDK}
+\textbf{Android SDK} \cite{AndroidSDK}
 
 Android SDK contains the tools necessary for developing, debugging and testing an Android app.
 With the SDK it is possible to write and modify applications for an Android phone.
-
-[ADD TO BIB]
-http://developer.android.com/sdk/index.html
 
 %-----------------------------------
 %	SUBSECTION 5
 %-----------------------------------
 \subsection{Other Technologies}
 
-\textbf{Maven}
+\textbf{Maven} \cite{Maven}
 
 Maven is a software tool for managing a programming project.
 It has the ability to build and compile programming code based on the content of a POM (Project Object Model) file.
 It keeps track of all the frameworks used, and is able to download them before building the project.
-[ADD TO BIB]
-http://maven.apache.org/
 
-\textbf{Git}
+\textbf{Git} \cite{Git}
 
 Git is a version control system that is free and open source.
 This is an important tool to keep track of all the changes made to the source code, it also makes it easier for multiple developers to work on the same source.
@@ -354,8 +332,6 @@ It also has the possibility to divide the project into different branches.
 Which means that the code can be copied into multiple different places, and developed separately in cases where trying out different solutions is necessary.
 If a good solution is made, the branch can later on be merged together with the main branch.
 It is also possible to have a branch for release versions and a development branch.
-[ADD TO BIB]
-http://git-scm.com/
 
 %-----------------------------------
 %	SUBSECTION 6
