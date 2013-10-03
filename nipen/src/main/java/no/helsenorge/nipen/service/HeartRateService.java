@@ -1,4 +1,6 @@
-package no.helsenorge.nipen.HeartRate;
+package no.helsenorge.nipen.service;
+
+import no.helsenorge.nipen.model.HeartRate;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-    <bean id="heartRateService" class="no.helsenorge.nipen.HeartRate.HeartRateServiceImplDB">
+    <bean id="heartRateService" class="no.helsenorge.nipen.service.HeartRateServiceImpl">
         <property name="dataSource" ref="dataSource" />
     </bean>
 

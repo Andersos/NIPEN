@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<script type="text/javascript" src="Scripts/Chart.min.js"></script>
-		<script type="text/javascript" src="Scripts/jquery-1.10.1.js"></script>
-		<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../scripts/Chart.min.js"></script>
+		<script type="text/javascript" src="../scripts/jquery-1.10.1.js"></script>
+		<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
 
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<style>
 			html,
 			body {
@@ -127,7 +127,6 @@
 							<li id="home-button" class="custom-active" onclick="changePage('home-button');"><a href="#">Home</a></li>
 							<li id="heart-rate-button" onclick="changePage('heart-rate-button');"><a href="#">Heart Rate</a></li>
 							<li id="weight-button" onclick="changePage('weight-button');"><a href="#">Weight</a></li>
-							<li id="health-vault-button" onclick="changePage('health-vault-button');"><a href="#">HealthVault</a></li>
 						</ul>
 					</div>
 					<a id="user-name" class="brand" href="#">Ola Nordmann</a>
@@ -161,13 +160,6 @@
 
 					<div class="newest-measure" id="newest-weight"></div>
 					<canvas id="weight-chart"></canvas>
-				</div>
-
-				<div id="health-vault" class="data-type">
-					<div class="caption">
-						<span>HealthVault</span>
-						<a href="#">(json)</a>
-					</div>
 				</div>
 			</div>
 			<div id="push"></div>
@@ -292,10 +284,6 @@
 					$("#weight-chart").css("height", chartHeightFullSize);
 					$("#weight").show(animationTime);
 					break;
-				case "health-vault-button":
-					hideAllDataTypes();
-					$("#health-vault").show(animationTime);
-					break;
 				}
 			}
 
@@ -304,7 +292,6 @@
 				$("#newest-heart-rate").show(animationTime);
 				$("#weight").show(animationTime);
 				$("#newest-weight").show(animationTime);
-				$("#health-vault").show(animationTime);
 			}
 
 			function hideAllDataTypes() {
@@ -312,7 +299,6 @@
 				$("#newest-heart-rate").hide();
 				$("#weight").hide();
 				$("#newest-weight").hide();
-				$("#health-vault").hide();
 			}
 		</script>
 	</body>

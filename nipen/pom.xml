@@ -44,11 +44,23 @@
             <artifactId>spring-jdbc</artifactId>
             <version>3.2.3.RELEASE</version>
         </dependency>
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>org.springframework.js</artifactId>
+            <version>2.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
-    <properties>
-        <start-class>no.helsenorge.nipen.runnable.App</start-class>
-    </properties>
+    <!--<properties>
+        <start-class>no.helsenorge.nipen.no.helsenorge.nipen.runnable.App</start-class>
+    </properties>-->
 
     <build>
         <finalName>nipen</finalName>
@@ -78,5 +90,4 @@
             <snapshots><enabled>true</enabled></snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
