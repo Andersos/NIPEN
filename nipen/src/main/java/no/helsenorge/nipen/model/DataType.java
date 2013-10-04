@@ -20,11 +20,15 @@ public class DataType {
         return userId;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getTimestamp() {
         return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 }

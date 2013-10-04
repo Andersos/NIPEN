@@ -5,7 +5,7 @@ public class HeartRate extends DataType {
     private String unit;
 
     public HeartRate(long userId, String timestamp, int value, String unit) {
-        setId(userId);
+        setUserId(userId);
         setTimestamp(timestamp);
         this.value = value;
         this.unit = unit;
