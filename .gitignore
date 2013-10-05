@@ -20,5 +20,6 @@ pom.properties
 *.iml
 target
 .idea
-nipen-heart-rate/out
-android-heart-rate/gen/*
+nipen/target*
+nipen-heart-rate/target/*
+nipen-heart-rate/gen/*
