@@ -28,7 +28,7 @@ public class HeartRateMonitor extends Activity {
     private static final AtomicBoolean processing = new AtomicBoolean(false);
 
     private static final String jsonMessage =
-            "{\"user_id\":1,\"timestamp\":\"%1$tY-%1$tm-%1$te %1$tH:%1$tM:%1$tS\",\"value\":%2$s,\"unit\":\"bpm\"}";
+            "{\"userId\":1,\"timestamp\":\"%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS\",\"value\":%2$s,\"unit\":\"bpm\"}";
 
     private static Camera camera = null;
     private static View image = null;
