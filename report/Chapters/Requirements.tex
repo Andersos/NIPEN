@@ -1,40 +1,84 @@
 \chapter{Requirements specification}
-\label{Requirements}
+
+\label{ch:requirements}
 \lhead{Chapter 4. \emph{Requirements specification}}
 
-\section{Stakeholders}
+This chapter describes the requirements for the product. These include both functional and non-functional requirements.
+Functional requirements can be found in section \ref{section:functionalreq},
+non-functional requirements in section \ref{section:nonfunctionalreq}.
 
-In this section we are going to go through the stakeholders of our project.
+Throughout this chapter both requirement's priority and complexity have a textual description which can be
+\begin{itemize}
+\item High
+\item Medium (abbr. Med)
+\item Low
+\end{itemize}
+
+The use of such terms is described in table \ref{table:priorities} (priorities) and table \ref{table:complexity} (complexity).
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ | c | p{12.5cm} | }
+  \hline
+  Priority & Description \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  High & An essential requirement. The product \textbf{must fulfill} the requirement in order to be satisfactory. \\
+  Medium & A useful requirement. The product \textbf{should fulfill} the requirement to maximise effectiveness. \\
+  Low & A desiderabe requirement. The product \textbf{could fulfill} the requirement to be more interesting for certain stakeholders. \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Priority descriptions}
+\label{table:priorities}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ | c | p{12.5cm} | }
+  \hline
+  Complexity & Description \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  High & The requirement is difficult to implement. It will take a considerable amount of time. (more than 30 hours?) \\
+  Medium & The requirement is moderately difficult. It will take some time. (from 10 to 30 hours?) \\
+  Low & The requirement is easy and can be achieved in a short amount of time. (10h or less?) \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Complexity descriptions}
+\label{table:complexity}
+\end{table}
+
+%-----
+
+\section{Stakeholders}
+\label{section:stakeholders}
 
 \subsection{Customer}
-
-The customer 
-
 \subsection{Course evaluators}
-
 \subsection{Developers}
-implementer, designer, tester
-
 \subsection{Users}
-end user
 
+%-----
+\newpage
 \section{Funcional requirements}
+\label{section:functionalreq}
+
 This section describes the functional requirements for the product.
 Each requirements has a priority which helps us identify the focus of our work.
 Priorities can be reviewed based on customer's feedback. We tried to prioritize those requirements corresponding to the functionality of the system that the customer expressed most interest about. In order to better organize our workload we also assigned a \'difficulty\' to each requirement.
 
-\textbf{Functional Requirements for Integration platform}
+\textbf{Functional requirements for Integration platform}
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c |}
+\begin{tabular}{ | c | p{9cm} | c | c | }
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	& The IP shall support REST endpoints for receiving heart rate data models.								& Med	& High \\
-  FIP2	& The IP shall support REST endpoints for receiving weight data model.									& High	& High \\
-  FIP3	& The IP shall support REST endpoints for forwarding heart rate data (using JSON) to other systems.		& Med	& High \\
-  FPI4	& The IP shall support REST endpoints for forwarding weight data it has previously received.			& Med	& High \\
+  FIP1	& The IP shall support REST endpoints for receiving heart rate data models expressed as JSON strings	& Med	& High \\
+  FIP2	& The IP shall support REST endpoints for receiving weight data models expressed as JSON strings 		& High	& High \\
+  FIP3	& The IP shall support REST endpoints for forwarding heart rate models (using JSON) to other systems.	& Med	& High \\
+  FPI4	& The IP shall support REST endpoints for forwarding weight models (using JSON).						& Med	& High \\
   \hline
 \end{tabular}
 \end{center}
@@ -42,7 +86,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 \label{table:reqip}
 \end{table}
 
-\textbf{Functional Requirements for the web frontend}
+\textbf{Functional requirements for the web frontend}
 
 \begin{table}[h]
 \begin{center}
@@ -50,16 +94,16 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FW1	& The web frontend shall display the data stored by the IP using charts.	& Med	& High \\
-  FW2	& The web frontend shall use Helsenorge color palette						& Low	& Low \\
+  FW1	& The web frontend shall display the data stored by the Integration Platform using charts.	& Med	& High \\
+  FW2	& The web frontend shall use Helsenorge color palette										& Low	& Low \\
   \hline
 \end{tabular}
 \end{center}
-\caption{Functional Requirements for the web frontend}
+\caption{Functional requirements for the web frontend}
 \label{table:reqfrontend}
 \end{table}
 
-\textbf{Functional Requirements for Heart rate application}
+\textbf{Functional requirements for Heart rate application}
 
 \begin{table}[h]
 \begin{center}
@@ -67,22 +111,41 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FHR1	& The application shall measure user’s heart rate.							& Med	& High \\
+  FHR1	& The application shall measure user’s heart rate using the device camera	& Med	& High \\
   FHR2	& The application shall display acquired measurements on the screen.		& Low	& Low \\
   FHR3	& The application shall forward the data to the IP using its REST endpoint. & Med	& High \\
   \hline
 \end{tabular}
 \end{center}
-\caption{Functional Requirements for the web frontend}
+\caption{Functional requirements for Heart rate application}
 \label{table:reqfrontend}
 \end{table}
 
+\textbf{Functional requirements for Weight application}
 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ | c | p{9cm} | c | c |}
+  \hline
+  ID & Description & Difficulty & Priority\\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  FHV1	& The application shall fetch data from HealthVault.						& Med	& High \\
+  FHR2	& The application shall show the user the data it has fetched.				& Low	& Med \\
+  FHR3	& The application shall forward the data to the IP using its REST endpoint. & Med	& High \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Functional requirements for Weight application}
+\label{table:reqfrontend}
+\end{table}
+
+%-----
 
 \section{Non-funcional requirements}
+\label{section:nonfunctionalreq}
 
-This section describes non-functional requirements for the project.
-In order to give a better overview, we have organized them in categories.
+This section outlines non-functional requirements (quality attributes) for the product.
+In order to provide a better overview, we have organized them in categories.
 
 \begin{table}[h]
 \begin{center}
@@ -109,9 +172,24 @@ In order to give a better overview, we have organized them in categories.
 \label{table:reqfrontend}
 \end{table}
 
+% -----
 
-\subsection{Quality requirements}
-
+\section{Requirements Validation}
+(Sommerville 7.3)
+How to ensure that a Requirements Document does define 
+the customers’ requirements (check against desirable 
+features)
+• Comprehensibility - do customers understand the 
+requirements?
+• Verifiability (testability) - can requirements be 
+realistically tested? If you cannot test it, it is not a 
+requirement!
+• Traceability - source of the requirement? Important 
+when making changes.
+• Adaptability (changeability) - what is the impact of 
+changing a particular requirement?
 
 \section{Use cases}
+
+
 

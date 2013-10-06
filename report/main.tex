@@ -5,7 +5,8 @@
 
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 
-%\usepackage{cite}
+
+\usepackage{lscape}
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
@@ -78,10 +79,13 @@
 \abstract{\addtocontents{toc}{\vspace{1em}}
 This report describes the design of the National Integration Platform (NIP) used for Citizen Centric eHealth in Norway. 
 The NIP is a platform to collect different user generated eHealth data from third party solutions and services. 
-It also describes the making of the working prototype. 
+It also describes the making of the working prototype.
 The challenges of this prototype is to demonstrate the transfer of personal and/or medical data from different devices and systems.
 The intention of the platform is to enable citizens the ability to publish information they produce into the government run NIP. 
-It is worth noting that security is not a requirement of the prototype.
+
+% emanuele - it is indeed worth noting, but not in the abstract.
+%It is worth noting that security is not a requirement of the prototype.
+
 To demonstrate these different parts the creation of an Android application (App), a web App and a back-end Application Programming Interface (API) was required. 
 
 The motivation for working in this project is to innovate and create a new platform that can be used to better understand the health of citizens. 
