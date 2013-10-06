@@ -3,6 +3,12 @@
 \label{ch:management}
 \lhead{Chapter 2. \emph{Project management}}
 
+
+\nocite{Sommerville9}
+
+%% test for site references
+\nocite{Doe:2009:Other}
+
 This chapter describes the planning of the project. Section \ref{section:planning} is about project planning,
 section \ref{section:organization} covers project organizazion.
 
@@ -48,6 +54,7 @@ We have identified four milestones for the project. These are associated with im
 
 \textbf{Sprints schedule} \newline
 Table \ref{table:sprints} contains an overview of the Sprints in the project.
+Each sprint is described in a seperate chapter.
 
 \begin{table}[h]
 \begin{center}
@@ -68,7 +75,10 @@ Table \ref{table:sprints} contains an overview of the Sprints in the project.
 \label{table:sprints}
 \end{table}
 
+%---
+
 \subsection{Work plan}
+
 \newpage
 \begin{landscape}
 \begin{figure}[h]
@@ -78,11 +88,13 @@ Table \ref{table:sprints} contains an overview of the Sprints in the project.
 \end{figure}
 \end{landscape}
 
+%---
+
 \subsection{Resources}
 The team consists of three members from different educational backgrounds and with different skills.
-We have thus created a skill matrix regarding the technologies involved in the project in order to better distribute the work among us.
-The skills are valued on a scale of zero to five based on criterias according to table \ref{table:skillscale}.
-Each value corresponds to a certain degree of proficiency, detailed in table \ref{table:proficiency}.
+In order to better distribute the work among us, we have created a skill matrix regarding the technologies involved in the project.
+The skills are valued on a scale of zero to five based on criterias detailed in table \ref{table:skillscale}.
+Each value corresponds to a certain degree of proficiency, as described in table \ref{table:proficiency}.
 The skill matrix is shown in table \ref{table:skillmatrix}.
 
 \begin{table}[h]
@@ -139,9 +151,11 @@ The skill matrix is shown in table \ref{table:skillmatrix}.
 \label{table:skillmatrix}
 \end{table}
 
-\subsection{Tool selection}
-This section will describe the different tools we used throught the project.
 
+%---
+
+\subsection{Tool selection}
+This section describes the different tools used throught the project.
 
 \begin{description}
 
@@ -167,27 +181,33 @@ We chose LaTeX because of the familiarity we had with it.
 Google Drive is a service which lets you access your files from everywhere and share them with other people. It is tightly integrated with Google Docs, a web-based productivity suite. We used Google Drive to share documents within the team and with the customer and supervisor.
 Many of the documents and diagrams produced for the project were created using Google Docs.
 
+\item[Violet UML]
+A free, Java (cross-platform) UML editor. Violet UML was used for producing use cases and sequence diagrams.
+
 \item[Skype]
 A popular instant-messaging client that also supports audio and video communication.
 Skype was used throught the project to keep in touch with the customer and team members.
+
+\item[Facebook]
+Facebook is a social networking service. The team created a group on Facebook that was used as a bulleting board for internal communications.
 
 \item[Travis CI]
 Travis CI is an automated build service...
 % we should write two more lines here.
 
-\item[Facebook]
-Facebook is a social networking service. The team created a group on Facebook that was used as a bulleting board for internal communications.
-
-%\item[Violet UML] A free UML editor.
 %Balsamiq Mockups looks great, it would be cool to do some mockup with this!!
 %Lucidchart maybe we can opt for a free solution like violet UML.
 
 \end{description}
 
 
+%---
+
 \section{Project organization}
 \label{section:organization}
-This section describes the organizational aspects of the project such as roles description, allocation and meetings schedule.
+
+This section describes the organizational aspects of the project such as roles description and allocation, meetings schedule and
+specific group dynamics.
 
 \subsection{Role description}
 We have identified a number of roles in this project. Although each role has different, distinct responsabilities, we see all roles as equally important for the success of this project.
@@ -196,9 +216,7 @@ We have identified a number of roles in this project. Although each role has dif
 \item[Project manager]
 \item[Scrum master]
 \item[Product owner]
-%\item[Document responsible]
-%\item[System architect]
-%\item[]
+\item[System architect]
 \item[Secretary]
 Responsible for taking notes during meetins and booking rooms.
 \item[Quality assurance]
@@ -239,17 +257,102 @@ During the early stages of the project the team has agreed on a meeting schedule
 
 \begin{description}
 \item[Monday] \hfill from 10 to 19 \\
-\textbf{Weekly startup meeting} from 1000 to 1100.\newline
+\textbf{Weekly startup meeting} from 10 to 11.\newline
 At the begin of each week we would review the progress done during the previous and discuss the plan for the next.
 We also discussed any problems encountered.
 This internal meeting would follow the last Status Report document.
-\textbf{Customer meeting} from 1100 to 1200.\newline
+\newline\textbf{Customer meeting} from 11 to 12.\newline
 During the meeting with customer we would discuss with him the work done and share our plan for the next week.
 This was done in order to help us prioritize our work to better suit the customer's interest.
-\textbf{Supervisor meeting} from 1200 to 1300.
-\item[Wednesday] \hfill \\
-\textbf{Collective work session} from 15 to 1900. (4 hours)
+\newline\textbf{Supervisor meeting} from 12 to 13.\newline
+\item[Wednesday] \hfill from 15 to 19 \\
+\textbf{Collective work session} (4 hours)
 \end{description}
+
+\subsection{Group dynamics}
+
+Group dynamics are probably the most critical aspect of this project.
+%The people involved in this project, and in particular its group members are the most critical asset of the project itself.
+It would be safe to say that due to the nature of the project itself, its success is based primarily on group dynamics.
+We are, in fact, a group of people working to deliver a product to another group of people.
+It is easy to convince ourselves that in this case (and many other) people management is essential for the product to be successful.
+We understand that the role of a good project manager is basically people management.
+This encompasses a set of practices, precautions and knowledge which will be described below.
+
+\begin{description}
+
+\item[Understand people]
+This is of course a fundamental prerequisite of people management: there can be no people management without some kind of understanding.
+
+\item[Communicate]
+%rephrase
+%Your staff will feel much more engaged if you let them know what’s happening. Everybody wants to see the \"big picture\" sometimes.
+
+
+\item[Lead by Example]
+A project manager should lead other team members by giving them a good example: being enthusiastic about his job
+and doing it with a positive attitude.
+
+
+\item[Motivate]
+A team's commitment will greatly improve many variables in a software project.
+People are inevitably influenced by other people around them, especially when they work together.
+If any member has a low commitment to the project his attitude will influence negatively other team members.
+
+A good project manager will motivate the team to work well and gratify members who do so.
+It is a duty of the project manager to instill a positive and enthusiastic attitude in a software development team.
+
+To achieve this task, it is important to identify personality types among a group so that
+motivation can be more effective. These can be divided into three categories:
+  \begin{itemize}
+  \item Self-oriented: the work has the purpose to achieve personal interestes.
+  \item Task-oriented: the motivation is related to the task itself.
+  \item Interaction-oriented: the motivation is related to social interaction.
+  \end{itemize}
+
+It is desiderable that within a group such personality types are balanced.
+
+In our case, the project manager tried motivating the group by rewarding other members job
+and stressing the importance of the project itself as a chance to acquire relevant knowledge,
+to get a good grade (academic achievement), to do something that stimulated further research and work
+in the field.
+
+
+\item[Feedback on performance]
+
+
+\item[Cooperation]
+People should be encouraged to work together, share ideas and thoughts.
+We should avoid having one team member whose role is predominant on others'.
+
+During meetings, both internal and external, we had one team member
+act as a \'meeting leader\', guiding the customer, supervisor or other team members through
+the meeting agenda. However, the project manager made sure to involve all team members
+in the conversation, asking their opinion on the current topic being discussed
+or in order to let them explain their what they did and how.
+When the supervisor or the customer asked questions, he made sure not to be the only one
+answering by inviting other team members to do so.
+
+
+\end{description}
+
+
+The fact that the group is made of three members definitely plays a factor here.
+It is both a strenght and a weakness
+
+pregnant woman mistake
+
+flexibility in group composition is absent.
+technical skill pool is reduced.
+
+possibility of better cooperation
+easily motivated
+
+black sheep
+
+
+
+%Any successful software project relies on successful group dynamics because no project can be accomplished by a single man.
 
 
 \section{Quality assurance}
