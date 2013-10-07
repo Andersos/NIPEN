@@ -210,5 +210,173 @@ changing a particular requirement?
 
 \section{Use cases}
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-front-end.png}
+\end{center}
+\caption{Use case diagram - Front-end}
+\label{figure:use-case-diagram-front-end}
+\end{figure}
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-heart-rate.png}
+\end{center}
+\caption{Use case diagram - Heart rate application}
+\label{figure:use-case-diagram-heart-rate}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-weight.png}
+\end{center}
+\caption{Use case diagram - Weight application}
+\label{figure:use-case-diagram-weight}
+\end{figure}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & FW1, FIP3 and FIP4\\ \hline
+  Application & Front-end \\ \hline
+  Name & View data \\ \hline
+  Description & Display all the data from the integration platform for the user. \\ \hline
+  Actor & User and Integration Platform \\ \hline
+  Precondition &
+	\par 1. The integration platform has data about the current user.
+	\par 2. The integration platform is online.
+	\par 3. The user is using a computer with a web browser, that is connected to the internet.
+	\\ \hline
+  Basic Flow & 
+  	\par 1. The user accesses the web page.
+  	\par 2. Front-end requests data from the integration platform.
+  	\par 3. Integration platform sends data to front-end.
+  	\par 4. Front-end displays data to user.
+  	\\ \hline
+  Alternate Flows & 
+  	\par 1A: The user wants to only view heart rate data.
+  	\par\hspace{15pt} 1. The user clicks on \textit{Heart Rate} in the navigation bar.
+  	\par 1B: The user wants to only view weight data.
+  	\par\hspace{15pt} 1. The user clicks on \textit{Weight} in the navigation bar.
+  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - View data}
+\label{table:use-case-view-data}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & FHR1 and FHR2 \\ \hline
+  Application & Heart Rate Application \\ \hline
+  Name & Measure and view heart rate \\ \hline
+  Description & Measure the heart rate of the user and then view the measured data. \\ \hline
+  Actor & User \\ \hline
+  Precondition &
+    \par 1. The users phone meets the requirements of the heart rate application.
+  	\par 2. The application is installed on the users phone.
+  	\par 3. The application is running on the users phone.
+  \\ \hline
+  Basic Flow & 
+  	\par 1. The user places his finger on the camera of the phone.
+  	\par 2. The user waits until the heart rate is shown on the display.
+  	\par 3. The user views the heart rate.
+  \\ \hline
+  Alternate Flows & 
+  	\par 1A: The user places his finger wrongly, which makes the measured data incorrect.
+  	\par\hspace{15pt} 1. The user adjusts his finger.
+  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Measure and view heart rate}
+\label{table:use-case-measure-heart-rate}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & FHR3 and FIP1 \\ \hline
+  Application & Heart Rate Application \\ \hline
+  Name & Send heart rate to IP \\ \hline
+  Description & Send the measured heart rate to the integration platform. \\ \hline
+  Actor & User and Integration Platform \\ \hline
+  Precondition &
+    \par 1. The user has measured his/hers heart rate through the application.
+    \par 2. The phone is connected to the internet.
+    \par 3. The integration platform is online.
+  \\ \hline
+  Basic Flow & 
+  	\par 1. The user clicks on \textit{Send}.
+  	\par 2. The application sends the data to the integration platform.
+  	\par 3. The integration platform receives the data.
+  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Send heart rate to IP}
+\label{table:use-case-send-heart-rate-to-ip}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & FHV1 and FHR2\\ \hline
+  Application & Weight Application \\ \hline
+  Name & View weight data \\ \hline
+  Description & Fetch the weight data from HealthVault and display it for the user. \\ \hline
+  Actor & User and HealthVault \\ \hline
+  Precondition &
+    \par 1. The users phone meets the requirements of the weight application.
+  	\par 2. The application is installed on the users phone.
+  	\par 3. The application is running on the users phone.
+  	\par 4. The application is connected to the internet.
+  \\ \hline
+  Basic Flow & 
+  	\par 1. The user writes his email to HealthVault into the email field.
+  	\par 2. The user writes his password to HealthVault into the password field.
+  	\par 3. The user clicks on a button to login.
+  	\par 4. The application shows the data for the user.
+  	\par 5. The user views the data.
+  \\ \hline
+  Alternate Flows & 
+  	\par 3A: The user inputs an invalid password or email.
+  	\par\hspace{15pt} 1. The user has to go back to step 1 and start over again.
+  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - View weight data}
+\label{table:use-case-view-weight-data}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & FHR3 and FIP2\\ \hline
+  Application & Weight Application \\ \hline
+  Name & Send weight data \\ \hline
+  Description & Send the weight data from the phone application into the integration platform. \\ \hline
+  Actor & User and Integration Platform \\ \hline
+  Precondition &
+    \par 1. The user has acquired the weight data through the weight application.
+    \par 2. The integration platform is online.
+  \\ \hline
+  Basic Flow & 
+  	\par 1. The user presses the \textit{Send} button.
+  	\par 2. The Integration platform receives the data.
+  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Send weight data}
+\label{table:use-case-send-weight-data}
+\end{table}
 
