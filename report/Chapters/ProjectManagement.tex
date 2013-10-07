@@ -7,7 +7,7 @@
 \nocite{Sommerville9}
 
 %% test for site references
-\nocite{Doe:2009:Other}
+%\nocite{Doe:2009:Other}
 
 This chapter describes the planning of the project. Section \ref{section:planning} is about project planning,
 section \ref{section:organization} covers project organizazion.
@@ -42,7 +42,7 @@ We have identified four milestones for the project. These are associated with im
   Milestone & Date & Description \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   M1 & 20.09.2013 & Basic implementation of the platform and one prototype. \\ 
-  M2 & 08.10.2013 & Mid-term report delivery. \\
+  M2 & 14.10.2013 & Mid-term report delivery. \\
   M3 & 04.11.2013 & Feature freeze. \\
   M4 & 21.11.2013 & Project demonstration. Final report delivery. \\
   \hline
@@ -118,16 +118,16 @@ The skill matrix is shown in table \ref{table:skillmatrix}.
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{ | l | l | }
+\begin{tabular}{ | c | l | l | }
   \hline
-  Proficiency & Description \\
+  Level & Proficiency & Description \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  None		& Cannot perform the task \\
-  Basic		& Can perform the task with some help from other people \\
-  Fair		& Can perform the task almost indipendently \\
-  Good		& Can perform the task without any help \\
-  Very good	& Can help others to complete the task \\
-  Excellent	& Can help others to complete the task \\
+  0 & None		  & Cannot perform the task \\
+  1 & Basic     & Can perform the task with some help from other people \\
+  2 & Fair		  & Can perform the task almost indipendently \\
+  3 & Good		  & Can perform the task without any help \\
+  4 & Very good	& Can help others to complete the task \\
+  5 & Excellent	& Can help others to complete the task \\
   \hline
 \end{tabular}
 \end{center}
@@ -139,7 +139,7 @@ The skill matrix is shown in table \ref{table:skillmatrix}.
 \begin{center}
 \begin{tabular}{ | l | c | c | c | c | c | c | c | c | }
   \hline
-  Team member & Java & JS & Android & Database & CSS & AJAX & Spring & LaTeX \\
+  Team member & Java & JS & Android & Database & CSS & jQuery & Spring & LaTeX \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   Anders & 4 & 4 & 3 & 4 & 4 & 2 & 3 & 1 \\
   Emanuele & 4 & 1 & 3 & 2 & 1 & 1 & 0 & 3 \\
@@ -154,7 +154,7 @@ The skill matrix is shown in table \ref{table:skillmatrix}.
 
 %---
 
-\subsection{Tool selection}
+\subsection{Project tools}
 This section describes the different tools used throught the project.
 
 \begin{description}
@@ -164,7 +164,7 @@ Git is one of the most used version control systems. Although it is mostly used 
 
 \item[Sublime Text]
 Sublime Text is a popular, cross-platform editor which offers advanced features.
-We used Sublime Text for editing the report and for coding JavaScript, CSS and AJAX.
+We used Sublime Text for editing the report and for coding JavaScript, CSS.
 
 \item[IntelliJ IDEA]
 A popular, feature-rich Java IDE. We used it to develop the Android applications and for Spring coding.
@@ -199,6 +199,9 @@ Travis CI is an automated build service...
 %Lucidchart maybe we can opt for a free solution like violet UML.
 
 \end{description}
+
+
+\subsection{Version control procedures}
 
 
 %---
@@ -252,7 +255,7 @@ Because we were only three people, all of us had more than one role. Sometimes, 
 \label{table:roles}
 \end{table}
 
-\subsection{Weekly schedule}
+\subsection{Weekly meeting schedule}
 During the early stages of the project the team has agreed on a meeting schedule.
 
 \begin{description}
@@ -350,8 +353,6 @@ easily motivated
 
 black sheep
 
-
-
 %Any successful software project relies on successful group dynamics because no project can be accomplished by a single man.
 
 
@@ -362,4 +363,137 @@ black sheep
 
 \section{Risk management}
 
-The risk analysis is good but we can improve it with some strategy to handle the risk once it has happened.
+Risk analysis is an
+
+\begin{table}[h]
+\begin{tabular}{ | l | p{11.5cm} | }
+
+  \hline
+  Risk ID & \textbf{1} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk Factor   & \textbf{Internal conflicts} \\
+  Consequences  & Stress, decrease in member’s commitment to group work.\\
+  Likelihood    & Low \\
+  Impact        & Moderate \\
+  Mitigation    & Communication is the key. Get to know each other. \\
+  Remedy        & Try to solve the problem democratically. \newline
+                If that fails the project manager should be fair but firm in his actions. \\
+  \hline
+  
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{2} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Change of requirements} \\
+  Consequences  & Slow progress, planning problems. Failure to meet requirements \\
+  Likelihood    & Moderate \\
+  Impact        & Moderate \\
+  Mitigation    & Agree on project scope’s and an initial set of core, high level requirements with the customer early on. \\
+  Remedy        & Prioritize tasks and reschedule work accordingly. \\
+  \hline
+
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{3} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Poor project planning} \\
+  Consequences  & Failure to meet deadlines. Bad grades !\\
+  Likelihood    & Moderate \\
+  Impact        & High \\
+  Mitigation    & Produce and keep updated the necessary documents.
+                Share planning details with the team and the supervisor for feedback. \\
+  Remedy        & The team should reflect on what has gone wrong during the last iteration and
+                share their thoughts on how to improve planning. \\
+  \hline
+
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{4} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Underestimation of project workload} \\
+  Consequences  & Slow progress, failure to meet deadlines.Excessive workload at the end of the semester. \\
+  Likelihood    & Moderate \\
+  Impact        & High \\
+  Mitigation    & Good planning and pre-studies on technologies involved. \\
+  Remedy        & Try to prioritize tasks. Assign tasks to the right people (maybe using a skill matrix) and motivate them. \\
+  \hline
+
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{5} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Implementation problems} \\
+  Consequences  & Delays, failure to meet requirements. \\
+  Likelihood    & Low \\
+  Impact        & Moderate \\
+  Mitigation    & Thorough pre-studies. Avoid using complicated technologies. \\
+  Remedy        & Assign tasks to the right people (maybe using a skill matrix) and motivate them. \\
+  \hline
+
+\end{tabular}
+\caption{Risk analysis}
+\label{table:risks}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{ | l | p{11.5cm} | }
+  \hline
+
+  Risk ID & \textbf{6} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Data loss} \\
+  Consequences  & Missing deliverables. Failure to meet deadlines. \\
+  Likelihood    & Low \\
+  Impact        & High \\
+  Mitigation    & Schedule regular backups. \\
+  Remedy        & Recover the most recent backup. \\
+  \hline
+
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{7} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Illness} \\
+  Consequences  & Slow progress. \\
+  Likelihood    & Moderate \\
+  Impact        & Moderate \\
+  Mitigation    & Proper clothing, common sense.. \\
+  Remedy        & If the illness is prolonged, work needs to be rescheduled accordingly. \\
+  \hline
+
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{8} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Internal communication problems} \\
+  Consequences  & Slow progress, excessive workload for some members. \\
+  Likelihood    & Moderate \\
+  Impact        & Moderate \\
+  Mitigation    & Schedule regular Skype calls. \\
+  Remedy        & Take notes for each meeting and have them approved by the team. \\
+  \hline
+
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{9} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Study of HealthVault takes too long} \\
+  Consequences  & Delays in report work and overall system development. \\
+  Likelihood    & Low \\
+  Impact        & Moderate \\
+  Mitigation    & Set a deadline for studies. \\
+  Remedy        & Have a backup plan ready for another prototype. \\
+  \hline
+
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk ID & \textbf{10} \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  Risk factor   & \textbf{Free-riders / drop outs} \\
+  Consequences  & Slow progress. Excessive workload. Missing deliverables. Failure to meet requirements. \\
+  Likelihood    & Low \\
+  Impact        & High \\
+  Mitigation    & Proper people management could help mitigate. \newline
+                  Motivation is the key. \\
+  Remedy        & The work has to be planned again. \newline
+                  Requirements could be scoped down. \\
+  \hline
+
+\end{tabular}
+\caption{Risk analysis (cont.)}
+\end{table}
+
+
+

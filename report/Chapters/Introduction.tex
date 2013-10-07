@@ -1,39 +1,49 @@
+
 \chapter{Introduction} 
 \label{Introduction} 
+
 \lhead{Chapter 1. \emph{Introduction}}
 
-This chapter is an introduction to the project. 
-It describes the project in 1.1, the client 1.2, the involved parties 1.3 and discusses the project background 1.4. 
-It also considers the problem domain 1.5, the project objective 1.6 and mentions the timeline of the project in 1.7.
-%---------------------------------------
+This chapter provides a description of the project in section \ref{section:description},
+of the client in section \ref{section:client}, of the parties involved in the project in section \ref{section:parties} and in
+its background and goals in sections \ref{section:background} and \ref{section:objective} respectively.
+The project duration is stated in section \ref{section:duration}.
+
+%-------------------------
 \section{Project description}
 \label{section:description}
 
-The purpose of the project is to design, develop and document an integration platform for citizen health in Norway. 
-The intention of such platform is to allow citizens to publish date relating their health produced by devices or third party solutions. 
-It is very common today for people to log health data from mobile phones and tablets in their possession. The project assignment can be read in Appendix \ref{AppendixA}. 
+The purpose of the project was to design, develop and document an integration platform for citizen eHealth. \cite{ehealth} % in Norway. 
+The aim of such platform is to integrate digital information about citizens' health which is collected using popular devices such as smartphones and tablets.
+%citizens to publish data related to their health produced by devices or third party solutions. 
+%It is very common today for people to log health data from mobile phones and tablets in their possession.
+The project description as provided by the customer can be found in Appendix \ref{AppendixA}.
 
-For the client it was important that this project produced a prototype that could be demonstrated to: \\
-1. Educated health professionals\\
-2. Developers\\
+%% very relevant but to be written elsewhere. (project goal)
+%For the client it was important that this project produced a prototype that could be demonstrated to:
+%1. Educated health professionals
+%2. Developers
 
-Security is of high importance when dealing with citizen health data. This was not made a requirement of the project beacue the assignment had to be scaled down because the group only consisted of three members. 
-We will however discuss how you could add a secure layer to the working solution. 
+%% very relevant but to be written elsewhere. (project limitations?)
+% Security is of high importance when dealing with citizen health data. This was not made a requirement of the project beacue the assignment had to be scaled down because the group only consisted of three members. We will however discuss how you could add a secure layer to the working solution. 
 
-The name we chose for the project is \textbf{NIPEN}. It is simply an acronym for \textbf{N}ational \textbf{I}ntegration \textbf{P}latform for \textbf{e}Health in \textbf{N}orway.
+The name we chose for the project is \textbf{NIPEN}.\newline
+It is simply an acronym for \textbf{N}ational \textbf{I}ntegration \textbf{P}latform for \textbf{e}Health in \textbf{N}orway.
 
 %-------------------------
-\section{The client}
+\section{Project sponsor}
 \label{section:client}
 
-The customer of this project was the Department of the Health portal, Norwegian Directorate of Health (Helsedirektoratet).
+The project customer was the Department of the Health portal, Norwegian Directorate of Health (Helsedirektoratet) located in Oslo, Norway.
+The Directorate has, among other, the task of digitalizing Norway's health care system by providing services for both specialists and citizens. The customer was represented by Mr. Helge T. Blindheim. His contact information is shown in table \ref{table:client}.  
+%Their office is located in the capital of Norway, Oslo.
 
-The Directorate has, among other, the task of digitalizing Norway's health care system by providing services for both specialists and citizens.
-The customer was represented by Mr. Helge T. Blindheim. His contact is shown in table \ref{table:client}. Their office is located in the capital of Norway, Oslo. This infered that our weekly meeting had to be heald over teleconferencing. 
+% --- relevant but to be detailed in another chapter (proj. mgmt) - emanuele
+%This infered that our weekly meeting had to be heald over teleconferencing.
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{ l | l | l }
+\begin{tabular}{ | l | l | l | }
   \hline
   Name & Phone & E-mail \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
@@ -47,14 +57,15 @@ The customer was represented by Mr. Helge T. Blindheim. His contact is shown in 
 
 
 \section{Involved parties}
+\label{section:parties}
 
 The people involved in this project were the customer, the team and the supervisor.
-The customer, introduced in the previous section, was represented by Mr. Helge T. Blindheim.
+The customer, introduced in section \ref{section:client}, was represented by Mr. Helge T. Blindheim.
 The team consisted of three students from the Department of Computer and Information Science (IDI) at the Norwegian University of Science and Technology (NTNU). Their contact information is shown in table \ref{table:team}. The group was supervised by PhD. candidate Zhu Meng. His contact information is shown in table \ref{table:advisor}.
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{ l | l | l }
+\begin{tabular}{ | l | l | l | }
   \hline
   Name & Phone & E-mail \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
@@ -68,9 +79,9 @@ The team consisted of three students from the Department of Computer and Informa
 \label{table:team}
 \end{table}
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
-\begin{tabular}{ l | l | l }
+\begin{tabular}{ | l | l | l | }
   \hline
   Name & Phone & E-mail \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
@@ -93,23 +104,29 @@ Digital healthcare is about using information technologies to provide solutions 
 \begin{quote}
 An emerging field in the intersection of medical informatics, public health and business, referring to health services and information delivered or enhanced through the Internet and related technologies.\citep{ehealth}
 \end{quote}
-eHealth projects are therefore long, complex and inherently costly. At the same time the progress in information technology has made available powerful and yet cheap devices which can be used to monitor health. These devices are nowdays widespread and used by a large part of the population. The objective of this proejct is to design, document and develop a solution that integrates the data gatherd from these devices and display a complete collection of the users health data. Together with educated health professonals the gatherd data could be used to get a better understanding of the users health.
+eHealth projects of national scale are therefore long, complex and inherently costly. At the same time the progress in information technology has made available powerful and yet cheap devices which can be used to monitor people's health. These devices are nowdays widespread and used by a large part of the population. As such, the Department of Health Portal is interested in investigating the possibilities of using these devices in eHealth projects.
+
+%The objective of this project is to design, document and develop a solution that integrates the data gatherd from these devices and display a complete collection of the users health data. Together with educated health professonals the gatherd data could be used to get a better understanding of the users health.
 
 \section{Project objective}
 \label{section:objective}
 
-The goal of the customer is to investigate the possibilities for national eHealth's projects to leverage the dynamics of the market.
+The project had multiple goals.
+The purpose of the course which this project is part of is to let students acquire practical experience in development of a medium-large software project, including experience in project management, group dynamics and customer relations.
 
-... complete
-
-The purpose of the course is to let students acquire practical experience in development of a medium-large software project,
-including experience in project management, group dynamics and customer relations.
+The aim of the customer was to investigate the possibilities for national eHealth's projects to use widely available devices such as smartphones and tables. The customer was also interested in a prototype system that could demonstrate such possibilities and stimulate further work.
 
 \section{Duration}
 \label{section:duration}
-The project started on august 21th and the final presentation is on november 21th. That gives us a total of 13 weeks to work on the project. The instructors specify a workload of 24 hours per week according to the course page[*]. That makes a total of 312 hours per student. We are a group of three students which makes the total 936 hours.
+The project started on August the 21th. The final presentation will be held on November the 21th. That makes a total of 13 weeks (rounded down) to work on the project. We were advised to dedicate at least 24 hours per week to the project by our teachers. %according to the course page[*].
+That makes a total of 312 hours per student. Because we are a group of three students we estimate the project to take at least 936 hours of work to be completed.
 
-Start date: 21.08.2013
-End date : 21.11.2013
+\begin{itemize}
+\item Start date: 21.08.2013
+\item End date: 21.11.2013
+\item Total hours: 936
+\item Months: 3 months
+\item Days: 93
+\end{itemize}
 
-[ADD TO BIB] Retrived 25.09.2013 http://www.ntnu.edu/studies/courses/TDT4290/2013
+%[ADD TO BIB] Retrived 25.09.2013 http://www.ntnu.edu/studies/courses/TDT4290/2013
