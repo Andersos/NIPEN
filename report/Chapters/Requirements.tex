@@ -78,7 +78,7 @@ Their concern is that the system should be easy to use.
 It should be easy to add third party applications to the integration platform, and easy to push data to our system.
 
 %-----
-\newpage
+
 \section{Funcional requirements}
 \label{section:functionalreq}
 
@@ -166,7 +166,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 This section outlines non-functional requirements (quality attributes) for the product.
 In order to provide a better overview, we have organized them in categories.
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | c |p{6.5cm} | c | c |}
   \hline
@@ -208,33 +208,26 @@ when making changes.
 • Adaptability (changeability) - what is the impact of 
 changing a particular requirement?
 
+%-----
+
 \section{Use cases}
 
-\begin{figure}
-\begin{center}
+In this section...
+TODO
+
+\subsection{Front-end}
+
+Front-end use case... 
+TODO
+
+\begin{figure}[H]
+\centering
 \includegraphics[scale=0.6]{../Figures/use-case-diagram-front-end.png}
-\end{center}
 \caption{Use case diagram - Front-end}
 \label{figure:use-case-diagram-front-end}
 \end{figure}
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.6]{../Figures/use-case-diagram-heart-rate.png}
-\end{center}
-\caption{Use case diagram - Heart rate application}
-\label{figure:use-case-diagram-heart-rate}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.6]{../Figures/use-case-diagram-weight.png}
-\end{center}
-\caption{Use case diagram - Weight application}
-\label{figure:use-case-diagram-weight}
-\end{figure}
-
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ l | p{10cm} }
   \hline
@@ -267,7 +260,28 @@ changing a particular requirement?
 \label{table:use-case-view-data}
 \end{table}
 
-\begin{table}[h]
+\subsection{Heart Rate Application}
+
+Heart rate application...
+TODO
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-heart-rate.png}
+\end{center}
+\caption{Use case diagram - Heart rate application}
+\label{figure:use-case-diagram-heart-rate}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.5]{../Figures/use-case-diagram-measure-and-view-heart-rate.png}
+\end{center}
+\caption{Use case diagram - Measure and view heart rate}
+\label{figure:use-case-diagram-measure-heart-rate}
+\end{figure}
+
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ l | p{10cm} }
   \hline
@@ -297,14 +311,22 @@ changing a particular requirement?
 \label{table:use-case-measure-heart-rate}
 \end{table}
 
-\begin{table}[h]
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.5]{../Figures/use-case-diagram-send-heart-rate.png}
+\end{center}
+\caption{Use case diagram - Send heart rate}
+\label{figure:use-case-diagram-send-heart-rate}
+\end{figure}
+
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ l | p{10cm} }
   \hline
   \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
   Requirements & FHR3 and FIP1 \\ \hline
   Application & Heart Rate Application \\ \hline
-  Name & Send heart rate to IP \\ \hline
+  Name & Send heart rate \\ \hline
   Description & Send the measured heart rate to the integration platform. \\ \hline
   Actor & User and Integration Platform \\ \hline
   Precondition &
@@ -319,11 +341,32 @@ changing a particular requirement?
   \\ \hline
 \end{tabular}
 \end{center}
-\caption{Textual use case - Send heart rate to IP}
-\label{table:use-case-send-heart-rate-to-ip}
+\caption{Textual use case - Send heart rate}
+\label{table:use-case-send-heart-rate}
 \end{table}
 
-\begin{table}[h]
+\subsection{Weight Application}
+
+Weight application..
+TODO
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-weight.png}
+\end{center}
+\caption{Use case diagram - Weight application}
+\label{figure:use-case-diagram-weight}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.5]{../Figures/use-case-diagram-view-weight.png}
+\end{center}
+\caption{Use case diagram - View weight data}
+\label{figure:use-case-diagram-view-weight}
+\end{figure}
+
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ l | p{10cm} }
   \hline
@@ -356,7 +399,16 @@ changing a particular requirement?
 \label{table:use-case-view-weight-data}
 \end{table}
 
-\begin{table}[h]
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.5]{../Figures/use-case-diagram-send-weight.png}
+\end{center}
+\caption{Use case diagram - Send weight data}
+\label{figure:use-case-diagram-send-weight}
+\end{figure}
+
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ l | p{10cm} }
   \hline
@@ -379,4 +431,3 @@ changing a particular requirement?
 \caption{Textual use case - Send weight data}
 \label{table:use-case-send-weight-data}
 \end{table}
-
