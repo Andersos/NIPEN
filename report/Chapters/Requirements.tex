@@ -16,7 +16,7 @@ Throughout this chapter both requirement's priority and complexity have a textua
 
 The use of such terms is described in table \ref{table:priorities} (priorities) and table \ref{table:complexity} (complexity).
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | p{12.5cm} | }
   \hline
@@ -32,7 +32,7 @@ The use of such terms is described in table \ref{table:priorities} (priorities) 
 \label{table:priorities}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | p{12.5cm} | }
   \hline
@@ -69,13 +69,14 @@ Good communication is also of importance.
 
 \subsection{Developers}
 The developers include the creators of the system, and third party developers.
+The concern of the creators of the system is to have some requirements and guidance from the customer.
+In this way the goal of the project will be clear.
 The third party developers are going to integrate our application to their system.
 Their concern is that our integration platform should easily be connected with their applications.
 
 \subsection{Users}
-The users are the one that are going to use our application.
-Their concern is that the system should be easy to use.
-It should be easy to add third party applications to the integration platform, and easy to push data to our system.
+The users are the one that are going to use the front-end, i.e. the web page that visualizes the data from the integration platform.
+Their concern is that their data should be available for them, and visualized in an intuitive and comprehensible way.
 
 %-----
 
@@ -88,7 +89,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 
 \textbf{Functional requirements for Integration platform}
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | p{9cm} | c | c | }
   \hline
@@ -107,7 +108,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 
 \textbf{Functional requirements for the web frontend}
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | p{9cm} | c | c |}
   \hline
@@ -124,7 +125,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 
 \textbf{Functional requirements for Heart rate application}
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | p{9cm} | c | c |}
   \hline
@@ -137,25 +138,25 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 \end{tabular}
 \end{center}
 \caption{Functional requirements for Heart rate application}
-\label{table:reqfrontend}
+\label{table:reqheartrate}
 \end{table}
 
 \textbf{Functional requirements for Weight application}
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | p{9cm} | c | c |}
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FHV1	& The application shall fetch weight data from HealthVault.						      & Med	& High \\
-  FHR2	& The application shall show the user the data it has fetched.              & Low	& Med \\
-  FHR3	& The application shall forward the data to the IP using its REST endpoint. & Med	& High \\
+  FHV2	& The application shall show the user the data it has fetched.              & Low	& Med \\
+  FHV3	& The application shall forward the data to the IP using its REST endpoint. & Med	& High \\
   \hline
 \end{tabular}
 \end{center}
 \caption{Functional requirements for Weight application}
-\label{table:reqfrontend}
+\label{table:reqweight}
 \end{table}
 
 %-----
@@ -188,7 +189,7 @@ In order to provide a better overview, we have organized them in categories.
 \end{tabular}
 \end{center}
 \caption{Non-functional requirements}
-\label{table:reqfrontend}
+\label{table:reqnonfunc}
 \end{table}
 
 % -----
@@ -212,13 +213,15 @@ changing a particular requirement?
 
 \section{Use cases}
 
-In this section...
-TODO
+In this section we are going through the different use cases of our applications.
+The section consists of use cases for the front-end, heart rate application and the weight application.
 
 \subsection{Front-end}
 
-Front-end use case... 
-TODO
+The use case diagram for the front-end is shown in figure \ref{figure:use-case-diagram-front-end}.
+From the use case diagram we see that the front-end has two main objectives.
+The first one is to fetch data from our integration platform, and the second one is to visualize this data for the user.
+In table \ref{table:use-case-view-data} a textual use case is given for the front-end.
 
 \begin{figure}[H]
 \centering
@@ -232,7 +235,7 @@ TODO
 \begin{tabular}{ l | p{10cm} }
   \hline
   \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
-  Requirements & FW1, FIP3 and FIP4\\ \hline
+  Requirements & \hyperref[table:reqfrontend]{FW1}, \hyperref[table:reqip]{FIP3} and \hyperref[table:reqip]{FIP4}\\ \hline
   Application & Front-end \\ \hline
   Name & View data \\ \hline
   Description & Display all the data from the integration platform for the user. \\ \hline
@@ -262,21 +265,22 @@ TODO
 
 \subsection{Heart Rate Application}
 
-Heart rate application...
-TODO
+A use case diagram for the heart rate application is given in figure \ref{figure:use-case-diagram-heart-rate}.
+The main objectives of this application is to measure and send the data to the integration platform.
 
 \begin{figure}[H]
-\begin{center}
+\centering
 \includegraphics[scale=0.6]{../Figures/use-case-diagram-heart-rate.png}
-\end{center}
 \caption{Use case diagram - Heart rate application}
 \label{figure:use-case-diagram-heart-rate}
 \end{figure}
 
+A textual use case for measuring and viewing the heart rate is given in table \ref{table:use-case-measure-heart-rate}.
+Figure \ref{figure:use-case-diagram-measure-heart-rate} shows a use case diagram for the textual use case.
+
 \begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.5]{../Figures/use-case-diagram-measure-and-view-heart-rate.png}
-\end{center}
+\centering
+\includegraphics[scale=0.75]{../Figures/use-case-diagram-measure-and-view-heart-rate.png}
 \caption{Use case diagram - Measure and view heart rate}
 \label{figure:use-case-diagram-measure-heart-rate}
 \end{figure}
@@ -286,7 +290,7 @@ TODO
 \begin{tabular}{ l | p{10cm} }
   \hline
   \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
-  Requirements & FHR1 and FHR2 \\ \hline
+  Requirements & \hyperref[table:reqheartrate]{FHR1} and \hyperref[table:reqheartrate]{FHR2} \\ \hline
   Application & Heart Rate Application \\ \hline
   Name & Measure and view heart rate \\ \hline
   Description & Measure the heart rate of the user and then view the measured data. \\ \hline
@@ -311,10 +315,12 @@ TODO
 \label{table:use-case-measure-heart-rate}
 \end{table}
 
+Table \ref{table:use-case-send-heart-rate} gives a textual use case for sending the heart rate to the integration platform.
+Figure \ref{figure:use-case-diagram-send-heart-rate} shows a use case diagram for the textual use case.
+
 \begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.5]{../Figures/use-case-diagram-send-heart-rate.png}
-\end{center}
+\centering
+\includegraphics[scale=0.75]{../Figures/use-case-diagram-send-heart-rate.png}
 \caption{Use case diagram - Send heart rate}
 \label{figure:use-case-diagram-send-heart-rate}
 \end{figure}
@@ -324,7 +330,7 @@ TODO
 \begin{tabular}{ l | p{10cm} }
   \hline
   \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
-  Requirements & FHR3 and FIP1 \\ \hline
+  Requirements & \hyperref[table:reqheartrate]{FHR3} and \hyperref[table:reqip]{FIP1} \\ \hline
   Application & Heart Rate Application \\ \hline
   Name & Send heart rate \\ \hline
   Description & Send the measured heart rate to the integration platform. \\ \hline
@@ -347,21 +353,22 @@ TODO
 
 \subsection{Weight Application}
 
-Weight application..
-TODO
+The goal of the weight application is to retrieve weight data from HaulthVault and forward it to our integration platform.
+Figure \ref{figure:use-case-diagram-weight} shows the main use case diagram for the application.
 
 \begin{figure}[H]
-\begin{center}
+\centering
 \includegraphics[scale=0.6]{../Figures/use-case-diagram-weight.png}
-\end{center}
 \caption{Use case diagram - Weight application}
 \label{figure:use-case-diagram-weight}
 \end{figure}
 
+In figure \ref{figure:use-case-diagram-view-weight} a use case diagram is given for fetching and viewing the weight data.
+Table \ref{table:use-case-view-weight-data} gives a textual use case for the use case diagram.
+
 \begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.5]{../Figures/use-case-diagram-view-weight.png}
-\end{center}
+\centering
+\includegraphics[scale=0.75]{../Figures/use-case-diagram-view-weight.png}
 \caption{Use case diagram - View weight data}
 \label{figure:use-case-diagram-view-weight}
 \end{figure}
@@ -371,7 +378,7 @@ TODO
 \begin{tabular}{ l | p{10cm} }
   \hline
   \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
-  Requirements & FHV1 and FHR2\\ \hline
+  Requirements & \hyperref[table:reqweight]{FHV1} and \hyperref[table:reqweight]{FHV2}\\ \hline
   Application & Weight Application \\ \hline
   Name & View weight data \\ \hline
   Description & Fetch the weight data from HealthVault and display it for the user. \\ \hline
@@ -399,11 +406,12 @@ TODO
 \label{table:use-case-view-weight-data}
 \end{table}
 
+Table \ref{table:use-case-send-weight-data} gives a textual use case for sending the weight data to our integration platform.
+Figure \ref{figure:use-case-diagram-send-weight} displays a use case diagram for the textual use case.
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.5]{../Figures/use-case-diagram-send-weight.png}
-\end{center}
+\centering
+\includegraphics[scale=0.75]{../Figures/use-case-diagram-send-weight.png}
 \caption{Use case diagram - Send weight data}
 \label{figure:use-case-diagram-send-weight}
 \end{figure}
@@ -413,7 +421,7 @@ TODO
 \begin{tabular}{ l | p{10cm} }
   \hline
   \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
-  Requirements & FHR3 and FIP2\\ \hline
+  Requirements & \hyperref[table:reqweight]{FHV3} and \hyperref[table:reqip]{FIP2}\\ \hline
   Application & Weight Application \\ \hline
   Name & Send weight data \\ \hline
   Description & Send the weight data from the phone application into the integration platform. \\ \hline
