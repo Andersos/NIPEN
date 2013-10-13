@@ -98,10 +98,10 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	& The IP shall support REST endpoints for receiving heart rate data models expressed as JSON strings	& Med	& High \\
-  FIP2	& The IP shall support REST endpoints for receiving weight data models expressed as JSON strings 		& High	& High \\
-  FIP3	& The IP shall support REST endpoints for forwarding heart rate models (using JSON) to other systems.	& Med	& High \\
-  FPI4	& The IP shall support REST endpoints for forwarding weight models (using JSON).						& Med	& High \\
+  FIP1	& The IP shall support REST endpoints for receiving heart rate data models expressed as JSON strings   & Med	& High \\
+  FIP2	& The IP shall support REST endpoints for receiving weight data models expressed as JSON strings       & Med	& High \\
+  FIP3	& The IP shall support REST endpoints for forwarding heart rate models (using JSON) to other systems.  & Med	& High \\
+  FPI4	& The IP shall support REST endpoints for forwarding weight models (using JSON).                       & Med	& High \\
   \hline
 \end{tabular}
 \end{center}
@@ -118,7 +118,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FW1	& The web frontend shall display the data stored by the Integration Platform using charts.	& Med	& High \\
-  FW2	& The web frontend shall use Helsenorge color palette										& Low	& Low \\
+  FW2	& The web frontend shall use Helsenorge color palette                                       & Low	& Low \\
   \hline
 \end{tabular}
 \end{center}
@@ -134,9 +134,9 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FHR1	& The application shall measure user’s heart rate using the device camera	& Med	& High \\
-  FHR2	& The application shall display acquired measurements on the screen.		& Low	& Low \\
-  FHR3	& The application shall forward the data to the IP using its REST endpoint. & Med	& High \\
+  FHR1	& The application shall measure user’s heart rate using the device camera    & Med	& High \\
+  FHR2	& The application shall display the last measurement on the screen.          & Low	& Med \\
+  FHR3	& The application shall forward the data to the IP using its REST endpoint.  & Med	& High \\
   \hline
 \end{tabular}
 \end{center}
@@ -198,19 +198,35 @@ In order to provide a better overview, we have organized them in categories.
 % -----
 
 \section{Requirements Validation}
-(Sommerville 7.3)
-How to ensure that a Requirements Document does define 
-the customers’ requirements (check against desirable 
-features)
-• Comprehensibility - do customers understand the 
-requirements?
-• Verifiability (testability) - can requirements be 
-realistically tested? If you cannot test it, it is not a 
-requirement!
-• Traceability - source of the requirement? Important 
-when making changes.
-• Adaptability (changeability) - what is the impact of 
-changing a particular requirement?
+This section outlines the practices used to ensure requirements validity.
+
+\textbf{Comprehensibility}\newline
+It is important that requirements are expressed in a way that is understandable by the customer.
+We have thus submitted a list of both functional and non-functional requirements of the system
+to the customer for approval. Because requirements were subject to change due to the nature of the project
+itself, the customer has reviewed them multiple times.
+
+\textbf{Verifiability}\newline
+It is crucial that a requirement can be tested. If a requirement can't be tested, it is not a valid requirement.
+We have kept this in mind while formalising requirements.
+
+%(Sommerville 7.3)
+%How to ensure that a Requirements Document does define 
+%the customers’ requirements (check against desirable 
+%features)
+%• Comprehensibility - do customers understand the 
+%requirements?
+
+%• Verifiability (testability) - can requirements be 
+%realistically tested? If you cannot test it, it is not a 
+%requirement!
+
+%\textbf{Traceability}
+%Requirements
+
+
+%• Adaptability (changeability) - what is the impact of 
+%changing a particular requirement?
 
 %-----
 
@@ -442,3 +458,10 @@ Figure \ref{figure:use-case-diagram-send-weight} displays a use case diagram for
 \caption{Textual use case - Send weight data}
 \label{table:use-case-send-weight-data}
 \end{table}
+
+
+
+\section{Test plan}
+
+Most of the testing was performed manually.
+Since the product consisted of two Android applications and a Spring
