@@ -5,7 +5,7 @@
 
 \lhead{Chapter 12. \emph{Testing}}
 
-\section{Testing methods}
+\section{Testing methodologies}
 
 \section{Tools}
 
@@ -90,7 +90,7 @@
 							\par At least one heart rate measurement has been stored on the IP \\
 	Steps 				&	1. Run the following \begin{verbatim}
 							curl -X POST -H "Content-Type: application/json"
-							-d {"id":0,"value":60,"timestamp":"11-10-2013","unit":
+							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
 							"bpm"}' localhost:8080/nipen/human/api/heart_rates
 							\end{verbatim} \\
 	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
@@ -122,7 +122,7 @@
 							\par At least one weight measurement has been stored on the IP \\
 	Steps 				&	1. Run the following \begin{verbatim}
 							curl -X POST -H "Content-Type: application/json"
-							-d {"id":0,"value":60,"timestamp":"11-10-2013","unit":
+							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
 							"kg"}' localhost:8080/nipen/human/api/weight
 							\end{verbatim} \\
 	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
