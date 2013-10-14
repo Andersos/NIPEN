@@ -104,7 +104,6 @@
 \end{center}
 \end{table}
 
-
 \begin{table}
 \begin{center}
 \begin{tabular}{ | l | p{10cm} | }
@@ -136,7 +135,6 @@
 \end{center}
 \end{table}
 
-
 \begin{table}
 \begin{center}
 \begin{tabular}{ | l | p{10cm} | }
@@ -162,39 +160,13 @@
 \end{center}
 \end{table}
 
-
 \begin{table}
 \begin{center}
 \begin{tabular}{ | l | p{10cm} | }
 	\hline
 	\textbf{Test}	&	\textbf{ID 6} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Login \\
-	Requirement			& FR1 \\
-	Description			& Test the login functionality \\
-	Preconditions		& The application has started \\
-	Steps 				&	\par 1. 
-							\par 2. 
-							\par 3. \\
-	Postconditions		& The login screen disappear and the inbox appear \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 7} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Heart rate measurement \\
+	Name				& Heart rate app \\
 	Requirement			& \hyperref[table:reqheartrate]{FHR3} \\
 	Description			& Test the heart rate application interoperability \\
 	Preconditions		&	\par 1. The application has started
@@ -212,23 +184,48 @@
 \end{center}
 \end{table}
 
+
 \begin{table}
 \begin{center}
 \begin{tabular}{ | l | p{10cm} | }
 	\hline
-	\textbf{Test}	&	\textbf{ID 8} \\
+	\textbf{Test}	&	\textbf{ID 7} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& HealthVault data fetching \\
 	Requirement			& \hyperref[table:reqweight]{FHV1} \\
 	Description			& Test HealthVault connectivity \\
 	Preconditions		&	\par 1. The application has started
 							\par 2. The user has authenticated to HealthVault \\
-	Steps 				&	\par 1. User \\
-	Postconditions		&	\par 1. 
-							\par 2. \\
+	Steps 				&	\par 1. User clicks on the \textit{Fetch} button \\
+	Postconditions		&	\par 1. The data is correctly fetched from HealthVault
+							\par 2. A list is populated with the data \\
 	Results				& -- \\
 	Comments			& -- \\
 	Status				& OK or FAIL\\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 8} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Name				& HealthVault app \\
+	Requirement			& FR1 \\
+	Description			& Test the HealthVault application data forwarding functionality \\
+	Preconditions		&	\par 1. The application has started
+							\par 2. The application has fetched some data from HealthVault \\
+	Steps 				&	\par 1. User clicks on the \textit{Send} button \\
+	Postconditions		&	\par 1. A success message is showed
+							\par 2. Data is correctly acquired by the integration platoform \\
+	Results				& -- \\
+	Comments			& -- \\
+	Status				& OK or FAIL \\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
