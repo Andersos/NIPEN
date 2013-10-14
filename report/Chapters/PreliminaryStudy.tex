@@ -24,20 +24,11 @@ It is important to divide the work into task and work in a structured manner, in
 %-----------------------------------
 \subsection{Waterfall Model} \nocite{WaterfallModel}
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.6]{../Figures/Waterfall-model.pdf}
-\end{center}
-\caption{Waterfall model}
-\label{figure:waterfall-model}
-\end{figure}
-
 The waterfall model is a software development process where each task is performed in a sequential order.
 Before moving to the next phase the preceding task needs to be finished.
 The progress of the project is seen as flowing downwards through the different phases, hence the name waterfall.
 This is represented in figure \ref{figure:waterfall-model} where it is possible to see how the progress is flowing.
 In the original model the phases consisted of seven different tasks:
-
 
 \begin{enumerate}
 \item Requirements specification
@@ -48,6 +39,14 @@ In the original model the phases consisted of seven different tasks:
 \item Installation
 \item Maintenance
 \end{enumerate}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/Waterfall-model.pdf}
+\end{center}
+\caption{Waterfall model}
+\label{figure:waterfall-model}
+\end{figure}
 
 Because each phase needs to be perfected and completed before moving to the next phase, it will bring up some difficulties if the requirements were to change during the development process. 
 However, the model is easily understandable, structured, and disciplined. 
@@ -76,7 +75,7 @@ An overview of what goals where achieved and which one where not should be made.
 The meeting can also consist of a demo of the new features implemented. 
 Figure \ref{figure:scrum-workflow} shows the workflow of scrum.
 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.5]{../Figures/Scrum-workflow.pdf}
 \end{center}
@@ -165,26 +164,22 @@ The following technologies were a good inspiration source and help in our projec
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{HealthVault}
+\subsection{HealthVault} \nocite{HealthVault}
 
-TODO: LEMMON?
+HealthVault is an online service that allows users to store personal health information.
+This information can either be gathered through different types of applications or devices.
+The devices might be weighting scales, step counters, blood glucose monitors and more.
+While the applications can be different types of mobile, tablet or desktop apps.
+It is also possible to share the information stored in HealthVault with e.g. family members or a doctor.
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
-\subsection{Open eHealth Foundation}
+\subsection{Open eHealth Foundation} \nocite{OpenEHealthFoundation}
 
-TODO: LEMMON?
-
-%-----------------------------------
-%	SUBSECTION 3
-%-----------------------------------
-\subsection{Heart Rate App}
-
-Maybe we should write something about the open source heart rate app here?
-Lets take about this on monday. - Anders
-Link to page: https://code.google.com/p/android-heart-rate-monitor/
-TODO
+The goal of Open eHealth Foundation is to create and share open source software components for the healthcare ICT industry.
+One of their products is an integration platform called Open eHealth Integration Platform (IPF).
+It is based on Apache Camel and has support for connecting systems in the eHealth domain.
 
 %-----------------------------------
 %	SUBSECTION 3
@@ -209,11 +204,21 @@ For example heart rate is defined by an id, user id, time, value and unit in the
 %-----------------------------------
 %	SUBSECTION 4
 %-----------------------------------
+\subsection{Android heart rate monitor} \nocite{AndroidHeartRateMonitor}
+\label{subsec: AndroidHeartRateMonitor}
+
+Android heart rate monitor is an open source heart rate measurer for android.
+It measures the heart rate of the user with help of the camera and flash light on the phone.
+
+%-----------------------------------
+%	SUBSECTION 5
+%-----------------------------------
 \subsection{Conclusion}
 
-TODO
-
-We landed on using the same API structure as the Human API.
+The applications mentioned above were of great help for us in our project.
+Our integration platform needs to send and receive information. 
+With help of the Human API we found out how the structure of this information should be.
+The android application mentioned in \ref{subsec: AndroidHeartRateMonitor} was a good starting point for creating the heart rate application that we needed in our project.
 
 
 %----------------------------------------------------------------------------------------
@@ -356,25 +361,34 @@ This made it clear for us to use those technologies.
 \section{Testing}
 \label{section:testing}
 
-TODO
-
-Lets talk about testing om Monday. If you want I can write some tests for the codebase we have now. -Anders
+In this section we are going to go through some of the testing frameworks used in our project.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{JUnit}
+\subsection{JUnit} \nocite{JUnit}
 
-Same goes for the earlier point. - Anders
-TODO
+JUnit is a Java framework for writing tests. It is also a good tool when using test driven development.
+With help of this framework it is possible to write tests for different parts of the code, then check if it runs as it should.
+It is also possible to use JUnit with Maven.
+When doing so it will first run all the tests, and if the tests are successful the application will be executed.
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
+\subsection{Jasmine} \nocite{Jasmine}
+
+Jasmine is a framework for testing JavaScript code.	
+It doesn't require a DOM and is also not dependent on any other frameworks.
+
+%-----------------------------------
+%	SUBSECTION 3
+%-----------------------------------
 \subsection{Conclusion}
 
-TODO
-Test Driven Developement.
+When using test driven development it is important to have some frameworks for testing the code.
+New bugs are often introduced to applications when extending it with new functions and features.
+With help of the technologies mentioned above it is much easier to find the new bugs, and hence fix them quicker.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6

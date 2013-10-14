@@ -18,7 +18,7 @@
 	\textbf{Test}	&	\textbf{ID 1} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& Heart rate REST (in) \\
-	Requirement			& FIP1 \\
+	Requirement			& \hyperref[table:reqip]{FIP1} \\
 	Description			& Test the REST endpoint for receiving heart rate data models \\
 	Preconditions		& 	\par The IP is deployed and running on a server machine 
 							\par The server machine is accesible from the machine running the test \\
@@ -43,7 +43,7 @@
 	\textbf{Test}	&	\textbf{ID 2} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& Weight REST (in) \\
-	Requirement			& FIP2 \\
+	Requirement			& \hyperref[table:reqip]{FIP2} \\
 	Description			& Test the REST endpoint for receiving weight data models \\
 	Preconditions		&	\par The IP is deployed and running on a server machine
 							\par The server machine is accesible from the machine running the test \\
@@ -68,7 +68,7 @@
 	\textbf{Test}	&	\textbf{ID 3} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& Heart rate REST (out) \\
-	Requirement			& FIP3 \\
+	Requirement			& \hyperref[table:reqip]{FIP3} \\
 	Description			& Test the REST endpoint for requesting heart rate data models \\
 	Preconditions		&	\par The IP is deployed and running on a server machine
 							\par The server machine is accesible from the machine running the test
@@ -77,11 +77,11 @@
 							\par 2. Enter password
 							\par 3. Press login button \\
 	Postconditions		& The login screen disappear and the inbox appear \\
-	Results				& Correct \\
+	Results				& -- \\
 	Comments			& - \\
 	Status				& OK \\
 	Tester				& Person \\
-	Date				& 21-10-2013 \\
+	Date				& dd-mm-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -95,7 +95,7 @@
 	\textbf{Test}	&	\textbf{ID 4} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& Weight REST (out) \\
-	Requirement			& FIP4 \\
+	Requirement			& \hyperref[table:reqip]{FIP4} \\
 	Description			& Test the REST endpoint for requeting weight data models \\
 	Preconditions		&	\par The IP is deployed and running on a server machine
 							\par The server machine is accesible from the machine running the test
@@ -104,7 +104,7 @@
 							\par 2. Enter password
 							\par 3. Press login button \\
 	Postconditions		& The login screen disappear and the inbox appear \\
-	Results				& Correct \\
+	Results				& -- \\
 	Comments			& - \\
 	Status				& OK \\
 	Tester				& Person \\
@@ -122,19 +122,19 @@
 	\textbf{Test}	&	\textbf{ID 5} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& Heart rate measurement \\
-	Requirement			& FHR1 \\
+	Requirement			& \hyperref[table:reqheartrate]{FHR1} \\
 	Description			& Test the heart rate measurement functionality \\
 	Preconditions		& The application has started \\
 	Steps 				&	\par 1. User holds his finger on the camera applying a slight pressure \\
 	Postconditions		&	\par 1. The icon on the left side of the screen is blinking 
 							\par 2. A measurement appears after 4 seconds at most \\
-	Results				& Correct \\
+	Results				& -- \\
 	Comments			&	The measurement is expected to be rough.
 							Any value between 60 and 100 is okay as long as it actually varies slightly based
 							on the tester's perceived heart rate.  \\
 	Status				& OK \\
 	Tester				& Person \\
-	Date				& 21-10-2013 \\
+	Date				& dd-mm-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -155,11 +155,11 @@
 							\par 2. Enter password
 							\par 3. Press login button \\
 	Postconditions		& The login screen disappear and the inbox appear \\
-	Results				& Correct \\
+	Results				& -- \\
 	Comments			& - \\
 	Status				& OK \\
 	Tester				& Person \\
-	Date				& 21-10-2013 \\
+	Date				& dd-mm-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -173,18 +173,18 @@
 	\textbf{Test}	&	\textbf{ID 7} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& Heart rate measurement \\
-	Requirement			& FHR3 \\
+	Requirement			& \hyperref[table:reqheartrate]{FHR3} \\
 	Description			& Test the heart rate application interoperability \\
 	Preconditions		&	\par 1. The application has started
 							\par 2. A heart rate measurement has been acquired \\
 	Steps 				&	\par 1. User presses \textbf{Send} button \\
 	Postconditions		&	\par 1. The application shows a toast
 							\par 2. The measurement is acquired by the Integration Platform\\
-	Results				& Correct \\
+	Results				& --\\
 	Comments			& --\\
 	Status				& OK \\
 	Tester				& Person \\
-	Date				& 21-10-2013 \\
+	Date				& dd-mm-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -197,20 +197,20 @@
 	\textbf{Test}	&	\textbf{ID 8} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& HealthVault data fetching \\
-	Requirement			& FHV1 \\
+	Requirement			& \hyperref[table:reqweight]{FHV1} \\
 	Description			& Test HealthVault connectivity \\
 	Preconditions		&	\par 1. The application has started
 							\par 2. The user has authenticated to HealthVault \\
 	Steps 				&	\par 1. User \\
 	Postconditions		&	\par 1. The icon on the left side of the screen is blinking.
 							\par 2. A measurement appears after 4 seconds at most.\\
-	Results				& Correct \\
+	Results				& -- \\
 	Comments			&	The measurement is expected to be rough.
 							Any value between 60 and 100 is okay as long as it actually varies slightly based
 							on the tester's perceived heart rate.  \\
 	Status				& OK \\
 	Tester				& Person \\
-	Date				& 21-10-2013 \\
+	Date				& dd-mm-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -223,19 +223,19 @@
 	\textbf{Test}	&	\textbf{ID 5} \\
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Name				& Heart rate measurement \\
-	Requirement			& FHR1 \\
+	Requirement			& \hyperref[table:reqheartrate]{FHR1} \\
 	Description			& Test the heart rate measurement functionality \\
 	Preconditions		& The application has started \\
 	Steps 				&	\par 1. User holds his finger on the camera applying a slight pressure. \\
 	Postconditions		&	\par 1. The icon on the left side of the screen is blinking.
 							\par 2. A measurement appears after 4 seconds at most.\\
-	Results				& Correct \\
+	Results				& -- \\
 	Comments			&	The measurement is expected to be rough.
 							Any value between 60 and 100 is okay as long as it actually varies slightly based
 							on the tester's perceived heart rate.  \\
 	Status				& OK \\
 	Tester				& Person \\
-	Date				& 21-10-2013 \\
+	Date				& dd-mm-2013 \\
 	\hline
 \end{tabular}
 \end{center}
