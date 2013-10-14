@@ -78,6 +78,8 @@ Each sprint is described in a seperate chapter.
 
 \subsection{Work plan}
 
+The project work plan can be seen in figure \ref{figure:work-splan}.
+
 \newpage
 \begin{landscape}
 \begin{figure}[h]
@@ -161,20 +163,22 @@ This section describes the different tools used throught the project.
 \item[Git and GitHub]
 Git is one of the most used version control systems. Although it is mostly used for code, it can be used to manage other types of file such as LaTeX. GitHub is a repository hosting service for Git projects which offers a web-based fronted. We have decided to use Git because of the familiarity we had with it. We used Git for managing both the code and the report.
 
+\item[Scrumdo]
+Scrumdo is a web-based Scrum tool. It has many features such a Scrum board, stories and iteration management as well as time-tracking.
+It is possibile to export the data on Scrumdo to other formats such as Excel tables. Although most of the features are free to use, some of them require a membership. We managed to obtain time-limited membership for free after writing to the people running the service.
+
 \item[Sublime Text]
 Sublime Text is a popular, cross-platform editor which offers advanced features.
 We used Sublime Text for editing the report and for coding JavaScript, CSS.
 
 \item[IntelliJ IDEA]
-A popular, feature-rich Java IDE. We used it to develop the Android applications and for Spring coding.
+A popular, feature-rich Java IDE. We used it to develop Android applications and for Spring coding.
 
 \item[Apache Maven]
 Maven is an open and cross-platform build system for Java projects which, among other things, takes care of dependecies. Maven is powerful and well documented and seemed an optimal choice for our project also because of the familiarity we had with it.
 
 \item[LaTeX suite]
-LaTeX is a powerful language used to prepare documents which is widely used in academical environments. LaTeX takes care of the formatting of the document allowing the writer to focus on the contents, moreover LaTeX documents can be written with any text editor.
-We chose LaTeX because of the familiarity we had with it.
-%LaTeX files can then be compiled to PDF files.
+LaTeX is a powerful language used to prepare documents which is widely used in academical environments. LaTeX takes care of the formatting of the document allowing the writer to focus on the contents, moreover LaTeX documents can be written with any text editor and then compiled to PDF documents. We chose LaTeX because of its advanced features and the familiarity we had with it.
 
 \item[Google Drive and Google Docs]
 Google Drive is a service which lets you access your files from everywhere and share them with other people. It is tightly integrated with Google Docs, a web-based productivity suite. We used Google Drive to share documents within the team and with the customer and supervisor.
@@ -182,6 +186,9 @@ Many of the documents and diagrams produced for the project were created using G
 
 \item[Violet UML]
 A free, Java (cross-platform) UML editor. Violet UML was used for producing use cases and sequence diagrams.
+
+\item[GanttProject]
+A free, Java (cross-platform) tool for generating Gantt diagrams. We used it to produce a diagram of the work plan.
 
 \item[Skype]
 A popular instant-messaging client that also supports audio and video communication.
@@ -200,7 +207,7 @@ Travis CI is an automated build service...
 \end{description}
 
 
-\subsection{Version control procedures}
+%\subsection{Version control procedures}
 
 
 %---
@@ -218,7 +225,7 @@ We have identified a number of roles in this project. Although each role has dif
 \item[Project manager]
 The project manager has the responsability of managing the project.
 This includes people management, high level project planning and risk analysis.
-The project manager is also responsible of producing weekly status reports and supervisor relations.
+The project manager is also responsible of producing weekly status reports and communication with the customer and supervisor.
 \item[Product owner]
 Technically not part of the group. The product owner is responsible of approving and prioritizing the product
 requirements in order to steer its development in the direction he sees fit.
@@ -234,23 +241,31 @@ Responsible for web development. Oversees and takes initiative on web developmen
 Responsible for Android development. Oversees and takes initiative on Android applications development.
 \item[System developer]
 Responsible for developing the Spring backend, including database coding. Takes care of system deployment.
-\item[Customer relations]
-Responsible for contacting the customer.
 \end{description}
 
 \subsection{Role allocation}
-Roles were allocated mostly basing on team members' competences.
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{../Figures/organizational-diagram.png}
+\caption{Organizational diagram}
+\label{figure:orgdia}
+\end{figure}
+
+Roles were allocated primarily on team members' competences.
 Those roles that were left unassigned were taken up by members who volunteered for them upon approval of other team members.
 Because we were only three people, all of us had more than one role. Sometimes, roles were shared.
+We tried to balance roles evenly between ourselves and achieve a flat group organization where no member
+had a prominent role on others. Table \ref{table:roles} shows roles allocation within the group.
+See \ref{figure:orgdia} for an diagram of how the group is organized.
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | l | l | }
   \hline
-  Member & Roles \\
+  \textbf{Member} & \textbf{Roles} \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  Anders Olsen Sandvik  &  System developer, Secretary\\
-  Emanuele Di Santo     &  Project manager, Droid developer\\
+  Anders Olsen Sandvik  &  System developer, Secretary, Quality assurance\\
+  Emanuele Di Santo     &  Project manager, Droid developer, System developer\\
   Sebastian Zalewski    &  Web developer, System developer, Secretary\\
   \hline
 \end{tabular}
@@ -263,17 +278,26 @@ Because we were only three people, all of us had more than one role. Sometimes, 
 During the early stages of the project the team has agreed on a meeting schedule.
 
 \begin{description}
-\item[Monday] \hfill from 10 to 19 \\
-\textbf{Weekly startup meeting} from 10 to 11.\newline
+
+\item[Monday] (from 10 to 19 - 9 hours total) \\
+\textbf{[10.00 - 11.00] Weekly startup meeting}\newline
 At the begin of each week we would review the progress done during the previous and discuss the plan for the next.
 We also discussed any problems encountered.
 This internal meeting would follow the last Status Report document.
-\newline\textbf{Customer meeting} from 11 to 12.\newline
+\newline\textbf{[11.00 to 12.00] Customer meeting}\newline
 During the meeting with customer we would discuss with him the work done and share our plan for the next week.
 This was done in order to help us prioritize our work to better suit the customer's interest.
-\newline\textbf{Supervisor meeting} from 12 to 13.\newline
-\item[Wednesday] \hfill from 15 to 19 \\
-\textbf{Collective work session} (4 hours)
+\newline\textbf{[12.00 to 13.00] Supervisor meeting}\newline
+The group would go through the status report and bring up issues or problems with the project.
+We tried to give the supervisor the best understanding possible of our project especially regarding
+its progress and group dynamics.
+\newline\textbf{[13.00 to 14.00] Lunch}\newline
+The group had lunch together on Mondays. It is good to eat together and chat about things other than the project.
+It helps getting to know each other better.
+\newline\textbf{[14.00 to 19.00] Collective work session}
+
+\item[Wednesday] (from 15 to 19 - 4 hours total) \\
+\textbf{[15.00 to 19.00] Collective work session}
 \end{description}
 
 \subsection{Group dynamics}
@@ -283,23 +307,22 @@ Group dynamics are probably the most critical aspect of this project.
 It would be safe to say that due to the nature of the project itself, its success is based primarily on group dynamics.
 We are, in fact, a group of people working to deliver a product to another group of people.
 It is easy to convince ourselves that in this case (and many other) people management is essential for the product to be successful.
+Any successful software project relies on successful group dynamics because no project can be accomplished by a single man.
 We understand that the role of a good project manager is basically people management.
-This encompasses a set of practices, precautions and knowledge which will be described below.
+This encompasses a set of practices, precautions and knowledge which we have taken into consideration and tried our
+best to make our own.
 
 \begin{description}
 
 \item[Understand people]
 This is of course a fundamental prerequisite of people management: there can be no people management without some kind of understanding.
 
-\item[Communicate]
-%rephrase
-%Your staff will feel much more engaged if you let them know what’s happening. Everybody wants to see the \"big picture\" sometimes.
-
-
 \item[Lead by Example]
 A project manager should lead other team members by giving them a good example: being enthusiastic about his job
 and doing it with a positive attitude.
 
+\item[Communicate]
+It's important to give everybody a \'big picture\'.
 
 \item[Motivate]
 A team's commitment will greatly improve many variables in a software project.
@@ -307,7 +330,7 @@ People are inevitably influenced by other people around them, especially when th
 If any member has a low commitment to the project his attitude will influence negatively other team members.
 
 A good project manager will motivate the team to work well and gratify members who do so.
-It is a duty of the project manager to instill a positive and enthusiastic attitude in a software development team.
+It is a duty of the project manager to instill a positive and enthusiastic attitude in the team.
 
 To achieve this task, it is important to identify personality types among a group so that
 motivation can be more effective. These can be divided into three categories:
@@ -319,14 +342,10 @@ motivation can be more effective. These can be divided into three categories:
 
 It is desiderable that within a group such personality types are balanced.
 
-In our case, the project manager tried motivating the group by rewarding other members job
-and stressing the importance of the project itself as a chance to acquire relevant knowledge,
-to get a good grade (academic achievement), to do something that stimulated further research and work
-in the field.
-
-
-\item[Feedback on performance]
-
+In our case, the project manager tried motivating the group by rewarding good jobs
+and outlining the importance of the project itself as a chance to acquire knowledge,
+to get a good grade (academic achievement) and to do something that stimulated further
+research and work in the field.
 
 \item[Cooperation]
 People should be encouraged to work together, share ideas and thoughts.
@@ -340,24 +359,38 @@ or in order to let them explain their what they did and how.
 When the supervisor or the customer asked questions, he made sure not to be the only one
 answering by inviting other team members to do so.
 
+\item[Size matters]
+The fact that the group is made of three members definitely plays a factor in group dynamics
+and in projet management. Though many may see it as a weakness or downside of a group we believe
+in our case it was not, or rather it proved more a strenght than a weakness.
+In software development, just like in any other engineering practice assigning many people
+at a task is unlikely to produce better results than a sufficiently small but motivated group.
+%Just like it takes one month to ferment wine, no matter how many people are involved.
+Although having a small team means that flexibility in group composition is absent and
+the technical skill pool is reduced it is important to realize that a small team
+can be more easily motivated and achieve a higher degree of cooperation.
+To do so, care should be taken into not letting any member of the group become
+a \'black sheep\'. Team members should respect each others and their respective work,
+nobody should feel less important or cut out of the decision making process.
+
+\item[Distance matters]
+During the project one team member moved to Oslo and got a full-time job.
+This important event required some adjustment to project management strategy.
+
+
 
 \end{description}
 
 
-The fact that the group is made of three members definitely plays a factor here.
-It is both a strenght and a weakness
+%pregnant woman mistake
 
-pregnant woman mistake
+%flexibility in group composition is absent.
+%technical skill pool is reduced.
 
-flexibility in group composition is absent.
-technical skill pool is reduced.
+%possibility of better cooperation
+%easily motivated
 
-possibility of better cooperation
-easily motivated
-
-black sheep
-
-%Any successful software project relies on successful group dynamics because no project can be accomplished by a single man.
+%black sheep
 
 
 \section{Quality assurance}
