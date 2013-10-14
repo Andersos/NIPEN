@@ -22,9 +22,10 @@
 	Description			& Test the REST endpoint for receiving heart rate data models \\
 	Preconditions		& 	\par The IP is deployed and running on a server machine 
 							\par The server machine is accesible from the machine running the test \\
-	Steps 				&	\par 1. Enter username
-							\par 2. Enter password
-							\par 3. Press login button \\
+	Steps 				&	1. Run the following: \'curl -X POST -H \"Content-Type: application/json\" -d
+							\'\{\"id\":0,\"value\":60,\"timestamp\":\"null\",\"unit\":\"unit\"\}\'
+							\\
+							
 	Postconditions		& The table \textit{heart rate} in the database on the server machine contains a row \\
 	Results				& - \\
 	Comments			& - \\
@@ -47,9 +48,9 @@
 	Description			& Test the REST endpoint for receiving weight data models \\
 	Preconditions		&	\par The IP is deployed and running on a server machine
 							\par The server machine is accesible from the machine running the test \\
-	Steps 				&	\par 1. Enter username
-							\par 2. Enter password
-							\par 3. Press login button \\
+	Steps 				&	\par 1. 
+							\par 2. 
+							\par 3.  \\
 	Postconditions		& The table \textit{weight} in the database on the server machine contains a row \\
 	Results				& - \\
 	Comments			& - \\
@@ -73,13 +74,13 @@
 	Preconditions		&	\par The IP is deployed and running on a server machine
 							\par The server machine is accesible from the machine running the test
 							\par At least one heart rate measurement has been stored on the IP \\
-	Steps 				&	\par 1. Enter username
-							\par 2. Enter password
-							\par 3. Press login button \\
+	Steps 				&	\par 1. 
+							\par 2. 
+							\par 3.  \\
 	Postconditions		& The login screen disappear and the inbox appear \\
 	Results				& -- \\
 	Comments			& - \\
-	Status				& OK \\
+	Status				& OK or FAIL \\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
@@ -100,13 +101,13 @@
 	Preconditions		&	\par The IP is deployed and running on a server machine
 							\par The server machine is accesible from the machine running the test
 							\par At least one weight measurement has been stored on the IP \\
-	Steps 				&	\par 1. Enter username
-							\par 2. Enter password
-							\par 3. Press login button \\
+	Steps 				&	\par 1. 
+							\par 2. 
+							\par 3.  \\
 	Postconditions		& The login screen disappear and the inbox appear \\
 	Results				& -- \\
 	Comments			& - \\
-	Status				& OK \\
+	Status				& OK or FAIL \\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
@@ -132,7 +133,7 @@
 	Comments			&	The measurement is expected to be rough.
 							Any value between 60 and 100 is okay as long as it actually varies slightly based
 							on the tester's perceived heart rate.  \\
-	Status				& OK \\
+	Status				& OK or FAIL \\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
@@ -151,13 +152,13 @@
 	Requirement			& FR1 \\
 	Description			& Test the login functionality \\
 	Preconditions		& The application has started \\
-	Steps 				&	\par 1. Enter username
-							\par 2. Enter password
-							\par 3. Press login button \\
+	Steps 				&	\par 1. 
+							\par 2. 
+							\par 3. P
 	Postconditions		& The login screen disappear and the inbox appear \\
 	Results				& -- \\
-	Comments			& - \\
-	Status				& OK \\
+	Comments			& -- \\
+	Status				& OK or FAIL \\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
@@ -180,9 +181,9 @@
 	Steps 				&	\par 1. User presses \textbf{Send} button \\
 	Postconditions		&	\par 1. The application shows a toast
 							\par 2. The measurement is acquired by the Integration Platform\\
-	Results				& --\\
-	Comments			& --\\
-	Status				& OK \\
+	Results				& -- \\
+	Comments			& -- \\
+	Status				& OK or FAIL \\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
@@ -208,7 +209,7 @@
 	Comments			&	The measurement is expected to be rough.
 							Any value between 60 and 100 is okay as long as it actually varies slightly based
 							on the tester's perceived heart rate.  \\
-	Status				& OK \\
+	Status				& OK or FAIL\\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
@@ -233,7 +234,7 @@
 	Comments			&	The measurement is expected to be rough.
 							Any value between 60 and 100 is okay as long as it actually varies slightly based
 							on the tester's perceived heart rate.  \\
-	Status				& OK \\
+	Status				& OK or FAIL \\
 	Tester				& Person \\
 	Date				& dd-mm-2013 \\
 	\hline
