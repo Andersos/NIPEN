@@ -22,8 +22,12 @@
 	Description			& Test the REST endpoint for receiving heart rate data models \\
 	Preconditions		& 	\par The IP is deployed and running on a server machine 
 							\par The server machine is accesible from the machine running the test \\
-	Steps 				&	1. Run the following: \'curl -X POST -H \"Content-Type: application/json\" -d
-							\'\{\"id\":0,\"value\":60,\"timestamp\":\"null\",\"unit\":\"unit\"\}\'
+	Steps 				&	1. Run the following:
+							\begin{verbatim}
+							curl -X POST -H "Content-Type: application/json"
+							-d {"id":0,"value":60,"timestamp":"null","unit":
+							"unit"}'
+							\end{verbatim}
 							\\
 							
 	Postconditions		& The table \textit{heart rate} in the database on the server machine contains a row \\
