@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<script type="text/javascript" src="../scripts/Chart.min.js"></script>
-		<script type="text/javascript" src="../scripts/jquery-1.10.1.js"></script>
-		<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
+		<script type="text/javascript" src="resources/scripts/Chart.min.js"></script>
+		<script type="text/javascript" src="resources/scripts/jquery-1.10.1.js"></script>
+		<script type="text/javascript" src="resources/scripts/bootstrap.min.js"></script>
 
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="resources/css/bootstrap.min.css" rel="stylesheet">
 		<style>
 			html,
 			body {
@@ -145,7 +145,7 @@
 				<div id="heart-rate" class="data-type">
 					<div class="caption">
 						<span>Heart Rate</span>
-						<a href="../nipen/api/human/heart_rates">(json)</a>
+						<a href="api/human/heart_rates">(json)</a>
 					</div>
 
 					<div class="newest-measure" id="newest-heart-rate"></div>
@@ -155,7 +155,7 @@
 				<div id="weight" class="data-type">
 					<div class="caption">
 						<span>Weight</span>
-						<a href="../nipen/api/human/weights">(json)</a>
+						<a href="api/human/weights">(json)</a>
 					</div>
 
 					<div class="newest-measure" id="newest-weight"></div>
@@ -177,31 +177,31 @@
 			var chartHeightFullSize = "550";
 
 			$(document).ready(function() {
-				updatePage();
+			    startPolling("/nipen/api/human/heart_rates", -1, updateHeartRates);
+			    startPolling("/nipen/api/human/weights", -1, updateWeights);
 			});
 
-			function updatePage() {
-				initDataType("newest-heart-rate", "heart-rate-chart", "../nipen/api/human/heart_rates", "hard_coded_json/heart_rates");
-				initDataType("newest-weight", "weight-chart", "../nipen/api/human/weights", "hard_coded_json/weights");
+			function startPolling(url, lastTimestamp, updateFunction) {
+			    $.ajax({
+			        url: url,
+			        dataType: "json",
+			        success: function(data) {
+			            if (lastTimestamp != data[data.length-1].timestamp) {
+			                lastTimestamp = data[data.length-1].timestamp;
+			                updateFunction(data);
+			            }
+			        },
+			        complete: setTimeout(function() {startPolling(url, lastTimestamp, updateFunction)}, 1000),
+			        timeout: 30000
+			    });
 			}
 
-			function initDataType(divId, canvasId, url, altUrl) {
-				$.ajax({
-					url: url,
-					dataType: 'json',
-					success: function(data) {
-						visualizeData(divId, canvasId, data);
-					},
-					error: function() {
-						$.ajax({
-							url: altUrl,
-							dataType: 'json',
-							success: function(data) {
-								visualizeData(divId, canvasId, data);
-							}
-						});
-					}
-				});
+			function updateHeartRates(heartRateData) {
+			    visualizeData("newest-heart-rate", "heart-rate-chart", heartRateData);
+			}
+
+			function updateWeights(weightData) {
+			    visualizeData("newest-weight", "weight-chart", weightData);
 			}
 
 			function visualizeData(divId, canvasId, data) {
@@ -257,8 +257,6 @@
 
 			function changePage(buttonId) {
 				var animationTime = 400;
-
-				updatePage();
 
 				$("#" + buttonId).attr("class", "custom-active");
 				$("#" + activePageButton).attr("class", "");
