@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nipen/nipen.iml" filepath="$PROJECT_DIR$/nipen/nipen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nipen-heart-rate/nipen-heart-rate.iml" filepath="$PROJECT_DIR$/nipen-heart-rate/nipen-heart-rate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nipen-hv-weighter/nipen-hv-weighter.iml" filepath="$PROJECT_DIR$/nipen-hv-weighter/nipen-hv-weighter.iml" />
+    </modules>
+  </component>
+</project>
+
