@@ -175,13 +175,20 @@
 			var activePageButton = "home-button";
 			var chartWidthFullSize = "900";
 			var chartHeightFullSize = "550";
+			var pollingFrequency = 1000;
+			var allowedPollingKey = 0;
 
 			$(document).ready(function() {
-			    startPolling("/nipen/api/human/heart_rates", -1, updateHeartRates);
-			    startPolling("/nipen/api/human/weights", -1, updateWeights);
+                updatePage();
 			});
 
-			function startPolling(url, lastTimestamp, updateFunction) {
+			function updatePage() {
+			    allowedPollingKey++;
+			    startPolling("/nipen/api/human/heart_rates", -1, updateHeartRates, allowedPollingKey);
+                startPolling("/nipen/api/human/weights", -1, updateWeights, allowedPollingKey);
+			}
+
+			function startPolling(url, lastTimestamp, updateFunction, pollingKey) {
 			    $.ajax({
 			        url: url,
 			        dataType: "json",
@@ -191,7 +198,10 @@
 			                updateFunction(data);
 			            }
 			        },
-			        complete: setTimeout(function() {startPolling(url, lastTimestamp, updateFunction)}, 1000),
+			        complete: setTimeout(function() {
+			            if (pollingKey == allowedPollingKey)
+			                startPolling(url, lastTimestamp, updateFunction, pollingKey);
+			            }, pollingFrequency),
 			        timeout: 30000
 			    });
 			}
@@ -257,6 +267,8 @@
 
 			function changePage(buttonId) {
 				var animationTime = 400;
+
+				updatePage();
 
 				$("#" + buttonId).attr("class", "custom-active");
 				$("#" + activePageButton).attr("class", "");
