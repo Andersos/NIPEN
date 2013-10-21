@@ -1,18 +1,21 @@
 package no.helsenorge.nipen.service;
 
 import no.helsenorge.nipen.database.WeightDAO;
-import no.helsenorge.nipen.model.Weight;
+import no.helsenorge.nipen.models.Weight;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.List;
 
+@Component
 public class WeightServiceImpl implements WeightService {
+
     private WeightDAO weightDAO;
 
-    @Resource
+    @Resource(name = "dataSource")
     @Required
     public void setDataSource(DataSource dataSource) {
         weightDAO = new WeightDAO(new JdbcTemplate(dataSource));

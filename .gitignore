@@ -1,3 +1,17 @@
+
+
+.idea/*
+
+nipen/target*
+
+nipen-heart-rate/gen/*
+nipen-heart-rate/target/*
+nipen-heart-rate/local.properties
+
+nipen-hv-weighter/gen/*
+nipen-hv-weighter/target/*
+nipen-hv-weighter/local.properties
+
 # ignore redundant latex files
 *.aux
 *.lof
@@ -10,16 +24,3 @@
 *.bbl
 *.pdf
 
-# ignore redundant java files
-*.jar
-*.class
-
-# ignore build files
-pom.properties
-*.txt
-*.iml
-target
-.idea
-nipen/target*
-nipen-heart-rate/target/*
-nipen-heart-rate/gen/*

@@ -1,6 +1,6 @@
 package no.helsenorge.nipen.database;
 
-import no.helsenorge.nipen.model.HeartRate;
+import no.helsenorge.nipen.models.HeartRate;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public final class HeartRateDAO {
+
     private JdbcTemplate jdbcTemplate;
 
     public HeartRateDAO(JdbcTemplate jdbcTemplate) {
@@ -17,9 +18,9 @@ public final class HeartRateDAO {
     }
 
     public void insertHeartRate(HeartRate heartRate) throws DataAccessException {
-        long userId = heartRate.getUserId();
+        int userId = heartRate.getUserId();
+        int value = heartRate.getValue();
         String timestamp = heartRate.getTimestamp();
-        long value = heartRate.getValue();
         String unit = heartRate.getUnit();
 
         jdbcTemplate.update("INSERT INTO heart_rate (user_id, value, timestamp, unit) " +
@@ -30,12 +31,12 @@ public final class HeartRateDAO {
         return jdbcTemplate.query("SELECT * FROM heart_rate ORDER BY timestamp ASC", new RowMapper<HeartRate>() {
             @Override
             public HeartRate mapRow(ResultSet resultSet, int i) throws SQLException {
-                long id = resultSet.getLong(1);
-                long userId = resultSet.getLong(2);
+                int id = resultSet.getInt(1);
+                int userId = resultSet.getInt(2);
                 int value = resultSet.getInt(3);
-                String timestamp = resultSet.getTimestamp(4).toString();
+                String timestamp = resultSet.getString(4);
                 String unit = resultSet.getString(5);
-                HeartRate hr = new HeartRate(userId, timestamp, value, unit);
+                HeartRate hr = new HeartRate(userId, value, timestamp, unit);
                 hr.setId(id);
                 return hr;
             }

@@ -1,10 +1,8 @@
 package no.helsenorge.nipen.controller;
 
-import no.helsenorge.nipen.parser.HeartRateJsonParser;
+import no.helsenorge.nipen.models.HeartRate;
 import no.helsenorge.nipen.service.HeartRateService;
-import no.helsenorge.nipen.model.HeartRate;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,26 +10,48 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/api/human")
 public class HeartRateController {
-    private ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-    private HeartRateService heartRateService = (HeartRateService)context.getBean("heartRateService");
 
-    @RequestMapping(value="/api/human/heart_rates", method =  RequestMethod.GET)
+    /*private ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+    private HeartRateService heartRateService = (HeartRateService)context.getBean("heartRateService");*/
+
+    @Autowired
+    private HeartRateService heartRateService;
+
+    @RequestMapping(value = "heart_rates", method = RequestMethod.GET)
     @ResponseBody
     public List<HeartRate> getHeartRates() {
         return heartRateService.getHeartRates();
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value="/api/human/heart_rate", method = RequestMethod.POST)
-    public void addHeartRate(@RequestBody String jsonHeartRate) {
+    /*public void addHeartRate(@RequestBody String jsonHeartRate) {
         heartRateService.insertHeartRate(new HeartRateJsonParser(jsonHeartRate).toHeartRate());
+    }*/
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(
+            value = "heart_rate",
+            method = RequestMethod.POST)
+    public void addHeartRate(@RequestBody HeartRate heartRate) {
+        heartRateService.insertHeartRate(heartRate);
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(
+            value = "heart_rate_test",
+            method = RequestMethod.POST)
+    public void addHeartRate(@RequestBody String heartRate) {
+        //heartRateService.insertHeartRate(heartRate);
+        System.out.println(heartRate);
     }
 
     // For testing
-    @RequestMapping(value="/api/human/test", method =  RequestMethod.GET)
+    @RequestMapping(value = "test", method = RequestMethod.GET)
     @ResponseBody
     public String getHello() {
-        return "Hello World!";
+        System.out.println("serving home");
+        return "hello";
     }
 }

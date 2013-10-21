@@ -1,6 +1,6 @@
 package no.helsenorge.nipen.database;
 
-import no.helsenorge.nipen.model.Weight;
+import no.helsenorge.nipen.models.Weight;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class WeightDAO {
+
     private JdbcTemplate jdbcTemplate;
 
     public WeightDAO(JdbcTemplate jdbcTemplate) {
@@ -16,9 +17,9 @@ public class WeightDAO {
     }
 
     public void insertWeight(Weight weight) {
-        long userId = weight.getUserId();
+        int userId = weight.getUserId();
+        int value = weight.getValue();
         String timestamp = weight.getTimestamp();
-        long value = weight.getValue();
         String unit = weight.getUnit();
 
         jdbcTemplate.update("INSERT INTO weight (user_id, value, timestamp, unit) " +
@@ -29,12 +30,12 @@ public class WeightDAO {
         return jdbcTemplate.query("SELECT * FROM weight ORDER BY timestamp ASC", new RowMapper<Weight>() {
             @Override
             public Weight mapRow(ResultSet resultSet, int i) throws SQLException {
-                long id = resultSet.getLong(1);
-                long userId = resultSet.getLong(2);
+                int id = resultSet.getInt(1);
+                int userId = resultSet.getInt(2);
                 int value = resultSet.getInt(3);
-                String timestamp = resultSet.getTimestamp(4).toString();
+                String timestamp = resultSet.getString(4);
                 String unit = resultSet.getString(5);
-                Weight weight = new Weight(userId, timestamp, value, unit);
+                Weight weight = new Weight(userId, value, timestamp, unit);
                 weight.setId(id);
                 return weight;
             }
