@@ -1,18 +1,22 @@
 
+# idea files
 
-.idea/*
+.idea/workspace.xml
+.idea/tasks.xml
+*.iws
+
+# output files
 
 nipen/target*
-
 nipen-heart-rate/gen/*
 nipen-heart-rate/target/*
 nipen-heart-rate/local.properties
-
 nipen-hv-weighter/gen/*
 nipen-hv-weighter/target/*
 nipen-hv-weighter/local.properties
 
 # ignore redundant latex files
+
 *.aux
 *.lof
 *.lot
