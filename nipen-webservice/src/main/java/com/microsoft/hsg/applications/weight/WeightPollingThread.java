@@ -13,8 +13,6 @@ import java.net.URL;
 import java.util.List;
 
 public class WeightPollingThread extends Thread {
-    private final int POLLING_TIME_IN_SECONDS = 600;
-    private int secondsLeft = 0;
     private boolean running = false;
 
     public static PersonInfo personInfo = null;
@@ -23,17 +21,8 @@ public class WeightPollingThread extends Thread {
         System.out.println("Weight polling thread has started.");
         String lastWeightTime = null;
 
-        long time = System.currentTimeMillis();
-        secondsLeft = POLLING_TIME_IN_SECONDS;
         running = true;
         while (running) {
-            /*secondsLeft = POLLING_TIME_IN_SECONDS - (int)((System.currentTimeMillis() - time) / 1000.0);
-
-            if (secondsLeft <= 0) {
-                stopThread();
-                break;
-            }*/
-
             OnlineRequestTemplate requestTemplate = new OnlineRequestTemplate(ConnectionFactory.getConnection());
             ThingProvider thingProvider = new ThingProvider(requestTemplate);
             List weights = thingProvider.getThingsByType(Weight.Type);
@@ -66,11 +55,6 @@ public class WeightPollingThread extends Thread {
 
     public void stopThread() {
         running = false;
-        secondsLeft = 0;
-    }
-
-    public int getSecondsLeft() {
-        return secondsLeft;
     }
 
     private void sendWeightToNipen(Weight weight) {

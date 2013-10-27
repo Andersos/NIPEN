@@ -106,10 +106,10 @@ public class WeightPage implements RequestHandler {
 	}
 
     private void setPollingAttributeToRequest(HttpServletRequest request) {
-        Integer pollingTimeLeft = new Integer(0);
-        if (weightPollingThread != null && weightPollingThread.isRunning()) {
-            pollingTimeLeft = new Integer(weightPollingThread.getSecondsLeft());
+        Boolean isPolling = new Boolean(false);
+        if (weightPollingThread != null) {
+            isPolling = new Boolean(weightPollingThread.isRunning());
         }
-        request.setAttribute("pollingTimeLeft", pollingTimeLeft);
+        request.setAttribute("isPolling", isPolling);
     }
 }
