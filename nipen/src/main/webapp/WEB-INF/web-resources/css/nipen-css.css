@@ -1,0 +1,103 @@
+html,
+body {
+    background-color: #f2f2f2;
+    height: 100%;
+}
+
+.data-type {
+    padding-top: 50px;
+    padding-bottom: 40px;
+    font-family: UnitSlabWebPro-Bold,Cambria,Lucida Sans;
+    color: #9a2b7e;
+    border-bottom: solid;
+    border-width: 1px;
+}
+
+.caption {
+    padding-bottom: 20px;
+}
+
+.caption span {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+#user-name {
+    position: absolute;
+    right: 0px;
+}
+
+.newest-measure {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30pt;
+    border-style: dotted;
+    border-width: 2.0px;
+    border-radius: 25px;
+    border-color: #333333;
+    color: #333333;
+}
+
+.newest-measure i {
+    display: block;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 15px;
+    color: #cc0099;
+}
+
+.newest-measure span {
+    font-size: 70pt;
+}
+
+.navbar .navbar-inner {
+    background-color: #330d29;
+    background-image: none;
+}
+
+.custom-active {
+    color: #555;
+    background-color: #220c29;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -60px;
+}
+
+#push,
+#footer {
+    height: 120px;
+}
+#footer {
+    background-color: #3b2435;
+}
+
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+#internal-header {
+    padding-top: 50px;
+    font-family: UnitSlabWebPro-Bold,Cambria,Lucida Sans;
+    color: #9a2b7e;
+}
+
+#main-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-top: solid;
+    border-top-width: 5px;
+    border-color: #9a2b7e;
+}
