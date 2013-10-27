@@ -76,7 +76,7 @@ public class Controller extends HttpServlet {
 	            }
 	            else
 	            {
-	            	showView(request, response, "/home.jsp");
+	            	showView(request, response, "/things/weight");
 	            }
 			}
 			catch (HVAccessDeniedException axdenied)

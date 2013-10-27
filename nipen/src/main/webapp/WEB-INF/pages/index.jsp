@@ -156,6 +156,7 @@
 					<div class="caption">
 						<span>Weight</span>
 						<a href="api/human/weights">(json)</a>
+						<a href="../webservice-1.0" target="_blank" style="float: right; margin-right: 40px;">(HealthVault Polling Service)</a>
 					</div>
 
 					<div class="newest-measure" id="newest-weight"></div>

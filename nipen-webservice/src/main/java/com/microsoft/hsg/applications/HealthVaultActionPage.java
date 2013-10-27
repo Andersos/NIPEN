@@ -45,7 +45,7 @@ public class HealthVaultActionPage extends HttpServlet {
 		}
 		// Other targets go here...
 		
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("things/weight");
 	}
 	
 	/**
