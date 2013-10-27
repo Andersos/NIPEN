@@ -6,18 +6,23 @@
 
 \section{Goal(s)}
 This sprint's goal was the completition of an initial prototype of the system whose functionality
-had to be demonstrated to the customer using an Android application. This corresponded to project milestone M1.
+had to be demonstrated to the customer; this corresponded to project milestone M1.
+The purpose of such prototype was to act as a proof-of-concept and give the customer
+a chance to express some feedback upon which we hoped to start a discussion
+on possible improvements and new features.
 
 \section{Planning}
-In order the achive the goal for this sprint we planned to begin coding the functionality required to demonstrate
-the system as a whole. This led to an initial design and implementation of every part of the system including:
-a) the frontend b) the backend and database c) the Android application.
-%We had planned some work on the report as well but that got moved to another iteration due to..
+In order to achieve the goal for this sprint we planned to accomplish an initial design
+and implementation of every part of the system including:
+a) the frontend b) the backend and database c) the Android application to measure heart rate.
+We planned some additional studies on relevant technologies for the first week of the sprint
+and begin writing some parts of the report.
 
 \section{Duration}
 The duration of the sprint was the following:
 \begin{itemize}
 \item Start: September, 9th
+\item Milestone M1 (first system prototype): September, 20th
 \item End: September, 22nd
 \end{itemize}
 
@@ -30,7 +35,7 @@ The duration of the sprint was the following:
 
 \section{Backlog}
 
-See below the ordered sprint backlog.
+See below the sprint backlog.
 \begin{itemize}
 	\item \textbf{M1 First system prototype}
 	\item \textbf{Project management}\newline
@@ -54,27 +59,29 @@ See below the ordered sprint backlog.
 	\item \textbf{Additional pre-studies}
 		Continued studies on relevant technlogies such as:
 	\begin{itemize}
-		\item \textbf{Studies on HealthVault}
-		\item \textbf{Studies on Apache Camel}
-		\item \textbf{Studies on JS chart libraries}
+		\item \textbf{HealthVault}: Microsoft's online health platform.
+		\item \textbf{Apache Camel}: a routing engine for enterprise integration patterns.
+		\item \textbf{Javascript libraries for charts}: to be used in the frontend.
 	\end{itemize}
 	\item \textbf{System development}
 		Initial design and implementation. For this sprint, this accounted for:
 	\begin{itemize}
 		\item \textbf{Backend development}:
-			Initial Spring controllers for API endpoints and database (DAO) development.
+			Development of Spring controllers for API endpoints. Database (DAO) coding to
+			implement data persistence.
 		\item \textbf{Frontend development}:
-			Coding of the frontend using JS to implement charts.
+			Coding of the frontend. This included setting up an HTML page which used
+			AJAX to perform API calls and JS to show the data retrieved using a bar chart.
 		\item \textbf{Deployment}:
-			Deployment of both backend and frontend.
+			Deployment of both backend and frontend using a servlet container (Tomcat).
 	\end{itemize}
 	\item \textbf{Heart rate application}:
-		Basic implementation of the Heart rate application. The application should be able to acquire
-		the user's heart reate and send perform a REST API call to store the data on the backend.
+		basic implementation of the Heart rate application. The application should be able to acquire
+		the user's heart reate and send perform an API call to store the data on the backend.
 	\item \textbf{Database development}:
 		We chose a suitable database to use for implementing persistency on the backend.
 		We opted for MySQL due to the familiarity we had with it. We then deployed it on the server machine
-		and added a table so that we could test the functionality of the backend.
+		and added a first table so that we could test the functionality of the backend.
 	\item \textbf{Testing}:
 		Perform unit and integration testing for the heart rate application and the backend.
 \end{itemize}
@@ -103,11 +110,43 @@ See below the ordered sprint backlog.
 \section{Testing}
 
 \section{Results and feedback}
-We presented a prototype of the product to the customer and he seemed to be very pleased with the results.
-He stated that the results were above his expectations.
-We talked about some features that he'd would like to see implemented in the product
-and we agreed to prioritise HealthVault interoperability.
+
+Around the end of this sprint, on September 20th, we demonstrated a prototype of system to
+the client which included: a) the frontend, b) the backend, c) an Android application to measure
+heart rate using the phone's camera.
+
+The backend supported web API calls for storing and retrieving heart rate measurements.
+Both the Android application and the frontend used these API calls for sending and retrieving
+such measurements respectively. The measurements were ultimately shown to the user on a
+webpage (the frontend) using a bar chart.
+
+The customer was pleased with the results, stating that they were above his expectations.
+
+We discussed about which features he would like to see implemented next in the product
+and we agreed to prioritise interoperability with HealthVault instead of Withings.
+
+The reason behind this decision was the fact that interoperability with HealthVault would have
+enabled the product to use third-party devices supported by HealthVault to gather health data.
+
+Since the number of devices supported by HealthVault is substantial, this was deemed a
+desiderable feature for the product.
+
+The customer asked if the amounts of resources we had at disposal to actually implement
+such interoperability was sufficient and inquired about the general viability of such approach.
+
+We expressed our confidence about the feasibility of such approach and that the resources
+at hand were sufficient. Nevertheless, we set a deadline (10 days) to assess such
+feasibility in order not to delay the general progress of the product.
+
+\textbf{Notes}: before the end of the sprint one team member had moved permanently to Oslo.
+
+we didn't manage to begin writing the report.
 
 \section{Evaluation}
-We manage to achived what we had planned for this sprint.
-We received positive feedback and ultimately pinned down some refined requirements of the product.
+
+The sprint was successful as we managed to achieve the main goal of the sprint (Milestone M1).
+We were pleased by the positive feedback received from the customer and felt motivated to keep up the good work.
+Furthermore, having proactively partecipated in the improvement/proposal of product requirements
+together with the customer made the whole team look forward to implement these new features and improve the product.
+
+Although we didn't manage write anything in the report we still had
