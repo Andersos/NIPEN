@@ -15,11 +15,13 @@
 *.class
 
 # ignore build files
+
+*/local.properties
 pom.properties
 *.txt
 *.iml
-target
+
 .idea
-nipen/target*
-nipen-heart-rate/target/*
-nipen-heart-rate/gen/*
+
+*/target*
+*/gen/*
