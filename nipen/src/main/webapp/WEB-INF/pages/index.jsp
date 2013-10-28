@@ -43,6 +43,7 @@
 		        </div>
 
 		        <div class="newest-measure" id="newest-heart-rate"></div>
+		        <span id="heart-rate-unit" class="unit"></span>
 		        <canvas id="heart-rate-chart"></canvas>
 	        </div>
 
@@ -54,6 +55,7 @@
 		        </div>
 
 		        <div class="newest-measure" id="newest-weight"></div>
+		        <span id="weight-unit" class="unit"></span>
 		        <canvas id="weight-chart"></canvas>
 	        </div>
         </div>

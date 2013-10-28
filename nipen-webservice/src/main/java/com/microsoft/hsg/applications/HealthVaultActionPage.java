@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
 
+import com.microsoft.hsg.applications.weight.WeightPollingThread;
 import org.xml.sax.InputSource;
 
 import com.microsoft.hsg.ConnectionFactory;
@@ -63,6 +64,8 @@ public class HealthVaultActionPage extends HttpServlet {
 			PersonInfo personInfo = new PersonInfo();
 			personInfo.setUserAuthToken(authToken);
 			personInfo.setRecordId(getSelectedRecordId(authToken));
+
+            WeightPollingThread.personInfo = personInfo;
 			
 			HttpSession session = request.getSession();
 			session.setAttribute(PERSON_INFO_KEY, personInfo);	

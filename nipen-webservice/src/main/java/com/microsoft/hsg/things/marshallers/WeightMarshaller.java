@@ -92,7 +92,7 @@ public class WeightMarshaller implements ThingMarshaller
         writer.print(calendar.get(Calendar.SECOND));
         writer.print("</s></time></when><value><kg>");
         writer.print(weight.getValue());
-        writer.print("</kg><display units=\"lb\" units-code=\"lb\">");
+        writer.print("</kg><display units=\"kg\" units-code=\"kg\">");
         writer.print(weight.getValue());
         writer.print("</display></value></weight>");
         writer.print("<common/></data-xml></thing>");

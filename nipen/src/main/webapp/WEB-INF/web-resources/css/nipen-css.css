@@ -101,3 +101,10 @@ body {
     border-top-width: 5px;
     border-color: #9a2b7e;
 }
+
+.unit {
+    position: relative;
+    color: #333333;
+    font-family: Arial;
+    font-weight: bold;
+}

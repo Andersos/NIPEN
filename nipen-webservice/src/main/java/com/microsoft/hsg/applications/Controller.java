@@ -56,8 +56,6 @@ public class Controller extends HttpServlet {
 			HttpSession session = request.getSession();
 			PersonInfo personInfo = (PersonInfo)session.getAttribute(PERSON_INFO_KEY);
 			RequestCtx.setPersonInfo(personInfo);
-
-            WeightPollingThread.personInfo = personInfo;
 		
 			if (personInfo == null)
 			{

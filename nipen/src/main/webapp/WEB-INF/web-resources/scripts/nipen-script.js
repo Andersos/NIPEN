@@ -104,10 +104,19 @@ function createChart(canvasId, data) {
 
     new Chart($("#" + canvasId)[0].getContext("2d")).Bar(lineChartData, opts);
 
+    var chartWidth = chartWidthFullSize;
+    var chartHeight = chartHeightFullSize;
     if (activePageButton == "home-button") {
-        $("#" + canvasId).css("width", 2.0 * chartWidthFullSize / 3.0);
-        $("#" + canvasId).css("height", chartHeightFullSize / 2.0);
+        chartWidth = 2.0 * chartWidthFullSize / 3.0;
+        chartHeight = chartHeightFullSize / 2.0;
+        $("#" + canvasId).css("width", chartWidth);
+        $("#" + canvasId).css("height", chartHeight);
     }
+
+    var unitId = canvasId.split("-chart")[0] + "-unit";
+    $("#" + unitId).text(data[0].unit);
+    $("#" + unitId).css("left", chartWidth*0.05);
+    $("#" + unitId).css("top", -chartHeight*0.95);
 }
 
 function changePage(buttonId) {
