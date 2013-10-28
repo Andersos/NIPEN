@@ -4,16 +4,13 @@
 \label{Sprint0}
 \lhead{Chapter 6. \emph{Sprint 0}}
 
-This chapter is meant to cover our first sprint, sprint 0. 
-
-
-\section{Sprint goal(s)}
+\section{Goal(s)}
 
 Our first sprint was focused on project planning and preliminary studies.
-The goal of this sprint was to achieve a sufficient understanding of the problem scope in order
-perform studies on existing technologies that we could use and similar existing solutions.
-
-\section{Sprint breakdown}
+A main goal was to achieve a sufficient understanding of various aspects of the problem
+including a) the scope b) relevant technologies and c) similar solutions.
+Another important goal was to do a high-level planning for the project identifying requirements,
+phases and milestones; choose a development methodology as well as the tools to be used.
 
 \begin{figure}[H]
 \centering
@@ -23,7 +20,7 @@ perform studies on existing technologies that we could use and similar existing 
 \end{figure}
 
 
-\subsection{Duration}
+\section{Duration}
 This project started on wednesday 21.08.2013 which was the first day of the project and the day we meet the group, the supervisor, the client and got acquainted with the project. We decided early on to use the /ref{Scrum} methodology and to have short sprints so we could focus on some areas at a time. We landed on a total of 6 sprints that each lasted two weeks for a totalt of 12 weeks. Even though we didn't agree on this method before monday the 26th of august we have added the first few days to the first sprint so they also belong in a sprint for tracking the work. Hence the first sprint also includes the first few days of the project making it a total of 13 weeks. 
 The duration of the sprint was the following:
 \begin{itemize}
@@ -31,17 +28,121 @@ The duration of the sprint was the following:
 \item Sprint end: September, 8th
 \end{itemize}
 
-\subsection{Planning} 
+\section{Planning}
 
-\subsection{Backlog}
+Preliminary studies accounted most part of planned workload.
+Before starting preliminary studies we wanted to receive some kind of approval on our
+understanding of the project as described by the customer. This was done mainly to avoid
+a) planning a solution for a different problem
+b) wasting resources studying something that would not be relevant for the project.
 
+Because the system consists of an integration platform for health data,
+we wanted to pin down what kind of data had to be supported.
+This would also help us to identify some requirements.
+
+Since we expected to have to deliver at least one Android application
+we planned to setup Android's SDK and development enviroments as well
+as a version control system.
+
+\section{Backlog}
+
+See below the sprint backlog.
 \begin{description}
-\item[test]
+	\item[Project planning]
+		for this sprint included:
+		\begin{itemize}
+			\item \textbf{Choice of development process}:
+				possibile candidates are Waterfall and Scrum.
+			\item \textbf{Booking of rooms}:
+				where to hold meetings and work.
+			\item \textbf{Scheduling weekly meetings}:
+				with both the customer and supervisor.
+			\item \textbf{Weekly meetings}:
+				with both customer and supervisor (starting from September, 26th).
+			\item \textbf{Requirements gathering}:
+				an initial set (draft) of high-level requirements.
+			\item \textbf{Risk analysis}:
+				a first draft.
+			\item \textbf{Status report}:
+				for weeks 35 and 36.
+		\end{itemize}
+	\item[Preliminary studies]
+		of relevant technologies like databases, web-servers and web API.
+	\item[Identify possibile data models]
+		to be supported by the system (glucose measurement, weight measurement\ldots).
+	\item[Choice and setup of project's tools]:
+		such as tools for the report and version control system.
+	\item[Preliminary system architecture]:
+		brainstorm on a high-level architecture to be submitted to the client for feedback.
+	\item[Read course's compendium]
+	\item[Group dynamics lecture]:
+		attendance is mandatory.
+	\item[Android environment setup]:
+		both IDEs and SDK.
 \end{description}
 
 
-include sprint backlog and burndown chart
-\subsection{Results and feedback}
-from customer, from supervisor
-\subsection{Evaluation}
-our thoughts about this sprint
+\section{Results and feedback}
+
+During this sprint we met each other, the customer and the supervisor.
+The customer described the problem, explaining what he had in mind and why it was relevant for him.
+The supervisor handed us some notes to help the project kick-off.
+
+We exchanged contacts information (both mail and Skype) to make sure everybody could reach out to
+everybody else. We set up a Facebook group where to post relevant informations
+and a Google Drive folder to share and collaborate on editing documents.
+
+Additionally we scheduled weekly meetings with all involved parties as follows:
+\begin{itemize}
+\item customer and supervisor meetings on mondays
+\item collective work sessions on mondays and wednesdays
+\end{itemize}
+
+During the first few days we shared our thoughts on what we had understood from the customer.
+In order to ensure we had a proper understanding of the problem we produced a diagram representing
+a high-level architecture of the product (an \textit{ehealth integration platform}) as
+we understood it and submitted it to the client via mail for feedback.
+Having received positive feedback on the proposed system architecture we did some studies
+on relevant technologies and searched for similar solutions. Although by the end of the
+sprint we came to an agreement on what technologies we would need (database, web server\ldots)
+we didn't decide on a specific implementation of such technologies (Apache Tomcat, Spring,
+Apache Camel, JAX-RS\ldots).
+
+The team agreed on choosing Scrum as a development process based on various considerations.
+Firstly, the product did not have a clear set of requirements from the beginning and their nature was expected
+to be highly volatile \cite{Sommerville9}. % we expected them to change during the course of the project.
+Secondly, while other process candidates such as Waterfall require a certain degree of expertise,
+Scrum is generally more forgiving. Scrum is also a \textit{lightweight} process, in the sense that introduces
+little overhead compared to other.
+As explained in \ref{ch:studies} Waterfall divides the project in phases \cite{Sommerville9}.
+Each phase has a lot of documentation overhead and appears only once during the project lifetime.
+As such, any failure in any of these phases could have serious consequences on the product.
+On the other hand, Scrum is based on iterations called \textit{sprints}; we figured that iterating the
+same activities each sprint would led our process to eventually improve.
+
+The team also decided on some of the tools to use for the project, which included:
+\begin{itemize}
+\item version control system (Git and GitHub)
+\item documentation (LaTeX)
+\item development environments and SDKs
+\end{itemize}
+
+\section{Evaluation}
+
+The sprint generally achieved its expected results.
+We achieved a good understanding of the problem and a good overview
+on a high-level system architecture.
+
+We didn't get as far as we hoped on our studies on some particular technologies
+and this was due to a number of factors.
+Firstly, estimating the amount of time required to obtain a sufficient knowledge
+in a topic resulted difficult and we generally needed more time than we thought.
+Secondly, none of us had any familiarity with them whatsoever.
+Some difficult topics of study were Apache Camel, its extension Apache IPF,
+and if it was desiderable to use these instead of the Spring framework (and why).
+Given the size of our group, we had some difficulties to mitigate this problem due to
+our reduced technical skill pool.
+
+
+
+
