@@ -191,35 +191,55 @@ as they already were similar or did contain components that our application also
 \subsection{HealthVault} \nocite{HealthVault}
 %http://msdn.microsoft.com/en-us/healthvault/jj128027
 
-HealthVault is Microsoft's online service to collect, store and monitor personal health information.
+HealthVault is Microsoft's online platform to collect, store and monitor personal health
+information. %It offers a single, central repository of a person's health.
 
-%and share it with other people which could family doctors or relatives.
+One of its most interesting features is interoperability with third-party solutions which are,
+in HealthVault terminology and hereafter, referred to as \textit{Apps}.
 
-Health records can be collected from different sources such as:
+Examples of Apps include:
 \begin{itemize}
-\item smartphone or desktop applications
+\item smartphone and desktop applications
 \item devices like step counters, blood glucose meters, weighting scales\ldots
 \item third-party health services like Withings, \ldots
 \end{itemize}
-using the web-based XML API exposed by HealthVault.
 
-In order to connect to HealthVault these sources need to be authorized by the user upon first use.
-Health records can then be shared with other people like family members or doctors, as well as
-healthcare providers. Access to stored data can be selective meaning that a source can be authorized to access a specific record (weight measurements, glucose \ldots) but not others (allergies, pregnancies\ldots).
+At the moment of writing, HealthVault supports more than 300 applications and 80 devices
+(in the U.S.).
 
+Apps are used to populate a user's health record by collecting health measurements and parameters and make use of such information to provide services.
 
+In order to connect to HealthVault, third-party applications need to be authorized by the user
+upon first use. Authorization can be restricted to a specific set of data: e.g. an App may be
+authorized to access weight and glucose measurements but not others (allergies, pregnancies\ldots).
 
-%Technically speaking, HealthVault is in fact an XML-over-HTTP webservice.
+See figure \ref{} for a diagram showing the different authentication and authorization steps.
 
+Interoperability is achieved through an XML-over-HTTP API which, together with several
+software development kits (SDK) for major mobile platforms and languages enables developers
+to build HealthVault-enabled applications with ease.
 
-% that can be used by developers to connect and interact
-%with HealtVault.
+%From a technical perspective, HealthVault is an XML based web-service.
+%As such, it exposes an XML based web API that developers can leverage
+%to easily build HealthVault-enabled applications.
 
-In HealthVault a single data measurement is called a \textit{thing}.
+%Health records can be from a number different third-party sources, which in
+%HealthVault's terminology are referred to as \textit{apps}, such as:
+%\begin{itemize}
+%\item smartphone and desktop applications
+%\item devices like step counters, blood glucose meters, weighting scales\ldots
+%\item third-party health services like Withings, \ldots
+%\end{itemize}
+%and shared with other people like family members, doctors and healthcare providers.
+
+%Furthermore, cloud-storage and cross-platform commitment
+%High service availability and redundancy
+
+In HealthVault a single data measurement is called \textit{thing}.
 Basically, a \textit{thing} represents a measurement of some health parameter
-which could be weight or heart rate for example.
+e.g. heart rate, weight.
+\textit{Things} are represented using XML, see an example below (a weight \textit{thing}).
 
-See below an XML sample of a weight \textit{thing}.
 \begin{lstlisting}[language=XML]
 <weight>
   <value>
@@ -240,14 +260,6 @@ See below an XML sample of a weight \textit{thing}.
   </when>
 </weight>
 \end{lstlisting}
-
-Several software development kits (SDK) are available for major mobile platforms
-such as iOS, Windows Phone and Android. Additionally a number of SDKs in various
-languages (Ruby, PHP, Java)
-%Access to stored data can be selective meaning that a source can be authorized to access
-%a specific record (weight, \ldots) but not others (glucose, \ldots).
-
-
 
 %Additionally it is possible to store and retrieve medical images in \textit{DICOM} format.
 
@@ -276,18 +288,46 @@ It is based on Apache Camel and has support for connecting systems in the eHealt
 %-----------------------------------
 \subsection{human/api} \nocite{HumanAPI}
 
-The human API is a platform for human health data. 
-They have an API that contains multiple different well defined JSON strings for different kinds of human related data.
-Each JSON string contains all the necessary information that is needed to represent each type of health data.
-For example heart rate is defined by an id, user id, time, value and unit in the following way:
+The human/api is a RESTful web API for health data developed by human/api Inc.
+
+Its aim is to offer a single entry-point for a user's health information
+in order to facilitate developing health applications.
+
+For this purpose, human/api has designed a clean web API representing various health
+parameters such as blood pressure, blood glucose, weight\ldots.
+
+Additionally, human/api collects users' health data from a variety of third-party
+services and devices (e.g. sensors) and normalizes it in order to adhere to the API models.
+
+%human/api takes care of collecting such information from a number of third-party services
+%and devices (e.g. sensors) and normalizing it.
+
+%to fetch health information
+%from a variety of sensors, devices and other third-party services.
+This has the benefit of providing a single authentication point so that developers won't
+need to integrate with each service separately.
+
+%The data itself is pulled by human/api system from a number of third-party services
+%and devices and normalized.
+
+
+%They have an API that contains multiple different well defined JSON strings for different kinds of human related data.
+%Each JSON string contains all the necessary information that is needed to represent each type of health data.
+%For example heart rate is defined by an id, user id, time, value and unit in the following way:
+
+See below an example of an blood pressure measurement as represented in human/api using JSON.
 
 \begin{lstlisting}[language=json]
 {
   "id": "string",
   "userId": "string",
   "time": "date",
-  "value": "int",
-  "unit": "string"
+  "value": {
+    "diastolic": "int",
+    "systolic": "int",
+    "unit": "string"
+  },
+  "heartRate": "int"
 }
 \end{lstlisting}
 
