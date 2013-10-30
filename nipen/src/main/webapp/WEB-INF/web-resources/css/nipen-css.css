@@ -39,17 +39,30 @@ body {
     color: #333333;
 }
 
+.newest-measure .last-measure {
+    font-size: 25pt;
+    margin-top: 10px;
+}
+
 .newest-measure i {
     display: block;
-    text-align: left;
     padding-left: 15px;
     padding-top: 5px;
+    margin-top: -15px;
     font-size: 15px;
     color: #cc0099;
 }
 
-.newest-measure span {
-    font-size: 70pt;
+.newest-measure .last-measure i {
+    margin-top: -25px;
+}
+
+.newest-measure .latest-measure span {
+    font-size: 80pt;
+}
+
+.newest-measure .last-measure span {
+    font-size: 40pt;
 }
 
 .navbar .navbar-inner {

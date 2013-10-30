@@ -3,6 +3,7 @@ var chartWidthFullSize = "900";
 var chartHeightFullSize = "550";
 var pollingFrequency = 1000;
 var allowedPollingKey = 0;
+var maxValuesDisplayedInChart = 10;
 
 $(document).ready(function() {
     updatePage();
@@ -61,23 +62,31 @@ function updateWeights(weightData) {
 
 function visualizeData(divId, canvasId, data) {
     if (data.length != 0)
-        createNewestMeasureDisplay(divId, data[data.length-1].value, data[data.length-1].unit, data[data.length-1].timestamp);
+        createNewestMeasureDisplay(divId, data[data.length-1], data[data.length-2]);
     createChart(canvasId, data);
 }
 
-function createNewestMeasureDisplay(divId, value, unit, time) {
-    $("#" + divId).html("<i>Latest measure (" + time + "): </i><span>" + value + "</span> " + unit);
-
+function createNewestMeasureDisplay(divId, newData, oldData) {
     $("#" + divId).css("width", chartWidthFullSize / 3.0);
     $("#" + divId).css("height", chartHeightFullSize / 2.0);
-    $("#" + divId).find("span:first").css("line-height", (chartHeightFullSize / 2.0 - 60) + "px");
+
+    var latestMeasure = "<div class='latest-measure'>";
+    latestMeasure += "<span>" + newData.value + "</span> " + newData.unit + "<i>" + newData.timestamp + " (latest)</i>";
+    latestMeasure += "</div>";
+    var lastMeasure = "<div class='last-measure'>";
+    lastMeasure += "<span>" + oldData.value + "</span> " + oldData.unit + "<i>" + oldData.timestamp + "</i>";
+    lastMeasure += "</div>";
+    $("#" + divId).html(latestMeasure + lastMeasure);
+
+    $("#" + divId).find(".latest-measure:first").find("span:first").css("line-height", (chartHeightFullSize * 0.236) + "px");
+    $("#" + divId).find(".last-measure:first").find("span:first").css("line-height", (chartHeightFullSize * 0.182) + "px");
 }
 
 function createChart(canvasId, data) {
     timestamps = [];
     values = [];
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length && i < maxValuesDisplayedInChart; i++) {
         timestamps.push(data[i].timestamp);
         values.push(data[i].value);
     }

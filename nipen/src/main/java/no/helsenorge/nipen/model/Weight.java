@@ -11,7 +11,7 @@ public class Weight extends DataType {
         this.unit = unit;
     }
 
-    public long getValue() {
+    public int getValue() {
         return value;
     }
 
