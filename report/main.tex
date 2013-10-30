@@ -6,6 +6,23 @@
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 
 \usepackage{float} % Force figures and tables to be placed where they are referenced by using the paramter H.
+\usepackage{color}
+\usepackage{listings}
+
+\definecolor{maroon}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\lstdefinelanguage{XML}
+{
+  basicstyle=\tiny\ttfamily,
+  morestring=[s]{"}{"},
+  morecomment=[s]{?}{?},
+  morecomment=[s]{!--}{--},
+  commentstyle=\color{darkgreen},
+  moredelim=[s][\color{black}]{>}{<},
+  moredelim=[s][\color{red}]{\ }{=},
+  stringstyle=\color{maroon},
+  identifierstyle=\color{blue}
+}
 
 \usepackage{lscape}
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 

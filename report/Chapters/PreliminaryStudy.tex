@@ -191,12 +191,7 @@ as they already were similar or did contain components that our application also
 \subsection{HealthVault} \nocite{HealthVault}
 %http://msdn.microsoft.com/en-us/healthvault/jj128027
 
-
-HealthVault is Microsoft's online service to collect, store and monitor personal health information
-which can be shared with other people like family members or doctors, as well as 
-healthcare providers.
-
-
+HealthVault is Microsoft's online service to collect, store and monitor personal health information.
 
 %and share it with other people which could family doctors or relatives.
 
@@ -206,22 +201,49 @@ Health records can be collected from different sources such as:
 \item devices like step counters, blood glucose meters, weighting scales\ldots
 \item third-party health services like Withings, \ldots
 \end{itemize}
-using a web-based XML API.
+using the web-based XML API exposed by HealthVault.
+
+In order to connect to HealthVault these sources need to be authorized by the user upon first use.
+Health records can then be shared with other people like family members or doctors, as well as
+healthcare providers. Access to stored data can be selective meaning that a source can be authorized to access a specific record (weight measurements, glucose \ldots) but not others (allergies, pregnancies\ldots).
 
 
-HealthVault is in fact an XML-over-HTTP webservice.
+
+%Technically speaking, HealthVault is in fact an XML-over-HTTP webservice.
+
+
 % that can be used by developers to connect and interact
 %with HealtVault.
 
+In HealthVault a single data measurement is called a \textit{thing}.
+Basically, a \textit{thing} represents a measurement of some health parameter
+which could be weight or heart rate for example.
 
+See below an XML sample of a weight \textit{thing}.
+\begin{lstlisting}[language=XML]
+<weight>
+  <value>
+    <kg>60</kg>
+    <display units="kg">132</display>
+  </value>
+  <when>
+    <date>
+      <y>1990</y>
+      <m>1</m>
+      <d>1</d>
+    </date>
+    <time>
+      <h>1</h>
+      <m>0</m>
+      <s>0</s>
+    </time>
+  </when>
+</weight>
+\end{lstlisting}
 
-In HealthVault terminology, a single data measurement is called \texit{thing}.
-
-
-In order to connect to HealthVault these sources need to be authorized by the user upon first use.
-Access to stored data can be selective meaning that a source can be authorized to access
-a specific record (weight, \ldots) but not others (glucose, \ldots).
-
+Several software development kits (SDK) are available for major mobile platforms
+such as iOS, Windows Phone and Android. Additionally a number of SDKs in various
+languages (Ruby, PHP, Java)
 %Access to stored data can be selective meaning that a source can be authorized to access
 %a specific record (weight, \ldots) but not others (glucose, \ldots).
 
