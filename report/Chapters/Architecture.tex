@@ -63,19 +63,19 @@ They contain an ID, user ID, time stamp, value and a unit.
 The ID is not needed, when the JSON string is sent, because it is created on the server side.
 Below is a representation of a heart rate JSON string that can be used to store heart rate data on the server:
 
-\begin{verbatim}
+\begin{lstlisting}[language=json]
 {
     "userId":1,
     "timestamp":"2013-10-27 14:57:39.0",
     "value":65,
     "unit":"bpm"
 }
-\end{verbatim}
+\end{lstlisting}
 
 A weight measurement can be sent in the same format but should be sent with another unit.
 The ID of the data is shown when receiving the data from the server:
 
-\begin{verbatim}
+\begin{lstlisting}[language=json]
 {
     "id":39,
     "userId":1,
@@ -83,7 +83,7 @@ The ID of the data is shown when receiving the data from the server:
     "value":65,
     "unit":"bpm"
 }
-\end{verbatim} 
+\end{lstlisting} 
 
 \textbf{API calls}
 
