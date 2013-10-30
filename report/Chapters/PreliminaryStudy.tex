@@ -80,8 +80,9 @@ The person in charge of populating the product backlog is called \emph{product o
 
 Each day in a sprint should begin with a meeting called \emph{daily scrum}.
 
-During this meeting which lasts usually fifteen minutes, everybody shares the work accomplished since the
-last daily meeting and their plan for the day, mentioning eventual problems if any.
+During this meeting which lasts usually fifteen minutes, everybody shares the work
+accomplished since the last daily meeting and their plan for the day, mentioning eventual
+problems if any.
 %For each day a daily scrum meeting should be performed.
 %Each sprint is focusing on a set of concrete goals that are in the sprint backlog.
 %The sprint backlog consists of tasks that are chosen from the product backlog. 
@@ -180,19 +181,64 @@ This made it easier to divide the tasks between each other in the project.
 \section{Existing Solutions}
 \label{section:existing-solutions}
 
-This section contains some of the similar existing solutions that are already created.
-The following technologies were a good inspiration source and help in our project, as they already were similar or did contain components that our application also would contain.
+This section describes similar existing solutions.
+The following technologies were a good inspiration source and help in our project,
+as they already were similar or did contain components that our application also would contain.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{HealthVault} \nocite{HealthVault}
+%http://msdn.microsoft.com/en-us/healthvault/jj128027
 
-HealthVault is an online service that allows users to store personal health information.
-This information can either be gathered through different types of applications or devices.
-The devices might be weighting scales, step counters, blood glucose monitors and more.
-While the applications can be different types of mobile, tablet or desktop apps.
-It is also possible to share the information stored in HealthVault with e.g. family members or a doctor.
+
+HealthVault is Microsoft's online service to collect, store and monitor personal health information
+which can be shared with other people like family members or doctors, as well as 
+healthcare providers.
+
+
+
+%and share it with other people which could family doctors or relatives.
+
+Health records can be collected from different sources such as:
+\begin{itemize}
+\item smartphone or desktop applications
+\item devices like step counters, blood glucose meters, weighting scales\ldots
+\item third-party health services like Withings, \ldots
+\end{itemize}
+using a web-based XML API.
+
+
+HealthVault is in fact an XML-over-HTTP webservice.
+% that can be used by developers to connect and interact
+%with HealtVault.
+
+
+
+In HealthVault terminology, a single data measurement is called \texit{thing}.
+
+
+In order to connect to HealthVault these sources need to be authorized by the user upon first use.
+Access to stored data can be selective meaning that a source can be authorized to access
+a specific record (weight, \ldots) but not others (glucose, \ldots).
+
+%Access to stored data can be selective meaning that a source can be authorized to access
+%a specific record (weight, \ldots) but not others (glucose, \ldots).
+
+
+
+%Additionally it is possible to store and retrieve medical images in \textit{DICOM} format.
+
+%The devices might be weighting scales, step counters, blood glucose monitors and more.
+%While the applications can be different types of mobile, tablet or desktop apps.
+%It is also possible to share the information stored in HealthVault with e.g. family members or a doctor.
+%It's possibile to selectively share health information with other
+%people which could be family doctors or relatives.
+
+Additionally, HealthVault supports exporting of data in industry-standard formats.
+%An HealthVault account can be linked to multiple individuals.
+
+
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -291,7 +337,7 @@ It makes it possible to store and retrieve data in an efficient and structured m
 
 \textbf{MySQL Workbench}
 
-MySQL Workbench is a free-to-use tool which allows effortless MySQL database management.
+MySQL Workbench is a free-to-use tool which allows to easily manage MySQL databases.
 We used MySQL Workbench for database design and deployment both locally (for testing) and remotely (production).
 
 
