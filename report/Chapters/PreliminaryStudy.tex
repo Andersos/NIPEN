@@ -2,12 +2,16 @@
 \label{Preliminary Studies}
 \lhead{Chapter 5. \emph{Preliminary Studies}}
 
-This chapter examines the development methodologies in section \ref{section:development-methodology}
-and some of our earlier experiences in section \ref{section:earlier-experience}.
-Section \ref{section:existing-solutions} covers already exiting solutions.
-Section \ref{section:used-technologies} describes the technologies used in the project.
-Testing methodologies are described in section \ref{section:testing}.
-We draw our conclusions in section \ref{section:summary}.
+In this chapter we report the studies done on similar solutions and technologies relevant
+to this project. Additionally, we examine two common development models and
+explain our reasons behind choosing one instead of the other.
+
+%This chapter examines the development methodologies in section \ref{section:development-methodology}
+%and some of our earlier experiences in section \ref{section:earlier-experience}.
+%Section \ref{section:existing-solutions} covers already exiting solutions.
+%Section \ref{section:used-technologies} describes the technologies used in the project.
+%Testing methodologies are described in section \ref{section:testing}.
+%We draw our conclusions in section \ref{section:summary}.
 
 %-----------
 % SECTION 1
@@ -16,22 +20,30 @@ We draw our conclusions in section \ref{section:summary}.
 \section{Development Methodology}
 \label{section:development-methodology}
 
-In this section we are going to present and discuss two common development methodologies.
-We are going to conclude with what type of development methodology we chose and why we chose it.
-This was one of the first discussions we had before starting the project, since without a good development process a project is often doomed to failure.
-It is important to divide the work into task and work in a structured manner, in this way we will have a better understanding of where the project is and where it is headed.
+Choosing an appropriate development process is vital to any software project.
+In this section we give a brief description of two common development methodologies which we
+took into consideration for our project, outlining those features that led to chose one instead of the other.
+%We are going to conclude with what type of development methodology we chose and why we chose it.
+%This was one of the first discussions we had before starting the project, since without a good
+%development process a project is often doomed to failure.
+%It is important to divide the work into task and work in a structured manner, in this way we
+%will have a better understanding of where the project is and where it is headed.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Waterfall Model} \nocite{WaterfallModel}
+\subsection{Waterfall} \nocite{WaterfallModel}
+%of Waterfall is its requires tasks to be performed in a sequential order.
 
-The waterfall model is a software development process where each task is performed in a sequential order.
-Before moving to the next phase the preceding task needs to be finished.
-The progress of the project is seen as flowing downwards through the different phases, hence the name waterfall.
-This is represented in figure \ref{figure:waterfall-model} where it is possible to see how the progress is flowing.
-In the original model the phases consisted of seven different tasks:
+The Waterfall development process is a classical model proposed in the early 70s.
+Waterfall follows a scrict, rigorous top-down approach where all phases of development are
+carried out sequentially: before moving to the next phase the preceding ones
+need to be entirely completed. The \iffalse progress of the\fi project is seen as if 'flowing downwards'
+through the different phases, hence the name. Development cycle in Waterfall consists of seven
+distinct phases shown in figure \ref{figure:waterfall-model}.
 
+%commented out
+\iffalse
 \begin{enumerate}
 \item Requirements specification
 \item Design
@@ -41,21 +53,29 @@ In the original model the phases consisted of seven different tasks:
 \item Installation
 \item Maintenance
 \end{enumerate}
+\fi
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.6]{../Figures/Waterfall-model.pdf}
 \end{center}
-\caption{Waterfall model}
+\caption{Development cycle in Waterfall}
 \label{figure:waterfall-model}
 \end{figure}
 
-Because each phase needs to be perfected and completed before moving to the next phase, it will bring up some difficulties if the requirements were to change during the development process. 
-However, the model is easily understandable, structured, and disciplined. 
-All the phases are divided into different sections, and this makes it easier to understand the progress of the project.
-In practice it can be very hard to adapt to this kind of development model. 
-It can be hard for a system designer to predict future implementation difficulties of a type of design, hence the design of the system may change during the process.
-Another problem is that the customer is not always sure about the system requirements, and will often change them during the development.
+%Because each phase needs to be perfected and completed before moving on to the next one,
+%changes to project's requirements are not allowed.
+The model is easily understandable, structured, and disciplined.
+%The clear distinction between project phases make it easier to monitor the progress of the project.
+However, adopting Waterfall in real software projects can be challenging because it requires to be able to foresee,
+in the early stages of the project, all problems that can arise during development and plan accordingly.
+This is often a very hard task that requires great insight and expertise.
+Each phase of the development cycle is expected to produce a good amount of documentation before moving to the next.
+%it can be very hard to adapt to this kind of development model.
+Whereas Waterfall may be suited to large-scale, expensive projects where requirements
+are clearly established early on and are not subject to change.
+% it can be hard for a system designer to predict future implementation difficulties of a type of design, %hence the design of the system may change during the process.
+%Another problem is that the customer is not always sure about the system requirements, and will often change them during the development.
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -67,8 +87,8 @@ Scrum is an emerging agile development process which is mostly used in software 
 The Scrum approach, which could be described as both iterative and incremental, consists of multiple sprints
 which last from two to four weeks. Sprints begin with a planning meeting and conclude with a review meetings.
 
-During this meeting team members produce a \emph{sprint backlog}: an artifact which defines a set of concrete goals
-of the sprint and can be seen basically as a \''to-do\'' list of the tasks to be performed.
+During this meeting team members produce a \emph{sprint backlog}: an artifact which defines a set of
+concrete goals of the sprint and can be seen basically as a 'to-do' list of the tasks to be performed.
 
 Such tasks, which in Scrum's terminology are called \emph{stories} are taken from the
 \emph{product backlog} which is a prioritized list of the requirements of the product.
@@ -76,7 +96,7 @@ Such tasks, which in Scrum's terminology are called \emph{stories} are taken fro
 Although a product backlog is usually made during the early stages of the project, it is subject to
 change in order to accomodate new or modified requirements.
 
-The person in charge of populating the product backlog is called \emph{product owner}.
+The person in charge of populating the product backlog is the \emph{product owner}.
 
 Each day in a sprint should begin with a meeting called \emph{daily scrum}.
 
@@ -91,12 +111,13 @@ problems if any.
 %It can however be changed and adjusted during the development of the product.
 
  
-Usually a scrum meeting consists of getting to know what each person did yesterday, what they will do today and if they are facing any problems.
+Usually a scrum meeting consists of getting to know what each person did yesterday,
+what they will do today and if they are facing any problems.
 If there are any problems the Scrum master is responsible to resolve the problem.
-After each sprint a sprint review meeting should be held.
+A sprint concludes with a sprint review meeting where 
 An overview of what goals where achieved and which one where not should be made.
 The meeting can also consist of a demo of the new features implemented. 
-Figure \ref{figure:scrum-workflow} shows the workflow of scrum.
+Figure \ref{figure:scrum-workflow} shows the workflow in Scrum.
 
 \begin{figure}[h]
 \begin{center}
@@ -111,9 +132,28 @@ Figure \ref{figure:scrum-workflow} shows the workflow of scrum.
 %-----------------------------------
 \subsection{Conclusion}
 
-We decided to choose the scrum model as our development process. 
-The reason for this is that we didn't have a formal requirement list of the project from the beginning.
-Thus it was a high probability that we didn't understand the problem completely, and might have done some wrong design decisions in the first phase of the project. 
+Chosing a development process was one of the first tasks of this project.
+After discussing about possible alternatives, we decided to use Scrum after the following
+considerations:
+
+\begin{enumerate}
+\item we didn't have a formal set of requirements from the beginning and we expected
+their nature to be volatile, that is, subject to change throughout the duration of the project.
+
+\item our knowledge of both the problem and the technologies involved was limited; it was
+highly likely that we didn't understand the problem completely, and might have done some wrong
+design decisions in the first phase of the project.
+
+\item our experience with Waterfall was only theoretical, whereas Waterfall requires a certain
+level of expertise to be perfomed correctly.
+
+\item given the size of the project and of our group, we wanted a development process
+with a small overhead.
+
+\item the team had previous experiences with Scrum.
+
+\end{enumerate}
+
 With the Scrum method it is also a lot easier to adjust the project direction if we are going down the wrong path.
 Our customer also advised us to use an agile method as our development methodology.
 We thought that scrum would be a good methodology as it is a widely known and respected development process in the programming community.
@@ -181,9 +221,11 @@ This made it easier to divide the tasks between each other in the project.
 \section{Existing Solutions}
 \label{section:existing-solutions}
 
-This section describes similar existing solutions.
-The following technologies were a good inspiration source and help in our project,
-as they already were similar or did contain components that our application also would contain.
+This section describes existing solutions which have helped us get a better overview of technologies and design patterns used to solve this kind of problem.
+What we present in this section are the ones we found most relevant and inspiring for our work.
+
+%The following technologies were a good inspiration source and help in our project,
+%as they already were similar or did contain components that our application also would contain.
 
 %-----------------------------------
 %	SUBSECTION 1
@@ -207,11 +249,11 @@ Examples of Apps include:
 At the moment of writing, HealthVault supports more than 300 applications and 80 devices
 (in the U.S.).
 
-Apps are used to populate a user's health record by collecting health measurements and parameters and make use of such information to provide services.
+Apps are used to populate a user's health record by collecting health measurements and parameters and, in turn, make use of such information to provide services.
 
 In order to connect to HealthVault, third-party applications need to be authorized by the user
 upon first use. Authorization can be restricted to a specific set of data: e.g. an App may be
-authorized to access weight and glucose measurements but not others (allergies, pregnancies\ldots).
+authorized to access weight and glucose records but not others (allergies, pregnancies\ldots).
 
 See figure \ref{} for a diagram showing the different authentication and authorization steps.
 

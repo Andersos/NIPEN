@@ -100,14 +100,22 @@ Additionally we scheduled weekly meetings with all involved parties as follows:
 \end{itemize}
 
 During the first few days we shared our thoughts on what we had understood from the customer.
-In order to ensure we had a proper understanding of the problem we produced a diagram representing
-a high-level architecture of the product (an \textit{ehealth integration platform}) as
-we understood it and submitted it to the client via mail for feedback.
+In order to ensure we had a proper understanding of the problem we produced a diagram
+(figure \ref{figure:architecture-draft}.) representing a high-level architecture
+of the product (an \textit{ehealth integration platform}) as we understood it and submitted
+it to the client via mail for feedback.
 Having received positive feedback on the proposed system architecture we did some studies
 on relevant technologies and searched for similar solutions. Although by the end of the
 sprint we came to an agreement on what technologies we would need (database, web server\ldots)
 we didn't decide on a specific implementation of such technologies (Apache Tomcat, Spring,
 Apache Camel, JAX-RS\ldots).
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.30]{../Figures/architecture-draft.png}
+\caption{System architecture (draft)}
+\label{figure:architecture-draft}
+\end{figure}
 
 The team agreed on choosing Scrum as a development process based on various considerations.
 Firstly, the product did not have a clear set of requirements from the beginning and their nature was expected
@@ -143,7 +151,4 @@ Some difficult topics of study were Apache Camel, its extension Apache IPF,
 and if it was desiderable to use these instead of the Spring framework (and why).
 Given the size of our group, we had some difficulties to mitigate this problem due to
 our reduced technical skill pool.
-
-
-
 

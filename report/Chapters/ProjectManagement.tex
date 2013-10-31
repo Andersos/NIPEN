@@ -9,9 +9,12 @@
 %% test for site references
 %\nocite{Doe:2009:Other}
 
-This chapter describes the planning of the project. Section \ref{section:planning} covers project planning.
-The project schedule is detailed in section \ref{section:schedule}. Section \ref{section:organization} is about project organizazion.
-Quality assurace practices are described in section \ref{section:qa} and risk analysis is presented in section \ref{section:risk}.
+This chapter describes the planning of the project.
+%Section \ref{section:planning} covers project planning.
+%The project schedule is detailed in section \ref{section:schedule}.
+%Section \ref{section:organization} is about project organizazion.
+%Quality assurace practices are described in section \ref{section:qa}
+%and risk analysis is presented in section \ref{section:risk}.
 
 \section{Project planning}
 \label{section:planning}
@@ -81,7 +84,7 @@ Each sprint is described in a seperate chapter.
 \subsection{Work plan}
 \label{section:workplan}
 
-The project work plan can be seen in figure \ref{figure:work-splan}.
+The project work plan is shown in figure \ref{figure:work-splan}.
 
 \newpage
 \begin{landscape}
@@ -229,14 +232,16 @@ We have identified a number of roles in this project. Although each role has dif
 
 \begin{description}
 \item[Project manager]
+%supposedly, there is no project manager in scrum !!
 The project manager has the responsability of managing the project.
 This includes people management, high level project planning and risk analysis.
 The project manager is also responsible of producing weekly status reports and communication with the customer and supervisor.
+\item[Scrum master]
+The scrum master has the responsability of helping team members perform Scrum.
 \item[Product owner]
-Technically not part of the group. The product owner is responsible of approving and prioritizing the product
+The product owner is responsible of approving and prioritizing the product
 requirements in order to steer its development in the direction he sees fit.
 %\item[System architect]
-%\item[Scrum master]
 \item[Secretary]
 Responsible for taking notes during meetins and booking rooms.
 \item[Quality assurance]
@@ -258,7 +263,8 @@ Responsible for developing the Spring backend, including database coding. Takes 
 \end{figure}
 
 Roles were allocated primarily on team members' competences.
-Those roles that were left unassigned were taken up by members who volunteered for them upon approval of other team members.
+Those roles that were left unassigned were taken up by members who volunteered for them upon approval 
+of other team members.
 Because we were only three people, all of us had more than one role. Sometimes, roles were shared.
 We tried to balance roles evenly between ourselves and achieve a flat group organization where no member
 had a prominent role on others. Table \ref{table:roles} shows roles allocation within the group.
@@ -412,17 +418,19 @@ file-name coding style and such
 \subsection{Customer relations}
 \subsection{Supervisor relations}
 
+\newpage
 \section{Risk management}
 \label{section:risk}
 
 Risk analysis is an important activity in any engineering process.
 Any project has inherently some risks of which it's important to have a clear
 understanding about so that mitigation and remedy strategies can be prepared
-and put in use before it's too late. 
-We have kept our risk analysis update on a weekly basis and made it available
-both to the customer and the supervisor for feedback. We provided a textual description for the likelihood and impact of each risk
-as describe in table
+and put in use before it's too late. We have kept our risk analysis updated on a weekly
+basis when possibile and made it available both to the customer and the supervisor through
+Google Drive for feedback.
 
+See table \ref{table:likelihood} and \ref{table:impact} for a textual description of
+likelihood and impact levels respectively. See table \ref{table:risks} for risk analysis.
 
 \begin{table}[h]
 \begin{tabular}{ | l | p{11.5cm} | }
@@ -452,8 +460,7 @@ as describe in table
 \label{table:impact}
 \end{table}
 
-
-\begin{table}[h]
+\begin{table}[H]
 \begin{tabular}{ | l | p{11.5cm} | }
 
   \hline
