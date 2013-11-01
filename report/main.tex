@@ -53,6 +53,38 @@
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
 }
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{green}{rgb}{0.1, 0.8, 0.1}
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{green}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\lstset{
+   language=JavaScript,
+   %backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
 
 \usepackage{lscape}
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
@@ -234,6 +266,7 @@ representative Mr. Helge T. Blindheim for his availability.
 \textbf{AJAX} & \textbf{A}synchronous \textbf{Ja}vaScript and \textbf{X}ML \\
 \textbf{API} & \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\
 \textbf{App} & \textbf{A}pplication \\
+\textbf{BPM} & \textbf{B}eats \textbf{P}er \textbf{M}inute \\
 \textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets \\
 \textbf{DOM} & \textbf{D}ocument \textbf{O}bject \textbf{M}odel \\
 \textbf{HTML} & \textbf{H}yper\textbf{T}ext \textbf{M}arkup \textbf{L}anguage \\

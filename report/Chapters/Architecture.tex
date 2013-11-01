@@ -3,8 +3,9 @@
 
 \lhead{Chapter 7. \emph{System architecture}}
 
-TODO.. introduction
-
+In this chapter we are going to give a description of the system architecture.
+We start this chapter with an overview, where we give an abstract description of our project.
+Then we are going to give a more thorough description of each of our applications.
 
 \section{Overview}
 
@@ -108,15 +109,15 @@ It would require more resources to separate the data if they all were in one tab
 We have created separate classes for accessing the database through our server application.
 One for heart rate (HeartRateDAO) and one for weight (WeightDAO).
 This two classes contain a method for inserting and a method for fetching data from the database.
-The data that is fetched from the database is ordered by its time stamp.
+The data that is fetched from the database is ordered by its timestamp.
 In this way the other parts of the system doesn't need to sort the data afterwards.
 
 \textbf{Data format}
 
 We are using JSON strings when transmitting data to and from the server.
 The representation of the data is inspired from the Human API.
-Both heart rate and weight data is represented with the same attributes.
-They contain an ID, user ID, time stamp, value and a unit.
+Both heart rate and weight data are represented with the same attributes.
+They contain an ID, user ID, timestamp, value and a unit.
 The ID is not needed, when the JSON string is sent, because it is created on the server side.
 Below is a representation of a heart rate JSON string that can be used to store heart rate data on the server:
 
@@ -150,7 +151,7 @@ We have two controllers that handle the API calls, concerning the heart rate and
 They are called \textit{HeartRateController} and \textit{WeightController}. 
 The \textit{HeartRateController} controls retrieval and storage of heart rate, while the \textit{WeightController} handles weight data.
 These controllers handle two HTTP methods, POST for pushing data and GET for retrieving data.
-When requesting data from our API a HTTP GET request needs to be performed to one of the following URLs:
+When requesting data from our API an HTTP GET request needs to be performed to one of the following URLs:
 
 \begin{itemize}
 \item $<$server address$>$/nipen/api/human/heart\_rates
@@ -234,24 +235,213 @@ We are using a JavaScript library called Chart.js to display the data received f
 With help of this library we are able to display the heart rates and weights as bar charts.
 This library also has some animations when the graphs are created.
 In our application a restriction is given to only display the 10 last measurements in the graphs.
-If we have more than that the time stamp of the measurements becomes hard to read.
+If we have more than that the timestamp of the measurements becomes hard to read.
+How the web-pages look like is shown in figure \ref{figure:frontend-main-page}, \ref{figure:frontend-heart-rate-page} and \ref{figure:frontend-weight-page}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{../Figures/frontend-main-page.png}
+\caption{Front-end home page}
+\label{figure:frontend-main-page}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{../Figures/frontend-heart-rate-page.png}
+\caption{Front-end heart rate page}
+\label{figure:frontend-heart-rate-page}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{../Figures/frontend-weight-page.png}
+\caption{Front-end weight page}
+\label{figure:frontend-weight-page}
+\end{figure}
 
 \textbf{Retrieving the Data}
 
-TODO
+To retrieve the data from NIPEN the front-end performs an API call.
+This is achieved by using AJAX through jQuery, and the structure of the call is given below:
+
+\begin{lstlisting}[language=JavaScript]
+$.ajax({
+  url: url, // the URL address, e.g.: <server address>/nipen/api/human/weight
+  dataType: "json", // the data type of the received data, in this case a JSON string
+  success: function(data) {
+    // update web page here with the received data
+  }
+});
+\end{lstlisting}
+
+Accessing the JSON data with JavaScript is easy.
+Let's say that the data parameter, of the success function given above, consists of the following JSON array:
+
+\begin{lstlisting}[language=json]
+[{
+    "id":1,
+    "userId":1,
+    "timestamp":"2013-10-25 14:57:39.0",
+    "value":80,
+    "unit":"kg"
+},
+{
+    "id":2,
+    "userId":1,
+    "timestamp":"2013-10-30 16:40:30.0",
+    "value":81,
+    "unit":"kg"
+}]
+\end{lstlisting} 
+
+Then the data can be accessed the following way:
+
+\begin{lstlisting}[language=JavaScript]
+data[0].id // returns 1
+data[0].userId // returns 1
+data[0].timestamp // returns "2013-10-25 14:57:39.0"
+data[0].value // returns 80
+data[0].unit // returns "kg"
+
+data[1].id // returns 2
+data[1].userId // returns 1
+data[1].timestamp // returns "2013-10-30 16:40:30.0"
+data[1].value // returns 81
+data[1].unit // returns "kg"
+\end{lstlisting}
+
+This data is used in an update function, that updates all the values that are needed on the web page.
 
 \textbf{Polling}
 
-TODO
+We decided to implement polling on our front-end, since we are using AJAX to update the page.
+AJAX is asynchronous which means that it can poll data in the background without the need of refreshing the page.
+Thus we don't need to update the web page when new data is received at NIPEN.
+The jQuery AJAX function is polling constantly in the background when the client views the page.
+When the front-end detects that new data is received, the JavaScript methods will update the page.
+To detect if the data received from NIPEN is new, we compare the timestamp of the latest value on the web page and the data received.
+If this value is different, the charts and values on the web page needs to be updated.
+This will be done automatically.
+Of course, if data is added with a timestamp that contains a date earlier than the latest, then the web page will not be updated.
+In this scenario the user must manually refresh the web page.
 
 \section{Heart rate application}
 
-TODO
+We are using the open source Android Heart Rate Monitor \cite{AndroidHeartRateMonitor} app as our base to our hart rate application.
+Duo to the fact that we are only three people on a large project like this, we though that it would be great to use existing solutions in our project.
+The existing android heart rate monitor app is capable of measuring a users heart rate.
+What we have done is extended the application to be able to send the measured heart rate to NIPEN.
+
+To construct a valid heart rate JSON string we need user ID, timestamp, value and a unit. 
+An ID is not needed because it is constructed at the back-end.
+The user ID is a hard coded value, since we are only focusing on one user.
+From the android device we are able to get the current time, the heart rate value is calculated through he app and the unit is BPM (beats per minute).
+With this information we are able to construct the JSON string that is needed to push a heart rate value into NIPEN.
+
+To send the JSON string, we need to create an HTTP connection with NIPEN.
+We are using the java class \textit{java.net.HttpURLConnection} for this task.
+To initialize the URL connection we need to set the request method to POST and the content type to \textit{application/json}.
+The URL is set to \textit{http://mhealthdemo03.cloudapp.net/nipen/api/human/heart\_rate}, where \textit{mhealthdemo03.cloudapp.net} is the server location as of this writing.
+From the http connection we are able to get an output stream where we write the JSON message.
+If we are not getting an exception at this stage, it means that the data was successfully transmitted.
+
+A simple sequence diagram of how the application works is given in figure \ref{figure:sending-heart-rate-through-app}.
+What we have added to the application is the last part, i.e. from where the users presses the button.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.0]{../Figures/sending-heart-rate-through-app.png}
+\caption{Sending a heart rate through the android app}
+\label{figure:sending-heart-rate-through-app}
+\end{figure}
 
 \section{Weight application}
 
-TODO
+The weight application is an Android app that is able to fetch and push data to and from HealthVault, as well as it is it capable of pushing data to NIPEN.
+We are also using an existing solution as a base for this application, where the features we implemented are the interactions with NIPEN.
+The base we are using for this application is an example from the HealthVault Java SDK \cite{HealthVaultSDK}.
+When the SDK is downloaded, it contains a folder named \textit{android}. 
+This folder again contains a folder \textit{examples} where the base, we are using, is located.
+
+When the application starts it asks the user to sign in to HealthVault.
+If this is the first time the user uses this application he/she is asked to add this application to HealthVault, after the sign in process.
+When the user grants permission to the application, it is allowed to push and fetch data to and from HealthVault.
+
+How the application works (after login) is illustrated in figure \ref{figure:sending-weight-to-healthvault-and-nipen}.
+The functionality we implemented is the construction of the JSON string and the sending of the data to NIPEN.
+This is developed almost exactly as the heart rate application, and hence is not further explained here.
+The only difference is that we are creating a weight measurement instead of a heart rate.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.0]{../Figures/sending-weight-to-healthvault-and-nipen.png}
+\caption{Sending weight to HealthVault and NIPEN}
+\label{figure:sending-weight-to-healthvault-and-nipen}
+\end{figure}
+
+This application illustrates that it is possible to connect HealthVault into NIPEN.
+If the user adds this application to HealthVault, it has access to all the weight values the user has added to the HealthVault account.
+Thus it is possible to thereafter send the values into NIPEN.
 
 \section{Weight Polling Service}
 
-TODO
+The weight polling service is capable of retrieving values from HealthVault and send new values into NIPEN. 
+As the weight application, the weight polling service uses an example in the HealthVault Java SDK \cite{HealthVaultSDK} as its base.
+In the SDK folder it is located inside \textit{java-1.4.2} folder.
+The functionality we have implemented into this application is a polling service and the interactions with NIPEN.
+We have also made some cosmetic changes to the web pages the example provided.
+
+This application consists of a back-end and a front-end.
+What this means is that it consists of a web page and a server application.
+The server application is handling the interactions with HealthVault and NIPEN, while the front-end creates a display for the user as well as it processes the users requests.
+
+We have completely changes the look of the front-end of this application.
+When the user opens the web page, he/she is asked to login into HealthVault.
+The procedure for the login is the same as the weight application.
+Figure \ref{figure:webservice-login} shows how the login page looks like.
+After the user has signed in, a web page is shown where it is possible to start/stop the polling service.
+Is is also possible tof push weight data into HealthVault. 
+This is illustrated in figure \ref{figure:webservice-not-polling} and \ref{figure:webservice-polling}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{../Figures/webservice-login.png}
+\caption{Weight Polling Service login page}
+\label{figure:webservice-login}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{../Figures/webservice-not-polling.png}
+\caption{Weight Polling Service not polling page}
+\label{figure:webservice-not-polling}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{../Figures/webservice-polling.png}
+\caption{Weight Polling Service polling page}
+\label{figure:webservice-polling}
+\end{figure}
+
+When the user has signed in to HealthVault through the application, an authentication token is sent from HealthVault.
+This token is received and stored in the web service.
+What this token does is that it allows the application to fetch weight data from HealthVault.
+After the sign in the user can start the polling service.
+When the user requests the application to start polling, a thread is created on the back-end.
+This thread starts fetching data from HealthVault on a regular basis.
+Every time the application receives data it waits 1 second and then fetches again.
+This is repeated until the user stops the polling service.
+
+When the polling starts the application stores the first timestamp, of the last weight measurement, received from HealthVault.
+After that, for each poll the application compares this timestamp with the timestamp received from HealthVault.
+A new value has been added to HealthVault if the timestamps are not equal.
+If a new value has been detected, the application creates and sends a JSON string to NIPEN in the same way as the heart rate and weight application.
+The polling service is illustrated in figure \ref{figure:weight-polling-service}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{../Figures/weight-polling-service.png}
+\caption{Weight polling service sequence diagram}
+\label{figure:weight-polling-service}
+\end{figure}

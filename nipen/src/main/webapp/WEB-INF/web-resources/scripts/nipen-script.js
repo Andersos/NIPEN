@@ -85,8 +85,13 @@ function createNewestMeasureDisplay(divId, newData, oldData) {
 function createChart(canvasId, data) {
     timestamps = [];
     values = [];
+    var startIndex = 0;
 
-    for (var i = 0; i < data.length && i < maxValuesDisplayedInChart; i++) {
+    if (data.length > maxValuesDisplayedInChart) {
+        startIndex = data.length - maxValuesDisplayedInChart;
+    }
+
+    for (var i = startIndex; i < data.length; i++) {
         timestamps.push(data[i].timestamp);
         values.push(data[i].value);
     }
