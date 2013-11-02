@@ -5,12 +5,25 @@
 
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 
-\usepackage{float} % Force figures and tables to be placed where they are referenced by using the paramter H.
+\usepackage{float} % force figures and tables to be placed where they are referenced by using the paramter H.
 \usepackage{color}
 \usepackage{listings}
 
-\definecolor{maroon}{rgb}{0.5,0,0}
-\definecolor{darkgreen}{rgb}{0,0.5,0}
+\usepackage{lscape} % for landscape oriented pages
+\usepackage[square, numbers, comma, sort&compress]{natbib}
+% Use the natbib reference package - read up on this to edit the reference style;
+%if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+
+\definecolor{maroon}    {rgb}{.5, 0, 0}
+\definecolor{green}     {rgb}{.1,.8,.1}
+\definecolor{darkgreen} {rgb}{ 0,.5, 0}
+\definecolor{lightgray} {rgb}{.9,.9,.9}
+\definecolor{darkgray}  {rgb}{.4,.4,.4}
+
+\definecolor{punct}     {rgb}{0.5,0,0}
+\definecolor{delim}     {rgb}{0.08,0.41,0.69}
+\definecolor{numb}      {rgb}{0.8,0.2,0.2}
+
 \lstdefinelanguage{XML}
 {
   basicstyle=\scriptsize\ttfamily,
@@ -23,15 +36,14 @@
   stringstyle=\color{maroon},
   identifierstyle=\color{blue}
 }
-\definecolor{punct}{rgb}{0.5,0,0}
-\definecolor{delim}{rgb}{0.08,0.41,0.69}
-\definecolor{numb}{rgb}{0.8,0.2,0.2}
-\lstdefinelanguage{json}{
-    basicstyle=\normalfont\ttfamily,
-    numbers=left,
-    numberstyle=\scriptsize,
-    stepnumber=1,
-    numbersep=8pt,
+
+\lstdefinelanguage{JSON}
+{
+    basicstyle=\scriptsize\ttfamily,
+    %numbers=left,
+    %numberstyle=\scriptsize,
+    %stepnumber=1,
+    %numbersep=8pt,
     showstringspaces=false,
     breaklines=true,
     frame=lines,
@@ -53,9 +65,7 @@
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
 }
-\definecolor{lightgray}{rgb}{.9,.9,.9}
-\definecolor{darkgray}{rgb}{.4,.4,.4}
-\definecolor{green}{rgb}{0.1, 0.8, 0.1}
+
 \lstdefinelanguage{JavaScript}{
   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
   keywordstyle=\color{blue}\bfseries,
@@ -70,24 +80,25 @@
   morestring=[b]',
   morestring=[b]"
 }
-\lstset{
-   language=JavaScript,
-   %backgroundcolor=\color{lightgray},
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\footnotesize,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
-}
 
-\usepackage{lscape}
-\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+%% this would set javascript as default as well as other params
+%\lstset{
+% language=JavaScript,
+% backgroundcolor=\color{lightgray},
+% extendedchars=true,
+% basicstyle=\footnotesize\ttfamily,
+% showstringspaces=false,
+% showspaces=false,
+% numbers=left,
+% numberstyle=\footnotesize,
+% numbersep=9pt,
+% tabsize=2,
+% breaklines=true,
+% showtabs=false,
+% captionpos=b
+%}
+
+
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
 
