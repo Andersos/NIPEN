@@ -1,9 +1,9 @@
 \chapter{Preliminary Studies}
 \label{Preliminary Studies}
-\lhead{Chapter 5. \emph{Preliminary Studies}}
+\lhead{Chapter 3. \emph{Preliminary Studies}}
 
 This chapter describes the studies made on similar solutions and technologies relevant
-to this project and how they affected on our design choices. Additionally, we examine two common development
+to this project and how they affected our design choices. Additionally, we examine two common development
 models and explain our reasons behind the choice of one instead of the other.
 
 %This chapter examines the development methodologies in section \ref{section:development-methodology}
@@ -321,23 +321,30 @@ e.g. heart rate, weight.
 
 Additionally, HealthVault supports exporting of data in industry-standard formats and storage
 of medical imaging formats such as \textit{DICOM}. The services provides a good degree of availability and redundancy.
-%Furthermore, cloud-storage and cross-platform commitment
-%High service availability and redundancy
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.50]{../Figures/hv-page.png}
+\end{center}
+\caption{HealthVault web interface}
+\label{figure:hv-page}
+\end{figure}
+
+%maybe we cant use this picture. it's good tho...
+\iffalse
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/hv-cloud.png}
+\end{center}
+\caption{HealthVault apps}
+\label{figure:hv-apps}
+\end{figure}
+\fi
+
 %An HealthVault account can be linked to multiple individuals.
-
-
 
 %-----------------------------------
 %	SUBSECTION 2
-%-----------------------------------
-\subsection{Open eHealth Foundation} \nocite{OpenEHealthFoundation}
-
-The goal of Open eHealth Foundation is to create and share open source software components for the healthcare ICT industry.
-One of their products is an integration platform called Open eHealth Integration Platform (IPF).
-It is based on Apache Camel and has support for connecting systems in the eHealth domain.
-
-%-----------------------------------
-%	SUBSECTION 3
 %-----------------------------------
 \subsection{human/api} \nocite{HumanAPI}
 
@@ -373,7 +380,7 @@ we present an example below.
 \end{lstlisting}
 
 %-----------------------------------
-%	SUBSECTION 4
+%	SUBSECTION 3
 %-----------------------------------
 \subsection{android-heart-rate-monitor} \nocite{AndroidHeartRateMonitor}
 \label{subsec:hr}
@@ -386,6 +393,17 @@ a beats per minute (BPM) measurement.
 
 %According to the author, it takes around thirty seconds to get an accurate reading.
 %It measures the heart rate of the user with help of the camera and flash light on the phone.
+
+%-----------------------------------
+% SUBSECTION 4
+%-----------------------------------
+\subsection{Open eHealth Foundation} \nocite{OpenEHealthFoundation}
+
+The goal of Open eHealth Foundation is to create and share open source software components for the healthcare ICT industry.
+One of their products is an integration platform called Open eHealth Integration Platform (IPF).
+It is based on Apache Camel and has support for connecting systems in the eHealth domain.
+
+
 
 %-----------------------------------
 %	SUBSECTION 5
