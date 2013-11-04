@@ -32,4 +32,9 @@ public class WeightServiceImpl implements WeightService {
     public void deleteWeight(long id) {
         weightDAO.deleteWeight(id);
     }
+
+    @Override
+    public void deleteWeights() {
+        weightDAO.deleteWeights();
+    }
 }

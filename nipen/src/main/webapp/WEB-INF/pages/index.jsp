@@ -51,13 +51,15 @@
 	        	<div class="caption">
 		            <span>Weight</span>
 		            <a href="api/human/weights">(json)</a>
-		            <a href="../webservice-1.0" target="_blank" style="float: right; margin-right: 40px;">(HealthVault Polling Service)</a>
+		            <a href="../webservice-1.0" target="_blank" style="float: right; margin-right: 40px;">(HealthVault Integration Service)</a>
 		        </div>
 
 		        <div class="newest-measure" id="newest-weight"></div>
 		        <span id="weight-unit" class="unit"></span>
 		        <canvas id="weight-chart"></canvas>
 	        </div>
+
+	        <div style="text-align: right;"><a href="#" onclick="resetData();">(Reset all data)</a></div>
         </div>
             <div id="push"></div>
         </div>

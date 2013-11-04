@@ -20,6 +20,9 @@ function startPolling(url, lastTimestamp, updateFunction, pollingKey) {
         url: url,
         dataType: "json",
         success: function(data) {
+            if (typeof data === 'undefined' || data.length == 0)
+                return;
+
             if (lastTimestamp != data[data.length-1].timestamp) {
                 lastTimestamp = data[data.length-1].timestamp;
                 data = getDataWithFormatedTimestamps(data);
@@ -61,7 +64,7 @@ function updateWeights(weightData) {
 }
 
 function visualizeData(divId, canvasId, data) {
-    if (data.length != 0)
+    if (data.length > 1)
         createNewestMeasureDisplay(divId, data[data.length-1], data[data.length-2]);
     createChart(canvasId, data);
 }
@@ -177,4 +180,104 @@ function hideAllDataTypes() {
     $("#newest-heart-rate").hide();
     $("#weight").hide();
     $("#newest-weight").hide();
+}
+
+function resetData() {
+    var isGoingToResetData = window.confirm("Are you sure you want to delete all data?");
+
+    if (isGoingToResetData) {
+        $.ajax({
+            type: "POST",
+            url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/heart_rate/reset"
+        });
+        $.ajax({
+            type: "POST",
+            url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/weight/reset"
+        });
+
+        updatePage();
+
+        var populateNewData = window.confirm("The database is now empty. Do you want to populate the charts with some mockup data?");
+        if (populateNewData)
+            populateDatabaseWithRandomValues();
+        else
+            location.reload();
+    }
+}
+
+function populateDatabaseWithRandomValues() {
+    var numValues = 10;
+
+    for (var i = 0; i < numValues; i++) {
+        var date = new Date(new Date().getTime() - (numValues-i) * 123456789);
+        addHeartRate(Math.floor((Math.random()*20)+60), date);
+        date = new Date(new Date().getTime() - (numValues-i) * 132446319);
+        addWeight(Math.floor((Math.random()*10)+70), date);
+    }
+}
+
+function addHeartRate(value, date) {
+    var timestampString;
+
+    if (typeof date === 'undefined')
+        timestampString = createTimestamp(new Date());
+    else
+        timestampString = createTimestamp(date);
+
+    var json = {
+        userId: 1,
+        timestamp: timestampString,
+        value: value,
+        unit: "bpm"
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/heart_rate",
+        data: JSON.stringify(json),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+    });
+}
+
+function addWeight(value, date) {
+    var timestampString;
+
+    if (typeof date === 'undefined')
+        timestampString = createTimestamp(new Date());
+    else
+        timestampString = createTimestamp(date);
+
+    var json = {
+        userId: 1,
+        timestamp: timestampString,
+        value: value,
+        unit: "kg"
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/weight",
+        data: JSON.stringify(json),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+    });
+}
+
+function createTimestamp(date) {
+    var year = date.getFullYear() + "";
+    var month = (parseInt(date.getMonth(), 10) + 1) + "";
+    var day = date.getDate() + "";
+    var hours = date.getHours() + "";
+    var minutes = date.getMinutes() + "";
+    var seconds = date.getSeconds() + "";
+
+    var stringTime = year;
+    stringTime += "-" + ((month.length == 1) ? "0" + month : month);
+    stringTime += "-" + ((day.length == 1) ? "0" + day : day);
+    stringTime += " " + ((hours.length == 1) ? "0" + hours : hours);
+    stringTime += ":" + ((minutes.length == 1) ? "0" + minutes : minutes);
+    stringTime += ":" + ((seconds.length == 1) ? "0" + seconds : seconds);
+
+    return stringTime;
 }

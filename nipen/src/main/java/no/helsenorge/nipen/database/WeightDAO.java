@@ -44,4 +44,8 @@ public class WeightDAO {
     public void deleteWeight(long weightId) {
         jdbcTemplate.update("DELETE FROM weight WHERE id=?", weightId);
     }
+
+    public void deleteWeights() {
+        jdbcTemplate.update("DELETE FROM weight");
+    }
 }

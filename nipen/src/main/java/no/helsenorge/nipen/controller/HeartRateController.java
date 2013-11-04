@@ -28,6 +28,12 @@ public class HeartRateController {
         heartRateService.insertHeartRate(new HeartRateJsonParser(jsonHeartRate).toHeartRate());
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value="/api/human/heart_rate/reset", method = RequestMethod.POST)
+    public void resetHeartRates() {
+        heartRateService.deleteHeartRates();
+    }
+
     // For testing
     @RequestMapping(value="/api/human/test", method =  RequestMethod.GET)
     @ResponseBody

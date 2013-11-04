@@ -17,7 +17,7 @@ The applications are listed below:
 	\item Front-end
 	\item Heart Rate Application
 	\item Weight Application
-	\item Weight Polling Service
+	\item HealthVault Integration Service
 \end{enumerate}
 
 NIPEN or NIP is our server application that consists of an API and a database.
@@ -25,8 +25,8 @@ This application is capable of receiving weight and heart rate data and store th
 It is also able to retrieve data from the database and then send it to our front-end, which then visualizes the information sent.
 The next three applications are able to send information to NIP.
 For instance the heart rate application is capable of measuring a heart rate and then send it to the integration platform.
-The two weight applications are able to fetch weight data from HealthVault and send it to NIP.
-The main difference between them is that the \textit{Weigh Application} runs on an Android device, while the \textit{Weight Polling Service} runs on a server or a computer.
+The two last applications are able to fetch weight data from HealthVault and send it to NIP.
+The main difference between them is that the \textit{Weigh Application} runs on an Android device, while the \textit{HealthVault Integration Service} runs on a server or a computer.
 In figure \ref{figure:abstract-architecture} an abstract architecture is given of how our applications communicate with each other.
 
 We didn't want to make our applications to complicated, duo to time restriction and lack of resources.
@@ -383,10 +383,10 @@ This application illustrates that it is possible to connect HealthVault into NIP
 If the user adds this application to HealthVault, it has access to all the weight values the user has added to the HealthVault account.
 Thus it is possible to thereafter send the values into NIPEN.
 
-\section{Weight Polling Service}
+\section{HealthVault Integration Service}
 
-The weight polling service is capable of retrieving values from HealthVault and send new values into NIPEN. 
-As the weight application, the weight polling service uses an example in the HealthVault Java SDK \cite{HealthVaultSDK} as its base.
+The HealthVault integration service is capable of retrieving values from HealthVault and send new values into NIPEN. 
+As the weight application, this service uses an example in the HealthVault Java SDK \cite{HealthVaultSDK} as its base.
 In the SDK folder it is located inside \textit{java-1.4.2} folder.
 The functionality we have implemented into this application is a polling service and the interactions with NIPEN.
 We have also made some cosmetic changes to the web pages the example provided.
@@ -406,21 +406,21 @@ This is illustrated in figure \ref{figure:webservice-not-polling} and \ref{figur
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{../Figures/webservice-login.png}
-\caption{Weight Polling Service login page}
+\caption{HealthVault Integration Service login page}
 \label{figure:webservice-login}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{../Figures/webservice-not-polling.png}
-\caption{Weight Polling Service not polling page}
+\caption{HealthVault Integration Service not polling page}
 \label{figure:webservice-not-polling}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{../Figures/webservice-polling.png}
-\caption{Weight Polling Service polling page}
+\caption{HealthVault Integration Service polling page}
 \label{figure:webservice-polling}
 \end{figure}
 
@@ -442,6 +442,6 @@ The polling service is illustrated in figure \ref{figure:weight-polling-service}
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.8]{../Figures/weight-polling-service.png}
-\caption{Weight polling service sequence diagram}
+\caption{HealthVault Integration Service sequence diagram}
 \label{figure:weight-polling-service}
 \end{figure}

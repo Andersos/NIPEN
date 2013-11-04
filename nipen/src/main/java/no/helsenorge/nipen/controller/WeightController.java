@@ -28,4 +28,10 @@ public class WeightController {
     public void addWeight(@RequestBody String jsonWeight) {
         weightService.insertWeight(new WeightJsonParser(jsonWeight).toWeight());
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value="/api/human/weight/reset", method = RequestMethod.POST)
+    public void resetHeartRates() {
+        weightService.deleteWeights();
+    }
 }

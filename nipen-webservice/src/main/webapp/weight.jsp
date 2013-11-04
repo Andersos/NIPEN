@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-        <h2 style="margin-bottom: 50px;">HealthVault Weight Polling Service</h2>
+        <h2 style="margin-bottom: 50px;">HealthVault Integration Service</h2>
 
         <div class="center-div">
             <%
@@ -16,26 +16,26 @@
             if (!isPolling) {
             %>
             <div class="page-element">
-                <h4>The application is currently not pulling data.<br />
-                Click on the button below to start polling:</h4>
+                <h4>You are currently not synchronizing HealthVault's weight measurements with NIPEN.
+                Click on the button below to enable synchronization of new weight measurements:</h4>
                 <form id="pollForm" action="<%= request.getContextPath() %>/things/weight"
                     method="post">
                   <input id="startPolling" type="hidden" name="poll" />
                 </form>
-                <button type="button" class="btn btn-success" onclick="pollButton('startPolling', 'true')">Start polling</button>
+                <button type="button" class="btn btn-success" onclick="pollButton('startPolling', 'true')">Enable</button>
             </div>
             <%
             }
             else {
             %>
             <div class="page-element">
-                <h4>The application is pulling new data from HealthVault and sending it to NIPEN.
-                Click on the button below to stop polling:</h4>
+                <h4>You are currently synchronized with HealthVault. New weight measurements on HealthVault will appear on NIPEN.
+                Click on the button below to disable the synchronization:</h4>
                 <form id="pollForm" action="<%= request.getContextPath() %>/things/weight"
                     method="post">
                   <input id="stopPolling" type="hidden" name="poll" />
                 </form>
-                <button type="button" class="btn btn-danger" onclick="pollButton('stopPolling', 'false')">Stop polling</button>
+                <button type="button" class="btn btn-danger" onclick="pollButton('stopPolling', 'false')">Disable</button>
             </div>
             <%
             }

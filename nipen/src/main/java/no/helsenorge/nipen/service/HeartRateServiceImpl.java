@@ -32,4 +32,9 @@ public class HeartRateServiceImpl implements HeartRateService {
     public void deleteHeartRate(long id) {
         heartRateDAO.deleteHeartRate(id);
     }
+
+    @Override
+    public void deleteHeartRates() {
+        heartRateDAO.deleteHeartRates();
+    }
 }

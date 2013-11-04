@@ -45,4 +45,8 @@ public final class HeartRateDAO {
     public void deleteHeartRate(long heartRateId) {
         jdbcTemplate.update("DELETE FROM heart_rate WHERE id=?", heartRateId);
     }
+
+    public void deleteHeartRates() {
+        jdbcTemplate.update("DELETE FROM heart_rate");
+    }
 }

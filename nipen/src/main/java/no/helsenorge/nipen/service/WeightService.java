@@ -8,4 +8,5 @@ public interface WeightService {
     void insertWeight(Weight weight);
     List<Weight> getWeights();
     void deleteWeight(long id);
+    void deleteWeights();
 }
