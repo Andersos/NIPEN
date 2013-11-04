@@ -1,15 +1,18 @@
+
 \chapter{Requirements specification}
 
 \label{ch:requirements}
 \lhead{Chapter 4. \emph{Requirements specification}}
 
-This chapter describes the requirements for the product.
-These include both functional and non-functional requirements.
-Stakeholders are described in section \ref{section:stakeholders}.
-Functional requirements can be found in section \ref{section:functionalreq},
-non-functional requirements in section \ref{section:nonfunctionalreq}.
-Section \ref{section:reqvalidation} examines some requirement validation criterias.
-Uses cases are presented in section \ref{section:usecases}.
+This chapter provides a description of project's stakeholders and requirements, both
+functional and non-functional. Requirements will be presented textually and visually
+with the aid of some use-case diagrams.
+%These include both functional and non-functional requirements.
+%Stakeholders are described in section \ref{section:stakeholders}.
+%Functional requirements can be found in section \ref{section:functionalreq},
+%non-functional requirements in section \ref{section:nonfunctionalreq}.
+%Section \ref{section:reqvalidation} examines some requirement validation criterias.
+%Uses cases are presented in section \ref{section:usecases}.
 
 Throughout this chapter both requirement's priority and complexity have a textual description which can be
 \begin{itemize}
@@ -18,17 +21,20 @@ Throughout this chapter both requirement's priority and complexity have a textua
 \item Low
 \end{itemize}
 
-The use of such terms is described in table \ref{table:priorities} (priorities) and table \ref{table:complexity} (complexity).
-
+The use of such terms is described in table \ref{table:priorities} for priorities
+and table \ref{table:complexity} for complexities.
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | p{12.5cm} | }
   \hline
   Priority & Description \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  High & An essential requirement. The product \textbf{must fulfill} the requirement in order to be satisfactory. \\
-  Medium & A useful requirement. The product \textbf{should fulfill} the requirement to maximise effectiveness. \\
-  Low & A desiderabe requirement. The product \textbf{could fulfill} the requirement to be more interesting for certain stakeholders. \\
+  High & An essential requirement.\newline
+  The product \textbf{must fulfill} the requirement in order to be satisfactory. \\
+  Medium & A useful requirement.\newline
+  The product \textbf{should fulfill} the requirement to maximise effectiveness. \\
+  Low & A desiderable requirement.\newline
+  The product \textbf{could fulfill} the requirement to be more interesting to some stakeholders. \\
   \hline
 \end{tabular}
 \end{center}
@@ -42,9 +48,12 @@ The use of such terms is described in table \ref{table:priorities} (priorities) 
   \hline
   Complexity & Description \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  High & The requirement is difficult to implement. It will take a considerable amount of time. (more than 30 hours) \\
-  Medium & The requirement is moderately difficult. It will take some time. (from 10 to 30 hours) \\
-  Low & The requirement is easy and can be achieved in a short amount of time. (10 hours or less) \\
+  High & The requirement is difficult to implement.\newline
+  It will take a considerable amount of time. (more than 30 hours) \\
+  Medium & The requirement is moderately difficult.\newline
+  It will take some time. (from 10 to 30 hours) \\
+  Low & The requirement is easy and can be achieved\newline
+  in a short amount of time. (10 hours or less) \\
   \hline
 \end{tabular}
 \end{center}
@@ -58,42 +67,57 @@ The use of such terms is described in table \ref{table:priorities} (priorities) 
 \section{Stakeholders}
 \label{section:stakeholders}
 
-This section contains the stakeholders of our system.
-A short description of the role of each stakeholder is given, and what concerns they might have.
+This section contains a description of project's stakeholders.
+%A short description\iffalse of the role\fi of each stakeholder is given, and what concerns they might have.
 
 \subsection{Customer}
-The customer is the one that is going to guide us to the solution he wants.
-His concern is that we should maintain an effective and good communication with him, so he understands our progress.
-We should also document the advancement we are making and have a clear system architecture for him.
-His main concern is to get a working prototype of our system according to his requirements.
+The customer is\iffalse the one that is\fi going to steer the project toward the direction he pleases.
+The interest of the customer is to receive a product that will be as useful as possible for him.
+% us to the solution he wants.
+%His concern is that we should maintain an effective and good communication with him, so he understands our progress.
+His concern is to be able to communicate well with the group and make his expectations for the product
+and for the documentation clear.
+%We should also document the advancement we are making and have a clear system architecture for him.
+%His main concern is to get a working prototype of our system according to his requirements.
 
-\subsection{Course evaluators}
-The course evaluators are the one that are going to evaluate our project. 
-Their concern is that the project should be well documented and understandable, and that all the deliveries should be on schedule.
-Good communication is also of importance, and of course that we will learn something from the course.
+\subsection{Course's staff}
+The course's staff will evaluate our project. Their interest is that we, as a group of students,
+gain valuable knowledge and experience in a number of areas related to software development.
+It is their interest to make the criterias behind grading clear to the students
+so that their effort is focused on the objectives of the course.
+They expect all the deliverables to be submitted on schedule.
+%Good communication is also of importance, and of course that we will learn something from the course.
 
 \subsection{Our group}
-We are going to write the report and implement our applications.
-Our concern is to fulfil the requirements of our customer, finish the report and have a good presentation that reflects our work.
+As a group made up of good students, our main interest is to gain the most out of our tuition.
+We have therefore committed to pass this course with a good profit and will give our best
+to satisfy the customer and produce a good documentation.
+%We are going to write the report and implement our applications.
+%Our concern is to fulfil the requirements of our customer, finish the report and have a good presentation
+%that reflects our work.
 
 \subsection{Third party developers}
-The third party developers are going to integrate our application to their system.
-Their concern is that our integration platform should easily be connected with their applications.
+The third party developers are going to integrate their applications with our system, or eventually
+extend some of its functionality. Their concern is that our integration platform is well documented
+in order to be easy to integrate with or to extend.
 
 \subsection{Users}
-The users are the one that are going to use our Applications.
-They are the users of our front-end, heart rate application and our weight application.
-Their concern is that their data should be available for them, and visualized in an intuitive and comprehensible way.
-They should be able to push heart rate data and weight data to our integration platform, without any difficulties.
+The users are going to user product: the front-end and Android applications.
+%They are the users of our front-end and both Android applications.%heart rate application and our weight application.
+It is their concern that their data is easily available and is visualized in an intuitive and comprehensible way.
+They should be able to push heart rate and weight measurements to the integration platform smoothly and without
+any explicit training.
 
 %-----
 
 \section{Funcional requirements}
 \label{section:functionalreq}
 
-This section describes the functional requirements for the product.
-Each requirements has a priority which helps us identify the focus of our work.
-Priorities can be reviewed based on customer's feedback. We tried to prioritize those requirements corresponding to the functionality of the system that the customer expressed most interest about. In order to better organize our workload we also assigned a \'difficulty\' to each requirement.
+This section contains a description the functional requirements for the product.
+Each requirement also had a priority which helped us identify the focus of our work.
+Priorities can be reviewed based on customer's feedback. We tried to prioritize those requirements corresponding
+to the functionality of the system that the customer expressed most interest about. In order to better organize
+our workload we also assigned a \'difficulty\' to each requirement.
 
 \textbf{Functional requirements for Integration platform}
 
@@ -103,10 +127,14 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	& The IP shall support REST endpoints for receiving heart rate data models expressed as JSON strings   & Med	& High \\
-  FIP2	& The IP shall support REST endpoints for receiving weight data models expressed as JSON strings       & Med	& High \\
-  FIP3	& The IP shall support REST endpoints for forwarding heart rate models (using JSON) to other systems.  & Med	& High \\
-  FPI4	& The IP shall support REST endpoints for forwarding weight models (using JSON).                       & Med	& High \\
+  FIP1	& The IP shall support API endpoints for receiving
+          heart rate data models expressed as JSON strings.		& Med	& High \\
+  FIP2	& The IP shall support API endpoints for receiving
+          weight data models expressed as JSON strings.				& Med	& High \\
+  FIP3	& The IP shall support API endpoints for forwarding
+          stored heart rate measurements as JSON models.			& Med	& High \\
+  FPI4	& The IP shall support API endpoints for forwarding
+          stored weight measurements as JSON models.					& Med	& High \\
   \hline
 \end{tabular}
 \end{center}
@@ -123,7 +151,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FW1	& The web frontend shall display the data stored by the Integration Platform using charts.	& Med	& High \\
-  FW2	& The web frontend shall use Helsenorge color palette                                       & Low	& Low \\
+  FW2	& The web frontend shall use Helsenorge color palette.																			& Low	& Low \\
   \hline
 \end{tabular}
 \end{center}
@@ -139,13 +167,13 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   \hline
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FHR1	& The application shall measure user’s heart rate using the device camera    & Med	& High \\
+  FHR1	& The application shall measure user's heart rate using the device camera.    & Med	& High \\
   FHR2	& The application shall display the last measurement on the screen.          & Low	& Med \\
   FHR3	& The application shall forward the data to the IP using its REST endpoint.  & Med	& High \\
   \hline
 \end{tabular}
 \end{center}
-\caption{Functional requirements for Heart rate application}
+\caption{Functional requirements for heart rate application}
 \label{table:reqheartrate}
 \end{table}
 
@@ -163,35 +191,121 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
   \hline
 \end{tabular}
 \end{center}
-\caption{Functional requirements for Weight application}
+\caption{Functional requirements for the weight application}
 \label{table:reqweight}
 \end{table}
 
 %-----
 
-\section{Non-funcional requirements}
+\section{Non-functional requirements}
 \label{section:nonfunctionalreq}
 
 This section outlines non-functional requirements (quality attributes) for the product.
 In order to provide a better overview, we have organized them in categories.
 
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | l | p{11.5cm} | }
+  \hline
+  
+  \textbf{ID} & NF1 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}			&	Documentation\\
+  \textbf{Description}	& The system shall be thoroughly documented by the 'project report' \\
+  \textbf{Difficulty}		& High \\
+  \textbf{Priority}			& High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & NF2 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}			&	Documentation\\
+  \textbf{Description}	& Although security and privacy are not requirements for the product they
+													are important topics to be discussed in the documentation. \\
+  \textbf{Difficulty}		& Med \\
+  \textbf{Priority}			& High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & NF3 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}			&	Open-source\\
+  \textbf{Description}	& The product shall be released under a permissive license approved by the product owner. \\
+  \textbf{Difficulty}		& Med \\
+  \textbf{Priority}			& Med \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  
+  \textbf{ID} & NF4 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}			&	Interoperability \\
+  \textbf{Description}	& The system shall provide a good degree of interoperability.
+  												Third party application developers should be put in the condition to develop
+  												third party (interoperable) solutions rapidly. \\
+  \textbf{Difficulty}		& High \\
+  \textbf{Priority}			& High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+	\textbf{ID} & NF5 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}			&	Interoperability \\
+  \textbf{Description}	& A number of two or three prototype applications shall be developed in order to showcase
+  												the functionality of the system \\
+  \textbf{Difficulty}		& High \\
+  \textbf{Priority}			& High \\
+  
+  \hline
+\end{tabular}
+\end{center}
+\caption{Non-functional requirements}
+\label{table:nonfunc}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | l | p{11.5cm} | }
+	\hline
+	
+	\textbf{ID} & NF6 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}			&	Accessibility \\
+  \textbf{Description}	& The web-frontend should have a good degree of accessibility.
+  												It should have a rather simple design and use a customer-provided palette. \\
+  \textbf{Difficulty}		& Low \\
+  \textbf{Priority}			& Low \\
+	
+	\hline
+\end{tabular}
+\end{center}
+\caption{Non-functional requirements (cont.)}
+\end{table}
+
+\iffalse
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{ | c | c |p{6.5cm} | c | c |}
   \hline
   ID & Category & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  NF1 & Documentation & The system shall be thoroughly documented, both at the code level and by the document ‘project report’.
+  NF1 & Documentation & The system shall be thoroughly documented by the document 'project report'.
   & High & High \\
-  NF2 & Documentation & Although security and privacy are not requirements for the product they are important topics to be discussed in the documentation.
+  \hline
+  NF2 & Documentation & Although security and privacy are not requirements for the product they
+  are important topics to be discussed in the documentation.
   & Med & High \\
+  \hline
   NF3 & Open-source	& The product shall be released under a permissive license approved by the product owner.
   & Low & High \\
-  NF4 & Interoperability & The system shall provide a good degree of interoperability. Third party application developers should be put in the condition to develop third party (interoperable) solutions rapidly.
-  & Med & High \\
-  NF5 & Interoperability & A number of two-three prototype applications shall be developed in order to showcase the functionality of the system.
-  & Med & High \\
-  NF6 & Accessibility & The web-frontend should have a good degree of accessibility. It should have a rather simple design and use a user-provided palette.
+  \hline
+  NF4 & Interoperability & The system shall provide a good degree of interoperability.
+  Third party application developers should be put in the condition to develop third party (interoperable)
+  solutions rapidly.
+  & High & High \\
+  \hline
+  NF5 & Interoperability & A number of two or three prototype applications shall be developed in order to showcase
+  the functionality of the system.
+  & High & High \\
+  \hline
+  NF6 & Accessibility & The web-frontend should have a good degree of accessibility. It should have a rather simple
+  design and use a customer-provided palette.
   & Low & Low \\
   \hline
 \end{tabular}
@@ -199,12 +313,14 @@ In order to provide a better overview, we have organized them in categories.
 \caption{Non-functional requirements}
 \label{table:reqnonfunc}
 \end{table}
+\fi
 
 % -----
 
 \section{Requirements Validation}
 \label{section:reqvalidation}
-This section outlines the practices used to ensure requirements validity.
+
+This section contains some considerations we made when defining requirements to ensure their validity\cite{Sommerville9}.
 
 \textbf{Comprehensibility}\newline
 It is important that requirements are expressed in a way that is understandable by the customer.
@@ -216,38 +332,25 @@ itself, the customer has reviewed them multiple times.
 It is crucial that a requirement can be tested. If a requirement can't be tested, it is not a valid requirement.
 We have kept this in mind while formalising requirements.
 
-%(Sommerville 7.3)
-%How to ensure that a Requirements Document does define 
-%the customers’ requirements (check against desirable 
-%features)
-%• Comprehensibility - do customers understand the 
-%requirements?
-
-%• Verifiability (testability) - can requirements be 
-%realistically tested? If you cannot test it, it is not a 
-%requirement!
-
-%\textbf{Traceability}
-%Requirements
-
-
-%• Adaptability (changeability) - what is the impact of 
-%changing a particular requirement?
+\textbf{Adaptability (changeability)}\newline
+We expected requirements to change multiple times during development.
+For this reason we started with a set of high-level requirements to be later refined and improved.
+This would allow the requirements to change without having a big impact on the progress of the project.
 
 %-----
 
 \section{Use cases}
 \label{section:usecases}
 
-In this section we are going through the different use cases of our applications.
+This section provides  the different use cases of our applications.
 The section consists of use cases for the front-end, heart rate application and the weight application.
 
 \subsection{Front-end}
 
 The use case diagram for the front-end is shown in figure \ref{figure:use-case-diagram-front-end}.
 From the use case diagram we see that the front-end has two main objectives.
-The first one is to fetch data from our integration platform, and the second one is to visualize this data for the user.
-In table \ref{table:use-case-view-data} a textual use case is given for the front-end.
+The first one is to fetch data from our integration platform, and the second one is to display this data to the user.
+In table \ref{table:use-case-view-data} we present a textual use case for the front-end.
 
 \begin{figure}[H]
 \centering
@@ -432,8 +535,9 @@ Table \ref{table:use-case-view-weight-data} gives a textual use case for the use
 \label{table:use-case-view-weight-data}
 \end{table}
 
-Table \ref{table:use-case-send-weight-data} gives a textual use case for sending the weight data to our integration platform.
-Figure \ref{figure:use-case-diagram-send-weight} displays a use case diagram for the textual use case.
+Table \ref{table:use-case-send-weight-data} gives a textual use case for sending the weight data to our
+integration platform. Figure \ref{figure:use-case-diagram-send-weight} displays a use case diagram for the
+textual use case.
 
 \begin{figure}[H]
 \centering
@@ -465,8 +569,6 @@ Figure \ref{figure:use-case-diagram-send-weight} displays a use case diagram for
 \caption{Textual use case - Send weight data}
 \label{table:use-case-send-weight-data}
 \end{table}
-
-
 
 %\section{Test plan}
 %\label{section:testplan}

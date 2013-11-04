@@ -4,14 +4,15 @@
 
 \lhead{Chapter 1. \emph{Introduction}}
 
-This chapter provides a description of the project including its background, goals and duration as well as the parties involved.
+This chapter provides a description of the project, its background, goals, duration and involved parties.
+At the end, we present a brief description of every other chapter in this document.
 
 %-------------------------
 \section{Project description}
 \label{section:description}
 
 The purpose of the project was to design, develop and document an integration platform for citizen eHealth\cite{ehealth}. 
-The aim of such platform is to integrate digital information about citizens' health which is collected using popular
+The aim of such platform is to integrate digital information about citizens' health \iffalse which is\fi collected using popular
 devices such as smartphones and tablets.
 %citizens to publish data related to their health produced by devices or third party solutions. 
 %It is very common today for people to log health data from mobile phones and tablets in their possession.
@@ -30,12 +31,13 @@ It is simply an acronym for \textbf{N}ational \textbf{I}ntegration \textbf{P}lat
 in \textbf{N}orway.
 
 %-------------------------
-\section{Project sponsor}
+\section{Project customer}
 \label{section:client}
 
-The project customer was the Department of the Health portal, Norwegian Directorate of Health (Helsedirektoratet) located in Oslo, Norway.
-The Directorate has, among other, the task of digitalizing Norway's health care system by providing services for both specialists and citizens. The customer was represented by Mr. Helge T. Blindheim. His contact information is shown in table \ref{table:contact}.  
-%Their office is located in the capital of Norway, Oslo.
+The project customer was the Department of the Health portal, Norwegian Directorate of Health (Helsedirektoratet)
+located in Oslo, Norway. The Directorate has, among other, the task of digitalizing Norway's health care system
+by providing services for both specialists and citizens. The customer was represented by Mr. Helge T. Blindheim.
+His contact information is shown in table \ref{table:contact}.
 
 % --- relevant but to be detailed in another chapter (proj. mgmt) - emanuele
 %This infered that our weekly meeting had to be heald over teleconferencing.
@@ -47,7 +49,7 @@ The Directorate has, among other, the task of digitalizing Norway's health care 
 \begin{tabular}{ | l | l | l |  l | }
   \hline
   Name & Phone & E-mail & \\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  \hline\noalign{\smallskip}\hline
   Helge T. Blindheim	& 46675321 & Helge.T.Blindheim@helsedir.no \\
   \hline
 \end{tabular}
@@ -56,7 +58,6 @@ The Directorate has, among other, the task of digitalizing Norway's health care 
 \label{table:client}
 \end{table}
 \fi
-
 
 \section{Involved parties}
 \label{section:parties}
@@ -71,12 +72,12 @@ See table \ref{table:contact} for contact information.
 \begin{tabular}{ | l | l | l | p{2.5cm} | }
   \hline
   Name & Phone & E-mail & Party \\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  Helge T. Blindheim    & 46675321    & Helge.T.Blindheim@helsedir.no & Customer, Product owner\\
-  Zhu Meng              & 73551189    & zhumeng@idi.ntnu.no           & Advisor\\
-  Anders Olsen Sandvik	& 91824583    & andsan@stud.ntnu.no            & Team member \\
-  Emanuele Di Santo     & none        & lemrey@gmail.com               & Team member \\
-  Sebastian Zalewski    & 95107928    & zalewski@stud.ntnu.no          & Team member \\
+  \hline\noalign{\smallskip}\hline
+  Helge T. Blindheim		& 46675321		& Helge.T.Blindheim@helsedir.no		& Customer\\
+  Meng Zhu							& 73551189		& zhumeng@idi.ntnu.no							& Advisor\\
+  Anders Olsen Sandvik	& 91824583		& andsan@stud.ntnu.no							& Team member \\
+  Emanuele Di Santo			& none				& lemrey@gmail.com								& Team member \\
+  Sebastian Zalewski		& 95107928		& zalewski@stud.ntnu.no						& Team member \\
   \hline
 \end{tabular}
 \end{center}
@@ -91,7 +92,7 @@ See table \ref{table:contact} for contact information.
 \begin{tabular}{ | l | l | l | }
   \hline
   Name & Phone & E-mail \\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  \hline\noalign{\smallskip}\hline
   Zhu Meng	& 73551189 & zhumeng@idi.ntnu.no \\
   \hline
 \end{tabular}
@@ -103,26 +104,39 @@ See table \ref{table:contact} for contact information.
 
 
 %--------------
-\newpage
 \section{Project background}
 \label{section:background}
 
-This project is part of the Customer Drivent Project (TDT4290) at NTNU.
-Digital healthcare is about using information technologies to provide solutions to problems in healthcare. This definition includes a lot of different domains among which is eHealth. eHealth is
+Digital healthcare is about using information technologies to provide solutions to problems in healthcare.
+This definition includes a lot of different domains among which is eHealth:
 \begin{quote}
-An emerging field in the intersection of medical informatics, public health and business, referring to health services and information delivered or enhanced through the Internet and related technologies.\citep{ehealth}
+an emerging field in the intersection of medical informatics, public health and business, referring to health services
+and information delivered or enhanced through the Internet and related technologies.\citep{ehealth}
 \end{quote}
-eHealth projects of national scale are therefore long, complex and inherently costly. At the same time the progress in information technology has made available powerful and yet cheap devices which can be used to monitor people's health. These devices are nowdays widespread and used by a large part of the population. As such, the Department of Health Portal is interested in investigating the possibilities of using these devices in eHealth projects.
+eHealth projects of national scale are therefore long, complex and inherently costly. At the same time the progress
+in information technology has made available powerful and yet cheap devices which can be used to monitor people's health.
+These devices are nowdays widespread and used by a large part of the population. As such, the Department of Health
+Portal (our customer) is interested in investigating the possibilities of using these devices in eHealth projects.
 
-%The objective of this project is to design, document and develop a solution that integrates the data gatherd from these devices and display a complete collection of the users health data. Together with educated health professonals the gatherd data could be used to get a better understanding of the users health.
+%This project is part of the Customer Drivent Project (TDT4290 2013) at NTNU.
 
 \section{Project objective}
 \label{section:objective}
 
 The project had multiple goals.
-The purpose of the course which this project is part of is to let students acquire practical experience in development of a medium-large software project, including experience in project management, group dynamics and customer relations.
+The purpose of the course which this project is part of is to let students acquire practical experience in development
+of a medium-large software project, including experience in project management, group dynamics and customer relations.
 
-The aim of the customer was to investigate the possibilities for national eHealth's projects to use widely available devices such as smartphones and tables. The customer was also requested a prototype system that could demonstrate such possibilities and stimulate further work.
+The aim of the customer was to investigate the possibilities for national eHealth's projects to use widely available
+devices such as smartphones and tables. The customer also requested a prototype system that could demonstrate such
+possibilities and stimulate further work.
+
+Expected deliverables:
+\begin{itemize}
+\item Project report
+\item Integration platform
+\item Two prototype applications
+\end{itemize}
 
 \section{Duration}
 \label{section:duration}
