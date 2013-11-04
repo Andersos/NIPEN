@@ -52,7 +52,7 @@ NIPEN is an integration platform for two data types, namely heart rate and weigh
 By using the HTTP methods GET and POST it is possible to retrieve and store data into NIP, respectively.
 How this works is explained in this subsection.
 
-\textbf{System architecture}
+\subsection{System architecture}
 
 A class diagram containing the most important classes and methods of our system is given in figure \ref{figure:nipen-class-diagram}.
 
@@ -83,7 +83,7 @@ The controllers work as an interface that connects the applications we have deve
 
 \end{itemize}
 
-\textbf{Database}
+\subsection{Database}
 
 We are using a MySQL database for data storage.
 It consists of two tables for each data type, one for heart rate and one for weight.
@@ -112,7 +112,7 @@ This two classes contain a method for inserting and a method for fetching data f
 The data that is fetched from the database is ordered by its timestamp.
 In this way the other parts of the system doesn't need to sort the data afterwards.
 
-\textbf{Data format}
+\subsection{Data format}
 
 We are using JSON strings when transmitting data to and from the server.
 The representation of the data is inspired from the Human API.
@@ -143,7 +143,7 @@ The ID of the data is shown when receiving the data from the server:
 }
 \end{lstlisting} 
 
-\textbf{API calls}
+\subsection{API calls}
 
 A RESTful (Representational State Transfer) service is used when communicating with NIPEN.
 What this means is that we are using HTTP methods to request and send data.
@@ -201,7 +201,7 @@ This class stores the value into the database.
 The main functionality of the front-end is to visualize the data stored by the Integration Platform.
 This is accomplished by using a regular web-page consisting of HTML, CSS and JavaScript. HTML and CSS is used for structuring and giving a nice design of the web page. With help of JavaScript we are able to make the page dynamic.
 
-\textbf{Design and Visualization}
+\subsection{Design and Visualization}
 
 One of the requirements given by the customer was that the front-end should use helsenorge.no color palette. 
 That is the front-end should use the colors shown in figure \ref{figure:helsenorge-color-palette}. 
@@ -259,7 +259,7 @@ How the web-pages look like is shown in figure \ref{figure:frontend-main-page}, 
 \label{figure:frontend-weight-page}
 \end{figure}
 
-\textbf{Retrieving the Data}
+\subsection{Retrieving the Data}
 
 To retrieve the data from NIPEN the front-end performs an API call.
 This is achieved by using AJAX through jQuery, and the structure of the call is given below:
@@ -312,7 +312,7 @@ data[1].unit // returns "kg"
 
 This data is used in an update function, that updates all the values that are needed on the web page.
 
-\textbf{Polling}
+\subsection{Polling}
 
 We decided to implement polling on our front-end, since we are using AJAX to update the page.
 AJAX is asynchronous which means that it can poll data in the background without the need of refreshing the page.
