@@ -1,7 +1,7 @@
 \chapter{System architecture}
 \label{ch:architecture}
 
-\lhead{Chapter 7. \emph{System architecture}}
+\lhead{Chapter 5. \emph{System architecture}}
 
 In this chapter we are going to give a description of the system architecture.
 We start this chapter with an overview, where we give an abstract description of our project.
@@ -266,7 +266,7 @@ This is achieved by using AJAX through jQuery, and the structure of the call is 
 
 \begin{lstlisting}[language=JavaScript]
 $.ajax({
-  url: url, // the URL address, e.g.: <server address>/nipen/api/human/weight
+  url: url, // the URL address, e.g.: <server address>/nipen/api/human/weights
   dataType: "json", // the data type of the received data, in this case a JSON string
   success: function(data) {
     // update web page here with the received data
