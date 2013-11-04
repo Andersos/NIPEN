@@ -2,9 +2,9 @@
 \label{Preliminary Studies}
 \lhead{Chapter 3. \emph{Preliminary Studies}}
 
-In this chapter we report the studies done on similar solutions and technologies relevant
-to this project. Additionally, we examine two common development models and
-explain our reasons behind choosing one instead of the other.
+This chapter describes the studies made on similar solutions and technologies relevant
+to this project and how they affected our design choices. Additionally, we examine two common development
+models and explain our reasons behind the choice of one instead of the other.
 
 %This chapter examines the development methodologies in section \ref{section:development-methodology}
 %and some of our earlier experiences in section \ref{section:earlier-experience}.
@@ -21,8 +21,10 @@ explain our reasons behind choosing one instead of the other.
 \label{section:development-methodology}
 
 Choosing an appropriate development process is vital to any software project.
-In this section we give a brief description of two common development methodologies which we
-took into consideration for our project, outlining those features that led to chose one instead of the other.
+It is a choice that has to be made early on because it will influence the planning of the project
+as well as many other activities. In this section we give a brief description of two common development
+methodologies we took into consideration for our project and outline those features that led to chose one
+instead of the other.
 %We are going to conclude with what type of development methodology we chose and why we chose it.
 %This was one of the first discussions we had before starting the project, since without a good
 %development process a project is often doomed to failure.
@@ -39,7 +41,7 @@ The Waterfall development process is a classical model proposed in the early 70s
 Waterfall follows a scrict, rigorous top-down approach where all phases of development are
 carried out sequentially: before moving to the next phase the preceding ones
 need to be entirely completed. The \iffalse progress of the\fi project is seen as if 'flowing downwards'
-through the different phases, hence the name. Development cycle in Waterfall consists of seven
+through the different phases, hence the name Waterfall. The development cycle consists of seven
 distinct phases shown in figure \ref{figure:waterfall-model}.
 
 %commented out
@@ -63,18 +65,22 @@ distinct phases shown in figure \ref{figure:waterfall-model}.
 \label{figure:waterfall-model}
 \end{figure}
 
-%Because each phase needs to be perfected and completed before moving on to the next one,
-%changes to project's requirements are not allowed.
 The model is easily understandable, structured, and disciplined.
 %The clear distinction between project phases make it easier to monitor the progress of the project.
-However, adopting Waterfall in real software projects can be challenging because it requires to be able to foresee,
-in the early stages of the project, all problems that can arise during development and plan accordingly.
-This is often a very hard task that requires great insight and expertise.
-Each phase of the development cycle is expected to produce a good amount of documentation before moving to the next.
 %it can be very hard to adapt to this kind of development model.
-Whereas Waterfall may be suited to large-scale, expensive projects where requirements
-are clearly established early on and are not subject to change.
-% it can be hard for a system designer to predict future implementation difficulties of a type of design, %hence the design of the system may change during the process.
+However, adopting Waterfall in real software projects can be challenging because it requires to be able to foresee,
+in the early stages of the project, any problem that could arise in later stages and plan accordingly.
+This is often a very hard task that requires great insight and expertise.
+
+Additionally, each phase of the development cycle is expected to produce a good amount of documentation
+that will be used for the next phase: documentation is a critical task.
+
+Waterfall may be suited to large-scale, expensive projects where 'going back' on design
+choices is not an option and requirements are clearly established early on and then 'set in stone'.
+However, many software projects nowadays fail to meet these conditions and therefore Waterfall is probably not an appropriate process for them.
+
+% it can be hard for a system designer to predict future implementation difficulties of a type of design,
+%hence the design of the system may change during the process.
 %Another problem is that the customer is not always sure about the system requirements, and will often change them during the development.
 
 %-----------------------------------
@@ -87,36 +93,32 @@ Scrum is an emerging agile development process which is mostly used in software 
 The Scrum approach, which could be described as both iterative and incremental, consists of multiple sprints
 which last from two to four weeks. Sprints begin with a planning meeting and conclude with a review meetings.
 
-During this meeting team members produce a \emph{sprint backlog}: an artifact which defines a set of
-concrete goals of the sprint and can be seen basically as a 'to-do' list of the tasks to be performed.
-
-Such tasks, which in Scrum's terminology are called \emph{stories} are taken from the
-\emph{product backlog} which is a prioritized list of the requirements of the product.
-
-Although a product backlog is usually made during the early stages of the project, it is subject to
-change in order to accomodate new or modified requirements.
-
-The person in charge of populating the product backlog is the \emph{product owner}.
-
-Each day in a sprint should begin with a meeting called \emph{daily scrum}.
-
-During this meeting which lasts usually fifteen minutes, everybody shares the work
-accomplished since the last daily meeting and their plan for the day, mentioning eventual
-problems if any.
-%For each day a daily scrum meeting should be performed.
 %Each sprint is focusing on a set of concrete goals that are in the sprint backlog.
 %The sprint backlog consists of tasks that are chosen from the product backlog. 
 %They are usually chosen in the sprint planning meeting that is performed before each sprint.
-%The product backlog consists of all the features the product should contain, and is usually made in the initial phase of the project.
-%It can however be changed and adjusted during the development of the product.
+%The product backlog consists of all the features the product should contain, and is usually made in the
+%initial phase of the project. It can however be changed and adjusted during the development of the product.
+During the sprint planning meeting team members produce a \emph{sprint backlog}: an artifact which defines a set of
+concrete goals of the sprint and can be seen basically as a 'to-do' list of the tasks to be performed.
+Such tasks, which in Scrum's terminology are called \emph{stories} are taken from the
+\emph{product backlog} which is a prioritized list of the requirements of the product.
+Although a product backlog is usually made during the early stages of the project, it is subject to
+change in order to accomodate new or modified requirements. The person in charge of populating and ordering
+the product backlog is the \emph{product owner}.
 
- 
-Usually a scrum meeting consists of getting to know what each person did yesterday,
-what they will do today and if they are facing any problems.
-If there are any problems the Scrum master is responsible to resolve the problem.
-A sprint concludes with a sprint review meeting where 
-An overview of what goals where achieved and which one where not should be made.
-The meeting can also consist of a demo of the new features implemented. 
+%For each day a daily scrum meeting should be performed.
+%Usually a scrum meeting consists of getting to know what each person did yesterday,
+%what they will do today and if they are facing any problems.
+%A sprint concludes with a sprint review meeting where 
+%An overview of what goals where achieved and which one where not should be made.
+%The meeting can also consist of a demo of the new features implemented. 
+Each day in a sprint begins with a meeting called \emph{daily scrum}. During this meeting which is usually brief,
+everybody shares the work accomplished since the last daily scrum and their plan for the day, mentioning eventual
+problems if any. A sprint concludes with a sprint \textit{review meeting} where the team evaluates the work done.
+
+%If there are any problems the Scrum master is responsible to resolve the problem.
+The whole process is supervised by the \textit{Scrum master} who has the responsability to help other
+team members to perfom at their best and solve problems that might arise during the process.
 Figure \ref{figure:scrum-workflow} shows the workflow in Scrum.
 
 \begin{figure}[h]
@@ -133,6 +135,7 @@ Figure \ref{figure:scrum-workflow} shows the workflow in Scrum.
 \subsection{Conclusion}
 
 Chosing a development process was one of the first tasks of this project.
+%We took into consideration many factors such as team size, project scope, time resources.
 After discussing about possible alternatives, we decided to use Scrum after the following
 considerations:
 
@@ -140,26 +143,49 @@ considerations:
 \item we didn't have a formal set of requirements from the beginning and we expected
 their nature to be volatile, that is, subject to change throughout the duration of the project.
 
-\item our knowledge of both the problem and the technologies involved was limited; it was
-highly likely that we didn't understand the problem completely, and might have done some wrong
-design decisions in the first phase of the project.
+%\item at the beginning of the project, our knowledge of both the problem and the technologies involved was limited
+%thus it would have been very risk to make design decisions we couldn't adjust later.
+%it was highly likely that our design choices in the early phases of the project had to be adjusted multiple times
+%before becoming acceptable.
+%didn't understand the problem completely, and might have done some wrong
+%design decisions in the first phase of the project.
 
-\item our experience with Waterfall was only theoretical, whereas Waterfall requires a certain
-level of expertise to be perfomed correctly.
+\item at the beginning of the project, our knowledge of both the problem and the technologies involved
+was limited thus it would have been very risky to make decisions we wouldn't be able to adjust later.
 
 \item given the size of the project and of our group, we wanted a development process
-with a small overhead.
+with a small overhead. Waterfall is notoriously not a process with a small overhead.
 
-\item the team had previous experiences with Scrum.
+\item we had previous working experiences with Scrum, whereas our experience with Waterfall was only theoretical.
+
+\item the customer hinted use to use an agile method
 
 \end{enumerate}
 
-With the Scrum method it is also a lot easier to adjust the project direction if we are going down the wrong path.
-Our customer also advised us to use an agile method as our development methodology.
-We thought that scrum would be a good methodology as it is a widely known and respected development process in the programming community.
-The ability to change the design and choices we had made earlier in the project was very important to us.
-If we for example were to make a choice that the customer wasn't pleased with, we would have the ability to fix the problem in the next sprint.
-This would have been very hard to do in a non agile development methodology like the waterfall model.
+All in all, Scrum seemed to fit very well the nature of this project.
+We thought that iterating the same activities over and over would have led to a natural improvement of our process
+and left a lot of possibilities to adjust the requirements and thus the design accordingly.
+
+However, we made some adjustment to the process in order to adapt it to our specific case.
+
+\textbf{Daily scrum}\newline
+We performed daily scrum on days we planned to work together: Mondays and Wednesdays.
+Because everyone in the group had to attend courses, or to deliver assignments, or a job, or all these things,
+we couldn't work every day on the project. Since there was nothing to report, we didn't see the need for a daily
+scrum meeting.
+
+\textbf{Sprint review meetings}\newline
+Usually this meeting is held at the end of a sprint. In our case however, because the last meeting we had each
+week was on Wednesdays but often we continued working on the project for the rest of the week we decided to
+combine this meeting with our sprint startup meeting (on Mondays every two weeks).
+%The Scrum master would prepare a sprint backlog, and receive the informal approval of the customer.
+
+%With the Scrum method it is also a lot easier to adjust the project direction if we are going down the wrong path.
+%Our customer also advised us to use an agile method as our development methodology.
+%We thought that scrum would be a good methodology as it is a widely known and respected development process in the programming community.
+%The ability to change the design and choices we had made earlier in the project was very important to us.
+%If we for example were to make a choice that the customer wasn't pleased with, we would have the ability to fix the problem in the next sprint.
+%This would have been very hard to do in a non agile development methodology like the waterfall model.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -221,8 +247,9 @@ This made it easier to divide the tasks between each other in the project.
 \section{Existing Solutions}
 \label{section:existing-solutions}
 
-This section describes existing solutions which have helped us get a better overview of technologies and design patterns used to solve this kind of problem.
-What we present in this section are the ones we found most relevant and inspiring for our work.
+This section describes existing solutions which have helped us get a better overview of technologies and
+design patterns used to solve this kind of problem. What we present in this section are the ones we found
+most relevant and inspiring for our work.
 
 %The following technologies were a good inspiration source and help in our project,
 %as they already were similar or did contain components that our application also would contain.
@@ -235,9 +262,8 @@ What we present in this section are the ones we found most relevant and inspirin
 
 HealthVault is Microsoft's online platform to collect, store and monitor personal health
 information. %It offers a single, central repository of a person's health.
-
 One of its most interesting features is interoperability with third-party solutions which are,
-in HealthVault terminology and hereafter, referred to as \textit{Apps}.
+in HealthVault terminology and in this subsection hereafter, referred to as \textit{Apps}.
 
 Examples of Apps include:
 \begin{itemize}
@@ -246,11 +272,9 @@ Examples of Apps include:
 \item third-party health services like Withings, \ldots
 \end{itemize}
 
-At the moment of writing, HealthVault supports more than 300 applications and 80 devices
-(in the U.S.).
-
-Apps are used to populate a user's health record by collecting health measurements and parameters and, in turn, make use of such information to provide services.
-
+At the moment of writing, HealthVault supports more than 300 applications and 80 devices (in the U.S.).
+Apps are used to populate a user's health record by collecting health measurements and parameters and,
+in turn, make use of such information to provide services.
 In order to connect to HealthVault, third-party applications need to be authorized by the user
 upon first use. Authorization can be restricted to a specific set of data: e.g. an App may be
 authorized to access weight and glucose records but not others (allergies, pregnancies\ldots).
@@ -260,22 +284,6 @@ See figure \ref{} for a diagram showing the different authentication and authori
 Interoperability is achieved through an XML-over-HTTP API which, together with several
 software development kits (SDK) for major mobile platforms and languages enables developers
 to build HealthVault-enabled applications with ease.
-
-%From a technical perspective, HealthVault is an XML based web-service.
-%As such, it exposes an XML based web API that developers can leverage
-%to easily build HealthVault-enabled applications.
-
-%Health records can be from a number different third-party sources, which in
-%HealthVault's terminology are referred to as \textit{apps}, such as:
-%\begin{itemize}
-%\item smartphone and desktop applications
-%\item devices like step counters, blood glucose meters, weighting scales\ldots
-%\item third-party health services like Withings, \ldots
-%\end{itemize}
-%and shared with other people like family members, doctors and healthcare providers.
-
-%Furthermore, cloud-storage and cross-platform commitment
-%High service availability and redundancy
 
 In HealthVault a single data measurement is called \textit{thing}.
 Basically, a \textit{thing} represents a measurement of some health parameter
@@ -311,55 +319,53 @@ e.g. heart rate, weight.
 %It's possibile to selectively share health information with other
 %people which could be family doctors or relatives.
 
-Additionally, HealthVault supports exporting of data in industry-standard formats.
+Additionally, HealthVault supports exporting of data in industry-standard formats and storage
+of medical imaging formats such as \textit{DICOM}. The services provides a good degree of availability and redundancy.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.50]{../Figures/hv-page.png}
+\end{center}
+\caption{HealthVault web interface}
+\label{figure:hv-page}
+\end{figure}
+
+%maybe we cant use this picture. it's good tho...
+\iffalse
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.6]{../Figures/hv-cloud.png}
+\end{center}
+\caption{HealthVault apps}
+\label{figure:hv-apps}
+\end{figure}
+\fi
+
 %An HealthVault account can be linked to multiple individuals.
-
-
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
-\subsection{Open eHealth Foundation} \nocite{OpenEHealthFoundation}
-
-The goal of Open eHealth Foundation is to create and share open source software components for the healthcare ICT industry.
-One of their products is an integration platform called Open eHealth Integration Platform (IPF).
-It is based on Apache Camel and has support for connecting systems in the eHealth domain.
-
-%-----------------------------------
-%	SUBSECTION 3
-%-----------------------------------
 \subsection{human/api} \nocite{HumanAPI}
 
 The human/api is a RESTful web API for health data developed by human/api Inc.
-
-Its aim is to offer a single entry-point for a user's health information
-in order to facilitate developing health applications.
-
-For this purpose, human/api has designed a clean web API representing various health
-parameters such as blood pressure, blood glucose, weight\ldots.
-
-Additionally, human/api collects users' health data from a variety of third-party
-services and devices (e.g. sensors) and normalizes it in order to adhere to the API models.
-
-%human/api takes care of collecting such information from a number of third-party services
-%and devices (e.g. sensors) and normalizing it.
-
-%to fetch health information
-%from a variety of sensors, devices and other third-party services.
-This has the benefit of providing a single authentication point so that developers won't
-need to integrate with each service separately.
-
-%The data itself is pulled by human/api system from a number of third-party services
-%and devices and normalized.
-
+Its aim is to offer a single access point to people's health information in order to facilitate developing
+health applications.
+For this purpose, human/api collects people's health parameters (blood pressure, weight\ldots) from a variety
+of third-party services (e.g. Withings) and devices (e.g. sensors) and normalizes it.
+The data is then made available through a clean and well documented web API.
+This has the benefit of providing a single service for application developers to authenticate against
+in order to obtain users' health information, without having to integrate with multiple services individually.
+Additionally, all data is represented using standardized models and format (JSON) of which
+we present an example below.
 
 %They have an API that contains multiple different well defined JSON strings for different kinds of human related data.
 %Each JSON string contains all the necessary information that is needed to represent each type of health data.
 %For example heart rate is defined by an id, user id, time, value and unit in the following way:
 
-See below an example of an blood pressure measurement as represented in human/api using JSON.
+%See below an example of an blood pressure measurement as represented in human/api using JSON.
 
-\begin{lstlisting}[language=json]
+\begin{lstlisting}[language=JSON]
 {
   "id": "string",
   "userId": "string",
@@ -374,23 +380,48 @@ See below an example of an blood pressure measurement as represented in human/ap
 \end{lstlisting}
 
 %-----------------------------------
-%	SUBSECTION 4
+%	SUBSECTION 3
 %-----------------------------------
-\subsection{Android heart rate monitor} \nocite{AndroidHeartRateMonitor}
-\label{subsec: AndroidHeartRateMonitor}
+\subsection{android-heart-rate-monitor} \nocite{AndroidHeartRateMonitor}
+\label{subsec:hr}
 
-Android heart rate monitor is an open source heart rate measurer for android.
-It measures the heart rate of the user with help of the camera and flash light on the phone.
+android-heart-rate-monitor is an open source (Apache 2.0 license) Android application that can be used
+to measure the user heart rate. The application uses the phone's camera and flash to compute
+'redness' levels on user's fingertips. These are supposed to increase in correspondance with heartbeats.
+The application computes an average 'redness' value and uses that to detected heartbeats and calculate
+a beats per minute (BPM) measurement.
+
+%According to the author, it takes around thirty seconds to get an accurate reading.
+%It measures the heart rate of the user with help of the camera and flash light on the phone.
+
+%-----------------------------------
+% SUBSECTION 4
+%-----------------------------------
+\subsection{Open eHealth Foundation} \nocite{OpenEHealthFoundation}
+
+The goal of Open eHealth Foundation is to create and share open source software components for the healthcare ICT industry.
+One of their products is an integration platform called Open eHealth Integration Platform (IPF).
+It is based on Apache Camel and has support for connecting systems in the eHealth domain.
+
+
 
 %-----------------------------------
 %	SUBSECTION 5
 %-----------------------------------
 \subsection{Conclusion}
 
-The applications mentioned above were of great help for us in our project.
-Our integration platform needs to send and receive information. 
-With help of the Human API we found out how the structure of this information should be.
-The android application mentioned in \ref{subsec: AndroidHeartRateMonitor} was a good starting point for creating the heart rate application that we needed in our project.
+The solutions presented in this subsection were of great influence in our work.
+\verb|human/api| influenced our data models and representation as well as being a good
+example of how to implement security.
+HealthVault, together with its SDKs proved to be a valuable example of a modern health integration platform.
+We made use of HealthVault SDK to interact with the Microsoft's platform and were able to re-use
+a large portion of the code shipped as example.
+
+%Our integration platform needs to send and receive information. 
+%With help of the Human API we found out how the structure of this information should be.
+The android-heart-rate-monitor application was used to provide functionality that would have taken some
+effort to implement from scratch.
+% starting point for creating the heart rate application that we needed in our project.
 
 
 %----------------------------------------------------------------------------------------
