@@ -1,0 +1,285 @@
+\chapter{Test results}
+\label{AppendixG}
+\lhead{Appendix G. \emph{Test results}}
+
+\section{Functional tests}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 1} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& NIPEN \\
+	Name				& Heart rate REST (read) \\
+	Requirement			& \hyperref[table:reqip]{FIP1} \\
+	Description			& Test the REST endpoint for receiving heart rate data models \\
+	Preconditions		& 	\par The IP is deployed and running on a server machine 
+							\par The test is run on the server machine or alternatively
+							one that has access to the server and whose address is replaced to the
+							string \verb|localhost| in the test.
+							\par The machine on which the test is run has the \verb|curl| program installed. \\
+	Steps 				&	1. Run the following:
+							\begin{verbatim}
+							curl localhost:8080/nipen/human/api/heart_rates
+							\end{verbatim}
+							\\
+	Postconditions		& A JSON valid, comma separated list of heart rate data models consistent with 
+							entries in the databased hosted on the server. \\
+	Results				& - \\
+	Comments			& - \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 2} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& NIPEN \\
+	Name				& Weight REST (read) \\
+	Requirement			& \hyperref[table:reqip]{FIP2} \\
+	Description			& Test the REST endpoint for receiving weight data models \\
+	Preconditions		&	\par The IP is deployed and running on a server machine
+							\par The test is run on the server machine or alternatively
+							one that has access to the server and whose address is replaced to the
+							string \verb|localhost| in the test.
+							\par The machine on which the test is run has the \verb|curl| program installed. \\
+	Steps 				&	1. Run the following:
+							\begin{verbatim}
+							curl localhost:8080/nipen/human/api/weights
+							\end{verbatim}
+							\\
+	Postconditions		& A JSON valid, comma separated list of heart rate data models consistent with 
+							entries in the database hosted on the server. \\
+	Results				& - \\
+	Comments			& - \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 3} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& NIPEN \\
+	Name				& Heart rate REST (write) \\
+	Requirement			& \hyperref[table:reqip]{FIP3} \\
+	Description			& Test the REST endpoint for requesting heart rate data models \\
+	Preconditions		&	\par The IP is deployed and running on a server machine
+							\par The test is run on the server machine or alternatively
+							one that has access to the server and whose address is replaced to the
+							string \verb|localhost| in the test.
+							\par The machine on which the test is run has the \verb|curl| program installed.
+							\par At least one heart rate measurement has been stored on the IP \\
+	Steps 				&	1. Run the following \begin{verbatim}
+							curl -X POST -H "Content-Type: application/json"
+							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
+							"bpm"}' localhost:8080/nipen/human/api/heart_rates
+							\end{verbatim} \\
+	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
+	Results				& -- \\
+	Comments			& - \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 4} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& NIPEN \\
+	Name				& Weight REST (write) \\
+	Requirement			& \hyperref[table:reqip]{FIP4} \\
+	Description			& Test the REST endpoint for requeting weight data models \\
+	Preconditions		&	\par The IP is deployed and running on a server machine
+							\par The test is run on the server machine or alternatively
+							one that has access to the server and whose address is replaced to the
+							string \verb|localhost| in the test.
+							\par The machine on which the test is run has the \verb|curl| program installed.
+							\par At least one weight measurement has been stored on the IP \\
+	Steps 				&	1. Run the following \begin{verbatim}
+							curl -X POST -H "Content-Type: application/json"
+							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
+							"kg"}' localhost:8080/nipen/human/api/weight
+							\end{verbatim} \\
+	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
+	Results				& -- \\
+	Comments			& - \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 5} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& Heart Rate Application \\
+	Name				& Heart rate measurement \\
+	Requirement			& \hyperref[table:reqheartrate]{FHR1} \\
+	Description			& Test the heart rate measurement functionality \\
+	Preconditions		& The application has started \\
+	Steps 				&	\par 1. User holds his finger on the camera applying a slight pressure \\
+	Postconditions		&	\par 1. The icon on the left side of the screen is blinking 
+							\par 2. A measurement appears after 4 seconds at most \\
+	Results				& -- \\
+	Comments			&	The measurement is expected to be rough.
+							Any value between 60 and 100 is okay as long as it actually varies slightly based
+							on the tester's perceived heart rate.  \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 6} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& Heart Rate Application \\
+	Name				& Send heart rate \\
+	Requirement			& \hyperref[table:reqheartrate]{FHR3} \\
+	Description			& Test the heart rate application interoperability \\
+	Preconditions		&	\par 1. The application has started
+							\par 2. A heart rate measurement has been acquired \\
+	Steps 				&	\par 1. User presses \textbf{Send} button \\
+	Postconditions		&	\par 1. The application shows a toast
+							\par 2. The measurement is acquired by the Integration Platform \\
+	Results				& -- \\
+	Comments			& -- \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 7} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& Weigh Application \\
+	Name				& Data fetching from HealthVault\\
+	Requirement			& \hyperref[table:reqweight]{FHV1} \\
+	Description			& Test HealthVault connectivity \\
+	Preconditions		&	\par 1. The application has started
+							\par 2. The user has authenticated to HealthVault \\
+	Steps 				&	\par 1. User clicks on the \textit{Fetch} button \\
+	Postconditions		&	\par 1. The data is correctly fetched from HealthVault
+							\par 2. A list is populated with the data \\
+	Results				& -- \\
+	Comments			& -- \\
+	Status				& OK or FAIL\\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 8} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& Weight Application \\
+	Name				& Sending data to HealthVault through app \\
+	Requirement			& FR1 \\
+	Description			& Test the HealthVault application data forwarding functionality \\
+	Preconditions		&	\par 1. The application has started
+							\par 2. The application has fetched some data from HealthVault \\
+	Steps 				&	\par 1. User clicks on the \textit{Send} button \\
+	Postconditions		&	\par 1. A success message is showed
+							\par 2. Data is correctly acquired by the integration platoform \\
+	Results				& -- \\
+	Comments			& -- \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 9} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& HealthVault Integration Service \\
+	Name				& Sending data to HealthVault through web service \\
+	Requirement			& -- \\
+	Description			& -- \\
+	Preconditions		&	\par 1. --
+							\par 2. -- \\
+	Steps 				&	\par 1. -- \\
+	Postconditions		&	\par 1. --
+							\par 2. -- \\
+	Results				& -- \\
+	Comments			& -- \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | l | p{10cm} | }
+	\hline
+	\textbf{Test}	&	\textbf{ID 9} \\
+	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
+	Application name	& HealthVault Integration Service \\
+	Name				& Polling service \\
+	Requirement			& -- \\
+	Description			& -- \\
+	Preconditions		&	\par 1. --
+							\par 2. -- \\
+	Steps 				&	\par 1. -- \\
+	Postconditions		&	\par 1. --
+							\par 2. -- \\
+	Results				& -- \\
+	Comments			& -- \\
+	Status				& OK or FAIL \\
+	Tester				& Person \\
+	Date				& dd-mm-2013 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}

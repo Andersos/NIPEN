@@ -2,233 +2,141 @@
 \chapter{Testing}
 \label{Testing}
 \lhead{Chapter 12. \emph{Testing}}
+\nocite{SoftwareTesting}
 
-\section{Testing methodologies}
+%\section{Testing types}
 
-\section{Tools}
+%In this section we are going to give a brief explanation of the different types of testing.
 
-\section{Functional tests}
+%\subsection{Black box testing}
 
-*test results should be moved to the appendix*
+%This type of testing sees the system as a black box.
+%What this means is that we are only giving the system inputs and viewing how the system reacts on those inputs, without %concerning how the system works internally. 
+%We are using black box testing when we are performing system testing and acceptance testing.
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 1} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Heart rate REST (read) \\
-	Requirement			& \hyperref[table:reqip]{FIP1} \\
-	Description			& Test the REST endpoint for receiving heart rate data models \\
-	Preconditions		& 	\par The IP is deployed and running on a server machine 
-							\par The test is run on the server machine or alternatively
-							one that has access to the server and whose address is replaced to the
-							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed. \\
-	Steps 				&	1. Run the following:
-							\begin{verbatim}
-							curl localhost:8080/nipen/human/api/heart_rates
-							\end{verbatim}
-							\\
-	Postconditions		& A JSON valid, comma separated list of heart rate data models consistent with 
-							entries in the databased hosted on the server. \\
-	Results				& - \\
-	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+%\subsection{White box testing}
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 2} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Weight REST (read) \\
-	Requirement			& \hyperref[table:reqip]{FIP2} \\
-	Description			& Test the REST endpoint for receiving weight data models \\
-	Preconditions		&	\par The IP is deployed and running on a server machine
-							\par The test is run on the server machine or alternatively
-							one that has access to the server and whose address is replaced to the
-							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed. \\
-	Steps 				&	1. Run the following:
-							\begin{verbatim}
-							curl localhost:8080/nipen/human/api/weights
-							\end{verbatim}
-							\\
-	Postconditions		& A JSON valid, comma separated list of heart rate data models consistent with 
-							entries in the database hosted on the server. \\
-	Results				& - \\
-	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+%When doing white box testing we are testing internal structures of the system.
+%We are using white box testing when performing unit tests.
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 3} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Heart rate REST (write) \\
-	Requirement			& \hyperref[table:reqip]{FIP3} \\
-	Description			& Test the REST endpoint for requesting heart rate data models \\
-	Preconditions		&	\par The IP is deployed and running on a server machine
-							\par The test is run on the server machine or alternatively
-							one that has access to the server and whose address is replaced to the
-							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed.
-							\par At least one heart rate measurement has been stored on the IP \\
-	Steps 				&	1. Run the following \begin{verbatim}
-							curl -X POST -H "Content-Type: application/json"
-							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
-							"bpm"}' localhost:8080/nipen/human/api/heart_rates
-							\end{verbatim} \\
-	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
-	Results				& -- \\
-	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+%\subsection{Gray box testing}
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 4} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Weight REST (write) \\
-	Requirement			& \hyperref[table:reqip]{FIP4} \\
-	Description			& Test the REST endpoint for requeting weight data models \\
-	Preconditions		&	\par The IP is deployed and running on a server machine
-							\par The test is run on the server machine or alternatively
-							one that has access to the server and whose address is replaced to the
-							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed.
-							\par At least one weight measurement has been stored on the IP \\
-	Steps 				&	1. Run the following \begin{verbatim}
-							curl -X POST -H "Content-Type: application/json"
-							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
-							"kg"}' localhost:8080/nipen/human/api/weight
-							\end{verbatim} \\
-	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
-	Results				& -- \\
-	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+%Gray box testing is a combination of black box and white box testing.
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 5} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Heart rate measurement \\
-	Requirement			& \hyperref[table:reqheartrate]{FHR1} \\
-	Description			& Test the heart rate measurement functionality \\
-	Preconditions		& The application has started \\
-	Steps 				&	\par 1. User holds his finger on the camera applying a slight pressure \\
-	Postconditions		&	\par 1. The icon on the left side of the screen is blinking 
-							\par 2. A measurement appears after 4 seconds at most \\
-	Results				& -- \\
-	Comments			&	The measurement is expected to be rough.
-							Any value between 60 and 100 is okay as long as it actually varies slightly based
-							on the tester's perceived heart rate.  \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+%\section{Testing methodologies}
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 6} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& Heart rate app \\
-	Requirement			& \hyperref[table:reqheartrate]{FHR3} \\
-	Description			& Test the heart rate application interoperability \\
-	Preconditions		&	\par 1. The application has started
-							\par 2. A heart rate measurement has been acquired \\
-	Steps 				&	\par 1. User presses \textbf{Send} button \\
-	Postconditions		&	\par 1. The application shows a toast
-							\par 2. The measurement is acquired by the Integration Platform \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+In this chapter we are going to give an explanation of the testing methodologies used and how we performed the different tests.
+Duo to time restrictions and the fact that we are only three people, we have only been performing manual testing.
+Therefore we have unfortunately not used any tools for our testing, since we had to prioritize other parts of the project.
+The results of the functional tests performed, can be viewed in appendix \ref{AppendixG}.
 
+\section{Unit testing}
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 7} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& HealthVault data fetching \\
-	Requirement			& \hyperref[table:reqweight]{FHV1} \\
-	Description			& Test HealthVault connectivity \\
-	Preconditions		&	\par 1. The application has started
-							\par 2. The user has authenticated to HealthVault \\
-	Steps 				&	\par 1. User clicks on the \textit{Fetch} button \\
-	Postconditions		&	\par 1. The data is correctly fetched from HealthVault
-							\par 2. A list is populated with the data \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL\\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+In unit testing a test is performed for each individual part of the source code.
+This is the lowest level of testing, and often a tool is used for this process like JUnit.
+In our case we unfortunately didn't have time to implement JUnit tests, so most of this tests were conducted manually.
+This was usually performed by testing a method after it was created, and then test if it worked as it should.
 
-\begin{table}
-\begin{center}
-\begin{tabular}{ | l | p{10cm} | }
-	\hline
-	\textbf{Test}	&	\textbf{ID 8} \\
-	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
-	Name				& HealthVault app \\
-	Requirement			& FR1 \\
-	Description			& Test the HealthVault application data forwarding functionality \\
-	Preconditions		&	\par 1. The application has started
-							\par 2. The application has fetched some data from HealthVault \\
-	Steps 				&	\par 1. User clicks on the \textit{Send} button \\
-	Postconditions		&	\par 1. A success message is showed
-							\par 2. Data is correctly acquired by the integration platoform \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
-	\hline
-\end{tabular}
-\end{center}
-\end{table}
+\section{Integration testing}
+
+Since our system consists of multiple applications, integration testing is important.
+Here we test if all the parts of the system are working together.
+Each application in our system has its own interface that it uses to communicate with other parts of the system.
+For example the NIPEN server application uses an API as its interface for sending and receiving data.
+In integration testing it is important to test if each interface works as it should.
+
+The following tasks were performed during integration testing:
+
+\textbf{Database}
+\begin{enumerate}
+\item Create a weight model and store it in the database, then retrieve it and compare all the values.
+\item Create a heart rate model and store it in the database, then retrieve it and compare all the values.
+\end{enumerate}
+
+\textbf{NIPEN}
+\begin{enumerate}
+\item Create some weight models and retrieve them through an API call. Check if all the data is correct.
+\item Create some heart rate models and retrieve them through an API call. Check if all the data is correct.
+\item Create a weight JSON string and POST it to NIPEN. Construct a weight model based on the JSON string on the back-end. Check if the values are correct.
+\item Create a heart rate JSON string and POST it to NIPEN. Construct a heart rate model based on the JSON string on the back-end. Check if the values are correct.
+\end{enumerate}
+
+\textbf{Front-end}
+\begin{enumerate}
+\item Perform an AJAX call to the server and receive heart rate values. Display the heart rate values on the front-end and check if they are the same as in the received JSON string.
+\item Perform an AJAX call to the server and receive weight values. Display the weight values on the front-end and check if they are the same as in the received JSON string.
+\end{enumerate}
+
+\textbf{Heart Rate Application}
+\begin{enumerate}
+\item Construct a heart rate JSON string and send it to NIPEN. Check on the server application if the received JSON message has the right format and contains the right values.
+\end{enumerate}
+
+\textbf{Weight Application}
+\begin{enumerate}
+\item Construct a weight JSON string and send it to NIPEN. Check on the server application if the received JSON message has the right format and contains the right values.
+\end{enumerate}
+
+\textbf{HealthVault Integration Service}
+\begin{enumerate}
+\item Construct a weight JSON string and send it to NIPEN. Check on the server application if the received JSON message has the right format and contains the right values.
+\end{enumerate}
+
+\section{System testing}
+
+In system testing we are testing if all the functionalities of the whole integrated system are working as they should.
+When performing this test we connected all the systems that were dependent on each other and tested them together.
+This consisted of three main tests:
+
+\begin{enumerate}
+\item Pushing data with the heart rate application
+\item Pushing data with the weight application
+\item Pushing data with the HealthVault integration service
+\end{enumerate}
+
+By performing the tasks mentioned above, we were able to test all parts of the system.
+This includes the REST endpoints of NIPEN, the database, the front-end and each of the applications that were used to push data into the system.
+When pushing a value into NIPEN it is first received at the REST endpoints of NIPEN, then it is sent and stored in the database.
+After that the front-end asks NIPEN to receive new data.
+This data is again gathered from the database and sent to the front-end, which again will display the data for the user.
+Hence all the main parts of the system are being tested by performing the mentioned tasks.
+
+\section{Acceptance testing}
+
+Acceptance testing is a test to determine if all the requirements of the application are met.
+This tests were performed by showing a demonstration of the application to the customer.
+We were able to demonstrate the system two times.
+During the first demonstration we had implemented everything that was needed to store and display heart rate measurements.
+Hence, the acceptance test was based on the following functionalities:
+
+\begin{itemize}
+\item NIPEN REST end points for retrieving and receiving heart rate data.
+\item Database for storing heart rate data.
+\item Front-end for displaying heart rate data.
+\item Heart rate application for creating and sending heart rate data.
+\end{itemize}
+
+We demonstrated the functionalities to the customer, by measuring and sending multiple heart rate measurements through the heart rate application.
+The values sent from the android device were successfully displaying on the front-end after they were sent.
+Thus this acceptance test was successful since the customer was pleased with the results.
+
+During our second demonstration we were able to demonstrate the part of the system concerning weight data.
+This includes the following parts:
+
+\begin{itemize}
+\item NIPEN REST end points for retrieving and receiving weight data.
+\item Database for storing weight data.
+\item Front-end for displaying weight data.
+\item Weight application for creating and sending weigh data.
+\item HealthVault integration service for creating and sending weight data.
+\end{itemize}
+
+The test was performed by first demonstrating the HealthVault integration service that we implemented.
+We started the polling service and let the customer enter some values into HealthVault.
+The values were sent and stored in our system and displayed on the front-end.
+Then we demonstrated the weight application for our customer by entering a value into the application, and sending it into both HealthVault and NIPEN.
+The values were successfully transmitted and stored in both systems.
+This acceptance test also was successful, since the customer was satisfied with this demonstration and the requirements were met.
+
+%\section{Tools}
+
