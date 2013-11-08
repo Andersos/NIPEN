@@ -1,87 +1,113 @@
 
-
 \chapter{Sprint 2}
-\label{Sprint0}
+\label{Sprint2}
 \lhead{Chapter 8. \emph{Sprint 2}}
 
 \section{Goal(s)}
 Having just demonstrated the product to the customer during the previous sprint, the main goal
-for this iteration was to write the report in view of the second milestone deadline for mid-term delivery.
-Additionally we planned to assess the feasibility of interoperability of our system with HealthVault.
-
-\section{Planning}
-
-Most of the work planned for this sprint was documentation writing.
-This included writing the report itself but also reviewing other documents such as the
-templates, report, notes and agendas. Although one member of the team would be working remotely
-from another city, we thought it would be easy for him to collaborate in writing the documentation
-so we did not make any special planning for him.
-We wanted to begin some preliminary work toward the second prototype of the system which would
-feature HealthVault interoperability. Our plan was to develop an Android application which would connect
-to HealtVault in order to retrieve data about user's weight and forward it to our system. For this task
-we planned to use HealthVault's SDK for Android.
+for this iteration was to write the report in view of the second milestone deadline for mid-term delivery (M2).
+Additionally we had to assess the feasibility of interoperability of our system with HealthVault
+and begin to add support for weight measurements to the API.
 
 \section{Duration}
+The duration of the sprint was the following:
 \begin{itemize}
 \item Start: September, 23rd
 \item End: October, 6th
 \end{itemize}
 
+\section{Planning}
+
+Most of the work planned for this sprint was documentation writing.
+This included writing the report itself but also reviewing other documents such as the
+templates, notes and agendas. Although one member of the team would be working remotely
+from another city, we thought it would be easy for him to collaborate in writing the documentation
+so we did not prepare a separate work plan for him.
+We did, though, schedule an internal meeting with him to be held weekly on Mondays
+to keep in touch and share information about the project's progress.
+
+Because we felt confident that interoperability with HealthVault was possible
+we planned to work on an initial design of a second prototype application to demonstrate it.
+
+%work on the development of a second Android application which would connect
+%to HealtVault in order to retrieve data about user's weight and forward it to our system.
+%For this task we planned to use HealthVault's SDK for Android.
+
+Furthermore, we planned to continue with system development and add support for weight
+measurements to the API.
+
+%We wanted to begin some preliminary work toward the second prototype of the system which would
+%feature HealthVault interoperability. Our plan was to develop an Android application 
+
 \section{Backlog}
 
 See below the sprint backlog.
-\begin{itemize}
-	\item \textbf{Project management}\newline
-	This included:
+\begin{enumerate}[1.]
+	\item \textbf{Project management} included:
 	\begin{itemize}
-		\item \textbf{Weekly startup meeting}:
+		\item \textbf{Weekly startup meeting}
+		\item \textbf{Weekly meetings}
+			meetings with both the customer and the supervisor.
+			%*During week 39.we were unable to contact the customer. This was not a problem*
 		\item \textbf{Meeting notes}:
 			taking notes during meetings, reviewing of the notes.
 		\item \textbf{Status reports}:
 			for both week 39 and 40
 		\item \textbf{Review templates}:
-			we reviewed some templates to be adopted for status reports and other documents.
+			to be adopted for status reports and other documents.
 		\item \textbf{Risk analysis}:
 			updated on a weekly basis, so twice per sprint.
-			The risk analisys was submitted to the supervisor and the customer.
+			%The risk analisys was submitted to the supervisor and the customer.
 		\item \textbf{Planning for the next iteration}:
-			the project manager prepared a plan for the next iteration
-			which would be illustrated and agreed upon on next iteration's startup meeting.
+			prepare a plan for the next iteration
+			%which would be illustrated and agreed upon on next iteration's startup meeting.
 	\end{itemize}
-	\item \textbf{Weekly meetings}
-		included meetings with both the customer and the supervisor.
-		*During week 39.we were unable to contact the customer. This was not a problem*
-	\item \textbf{Report work}:
-		we started writing the report.
-		This tasks was definitely the biggest of the sprint and accounted for the majority of the work.
-		We focused on writing the abstract and first chapters required for the mid-term delivery.
-	\item \textbf{HealthVault studies}:
-		we performed further studies in order to assess the feasibility of developing a prototype
-		application that implemented interoperability with Microsoft's HealthVault platform.
-	\item \textbf{System development}:
-		this included some preliminary work on the backend to accomodate for the new weight API.
-	\item \textbf{Application development}:
-		Initial design and implementation of an Android application using the weight API.
-
-\end{itemize}
+	\item \textbf{Report work}\newline
+		start writing the report, focus on necessary chapters for the mid-term delivery.
+		%This tasks was definitely the biggest of the sprint and accounted for the majority of the work.
+		%We focused on writing the abstract and first chapters required for the mid-term delivery.
+	\item \textbf{HealthVault studies}\newline
+		perform further studies in order to assess the feasibility of developing a prototype
+		application that implemented interoperability with Microsoft's platform.
+	\item \textbf{System development}\newline
+		preliminary development on the backend to accomodate the new weight API.
+	\item \textbf{Application development}\newline
+		initial design and implementation of a prototype application using the weight API.
+		The application needs to connect to HealthVault and retrieve some weight measurements
+		and then send them to the integration platform.
+\end{enumerate}
 
 
 \section{Results and feedback}
 
-We managed to write a table of contents for the report and began writing the initial chapters as well.
-The team member who had moved to Oslo was able to contribute to the project writing the report.
-Also, studies on HealtVault went smoothly and we had a good start at developing the Android application
-especially. In fact, using HealthVault's SDK greatly reduced the amount of code we needed to write ourselves
-from scratch.
+We wrote a table of contents for the report and parts of the initial chapters as well.
+The table of contents was submitted to the supervisor in order to make sure we weren't leaving out
+any important chapter in our report. The team member who had moved to Oslo was able to contribute
+significantly to the project by writing the report.
+
+Studies on HealtVault went smoothly. Our idea for the second prototype application was
+to write another Android application which would fetch some weight measurements from HealthVault
+and send them to our integration platform. We presented this idea to the customer and he agreed on it.
+
+Development has proceeded smoothly. This was also thanks to HealthVault's SDK which greatly
+reduced the amount of code we needed to write ourselves from scratch.
+We used one of the examples provided with the SDK which featured out-of-the-box interoperability
+with HealthVault and added the functionality required to make it interoperable with our system as well.
+
 System development also proceeded smoothly and we added support for the weight data to the backend.
-The frontend needed little work to accomodate these additions, so most of the work done on it
-was minor tweakings.
+The frontend and the database needed little work to accomodate these additions, so most of the work done on
+them was minor tweakings.
 
 \section{Evaluation}
 
 Results for this sprint were positive. We were pleased with how the report was shaping up and
 received good feedback on our structure from the supervisor.
-%We were also happy with the amount of effort put into report writing by the team member in Oslo.
 
+Our plan to let our colleague in Oslo work on the documentation worked out pretty well
+and he was able to work indipendently and effeciently. Although he had moved to Oslo,
+he didn't start to work right away so he a lot of time to dedicate to the project.
 
+Since we had told the customer that we would be working primarily on the report for this sprint,
+he didn't put any pressure on us to develop new features.
+We were happy that our project was well in schedule with our plan so far.
 

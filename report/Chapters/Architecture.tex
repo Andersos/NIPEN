@@ -3,32 +3,49 @@
 
 \lhead{Chapter 5. \emph{System architecture}}
 
-In this chapter we are going to give a description of the system architecture.
-We start this chapter with an overview, where we give an abstract description of our project.
-Then we are going to give a more thorough description of each of our applications.
+%In this chapter we are going to give a description of the system architecture.
+This chapter describes the system architecure in detail.
+We follow a top-down approach, giving an overview of the architecture and then detailing
+each part in a separate section.
+%We start this chapter with an overview, where we give an abstract description of our project.
+%Then we are going to give a more thorough description of each of our applications.
 
 \section{Overview}
 
-Our prototype consists of multiple systems that communicate with each other.
-The applications are listed below:
-
-\begin{enumerate}
-	\item NIPEN/NIP
-	\item Front-end
-	\item Heart Rate Application
-	\item Weight Application
-	\item HealthVault Integration Service
+In order to study the possibilities of leveraging modern mobile phones in an integration platform
+we developed a product consisting of multiple, interoperable systems which include:
+%The product consists of multiple, interoperable systems.% that communicate with each other.
+%The applications are listed below:
+\begin{enumerate}[a)]
+	\item an integration platform (\textit{NIPEN})
+	\item a front-end to the integration platform
+	%\item an Android application to measure heart rate
+	%\item an Android application to showcase HealthVault interoperability
+	\item two Android applications
+	\item a web service%to showcase HealthVault interoperability
 \end{enumerate}
 
+Figure \ref{figure:architecture} shows the overall system architecture.
+
+In the following sections we provide a detailed description of the each part of the system.
+%an abstract architecture is given of how our applications communicate with each other.
+
+%%
+\iffalse
+%% we talk about this more in detail in other sections
 NIPEN or NIP is our server application that consists of an API and a database.
 This application is capable of receiving weight and heart rate data and store them in a database.
-It is also able to retrieve data from the database and then send it to our front-end, which then visualizes the information sent.
+It is also able to retrieve data from the database and then send it to our front-end, which then visualizes
+the information sent.
 The next three applications are able to send information to NIP.
 For instance the heart rate application is capable of measuring a heart rate and then send it to the integration platform.
 The two last applications are able to fetch weight data from HealthVault and send it to NIP.
-The main difference between them is that the \textit{Weigh Application} runs on an Android device, while the \textit{HealthVault Integration Service} runs on a server or a computer.
-In figure \ref{figure:abstract-architecture} an abstract architecture is given of how our applications communicate with each other.
+The main difference between them is that the \textit{Weigh Application} runs on an Android device, while the
+\textit{HealthVault Integration Service} runs on a server or a computer.
+\fi
 
+\iffalse
+% * these are some limitations to our product. should we have a separate section maybe in the conclusion for these? *
 We didn't want to make our applications to complicated, duo to time restriction and lack of resources.
 Thus we have only concentrated on one user.
 What this means is that we have not implemented functionality for storing and displaying data for multiple users.
@@ -38,23 +55,36 @@ In addition our systems doesn't contain any type of security, i.e. no authentica
 The reason for this is that our customer was explicit that security was not a requirement.
 Also, our applications are meant to be a prototype to illustrate how a system like this would work.
 And hence security is not necessary.
+\fi
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{../Figures/abstract-architecture.pdf}
-\caption{Abstract architecture}
-\label{figure:abstract-architecture}
+\includegraphics[scale=0.5]{../Figures/architecture.pdf}
+\caption{System architecture}
+\label{figure:architecture}
 \end{figure}
 
 \section{NIPEN}
 
-NIPEN is an integration platform for two data types, namely heart rate and weight.
-By using the HTTP methods GET and POST it is possible to retrieve and store data into NIP, respectively.
-How this works is explained in this subsection.
+NIPEN is the core of our product. It is an implementation of a web API for the storage and retrieval of health information.
+%To provide such functionality, we had to define a \textit{model} (a representation) of the information itself.
+Together with the customer, we identified two types of health measurements that would be supported by NIPEN:
+heart rate and weight. %why heartrate and weight?
+%This choice was motivated by the fact that both are easy to obtain using mobile phones. what about weight?
+For each of these measurements we designed a \textit{model}, that is a digital representation of the information,
+which we describe in detail subsection \ref{subsec:models}.
+NIPEN is exposing an API that other applications can use to interoperate with it.
+The API is presented in subsection \ref{subsec:api}.
 
-\subsection{System architecture}
+%NIPEN is an integration platform for two data types, namely heart rate and weight measurements.
+%By using the HTTP methods GET and POST it is possible to retrieve and store data into NIP, respectively.
+%The following subsection provides a more detailed explaination of how we achieved that.
+%How this works is explained in this subsection.
 
-A class diagram containing the most important classes and methods of our system is given in figure \ref{figure:nipen-class-diagram}.
+\subsection{Architectural pattern}
+
+A class diagram containing the most important classes and methods of our system is given
+in figure \ref{figure:nipen-class-diagram}.
 
 \begin{figure}[h]
 \centering
@@ -63,13 +93,14 @@ A class diagram containing the most important classes and methods of our system 
 \label{figure:nipen-class-diagram}
 \end{figure}
 
-We are following MVC (Model-view-controller) architecture pattern. 
+We are following an MVC (Model-View-Controller) architectural pattern. %% WHY ?
 What this means is that we have divided our application into three main parts: models, views and controllers.
 
 \begin{itemize}
 
-\item Model: A model is a type of data structure that is used within an application.
-In our case the models of our application are: Weight, HeartRate and DataType.
+\item Model: A model is \iffalse a type of\fi a data structure that is used within an application.
+In our case the models of our application are: Weight and HeartRate.
+%and DataType. sure but it is just an abstract superclass
 This classes are filled with data from the database and are used when sending data to the front-end.
 They are also used to store data into our database.
 
@@ -83,14 +114,192 @@ The controllers work as an interface that connects the applications we have deve
 
 \end{itemize}
 
+\subsection{Data models}
+\label{subsec:models}
+
+We decided to represent our data models using JSON.
+Although there were other perfectly viable alternatives like XML,
+we opted for JSON because it is less verbose and we had previous experiences with it.
+Additionally, JSON APIs are used by major networking services which deal with huge amounts of
+data like Facebook and Twitter.
+%We are using JSON strings when transmitting data to and from the server.
+%The representation of the data is inspired from the Human API.
+human/api, described in section \ref{section:humanapi}, provided a good starting point for the design of
+these models which we have simplified and adapted to our needs.
+Both heart rate and weight measurements have \iffalse are represented with\fi the same attributes.
+This is due to the fact that their are rather simple measurements which involve nothing more but
+a user's ID, a value, a unit, and a timestamp.
+%They contain an ID, user ID, timestamp, value and a unit.
+%The ID is not needed, when the JSON string is sent, because it is created on the server side.
+%Below is a representation of a heart rate JSON string that can be used to store heart rate data on the server:
+See below an example of JSON model for heart rate measurements.
+
+\begin{lstlisting}[language=json]
+{
+	"userId":1,
+	"timestamp":"2013-10-27 14:57:39.0",
+	"value":75,
+	"unit":"bpm"
+}
+\end{lstlisting}
+
+A weight model looks pretty much the same (see below), but uses another unit.
+%The ID of the data is shown when receiving the data from the server:
+
+\begin{lstlisting}[language=json]
+{
+	"userId":1,
+	"timestamp":"2013-10-27 14:57:39.0",
+	"value":90,
+	"unit":"kg"
+}
+\end{lstlisting} 
+
+\subsection{Web API}
+\label{subsec:api}
+
+% are we actually using REST?
+% we don't have PUT and DELETE methods, also our entry points are wrong from a REST perspective: different urls
+%A RESTful (Representational State Transfer) service is used when communicating with NIPEN.
+NIPEN exposes a JSON based web API to store and retrieve health information.
+% which other applications can use to interoperate.
+By using a web API, we ensure that the system is accessible to a broad number of users an from a wide
+selection of devices. All that is needed is an internet connection.
+In fact, the API is exposed to the web via a web server, in this case Apache Tomcat 7.
+There were of course a number of alternative web servers we could have used but we sticked
+with Tomcat because we had used it before and it provided all needed functionality.
+Applications can interact with NIPEN by issuing HTTP GET and POST messages to pre-defined URLs
+% to retrieve or store
+%heart rate and weight data models.
+called API endpoints.
+Internally, these methods are handled by Spring \textit{Controllers} which implement the logic of the API.
+Each API endpoint is associated with a resource and an action to be perfomed on it as shown in table \ref{table:api}.
+%What this means is that we are using HTTP methods to request and send data.
+%We have two controllers that handle the API calls, concerning the heart rate and weight data, in our system.
+%They are called \textit{HeartRateController} and \textit{WeightController}. 
+%The \textit{HeartRateController} controls retrieval and storage of heart rate, while 
+%the \textit{WeightController} handles weight data.
+%These controllers handle two HTTP methods, POST for pushing data and GET for retrieving data.
+%When requesting data from our API an HTTP GET request needs to be performed to one of the following URLs:
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ | l | l | c | c | }
+	\hline
+	Resource	& URL						& HTTP Method 	& Action \\
+	\hline
+	Heart rate	& /nipen/api/heart\_rates	& GET			& Read \\
+	Weight		& /nipen/api/weights		& GET			& Read \\
+	Heart rate	& /nipen/api/heart\_rate	& POST			& Write \\
+	Weight		& /nipen/api/weight			& POST			& Write \\
+	\hline
+\end{tabular}
+\end{center}
+\caption{API endpoints}
+\label{table:api}
+\end{table}
+
+%% reworked the endpoints into a single table.
+\iffalse
+\begin{itemize}
+\item $<$server address$>$/nipen/api/human/heart\_rates
+\item $<$server address$>$/nipen/api/human/weights
+\end{itemize}
+
+The first URL requests all the heart rates, while the second URL requests all the weights stored in the database.
+In figure \ref{figure:retrieve-heart-rates-from-the-database} a sequence diagram is given of how the controller 
+retrieves the data for the user.
+The weight controller works the same way.
+%% maybe too detailed here
+When the controller receives a HTTP GET request, it contacts a data type service which again contacts a
+database handler class.
+The database handler class returns a list of models which is at last returned to the controller.
+The list of models is transformed automatically into JSON string with help of the Spring Framework.
+Both controllers will respond with an array of JSON strings representing the respective data.
+\fi
+
+When an application makes an HTTP GET request at the URL \verb|/nipen/api/heart_rates| it is returned
+a JSON string representing a collection (array) of all heart rate measurements stored in the database.
+See below for an example:
+\begin{lstlisting}[language=json]
+[
+	{
+		"id":319,
+		"userId":1,
+		"timestamp":"2013-10-21 07:35:32.0",
+		"value":70,
+		"unit":"bpm"
+	},
+	{
+		"id":320,
+		"userId":1,
+		"timestamp":
+		"2013-10-22 17:53:09.0",
+		"value":66,
+		"unit":"bpm"
+	}
+]
+\end{lstlisting}
+\label{listing:jsonarray}
+
+Similarly, the application is returned a collection of all weight measurements when making an HTTP GET
+request at: \verb|/nipen/api/weights|. Figure \ref{figure:seqhr} shows
+a sequence diagram for retrieving heart rates.
+
+\begin{figure}[h]
+\centering
+%\includegraphics[scale=0.6]{../Figures/retrieve-heart-rates-from-the-database.png}
+\includegraphics[scale=0.8]{../Figures/seqhr.png}
+\caption{Retrieving heart rates from the database}
+\label{figure:seqhr}
+\end{figure}
+
+When an HTTP POST operation is performed on either \verb|/nipen/api/weight| or \newline
+\verb|/nipen/api/heart_rate| then the JSON payload will be translated into a MVC model and
+stored into the database. See figure \ref{figure:seqw} for a sequence diagram.
+
+\iffalse
+\begin{itemize}
+\item $<$server address$>$/nipen/api/human/heart\_rate
+\item $<$server address$>$/nipen/api/human/weight
+\end{itemize}
+
+With the POST method a JSON string with the specified data type needs to be sent. 
+How the controller handles this message is shown in figure \ref{figure:pushing-weight-into-NIPEN}.
+The diagram shows an example of how to push a weight value into NIPEN.
+The application works the same way when pushing a heart rate value into the system.
+When the application receives the JSON string, it first needs to parse it into its respective model class.
+After that it is sent to a service class which then sends it to a database handler class.
+This class stores the value into the database.
+\fi
+
+\begin{figure}[h]
+\centering
+%\includegraphics[scale=0.55]{../Figures/pushing-weight-into-NIPEN.png}
+\includegraphics[scale=0.8]{../Figures/seqw.png}
+\caption{Pushing a weight value into NIPEN}
+\label{figure:seqw}
+\end{figure}
+
+
 \subsection{Database}
 
-We are using a MySQL database for data storage.
-It consists of two tables for each data type, one for heart rate and one for weight.
-The heart rate table is shown in figure \ref{figure:heart-rate-database-diagram} and the weight table in figure \ref{figure:weight-database-diagram}. 
-As we can see the tables are identical, the only difference is the name.
-The reason we didn't merge this tables is to separate the data, and it is also more efficient.
-It would require more resources to separate the data if they all were in one table.
+In order to implement persistency of health information we are using a MySQL database.
+Although there were some alternative database implementations we opted for MySQL
+because we were familiar with it and it offered all the features we needed.
+%We are using a MySQL database for data storage.
+The whole database is very simple and consists of two tables only: one for each supported health measurement.
+%one for heart rate and one for weight.
+%The heart rate table is shown in figure \ref{figure:heart-rate-database-diagram}
+%and the weight table in figure \ref{figure:weight-database-diagram}.
+The tables are shown in figure \ref{figure:heart-rate-database-diagram} (heart rate)
+and \ref{figure:weight-database-diagram} (weight).
+Although the tables are identical, we didn't want to merge them because it would 
+have been a bad idea generally, making queries more expensive on large amounts of data.
+
+%As we can see the tables are identical, the only difference is the name.
+%The reason we didn't merge this tables is to separate the data, and it is also more efficient.
+%It would require more resources to separate the data if they all were in one table.
 
 \begin{figure}[h]
 \centering
@@ -106,105 +315,31 @@ It would require more resources to separate the data if they all were in one tab
 \label{figure:weight-database-diagram}
 \end{figure}
 
-We have created separate classes for accessing the database through our server application.
-One for heart rate (HeartRateDAO) and one for weight (WeightDAO).
-This two classes contain a method for inserting and a method for fetching data from the database.
-The data that is fetched from the database is ordered by its timestamp.
-In this way the other parts of the system doesn't need to sort the data afterwards.
+Access to the database in NIPEN is implemented by two classes: HeartRateDAO and WeightDAO.
+Both provide functionality to read and write entries from/to the respective table in the database.
+Having only one access point to the database is generally a good practice because it permits to
+identify errors more easily as they can only be in one place.
+%We have created separate classes for accessing the database through our server application.
+%One for heart rate (HeartRateDAO) and one for weight (WeightDAO).
+%This two classes contain a method for inserting and a method for fetching data from the database.
+The data that is fetched from the database is ordered by timestamp, so that other applications
+don't have to sort it themselves.
+%In this way the other parts of the system doesn't need to sort the data afterwards.
 
-\subsection{Data format}
+%------
 
-We are using JSON strings when transmitting data to and from the server.
-The representation of the data is inspired from the Human API.
-Both heart rate and weight data are represented with the same attributes.
-They contain an ID, user ID, timestamp, value and a unit.
-The ID is not needed, when the JSON string is sent, because it is created on the server side.
-Below is a representation of a heart rate JSON string that can be used to store heart rate data on the server:
-
-\begin{lstlisting}[language=json]
-{
-    "userId":1,
-    "timestamp":"2013-10-27 14:57:39.0",
-    "value":65,
-    "unit":"bpm"
-}
-\end{lstlisting}
-
-A weight measurement can be sent in the same format but should be sent with another unit.
-The ID of the data is shown when receiving the data from the server:
-
-\begin{lstlisting}[language=json]
-{
-    "id":39,
-    "userId":1,
-    "timestamp":"2013-10-27 14:57:39.0",
-    "value":65,
-    "unit":"bpm"
-}
-\end{lstlisting} 
-
-\subsection{API calls}
-
-A RESTful (Representational State Transfer) service is used when communicating with NIPEN.
-What this means is that we are using HTTP methods to request and send data.
-We have two controllers that handle the API calls, concerning the heart rate and weight data, in our system.
-They are called \textit{HeartRateController} and \textit{WeightController}. 
-The \textit{HeartRateController} controls retrieval and storage of heart rate, while the \textit{WeightController} handles weight data.
-These controllers handle two HTTP methods, POST for pushing data and GET for retrieving data.
-When requesting data from our API an HTTP GET request needs to be performed to one of the following URLs:
-
-\begin{itemize}
-\item $<$server address$>$/nipen/api/human/heart\_rates
-\item $<$server address$>$/nipen/api/human/weights
-\end{itemize}
-
-The first URL requests all the heart rates, while the second URL requests all the weights stored in the database.
-In figure \ref{figure:retrieve-heart-rates-from-the-database} a sequence diagram is given of how the controller retrieves the data for the user.
-The weight controller works the same way.
-When the controller receives a HTTP GET request, it contacts a data type service which again contacts a database handler class.
-The database handler class returns a list of models which is at last returned to the controller.
-The list of models is transformed automatically into JSON string with help of the Spring Framework.
-Both controllers will respond with an array of JSON strings representing the respective data.
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.6]{../Figures/retrieve-heart-rates-from-the-database.png}
-\caption{Retrieving heart rates from the database}
-\label{figure:retrieve-heart-rates-from-the-database}
-\end{figure}
-
-To send data to NIPEN one of the following URLs needs to be used with the HTTP POST method:
-
-\begin{itemize}
-\item $<$server address$>$/nipen/api/human/heart\_rate
-\item $<$server address$>$/nipen/api/human/weight
-\end{itemize}
-
-With the POST method a JSON string with the specified data type needs to be sent. 
-How the controller handles this message is shown in figure \ref{figure:pushing-weight-into-NIPEN}.
-The diagram shows an example of how to push a weight value into NIPEN.
-The application works the same way when pushing a heart rate value into the system.
-When the application receives the JSON string, it first needs to parse it into its respective model class.
-After that it is sent to a service class which then sends it to a database handler class.
-This class stores the value into the database.
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.55]{../Figures/pushing-weight-into-NIPEN.png}
-\caption{Pushing a weight value into NIPEN}
-\label{figure:pushing-weight-into-NIPEN}
-\end{figure}
 
 \section{Front-end}
 \label{subsec:front-end}
 
-The main functionality of the front-end is to visualize the data stored by the Integration Platform.
-This is accomplished by using a regular web-page consisting of HTML, CSS and JavaScript. HTML and CSS is used for structuring and giving a nice design of the web page. With help of JavaScript we are able to make the page dynamic.
+The main functionality of the front-end is to visualize the data stored by NIPEN.%the Integration Platform.
+This is accomplished by using a regular web-page consisting of HTML, CSS and JavaScript. HTML and CSS are used for structuring and giving a nice design to the web page. With help of JavaScript we are able to make the page dynamic.
 
 \subsection{Design and Visualization}
 
-One of the requirements given by the customer was that the front-end should use helsenorge.no color palette. 
-That is the front-end should use the colors shown in figure \ref{figure:helsenorge-color-palette}. 
+One of the requirements given by the customer was that the front-end should use helsenorge.no color palette
+(see figure \ref{figure:helsenorge-color-palette}).
+%That is the front-end should use the colors shown in figure \ref{figure:helsenorge-color-palette}.
 The front-end should show how helsenorge.no could represent the data from the integration platform. 
 Since it would somehow mimic that page, we though that our web page should look similar to helsenorge.no. 
 Hence we didn't only use the colors from the given palette, but tried as well to create a similar structure.
@@ -216,27 +351,39 @@ Hence we didn't only use the colors from the given palette, but tried as well to
 \label{figure:helsenorge-color-palette}
 \end{figure}
 
-We wanted to keep our front-end simple and user friendly, and since this is only a prototype are we only focusing on one user.
-Hence we are only concentrating on how the web page should look like if the user is logged in. 
-Therefore we didn't create any authentication page and thus the user doesn't need to log in. 
-The front-end simply consists of one HTML file with some CSS and script files.
+We wanted to keep our front-end simple and user friendly.
+%% again shall we mention this in a Limitations section in the conclusion maybe?
+%, and since this is only a prototype are we only focusing on one user.
+%hence we are only concentrating on how the web page should look like if the user is logged in. 
+%Therefore we didn't create any authentication page and thus the user doesn't need to log in. 
+%% you say this twice
+%The front-end simply consists of one HTML file with some CSS and script files.
 Twitter Bootstrap was used as a template to get started with the front-end development.
 With help of JavaScript combined with jQuery, were we able to have three web pages in one HTML file. 
-The main page consists of two graphs, one for heart rate and another one for weight measurements. 
-A visualization of the two latest values measured for each data type is also shown on the front page.
-Then we have two separate pages for heart rate and for weight.
-These pages consists of an enlarged graph of the given data type being viewed.
-This is simply accomplished by hiding the elements that are not used on those pages, and scaling the respective graph so it becomes larger.
+The main page \iffalse consists of\fi shows two graphs, one for heart rate and one for weight measurements. 
+A visualization of the two latest values measured for each data type is also shown on the left side of the chart.
+%Then we have two separate pages for heart rate and for weight.
+Charts can also be visualized singularly on separate pages, where they can make use of some more space.
+%These pages consists of an enlarged graph of the given data type being viewed.
+
+%%
+%This is simply accomplished by hiding the elements that are not used on those pages, and scaling the respective
+%graph so it becomes larger.
 With help of jQuery it's not a difficult task.
 As a bonus jQuery is able to give an animation when hiding, showing and scaling the elements.
 This is a nice touch to the web page.
 
-We are using a JavaScript library called Chart.js to display the data received from the back-end. 
-With help of this library we are able to display the heart rates and weights as bar charts.
+We used a JavaScript library called Chart.js to display health measurements as charts. 
+%With help of this library we are able to display the heart rates and weights as bar charts.
 This library also has some animations when the graphs are created.
 In our application a restriction is given to only display the 10 last measurements in the graphs.
 If we have more than that the timestamp of the measurements becomes hard to read.
-How the web-pages look like is shown in figure \ref{figure:frontend-main-page}, \ref{figure:frontend-heart-rate-page} and \ref{figure:frontend-weight-page}.
+
+Figures \ref{figure:frontend-main-page}, \ref{figure:frontend-heart-rate-page} and \ref{figure:frontend-weight-page}
+show various pages of the frontend.
+%How the web-pages look like is shown in figure \ref{figure:frontend-main-page}, \ref{figure:frontend-heart-rate-page} and \ref{figure:frontend-weight-page}.
+
+%%%% maybe they are too many and too similar?
 
 \begin{figure}[H]
 \centering
@@ -261,41 +408,43 @@ How the web-pages look like is shown in figure \ref{figure:frontend-main-page}, 
 
 \subsection{Retrieving the Data}
 
-To retrieve the data from NIPEN the front-end performs an API call.
-This is achieved by using AJAX through jQuery, and the structure of the call is given below:
-
+To retrieve the data from NIPEN the front-end performs an API call just like any other application.
+This is achieved by using AJAX through jQuery. An example \iffalse The structure of the call\fi is given below:
 \begin{lstlisting}[language=JavaScript]
 $.ajax({
   url: url, // the URL address, e.g.: <server address>/nipen/api/human/weights
   dataType: "json", // the data type of the received data, in this case a JSON string
   success: function(data) {
-    // update web page here with the received data
+	// update web page here with the received data
   }
 });
 \end{lstlisting}
 
 Accessing the JSON data with JavaScript is easy.
-Let's say that the data parameter, of the success function given above, consists of the following JSON array:
+%Let's say that the data parameter, of the success function given above, consists of the following JSON array:
+Let's say that the data parameter, of the success function given above, consists of the JSON array show precendently 
+in subsection \ref{listing:jsonarray}.
 
+\iffalse
 \begin{lstlisting}[language=json]
 [{
-    "id":1,
-    "userId":1,
-    "timestamp":"2013-10-25 14:57:39.0",
-    "value":80,
-    "unit":"kg"
+	"id":1,
+	"userId":1,
+	"timestamp":"2013-10-25 14:57:39.0",
+	"value":80,
+	"unit":"kg"
 },
 {
-    "id":2,
-    "userId":1,
-    "timestamp":"2013-10-30 16:40:30.0",
-    "value":81,
-    "unit":"kg"
+	"id":2,
+	"userId":1,
+	"timestamp":"2013-10-30 16:40:30.0",
+	"value":81,
+	"unit":"kg"
 }]
-\end{lstlisting} 
+\end{lstlisting}
+\fi
 
 Then the data can be accessed the following way:
-
 \begin{lstlisting}[language=JavaScript]
 data[0].id // returns 1
 data[0].userId // returns 1
@@ -311,31 +460,46 @@ data[1].unit // returns "kg"
 \end{lstlisting}
 
 This data is used in an update function, that updates all the values that are needed on the web page.
+%% not really clear what you mean here.
 
 \subsection{Polling}
 
 We decided to implement polling on our front-end, since we are using AJAX to update the page.
-AJAX is asynchronous which means that it can poll data in the background without the need of refreshing the page.
+AJAX is asynchronous which means that it can poll data in background without the need of refreshing the page.
 Thus we don't need to update the web page when new data is received at NIPEN.
 The jQuery AJAX function is polling constantly in the background when the client views the page.
 When the front-end detects that new data is received, the JavaScript methods will update the page.
-To detect if the data received from NIPEN is new, we compare the timestamp of the latest value on the web page and the data received.
+To detect if the data received from NIPEN is new, we compare the timestamp of the latest value on the web
+page and the data received.
 If this value is different, the charts and values on the web page needs to be updated.
 This will be done automatically.
-Of course, if data is added with a timestamp that contains a date earlier than the latest, then the web page will not be updated.
+Of course, if data is added with a timestamp that contains a date earlier than the latest, then the web page 
+will not be updated.
 In this scenario the user must manually refresh the web page.
 
 \section{Heart rate application}
 
-We are using the open source Android Heart Rate Monitor \cite{AndroidHeartRateMonitor} app as our base to our hart rate application.
-Duo to the fact that we are only three people on a large project like this, we though that it would be great to use existing solutions in our project.
-The existing android heart rate monitor app is capable of measuring a users heart rate.
-What we have done is extended the application to be able to send the measured heart rate to NIPEN.
+The heart rate application is an application for Android mobile devices.
+It's purpose is twofold: on one side it demonstrates the praticality of gathering health parameters using mobile phones,
+on the other, it shows how easily these can be intregrated with NIPEN. % memorized, stored ?
+The application was developed using an open source project called \verb|android-heart-rate-monitor| described
+in subsection \ref{subsec:hr} which features an algorithm to measure heart rate using the phone's camera.
+%We are using the open source  \cite{AndroidHeartRateMonitor} app as our base to our hart rate application.
+Not having to implement such functionality ourselves allowed us to dedicate time to other tasks.
+Being only three people on a large project like this, we though that it would be great idea.
+%The existing android heart rate monitor app is capable of measuring a users heart rate.
+We have extended the application to be able to send measurements to NIPEN.
+To do so, the application constructs a valid JSON string representing an heart rate model and then
+sends an HTTP POST message to the appropriate API endpoint containing the JSON string as payload.
 
+%% this is mostly okay but too long to be this detailed.
+%% i summarized it in a few senteces cutting out some boring details
+\iffalse
 To construct a valid heart rate JSON string we need user ID, timestamp, value and a unit. 
 An ID is not needed because it is constructed at the back-end.
 The user ID is a hard coded value, since we are only focusing on one user.
-From the android device we are able to get the current time, the heart rate value is calculated through he app and the unit is BPM (beats per minute).
+From the android device we are able to get the current time, the heart rate value is calculated through the
+app and the unit is BPM (beats per minute).
 With this information we are able to construct the JSON string that is needed to push a heart rate value into NIPEN.
 
 To send the JSON string, we need to create an HTTP connection with NIPEN.
@@ -344,8 +508,9 @@ To initialize the URL connection we need to set the request method to POST and t
 The URL is set to \textit{http://mhealthdemo03.cloudapp.net/nipen/api/human/heart\_rate}, where \textit{mhealthdemo03.cloudapp.net} is the server location as of this writing.
 From the http connection we are able to get an output stream where we write the JSON message.
 If we are not getting an exception at this stage, it means that the data was successfully transmitted.
+\fi
 
-A simple sequence diagram of how the application works is given in figure \ref{figure:sending-heart-rate-through-app}.
+A simple sequence diagram of how the application works is presented in figure \ref{figure:sending-heart-rate-through-app}.
 What we have added to the application is the last part, i.e. from where the users presses the button.
 
 \begin{figure}[h]
@@ -357,14 +522,17 @@ What we have added to the application is the last part, i.e. from where the user
 
 \section{Weight application}
 
-The weight application is an Android app that is able to fetch and push data to and from HealthVault, as well as it is it capable of pushing data to NIPEN.
-We are also using an existing solution as a base for this application, where the features we implemented are the interactions with NIPEN.
+The weight application is an Android app that is able to fetch and push data to and from HealthVault, as well as
+it is it capable of pushing data to NIPEN.
+We are also using an existing solution as a base for this application, where the features we implemented are
+the interactions with NIPEN.
 The base we are using for this application is an example from the HealthVault Java SDK \cite{HealthVaultSDK}.
 When the SDK is downloaded, it contains a folder named \textit{android}. 
 This folder again contains a folder \textit{examples} where the base, we are using, is located.
 
 When the application starts it asks the user to sign in to HealthVault.
-If this is the first time the user uses this application he/she is asked to add this application to HealthVault, after the sign in process.
+If this is the first time the user uses this application he/she is asked to add this application to HealthVault,
+after the sign in process.
 When the user grants permission to the application, it is allowed to push and fetch data to and from HealthVault.
 
 How the application works (after login) is illustrated in figure \ref{figure:sending-weight-to-healthvault-and-nipen}.

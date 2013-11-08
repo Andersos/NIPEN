@@ -25,15 +25,15 @@ The use of such terms is described in table \ref{table:priorities} for prioritie
 and table \ref{table:complexity} for complexities.
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{12.5cm} | }
+\begin{tabular}{ | r | p{11.5cm} | }
   \hline
-  Priority & Description \\
+  \textbf{Priority} & \textbf{Description} \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  High & An essential requirement.\newline
+  \textbf{High} & An essential requirement.\newline
   The product \textbf{must fulfill} the requirement in order to be satisfactory. \\
-  Medium & A useful requirement.\newline
+  \textbf{Medium} & A useful requirement.\newline
   The product \textbf{should fulfill} the requirement to maximise effectiveness. \\
-  Low & A desiderable requirement.\newline
+  \textbf{Low} & A desiderable requirement.\newline
   The product \textbf{could fulfill} the requirement to be more interesting to some stakeholders. \\
   \hline
 \end{tabular}
@@ -44,15 +44,15 @@ and table \ref{table:complexity} for complexities.
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{12.5cm} | }
+\begin{tabular}{ | r | p{11.5cm} | }
   \hline
-  Complexity & Description \\
+  \textbf{Complexity} & \textbf{Description} \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  High & The requirement is difficult to implement.\newline
+  \textbf{High} & The requirement is difficult to implement.\newline
   It will take a considerable amount of time. (more than 30 hours) \\
-  Medium & The requirement is moderately difficult.\newline
+  \textbf{Medium} & The requirement is moderately difficult.\newline
   It will take some time. (from 10 to 30 hours) \\
-  Low & The requirement is easy and can be achieved\newline
+  \textbf{Low} & The requirement is easy and can be achieved\newline
   in a short amount of time. (10 hours or less) \\
   \hline
 \end{tabular}
@@ -66,8 +66,9 @@ and table \ref{table:complexity} for complexities.
 
 \section{Stakeholders}
 \label{section:stakeholders}
-
-This section contains a description of project's stakeholders.
+A project's stakeholders are those people that have an interest in the project.
+%This section contains a description of project's stakeholders: those people that have an interest in it.
+We have identified five stakeholders for this project and presented them below.
 %A short description\iffalse of the role\fi of each stakeholder is given, and what concerns they might have.
 
 \subsection{Customer}
@@ -110,6 +111,7 @@ any explicit training.
 
 %-----
 
+\newpage
 \section{Funcional requirements}
 \label{section:functionalreq}
 
@@ -123,8 +125,41 @@ our workload we also assigned a \'difficulty\' to each requirement.
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c | }
+\begin{tabular}{ | r | p{11.5cm} | }
   \hline
+
+  \textbf{ID} & FIP1 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The IP shall support API endpoints for receiving heart rate data
+                          models expressed as JSON strings.\\
+  \textbf{Difficulty}   & Med \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FIP2 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The IP shall support API endpoints for receiving
+                          weight data models expressed as JSON strings.\\
+  \textbf{Difficulty}   & Med \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FIP3 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The IP shall support API endpoints for forwarding
+                          stored heart rate measurements as JSON models.\\
+  \textbf{Difficulty}   & Med \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FIP4 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The IP shall support API endpoints for forwarding
+                          stored weight measurements as JSON models.\\
+  \textbf{Difficulty}   & Med \\
+  \textbf{Priority}     & High \\
+
+  \iffalse
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FIP1	& The IP shall support API endpoints for receiving
@@ -135,6 +170,8 @@ our workload we also assigned a \'difficulty\' to each requirement.
           stored heart rate measurements as JSON models.			& Med	& High \\
   FPI4	& The IP shall support API endpoints for forwarding
           stored weight measurements as JSON models.					& Med	& High \\
+  \fi
+
   \hline
 \end{tabular}
 \end{center}
@@ -142,16 +179,34 @@ our workload we also assigned a \'difficulty\' to each requirement.
 \label{table:reqip}
 \end{table}
 
+
 \textbf{Functional requirements for the web frontend}
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c |}
+\begin{tabular}{ | r | p{11.5cm} | }
   \hline
+
+  \textbf{ID} & FW1 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The web frontend shall display the data stored by the Integration Platform using charts.\\
+  \textbf{Difficulty}   & Med \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FW2 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The web frontend shall use Helsenorge color palette. \\
+  \textbf{Difficulty}   & Low \\
+  \textbf{Priority}     & Low \\
+
+  \iffalse
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FW1	& The web frontend shall display the data stored by the Integration Platform using charts.	& Med	& High \\
   FW2	& The web frontend shall use Helsenorge color palette.																			& Low	& Low \\
+  \fi
+  
   \hline
 \end{tabular}
 \end{center}
@@ -159,17 +214,34 @@ our workload we also assigned a \'difficulty\' to each requirement.
 \label{table:reqfrontend}
 \end{table}
 
+\newpage
 \textbf{Functional requirements for Heart rate application}
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c |}
+\begin{tabular}{ | r | p{11.5cm} | }
   \hline
-  ID & Description & Difficulty & Priority\\
+
+  \textbf{ID} & FHR1 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The application shall measure user's heart rate using the device camera.\\
+  \textbf{Difficulty}   & High \\
+  \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FHR1	& The application shall measure user's heart rate using the device camera.    & Med	& High \\
-  FHR2	& The application shall display the last measurement on the screen.          & Low	& Med \\
-  FHR3	& The application shall forward the data to the IP using its REST endpoint.  & Med	& High \\
+
+  \textbf{ID} & FHR2 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The application shall display the measurement on screen. \\
+  \textbf{Difficulty}   & Low \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FHR3 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The application shall forward the data to the IP using its REST endpoint.\\
+  \textbf{Difficulty}   & Med \\
+  \textbf{Priority}     & High \\
+  
   \hline
 \end{tabular}
 \end{center}
@@ -177,17 +249,43 @@ our workload we also assigned a \'difficulty\' to each requirement.
 \label{table:reqheartrate}
 \end{table}
 
+
+\newpage
 \textbf{Functional requirements for Weight application}
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c |}
+\begin{tabular}{ | r | p{11.5cm} | }
   \hline
+  
+  \textbf{ID} & FHV1 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The application shall fetch weight data from HealthVault. \\
+  \textbf{Difficulty}   & Med \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FHV2 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The application shall display the data it has fetched. \\
+  \textbf{Difficulty}   & Low \\
+  \textbf{Priority}     & Med \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FHV3 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The application shall forward the data to the IP using the web API. \\
+  \textbf{Difficulty}   & Low \\
+  \textbf{Priority}     & High \\
+
+  \iffalse
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FHV1	& The application shall fetch weight data from HealthVault.						      & Med	& High \\
   FHV2	& The application shall show the user the data it has fetched.              & Low	& Med \\
   FHV3	& The application shall forward the data to the IP using its REST endpoint. & Med	& High \\
+  \fi
+
   \hline
 \end{tabular}
 \end{center}
@@ -214,7 +312,7 @@ our workload we also assigned a \'difficulty\' to each requirement.
 \end{table}
 
 %-----
-
+\newpage
 \section{Non-functional requirements}
 \label{section:nonfunctionalreq}
 
@@ -224,7 +322,7 @@ In order to provide a better overview, we have organized them in categories.
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | l | p{11.5cm} | }
+\begin{tabular}{ | r | p{11.5cm} | }
   \hline
   
   \textbf{ID} & NF1 \\
@@ -260,16 +358,7 @@ In order to provide a better overview, we have organized them in categories.
   												third party (interoperable) solutions rapidly. \\
   \textbf{Difficulty}		& High \\
   \textbf{Priority}			& High \\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
-	\textbf{ID} & NF5 \\
-  \hline\noalign{\smallskip}\hline
-  \textbf{Category}			&	Interoperability \\
-  \textbf{Description}	& A number of two or three prototype applications shall be developed in order to showcase
-  												the functionality of the system \\
-  \textbf{Difficulty}		& High \\
-  \textbf{Priority}			& High \\
-  
   \hline
 \end{tabular}
 \end{center}
@@ -279,8 +368,17 @@ In order to provide a better overview, we have organized them in categories.
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | l | p{11.5cm} | }
+\begin{tabular}{ | r | p{11.5cm} | }
 	\hline
+
+  \textbf{ID} & NF5 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}     & Interoperability \\
+  \textbf{Description}  & A number of two or three prototype applications shall be developed in order to showcase
+                          the functionality of the system \\
+  \textbf{Difficulty}   & High \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	
 	\textbf{ID} & NF6 \\
   \hline\noalign{\smallskip}\hline
@@ -296,6 +394,7 @@ In order to provide a better overview, we have organized them in categories.
 \caption{Non-functional requirements (cont.)}
 \end{table}
 
+%% old format table, commented out
 \iffalse
 \begin{table}[H]
 \begin{center}

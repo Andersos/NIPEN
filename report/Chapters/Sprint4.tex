@@ -1,14 +1,20 @@
 
 \chapter{Sprint 4}
-\label{Sprint0}
+\label{Sprint4}
 \lhead{Chapter 10. \emph{Sprint 4}}
 
 \section{Goal(s)}
+
 The main goal of this sprint was to finalize and demonstrate a second prototype of the system,
 which included: a) the backend, b) the frontend, c) two Android applications.
+These had to be ready for October the 24th when our customer planned to visit Trondheim.
 
 \section{Planning}
 
+This sprint's plan consisted in one last development effort to complete the second prototype
+before our meeting with our customer and in view of the feature freeze deadline.
+For our colleague in Oslo, we planned documentation exclusively in order
+not to fall behind with the status of the report.
 
 \section{Duration}
 The duration of the sprint was the following:
@@ -18,13 +24,74 @@ The duration of the sprint was the following:
 \end{itemize}
 
 \section{Backlog}
-include sprint backlog
+See below the sprint backlog:
+\begin{enumerate}[1.]
+\item \textbf{Project management} included:
+	\begin{itemize}
+		\item \textbf{Weekly startup meeting}
+		\item \textbf{Weekly meetings}: 
+			meetings with both the customer and the supervisor. internal meeting with our colleague in Oslo.
+		\item \textbf{Meeting notes}:
+			taking notes during meetings, reviewing of the notes.
+		\item \textbf{Status reports}:
+			for both week 43 and 44
+		\item \textbf{Risk analysis}:
+			updated on a weekly basis, so twice per sprint.
+		\item \textbf{Planning for the next iteration}:
+			prepare a plan for the next iteration
+	\end{itemize}
+	\item \textbf{System development}
+		additional system development to accomodate fixes to the front end.
+	\item \textbf{Web application development}
+		develop a web application which integrates weight measurements
+		on HealthVault in our system.
+	\item \textbf{Report work}
+		to be done by the team member in Trondheim.
+	\item \textbf{Additional report work}
+		to be done by the team member in Oslo.
+	\item \textbf{Testing}
+		produce some tests using an automated test suite.
+\end{enumerate}
 
 \section{Results and feedback}
 
-ultimately dropped the weighting scale
-we added the web service to the system.
+During this sprint we worked mostly on system development, which proceeded smoothly
+with one exception. Withings integration with HealthVault, which we planned to use for
+our demonstration, was not working as expected: Withings failed to send the data acquired
+by the scale device to HealthVault. Unfortunately, after various attempts, we decided
+to change the scenario for our demonstration. We couldn't fix the problem
+ourselves because we had no control over Withings' system.
+
+A second prototype of the system was completed on schedule before our
+planned meeting with the customer, which would have been on the 24th.
+However, the customer canceled the meeting and proposed to reschedule it for the 30th.
+
+Considering we had some more time to dedicate to development activities and in view
+of the feature freeze deadline (M3) by the end of the sprint, we took initiative
+and submitted a new possible application prototype idea to the customer.
+It consisted of a web application which would feature HealthVault integration
+similarly to the Android application.
+The customer expressed his interest in such application because it would have
+used a different technology other than Android. He inquired about its feasibility
+in such a short amount of time (less than two weeks). We were confident that we
+could have re-used some code shipped with HealthVault SDK to minimize the amount
+of code we would have had to write ourselves, so we committed its development.
+
+On the 30th of November, very early in the morning the customer sent us a mail
+were he canceled our meeting. However, he was available for a Skype meeting.
+We were able to demonstrate him our product via Skype, including the last application
+prototype which had been developed in one week time. He was very pleased with our work.
 
 \section{Evaluation}
 
-very good evaluation from the customer.
+The sprint was very rewarding.
+Receiving a good evaluation from the customer proved to be very valuable for the group,
+especially because the project was drawing to an end and timing was becoming tight;
+there was no time left to make any big adjustments to the product.
+The feedback from the customer motivated the group to keep up the good work
+and make one big final effort to finish the documentation and prepare a presentation.
+
+Although the scenario for the demonstration had changed and did not include
+the Withings scale device, the functionality of the application had not,
+so we consider that a very minor issue.
+
