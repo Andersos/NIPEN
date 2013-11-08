@@ -18,7 +18,8 @@
 							\par The test is run on the server machine or alternatively
 							one that has access to the server and whose address is replaced to the
 							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed. \\
+							\par The machine on which the test is run has the \verb|curl| program installed.
+							\par At least one heart rate measurement has been stored on the IP \\
 	Steps 				&	1. Run the following:
 							\begin{verbatim}
 							curl localhost:8080/nipen/human/api/heart_rates
@@ -26,11 +27,13 @@
 							\\
 	Postconditions		& A JSON valid, comma separated list of heart rate data models consistent with 
 							entries in the databased hosted on the server. \\
-	Results				& - \\
+	Results				& An array of heart rate JSON strings is returned. 
+						  The values are consistent with the values on the database. 
+						  Hence, the test was successful. \\
 	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -50,7 +53,8 @@
 							\par The test is run on the server machine or alternatively
 							one that has access to the server and whose address is replaced to the
 							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed. \\
+							\par The machine on which the test is run has the \verb|curl| program installed.
+							\par At least one weight measurement has been stored on the IP \\
 	Steps 				&	1. Run the following:
 							\begin{verbatim}
 							curl localhost:8080/nipen/human/api/weights
@@ -58,11 +62,13 @@
 							\\
 	Postconditions		& A JSON valid, comma separated list of heart rate data models consistent with 
 							entries in the database hosted on the server. \\
-	Results				& - \\
+	Results				& An array of weight JSON strings is returned. 
+						  The values are consistent with the values on the database. 
+						  Hence, the test was successful. \\
 	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -82,19 +88,21 @@
 							\par The test is run on the server machine or alternatively
 							one that has access to the server and whose address is replaced to the
 							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed.
-							\par At least one heart rate measurement has been stored on the IP \\
+							\par The machine on which the test is run has the \verb|curl| program installed. \\
 	Steps 				&	1. Run the following \begin{verbatim}
-							curl -X POST -H "Content-Type: application/json"
-							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
-							"bpm"}' localhost:8080/nipen/human/api/heart_rates
+							curl -X POST -H "Content-Type: application/json" 
+							-d "{\"userId\":1,\"timestamp\":
+							\"2013-11-08 17:33:05\",\"value\":60,
+							\"unit\":\"bpm\"}" 
+							localhost:8080/nipen/api/human/heart_rate
 							\end{verbatim} \\
 	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
-	Results				& -- \\
+	Results				& A new entry on the database is created with the sent values.
+						  Hence, the test was successful. \\
 	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -114,19 +122,21 @@
 							\par The test is run on the server machine or alternatively
 							one that has access to the server and whose address is replaced to the
 							string \verb|localhost| in the test.
-							\par The machine on which the test is run has the \verb|curl| program installed.
-							\par At least one weight measurement has been stored on the IP \\
+							\par The machine on which the test is run has the \verb|curl| program installed. \\
 	Steps 				&	1. Run the following \begin{verbatim}
-							curl -X POST -H "Content-Type: application/json"
-							-d {"userId":0,"value":60,"timestamp":"11-10-2013","unit":
-							"kg"}' localhost:8080/nipen/human/api/weight
+							curl -X POST -H "Content-Type: application/json" 
+							-d "{\"userId\":1,\"timestamp\":
+							\"2013-11-08 17:45:05\",\"value\":89,
+							\"unit\":\"kg\"}" 
+							localhost:8080/nipen/api/human/weight
 							\end{verbatim} \\
 	Postconditions		& A database entry coherent with the JSON data submitted is created on the server. \\
-	Results				& -- \\
+	Results				& A new entry on the database is created with the sent values.
+						  Hence, the test was successful. \\
 	Comments			& - \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -146,13 +156,16 @@
 	Steps 				&	\par 1. User holds his finger on the camera applying a slight pressure \\
 	Postconditions		&	\par 1. The icon on the left side of the screen is blinking 
 							\par 2. A measurement appears after 4 seconds at most \\
-	Results				& -- \\
+	Results				& The result was a heart measurement of 77, which is accurate.
+						  However, the measurement didn't appear until after 6 or 7 seconds.
+						  This might be because of wrong finger placement, and may also vary from phone to phone.
+						  The measurement was quite accurate and hence the test was successful. \\
 	Comments			&	The measurement is expected to be rough.
 							Any value between 60 and 100 is okay as long as it actually varies slightly based
 							on the tester's perceived heart rate.  \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -173,11 +186,12 @@
 	Steps 				&	\par 1. User presses \textbf{Send} button \\
 	Postconditions		&	\par 1. The application shows a toast
 							\par 2. The measurement is acquired by the Integration Platform \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Results				& The measurement was sent to the front-end and contained the right values.
+						  The test was successful. \\
+	Comments			& - \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -199,11 +213,12 @@
 	Steps 				&	\par 1. User clicks on the \textit{Fetch} button \\
 	Postconditions		&	\par 1. The data is correctly fetched from HealthVault
 							\par 2. A list is populated with the data \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL\\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Results				& The values appearing on the app are corresponding to the values on HealthVault.
+						  Thus the test was successful. \\
+	Comments			& - \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -217,18 +232,21 @@
 	\hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	Application name	& Weight Application \\
 	Name				& Sending data to HealthVault through app \\
-	Requirement			& FR1 \\
+	Requirement			& \hyperref[table:reqweight]{FHV3} \\
 	Description			& Test the HealthVault application data forwarding functionality \\
 	Preconditions		&	\par 1. The application has started
 							\par 2. The application has fetched some data from HealthVault \\
-	Steps 				&	\par 1. User clicks on the \textit{Send} button \\
+	Steps 				&	\par 1. User enters a weight value
+							\par 2. User clicks on the \textit{Send} button \\
 	Postconditions		&	\par 1. A success message is showed
-							\par 2. Data is correctly acquired by the integration platoform \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+							\par 2. Data is correctly acquired by the integration platform \\
+	Results				& The data sent is acquired by the integration platform, with the right values.
+						  This is seen on the front-end and in the database.
+						  The test was successful. \\
+	Comments			& - \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -243,17 +261,17 @@
 	Application name	& HealthVault Integration Service \\
 	Name				& Sending data to HealthVault through web service \\
 	Requirement			& -- \\
-	Description			& -- \\
-	Preconditions		&	\par 1. --
-							\par 2. -- \\
-	Steps 				&	\par 1. -- \\
-	Postconditions		&	\par 1. --
-							\par 2. -- \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Description			& Test if the web service i capable of sending values to HealthVault \\
+	Preconditions		&	\par 1. The user has logged in to HealthVault through the web service \\
+	Steps 				&	\par 1. Enter a value into the weight field
+							\par 2. Click on submit to HealthVault button \\
+	Postconditions		&	\par 1. The submitted value is stored on HealthVault \\
+	Results				& The value entered is registered on HealthVault.
+						  The test was successful. \\
+	Comments			& - \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
@@ -268,17 +286,19 @@
 	Application name	& HealthVault Integration Service \\
 	Name				& Polling service \\
 	Requirement			& -- \\
-	Description			& -- \\
-	Preconditions		&	\par 1. --
-							\par 2. -- \\
-	Steps 				&	\par 1. -- \\
-	Postconditions		&	\par 1. --
-							\par 2. -- \\
-	Results				& -- \\
-	Comments			& -- \\
-	Status				& OK or FAIL \\
-	Tester				& Person \\
-	Date				& dd-mm-2013 \\
+	Description			& Test if new weight measurements stored on HealthVault are sent to NIPEN \\
+	Preconditions		&	\par 1. The user has logged in to HealthVault through the web service
+							\par 2. The polling service is disabled \\
+	Steps 				&	\par 1. User clicks on \textit{Enable} button, to start the polling 
+							\par 2. User adds a value into HealthVault \\
+	Postconditions		&	\par 1. The value is sent to the integration platform
+							\par 2. The sent value can be viewed on the front-end \\
+	Results				& The value that was entered on HealthVault is visible on the front-end.
+						  Hence, the test was successful. \\
+	Comments			& - \\
+	Status				& OK \\
+	Tester				& Sebastian Zalewski \\
+	Date				& 08-11-2013 \\
 	\hline
 \end{tabular}
 \end{center}
