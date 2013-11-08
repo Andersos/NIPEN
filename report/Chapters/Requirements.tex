@@ -119,7 +119,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 to the functionality of the system that the customer expressed most interest about. In order to better organize
 our workload we also assigned a \'difficulty\' to each requirement.
 
-\textbf{Functional requirements for Integration platform}
+\textbf{Functional requirements for Integration Platform}
 
 \begin{table}[H]
 \begin{center}
@@ -138,7 +138,7 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \hline
 \end{tabular}
 \end{center}
-\caption{Functional requirements for Integration platform}
+\caption{Functional requirements for Integration Platform}
 \label{table:reqip}
 \end{table}
 
@@ -193,6 +193,24 @@ our workload we also assigned a \'difficulty\' to each requirement.
 \end{center}
 \caption{Functional requirements for the weight application}
 \label{table:reqweight}
+\end{table}
+
+\textbf{Functional requirements for HealthVault Integration Service}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | p{9cm} | c | c |}
+  \hline
+  ID & Description & Difficulty & Priority\\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  FHIS1	& The application shall send weight data to HealthVault.						   & Low	& Low \\
+  FHIS2	& The application shall fetch weight data from HealthVault regularly.		       & Med	& High \\
+  FHIS3	& The application shall forward new weight data to the IP using its REST endpoint. & Med	& High \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Functional requirements for HealthVault Integration Service}
+\label{table:reqwebservice}
 \end{table}
 
 %-----
@@ -562,12 +580,101 @@ textual use case.
   \\ \hline
   Basic Flow & 
   	\par 1. The user presses the \textit{Send} button.
-  	\par 2. The Integration platform receives the data.
+  	\par 2. The integration platform receives the data.
   \\ \hline
 \end{tabular}
 \end{center}
 \caption{Textual use case - Send weight data}
 \label{table:use-case-send-weight-data}
+\end{table}
+
+\subsection{HealthVault Integration Service}
+
+The goal of the HealthVault Integration Service is to poll data regularly from HealthVault.
+If a new value is detected then it is sent to the integration platform.
+The web service should also be capable of sending weight values to HealthVault.
+Figure \ref{figure:use-case-diagram-weight-service} shows a use case diagram of the system.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{../Figures/use-case-diagram-weight-service.png}
+\caption{Use case diagram - HealthVault Integration Service}
+\label{figure:use-case-diagram-weight-service}
+\end{figure}
+
+Figure \ref{figure:use-case-diagram-weight-service-send} shows a use case diagram for the sending functionality, while table \ref{table:use-case-send-weight-to-healthvault} gives a textual use case.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{../Figures/use-case-diagram-weight-service-send.png}
+\caption{Use case diagram - HealthVault Integration Service send to HealthVault}
+\label{figure:use-case-diagram-weight-service-send}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & \hyperref[table:reqwebservice]{FHIS1}\\ \hline
+  Application & HealthVault Integration Service \\ \hline
+  Name & Send weight to HealthVault \\ \hline
+  Description & Send a weight measurement from the web service into HealthVault. \\ \hline
+  Actor & User and HealthVault\\ \hline
+  Precondition &
+    \par 1. The user has logged in to HealthVault through the web service.
+  \\ \hline
+  Basic Flow & 
+  	\par 1. The user enters a weight value into the weight field.
+  	\par 2. User clicks on the send button.
+  	\par 3. HealthVault receives the data.
+  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Send weight to HealthVault}
+\label{table:use-case-send-weight-to-healthvault}
+\end{table}
+
+In figure \ref{figure:use-case-diagram-weight-service-poll} an overview is given of the polling service.
+Table \ref{table:use-case-start-polling-service} shows a textual use case for the polling functionality.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{../Figures/use-case-diagram-weight-service-poll.png}
+\caption{Use case diagram - HealthVault Integration Service data polling}
+\label{figure:use-case-diagram-weight-service-poll}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & \hyperref[table:reqwebservice]{FHIS2}, \hyperref[table:reqwebservice]{FHIS3} and \hyperref[table:reqip]{FIP2}\\ \hline
+  Application & HealthVault Integration Service \\ \hline
+  Name & Start polling service \\ \hline
+  Description & Start the polling service and send data from HealthVault to the integration platform. \\ \hline
+  Actor & User, HealthVault and Integration Platform \\ \hline
+  Precondition &
+    \par 1. The user has logged in to HealthVault through the web service.
+    \par 2. The polling service is off.
+  \\ \hline
+  Basic Flow & 
+  	\par 1. The user clicks on \textit{Enable} button to start the polling service.
+  	\par 2. The web service polls data from HealthVault.
+  \\ \hline
+   Alternate Flows & 
+  	\par 2A: No new weight measurement.
+  	\par\hspace{15pt} 1. Go to 2 and poll again.
+  	\par 2B: New weight measurement detected.
+  	\par\hspace{15pt} 1. Send new weight data to integration platform.
+  	\par\hspace{15pt} 2. Integration platform receives data.
+  	\par\hspace{15pt} 3. Go to 2 and poll again.
+  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Start polling service}
+\label{table:use-case-start-polling-service}
 \end{table}
 
 %\section{Test plan}
