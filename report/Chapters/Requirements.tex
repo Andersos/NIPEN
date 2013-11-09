@@ -5,14 +5,8 @@
 \lhead{Chapter 4. \emph{Requirements specification}}
 
 This chapter provides a description of project's stakeholders and requirements, both
-functional and non-functional. Requirements will be presented textually and visually
-with the aid of some use-case diagrams.
-%These include both functional and non-functional requirements.
-%Stakeholders are described in section \ref{section:stakeholders}.
-%Functional requirements can be found in section \ref{section:functionalreq},
-%non-functional requirements in section \ref{section:nonfunctionalreq}.
-%Section \ref{section:reqvalidation} examines some requirement validation criterias.
-%Uses cases are presented in section \ref{section:usecases}.
+functional and non-functional. Requirements will be presented textually and with the aid of
+some use-case diagrams.
 
 Throughout this chapter both requirement's priority and complexity have a textual description which can be
 \begin{itemize}
@@ -49,11 +43,11 @@ and table \ref{table:complexity} for complexities.
   \textbf{Complexity} & \textbf{Description} \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   \textbf{High} & The requirement is difficult to implement.\newline
-  It will take a considerable amount of time. (more than 30 hours) \\
+  It will take a considerable amount of time. (more than 45 hours) \\
   \textbf{Medium} & The requirement is moderately difficult.\newline
-  It will take some time. (from 10 to 30 hours) \\
+  It will take some time. (from 15 to 45 hours) \\
   \textbf{Low} & The requirement is easy and can be achieved\newline
-  in a short amount of time. (10 hours or less) \\
+  in a short amount of time. (15 hours or less) \\
   \hline
 \end{tabular}
 \end{center}
@@ -132,7 +126,7 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The IP shall support API endpoints for receiving heart rate data
                           models expressed as JSON strings.\\
-  \textbf{Difficulty}   & Med \\
+  \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
@@ -140,7 +134,7 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The IP shall support API endpoints for receiving
                           weight data models expressed as JSON strings.\\
-  \textbf{Difficulty}   & Med \\
+  \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
@@ -148,7 +142,7 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The IP shall support API endpoints for forwarding
                           stored heart rate measurements as JSON models.\\
-  \textbf{Difficulty}   & Med \\
+  \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
@@ -156,7 +150,7 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The IP shall support API endpoints for forwarding
                           stored weight measurements as JSON models.\\
-  \textbf{Difficulty}   & Med \\
+  \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
 
   \iffalse
@@ -190,22 +184,15 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \textbf{ID} & FW1 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The web frontend shall display the data stored by the Integration Platform using charts.\\
-  \textbf{Difficulty}   & Med \\
+  \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
   \textbf{ID} & FW2 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The web frontend shall use Helsenorge color palette. \\
-  \textbf{Difficulty}   & Low \\
+  \textbf{Complexity}   & Low \\
   \textbf{Priority}     & Low \\
-
-  \iffalse
-  ID & Description & Difficulty & Priority\\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FW1	& The web frontend shall display the data stored by the Integration Platform using charts.	& Med	& High \\
-  FW2	& The web frontend shall use Helsenorge color palette.																			& Low	& Low \\
-  \fi
   
   \hline
 \end{tabular}
@@ -225,21 +212,21 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \textbf{ID} & FHR1 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The application shall measure user's heart rate using the device camera.\\
-  \textbf{Difficulty}   & High \\
+  \textbf{Complexity}   & High \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
   \textbf{ID} & FHR2 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The application shall display the measurement on screen. \\
-  \textbf{Difficulty}   & Low \\
+  \textbf{Complexity}   & Low \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
   \textbf{ID} & FHR3 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The application shall forward the data to the IP using its REST endpoint.\\
-  \textbf{Difficulty}   & Med \\
+  \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   
   \hline
@@ -261,21 +248,21 @@ our workload we also assigned a \'difficulty\' to each requirement.
   \textbf{ID} & FHV1 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The application shall fetch weight data from HealthVault. \\
-  \textbf{Difficulty}   & Med \\
+  \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
   \textbf{ID} & FHV2 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The application shall display the data it has fetched. \\
-  \textbf{Difficulty}   & Low \\
+  \textbf{Complexity}   & Low \\
   \textbf{Priority}     & Med \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
   \textbf{ID} & FHV3 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & The application shall forward the data to the IP using the web API. \\
-  \textbf{Difficulty}   & Low \\
+  \textbf{Complexity}   & Low \\
   \textbf{Priority}     & High \\
 
   \iffalse
@@ -297,6 +284,33 @@ our workload we also assigned a \'difficulty\' to each requirement.
 
 \begin{table}[H]
 \begin{center}
+\begin{tabular}{ | r | p{11.5cm} | }
+  \hline
+  
+  \textbf{ID} & FHIS1 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  &  The user shall be able to turn the application on and off. \\
+  \textbf{Complexity}   & Low \\
+  \textbf{Priority}     & Med \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FHIS2 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & When on, the applicatin shall fetch weight data from HealthVault and
+                          forward it to the IP using its web API. \\
+  \textbf{Complexity}   & Med \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+
+  \textbf{ID} & FHIS3 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Description}  & The application shall allow the user to manually send weight measurements to HealthVault. \\
+  \textbf{Complexity}   & Low \\
+  \textbf{Priority}     & Med \\
+
+\iffalse
+\begin{table}[H]
+\begin{center}
 \begin{tabular}{ | c | p{9cm} | c | c |}
   \hline
   ID & Description & Difficulty & Priority\\
@@ -308,6 +322,14 @@ our workload we also assigned a \'difficulty\' to each requirement.
 \end{tabular}
 \end{center}
 \caption{Functional requirements for HealthVault Integration Service}
+\label{table:reqwebservice}
+\end{table}
+\fi
+
+  \hline
+\end{tabular}
+\end{center}
+\caption{Functional requirements for the weight application}
 \label{table:reqwebservice}
 \end{table}
 
@@ -329,7 +351,7 @@ In order to provide a better overview, we have organized them in categories.
   \hline\noalign{\smallskip}\hline
   \textbf{Category}			&	Documentation\\
   \textbf{Description}	& The system shall be thoroughly documented by the 'project report' \\
-  \textbf{Difficulty}		& High \\
+  \textbf{Complexity}		& High \\
   \textbf{Priority}			& High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
@@ -338,7 +360,7 @@ In order to provide a better overview, we have organized them in categories.
   \textbf{Category}			&	Documentation\\
   \textbf{Description}	& Although security and privacy are not requirements for the product they
 													are important topics to be discussed in the documentation. \\
-  \textbf{Difficulty}		& Med \\
+  \textbf{Complexity}		& Med \\
   \textbf{Priority}			& High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
@@ -346,7 +368,7 @@ In order to provide a better overview, we have organized them in categories.
   \hline\noalign{\smallskip}\hline
   \textbf{Category}			&	Open-source\\
   \textbf{Description}	& The product shall be released under a permissive license approved by the product owner. \\
-  \textbf{Difficulty}		& Med \\
+  \textbf{Complexity}		& Med \\
   \textbf{Priority}			& Med \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   
@@ -356,7 +378,7 @@ In order to provide a better overview, we have organized them in categories.
   \textbf{Description}	& The system shall provide a good degree of interoperability.
   												Third party application developers should be put in the condition to develop
   												third party (interoperable) solutions rapidly. \\
-  \textbf{Difficulty}		& High \\
+  \textbf{Complexity}		& High \\
   \textbf{Priority}			& High \\
 
   \hline
@@ -376,7 +398,7 @@ In order to provide a better overview, we have organized them in categories.
   \textbf{Category}     & Interoperability \\
   \textbf{Description}  & A number of two or three prototype applications shall be developed in order to showcase
                           the functionality of the system \\
-  \textbf{Difficulty}   & High \\
+  \textbf{Complexity}   & High \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 	
@@ -385,7 +407,7 @@ In order to provide a better overview, we have organized them in categories.
   \textbf{Category}			&	Accessibility \\
   \textbf{Description}	& The web-frontend should have a good degree of accessibility.
   												It should have a rather simple design and use a customer-provided palette. \\
-  \textbf{Difficulty}		& Low \\
+  \textbf{Complexity}		& Low \\
   \textbf{Priority}			& Low \\
 	
 	\hline

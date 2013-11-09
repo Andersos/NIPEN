@@ -2,16 +2,9 @@
 \label{Preliminary Studies}
 \lhead{Chapter 3. \emph{Preliminary Studies}}
 
-This chapter describes the studies made on similar solutions and technologies relevant
-to this project and how they affected our design choices. Additionally, we examine two common development
+This chapter describes the studies made on relevant technologies and similar solutions 
+and how they affected our design choices. Additionally, we examine two common development
 models and explain our reasons behind the choice of one instead of the other.
-
-%This chapter examines the development methodologies in section \ref{section:development-methodology}
-%and some of our earlier experiences in section \ref{section:earlier-experience}.
-%Section \ref{section:existing-solutions} covers already exiting solutions.
-%Section \ref{section:used-technologies} describes the technologies used in the project.
-%Testing methodologies are described in section \ref{section:testing}.
-%We draw our conclusions in section \ref{section:summary}.
 
 %-----------
 % SECTION 1
@@ -23,7 +16,7 @@ models and explain our reasons behind the choice of one instead of the other.
 Choosing an appropriate development process is vital to any software project.
 It is a choice that has to be made early on because it will influence the planning of the project
 as well as many other activities. In this section we give a brief description of two common development
-methodologies we took into consideration for our project and outline those features that led to chose one
+methodologies we took into consideration for our project and outline the factors that led to chose one
 instead of the other.
 %We are going to conclude with what type of development methodology we chose and why we chose it.
 %This was one of the first discussions we had before starting the project, since without a good
@@ -37,12 +30,12 @@ instead of the other.
 \subsection{Waterfall} \nocite{WaterfallModel}
 %of Waterfall is its requires tasks to be performed in a sequential order.
 
-The Waterfall development process is a classical model proposed in the early 70s.
-Waterfall follows a scrict, rigorous top-down approach where all phases of development are
+The Waterfall development process is a \iffalse classical\fi model proposed in the early 70s.
+Waterfall follows a scrict, rigorous top-down approach where all phases of the process are
 carried out sequentially: before moving to the next phase the preceding ones
-need to be entirely completed. The \iffalse progress of the\fi project is seen as if 'flowing downwards'
+need to be entirely completed. The project progress is seen as if 'flowing downwards'
 through the different phases, hence the name Waterfall. The development cycle consists of seven
-distinct phases shown in figure \ref{figure:waterfall-model}.
+distinct phases (see figure \ref{figure:waterfall-model}), each one expected to produce extensive documentation.
 
 %commented out
 \iffalse
@@ -69,19 +62,18 @@ The model is easily understandable, structured, and disciplined.
 %The clear distinction between project phases make it easier to monitor the progress of the project.
 %it can be very hard to adapt to this kind of development model.
 However, adopting Waterfall in real software projects can be challenging because it requires to be able to foresee,
-in the early stages of the project, any problem that could arise in later stages and plan accordingly.
+in the early stages of the project, any problem that could arise later on and plan accordingly.
 This is often a very hard task that requires great insight and expertise.
 
+\iffalse
 Additionally, each phase of the development cycle is expected to produce a good amount of documentation
 that will be used for the next phase: documentation is a critical task.
+\fi
 
 Waterfall may be suited to large-scale, expensive projects where 'going back' on design
 choices is not an option and requirements are clearly established early on and then 'set in stone'.
-However, many software projects nowadays fail to meet these conditions and therefore Waterfall is probably not an appropriate process for them.
-
-% it can be hard for a system designer to predict future implementation difficulties of a type of design,
-%hence the design of the system may change during the process.
-%Another problem is that the customer is not always sure about the system requirements, and will often change them during the development.
+However, many software projects nowadays fail to meet these conditions.
+% and therefore Waterfall is probably not an appropriate process for them.
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -91,7 +83,7 @@ However, many software projects nowadays fail to meet these conditions and there
 
 Scrum is an emerging agile development process which is mostly used in software development.
 The Scrum approach, which could be described as both iterative and incremental, consists of multiple sprints
-which last from two to four weeks. Sprints begin with a planning meeting and conclude with a review meetings.
+which last from two to four weeks. Sprints begin with a planning meeting and conclude with a review meeting.
 
 %Each sprint is focusing on a set of concrete goals that are in the sprint backlog.
 %The sprint backlog consists of tasks that are chosen from the product backlog. 
@@ -99,7 +91,7 @@ which last from two to four weeks. Sprints begin with a planning meeting and con
 %The product backlog consists of all the features the product should contain, and is usually made in the
 %initial phase of the project. It can however be changed and adjusted during the development of the product.
 During the sprint planning meeting team members produce a \emph{sprint backlog}: an artifact which defines a set of
-concrete goals of the sprint and can be seen basically as a 'to-do' list of the tasks to be performed.
+concrete goals of the sprint and can be seen basically as a 'to-do' list tasks to be performed.
 Such tasks, which in Scrum's terminology are called \emph{stories} are taken from the
 \emph{product backlog} which is a prioritized list of the requirements of the product.
 Although a product backlog is usually made during the early stages of the project, it is subject to
@@ -134,9 +126,9 @@ Figure \ref{figure:scrum-workflow} shows the workflow in Scrum.
 %-----------------------------------
 \subsection{Conclusion}
 
-Chosing a development process was one of the first tasks of this project.
+%Chosing a development process was one of the first tasks of this project.
 %We took into consideration many factors such as team size, project scope, time resources.
-After discussing about possible alternatives, we decided to use Scrum after the following
+After discussing about possible alternatives, we decided to use Scrum based on the following
 considerations:
 
 \begin{enumerate}
@@ -175,9 +167,10 @@ we couldn't work every day on the project. Since there was nothing to report, we
 scrum meeting.
 
 \textbf{Sprint review meetings}\newline
-Usually this meeting is held at the end of a sprint. In our case however, because the last meeting we had each
-week was on Wednesdays but often we continued working on the project for the rest of the week we decided to
-combine this meeting with our sprint startup meeting (on Mondays every two weeks).
+Usually this meeting is held at the end of a sprint. In our case however, because our last meeting each week
+was on Wednesdays but we often worked on the project later during the rest of the week, we decided to combine
+the sprint review meeting with the sprint planning meeting (on Mondays every two weeks).
+
 %The Scrum master would prepare a sprint backlog, and receive the informal approval of the customer.
 
 %With the Scrum method it is also a lot easier to adjust the project direction if we are going down the wrong path.

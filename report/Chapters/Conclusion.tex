@@ -2,16 +2,62 @@
 \label{ch:conclusion}
 \lhead{Chapter 16. \emph{Conclusion}} 
 
-This chapter covers the final state of the NIPEN project.
-It at also discusses the state of all the requirements of the project.
-At the end it talks about what the customer should do about future work on this project.
+This chapter covers the final state of the project, discussing the fullfilment
+of requirements, limitations of the product and further work.
+%It at also discusses the state of all the requirements of the project.
+%At the end it talks about what the customer should do about future work on this project.
+
+\section{Product limitations and further work}
+Although we managed to achieve all requirements and both us and the customer were quite happy
+with the product, it is still only a demonstrative prototype and there is much room for improvement.
+In this section we outline the most noticeable limitations of our product which should be
+the focus of further work.
+
+\begin{itemize}
+\item\textbf{API design}\newline
+At the moment the API only supports two types of resources: weight and heart rate measurements
+and only two types of operations on these: create and read.
+
+The design of an API's data models will have a key role in its success and adoption.
+What we proposed are two very simple models which include minimal information.
+A functional system should have a much more extensive and complete API
+which should be thoroughly documented and available to third-parties.
+Data models should be complete and able to represent a meaningful amount of information,
+and possibily exhibit some degree of interoperability with other standards.
+
+Furthermore, the API is not implementing the basic features of persistent storage (CRUD)
+which are necessary for this kind of solution. Only create and read operations are supported,
+whereas update and delete are totally missing. These should be easy to implement.
+
+\item\textbf{Security}\newline
+No part of the system implements any form of security.
+This was done to reduce the complexity of the system due to time contraints and the size of the group.
+The customer agreed that security was not a non-funtional requirement of the system, however
+in an actual solution security practices in this kind of project must be appropriate and in place.
+Chapter \ref{ch:security} described in detail these practices.
+
+\item\textbf{Multi-user support}\newline
+Some parts of the system such as the API data models, the data structures used internally and even
+the database do have a basic support for more than one user. However no security
+is implemented in any place, so all actions are effectively carried out by a single user.
+Naturally, in a production scenario that would not be the case and multi-user support will
+be necessary.
+
+\item\textbf{Deployment}\newline
+At the moment NIPEN is deployed together with the front-end of the system.
+It would be desiderable to have seperate artifacts for these in order to be able to deploy them
+on different machines. This would dramatically decrease the amount of resources needed on a single
+machine. The actual architecture makes it possible to simply separate the codebase of the two
+and deploy them individually.
+\end{itemize}
+
 
 \section{Fulfillment of requirements}
 
 This section discusses how our project fulfills the requirements of the project. 
 It explains the state of all the requirements and if they were completed. Each requirement had a priority which halped us identify what was important for us to focus on.
 
-\subsection{Fulfillment of functional requirements}
+\subsection{Functional requirements}
 
 This subsection describes the functional requirements for the product and their state after the project completion.
 Our initial requirements were that this platform should both recive and deliver health data. 
@@ -25,9 +71,9 @@ The final product can out receive and deliver health data but there is no authen
 \begin{center}
 \begin{tabular}{ | c | p{9cm} | c | c | }
   \hline
-  ID & Description & Priority & State\\
+  ID & State & Complexity & Priority \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	& The IP shall support REST endpoints for receiving heart rate data models expressed as JSON strings   & High & Completed\\
+  FIP1	&  Completed & High & \\
   FIP2	& The IP shall support REST endpoints for receiving weight data models expressed as JSON strings       & High & Completed \\
   FIP3	& The IP shall support REST endpoints for forwarding heart rate models (using JSON) to other systems.  & High & Completed \\
   FPI4	& The IP shall support REST endpoints for forwarding weight models (using JSON).                       & High & Completed \\
@@ -38,7 +84,7 @@ The final product can out receive and deliver health data but there is no authen
 \label{table:fulfillemntofrequirements}
 \end{table}
 
-\subsection{Fulfillment of the functional requirements for the web front-end}
+%\subsection{Fulfillment of the functional requirements for the web front-end}
 
 This subsection describes the functional requirements for the web front-end and its state after the project completion. 
 In figure \ref{figure:front-endfinal} the design and final version can be seen. 
@@ -71,7 +117,7 @@ We also tried to make it look like the clients page by using their color scheme.
 \label{table:fulfillemntofwebfront-end}
 \end{table}
 
-\subsection{Fulfillment of functional requirements for the heart rate application}
+%\subsection{Fulfillment of functional requirements for the heart rate application}
 
 This subsection describes the functional requirements for the heart rate application and its state after the project completion.
 In figure \ref{figure:appfinal} the design and final version can be seen.
@@ -105,7 +151,7 @@ Then with the click of a button transmitt the data to NIPEN.
 \label{table:fulfillemntofapp}
 \end{table}
 
-\subsection{Fulfillment of functional requirements for Weight application}
+%\subsection{Fulfillment of functional requirements for Weight application}
 
 This subsection describes the functional requirements for the weight application and its state after the project completion.
 In figure \ref{figure:weightapp} the design and final version can be seen.
@@ -136,7 +182,7 @@ The goal of this app was to get weight data from Microsoft HealthVault and send 
 \label{table:fulfillemntweightapp}
 \end{table}
 
-\subsection{Fulfillment of non-funcional requirements}
+\subsection{Non-funcional requirements}
 This subsection describes the non-functional requirements and its state after the project completion. 
 
 \begin{table}[H]
@@ -164,8 +210,9 @@ This subsection describes the non-functional requirements and its state after th
 \label{table:fullfilmentnonfunctionalreq}
 \end{table} 
 
-\section{Further work}
 
+
+\iffalse
 Our NIPEN implementation and the belonging applications are mostly a proof of concept. 
 The most important task of the client to do next will be to figure out if there is an interest in Helsenorge for this type of system.
 The most important factor for this system is the value it delivers to the educated medical professionals. 
@@ -184,6 +231,8 @@ In the research paper they found that 7 out of 10 adults track their health.
 While 1 in 5 use technology to log this. 
 What is important to note from the findings they did is that over half of those who keep a record of their health indicate that their tracking and recordkeeping has changed their approach to health.
 The conclusion that can be taken from this is that the act of tracking alone affects the overall health and mindset of the citizen. 
+
+\fi
 
 \subsection{Third-party applications}
 
