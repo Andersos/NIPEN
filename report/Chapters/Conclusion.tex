@@ -54,37 +54,45 @@ and deploy them individually.
 
 \section{Fulfillment of requirements}
 
-This section discusses how our project fulfills the requirements of the project. 
-It explains the state of all the requirements and if they were completed. Each requirement had a priority which halped us identify what was important for us to focus on.
+In this section we present the status of requirements at the end of our project.
+%This section discusses how our project fulfills the requirements of the project. 
+%It explains the state of all the requirements and if they were completed. Each requirement had a priority which
+%halped us identify what was important for us to focus on.
 
 \subsection{Functional requirements}
 
-This subsection describes the functional requirements for the product and their state after the project completion.
-Our initial requirements were that this platform should both recive and deliver health data. 
-The requirements were revised during the project with feedback from the customer.
-The customer felt it was sufficent that the integration platform was able to receive health data and that it was more important to have a good sync with Microsoft HealtVault. 
-The final product can out receive and deliver health data but there is no authentication on the delivering part in this prototype. 
+In this subsection we focus on functional requirements.
+%This subsection describes the functional requirements for the product and their state after the project completion.
+%Our initial requirements were that this platform should both recive and deliver health data. 
+%The requirements were revised during the project with feedback from the customer.
+%The customer felt it was sufficent that the integration platform was able to receive health data and that it was more
+%important to have a good sync with Microsoft HealtVault. 
+%The final product can out receive and deliver health data but there is no authentication on the delivering part in this prototype. 
 
-\textbf{Fulfillment of functional requirements for the integration platform}
+\textbf{Functional requirements for the Integration Platform}
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c | }
+\begin{tabular}{ | c | c | c | c | }
   \hline
-  ID & State & Complexity & Priority \\
+  \textbf{ID} & \textbf{State} & \textbf{Complexity} & \textbf{Priority} \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	&  Completed & High & \\
-  FIP2	& The IP shall support REST endpoints for receiving weight data models expressed as JSON strings       & High & Completed \\
-  FIP3	& The IP shall support REST endpoints for forwarding heart rate models (using JSON) to other systems.  & High & Completed \\
-  FPI4	& The IP shall support REST endpoints for forwarding weight models (using JSON).                       & High & Completed \\
+  FIP1	& Completed & Med & Hgih \\
+  FIP2	& Completed & Med & High \\
+  FIP3	& Completed & Med & High \\
+  FPI4	& Completed & Med & High \\
   \hline
 \end{tabular}
 \end{center}
-\caption{Fulfillment of functional requirements for Integration platform}
+\caption{Fulfillment of functional requirements for the Integration platform}
 \label{table:fulfillemntofrequirements}
 \end{table}
 
-%\subsection{Fulfillment of the functional requirements for the web front-end}
+
+%% this small summary of the feature shouldn't be here where you talk
+%% about requirements but rather in a 'conclusion' or 'summary' section
+\iffalse
+\subsection{Fulfillment of the functional requirements for the web front-end}
 
 This subsection describes the functional requirements for the web front-end and its state after the project completion. 
 In figure \ref{figure:front-endfinal} the design and final version can be seen. 
@@ -99,17 +107,18 @@ We also tried to make it look like the clients page by using their color scheme.
 \caption{Front-end final}
 \label{figure:front-endfinal}
 \end{figure}
+\fi
 
 \textbf{Functional requirements for the web front-end}
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c |}
+\begin{tabular}{ | c | c | c | c |}
   \hline
-  ID & Description & Priority & Status\\
+  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority}\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FW1	& The web frontend shall display the data stored by the Integration Platform using charts.	& High & Completed \\
-  FW2	& The web frontend shall use Helsenorge color palette                                       & Low & Completed \\
+  FW1	& Completed & Med & High \\
+  FW2	& Completed & Low & Low \\
   \hline
 \end{tabular}
 \end{center}
@@ -117,7 +126,8 @@ We also tried to make it look like the clients page by using their color scheme.
 \label{table:fulfillemntofwebfront-end}
 \end{table}
 
-%\subsection{Fulfillment of functional requirements for the heart rate application}
+\iffalse
+\subsection{Fulfillment of functional requirements for the heart rate application}
 
 This subsection describes the functional requirements for the heart rate application and its state after the project completion.
 In figure \ref{figure:appfinal} the design and final version can be seen.
@@ -132,18 +142,19 @@ Then with the click of a button transmitt the data to NIPEN.
 \caption{Heart rate application final}
 \label{figure:appfinal}
 \end{figure}
+\fi
 
-\textbf{Fulfillment of functional requirements for Heart rate application}
+\textbf{Functional requirements for Heart rate application}
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c |}
+\begin{tabular}{ | c | c | c | c |}
   \hline
-  ID & Description & Priority & Status\\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FHR1	& The application shall measure user’s heart rate using the device camera    & High & Completed \\
-  FHR2	& The application shall display the last measurement on the screen.          & Med & Completed \\
-  FHR3	& The application shall forward the data to the IP using its REST endpoint.  & High & Completed \\
+  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority} \\
+  \hline\noalign{\smallskip}\hline
+  FHR1	& Completed & High & High \\
+  FHR2	& Completed & Low  & High \\
+  FHR3	& Completed & Med  & High \\
   \hline
 \end{tabular}
 \end{center}
@@ -151,7 +162,8 @@ Then with the click of a button transmitt the data to NIPEN.
 \label{table:fulfillemntofapp}
 \end{table}
 
-%\subsection{Fulfillment of functional requirements for Weight application}
+\iffalse
+\subsection{Fulfillment of functional requirements for Weight application}
 
 This subsection describes the functional requirements for the weight application and its state after the project completion.
 In figure \ref{figure:weightapp} the design and final version can be seen.
@@ -163,23 +175,42 @@ The goal of this app was to get weight data from Microsoft HealthVault and send 
 \caption{Fulfillment of weight application}
 \label{figure:weightappfinal}
 \end{figure}
+\fi
 
 \textbf{Functional requirements for Weight application}
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ | c | p{9cm} | c | c |}
+\begin{tabular}{ | c | c | c | c |}
   \hline
-  ID & Description & Priority & Status\\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FHV1	& The application shall fetch weight data from HealthVault.						      & High & Unkown \\
-  FHV2	& The application shall show the user the data it has fetched.              & Med & Unkown \\
-  FHV3	& The application shall forward the data to the IP using its REST endpoint. & High & Unkown \\
+  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority}\\
+  \hline\noalign{\smallskip}\hline
+  FHV1	& Completed & Med & High \\
+  FHV2	& Completed & Low & Med \\
+  FHV3	& Completed & Low & Hgih \\
   \hline
 \end{tabular}
 \end{center}
 \caption{Fulfillemnt of functional requirements for Weight application}
 \label{table:fulfillemntweightapp}
+\end{table}
+
+\textbf{Functional requirements for the HealthVault integration service}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | c |}
+  \hline
+  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority}\\
+  \hline\noalign{\smallskip}\hline
+  FHIS1	& Completed & Med	& High \\
+  FHIS2	& Completed & High	& High \\
+  FHIS3	& Completed & Low	& Med \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Fulfillment of functional requirements for the HealthVault integration service}
+\label{table:fulfillemntweightservice}
 \end{table}
 
 \subsection{Non-funcional requirements}
@@ -190,7 +221,7 @@ This subsection describes the non-functional requirements and its state after th
 \begin{tabular}{ | c | c |p{6.5cm} | c | c |}
   \hline
   ID & Category & Description & Priority & Status\\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  \hline\noalign{\smallskip}\hline
   NF1 & Documentation & The system shall be thoroughly documented, both at the code level and by the document ‘project report’.
   & High & Completed \\
   NF2 & Documentation & Although security and privacy are not requirements for the product they are important topics to be discussed in the documentation.
@@ -211,7 +242,9 @@ This subsection describes the non-functional requirements and its state after th
 \end{table} 
 
 
-
+%%% this is not further work, it looks like a conclusion.
+%%% it should be reworked and moved to the 'summary' subsection below or even better in the
+%%% evaluation chapter together with the 'third-party applications' subsection
 \iffalse
 Our NIPEN implementation and the belonging applications are mostly a proof of concept. 
 The most important task of the client to do next will be to figure out if there is an interest in Helsenorge for this type of system.
@@ -232,8 +265,6 @@ While 1 in 5 use technology to log this.
 What is important to note from the findings they did is that over half of those who keep a record of their health indicate that their tracking and recordkeeping has changed their approach to health.
 The conclusion that can be taken from this is that the act of tracking alone affects the overall health and mindset of the citizen. 
 
-\fi
-
 \subsection{Third-party applications}
 
 We developed three applications all interacting with our implementation of NIPEN. 
@@ -241,12 +272,25 @@ The idea behind making a portal like this is to open the API up to all developer
 The ideal goal is to have a platform that reaches all types of users. 
 The total cost of the project can be lowered by this because support for the system can be done by the developers of the different third-party applications. 
 It is also possible for some developers to develop proxies for popular third-party applications.
-
+\fi
 
 \section{Summary}
-In this chapter we have looked at what requirements our project have fulfilled. 
-We have also discuessed what the next steps for pursuing the continues development of this platform. 
+In this chapter we reported the status of all project's requirements and outlined the most significant
+limitations of the product which could be the focus of further development efforts.
+%We have also discuessed what the next steps for pursuing the continues development of this platform. 
 
-We are glad that we manage to implement most of the requirements meaning we made a realistic assumptions of what we could accomplish in the given time with the members we had. 
-Although some of the syncronisation did not work ideeal it was not cause by our system but by third-party systems not working ideally. 
-This project is an interesting idea and finding a way to unify the collection of health data of citizens will lead to a better understanding of citizen health and an easier overview of what can be improved for a better quality of life. 
+The result of our work is a fully functional prototype consisting of:
+\begin{itemize}
+\item an integration platform
+\item a web front-end
+\item a web application
+\item two Android applications
+\end{itemize}
+
+%%% this stuff should go in the evaluation chapter
+\iffalse
+We are glad we managed to implement every requirement 
+meaning we made a realistic assumptions of what we could accomplish in the given time with the members we had.
+%Although some of the syncronisation did not work ideeal it was not cause by our system but by third-party systems not working ideally. 
+This project is an interesting idea and finding a way to unify the collection of health data of citizens will lead to a better understanding of citizen health and to an \iffalse easier\fi overview of what can be improved for a better quality of life. 
+\fi
