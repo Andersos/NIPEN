@@ -97,7 +97,7 @@ extend some of its functionality. Their concern is that our integration platform
 in order to be easy to integrate with or to extend.
 
 \subsection{Users}
-The users are going to user product: the front-end and Android applications.
+The users are going to use the following products: the front-end and Android applications.
 %They are the users of our front-end and both Android applications.%heart rate application and our weight application.
 It is their concern that their data is easily available and is visualized in an intuitive and comprehensible way.
 They should be able to push heart rate and weight measurements to the integration platform smoothly and without
@@ -113,7 +113,7 @@ This section contains a description the functional requirements for the product.
 Each requirement also had a priority which helped us identify the focus of our work.
 Priorities can be reviewed based on customer's feedback. We tried to prioritize those requirements corresponding
 to the functionality of the system that the customer expressed most interest about. In order to better organize
-our workload we also assigned a \'difficulty\' to each requirement.
+our workload we also estimated a complexity for each requirement.
 
 \textbf{Functional requirements for Integration Platform}
 
@@ -247,21 +247,22 @@ our workload we also assigned a \'difficulty\' to each requirement.
   
   \textbf{ID} & FHV1 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The application shall fetch weight data from HealthVault. \\
+  \textbf{Description}  & The application shall fetch weight measurements from HealthVault. \\
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
   \textbf{ID} & FHV2 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The application shall display the data it has fetched. \\
+  \textbf{Description}  & The application shall display the weight measurements it has fetched. \\
   \textbf{Complexity}   & Low \\
   \textbf{Priority}     & Med \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
   \textbf{ID} & FHV3 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The application shall forward the data to the IP using the web API. \\
+  %\textbf{Description}  & The application shall forward the data to the IP using the web API. \\
+  \textbf{Description}  & The application shall forward weight measurements to the IP using the web API. \\
   \textbf{Complexity}   & Low \\
   \textbf{Priority}     & High \\
 
@@ -350,13 +351,8 @@ In order to provide a better overview, we have organized them in categories.
   \textbf{ID} & NF1 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Category}			&	Documentation\\
-<<<<<<< Updated upstream
-  \textbf{Description}	& The system shall be thoroughly documented by the 'project report' \\
-  \textbf{Complexity}		& High \\
-=======
   \textbf{Description}	& The system shall be thoroughly documented by the project report \\
-  \textbf{Difficulty}		& High \\
->>>>>>> Stashed changes
+  \textbf{Complexity}		& High \\
   \textbf{Priority}			& High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
 
@@ -487,7 +483,7 @@ This would allow the requirements to change without having a big impact on the p
 \label{section:usecases}
 
 This section provides  the different use cases of our applications.
-The section consists of use cases for the front-end, heart rate application and the weight application.
+The section consists of use cases for the front-end, heart rate application, weight application and the HealthVault integration service.
 
 \subsection{Front-end}
 
@@ -511,7 +507,7 @@ In table \ref{table:use-case-view-data} we present a textual use case for the fr
   Requirements & \hyperref[table:reqfrontend]{FW1}, \hyperref[table:reqip]{FIP3} and \hyperref[table:reqip]{FIP4}\\ \hline
   Application & Front-end \\ \hline
   Name & View data \\ \hline
-  Description & Display all the data from the integration platform for the user. \\ \hline
+  Description & Display the data from the integration platform for the user. \\ \hline
   Actor & User and Integration Platform \\ \hline
   Precondition &
 	\par 1. The integration platform has data about the current user.
@@ -626,7 +622,8 @@ the integration platform. Figure \ref{figure:use-case-diagram-send-heart-rate} s
 
 \subsection{Weight Application}
 
-The goal of the weight application is to retrieve weight data from HaulthVault and forwards it to our integration platform.
+The goal of the weight application is to retrieve weight data from HaulthVault.
+It should also be able to send weight measurements to our integration platform.
 Figure \ref{figure:use-case-diagram-weight} shows the main use case diagram for the application.
 
 \begin{figure}[H]
@@ -701,12 +698,13 @@ textual use case.
   Description & Send the weight data from the phone application into the integration platform. \\ \hline
   Actor & User and Integration Platform \\ \hline
   Precondition &
-    \par 1. The user has acquired the weight data through the weight application.
-    \par 2. The integration platform is online.
+    \par 1. The integration platform is online.
+    \par 2. The user has logged in to HealthVault through the app.
   \\ \hline
   Basic Flow & 
-  	\par 1. The user presses the \textit{Send} button.
-  	\par 2. The integration platform receives the data.
+    \par 1. The user enters a weight measurement into the weight field.
+  	\par 2. The user presses the \textit{Send} button.
+  	\par 3. The integration platform receives the data.
   \\ \hline
 \end{tabular}
 \end{center}
@@ -788,11 +786,12 @@ Table \ref{table:use-case-start-polling-service} shows a textual use case for th
   Basic Flow & 
   	\par 1. The user clicks on \textit{Enable} button to start the polling service.
   	\par 2. The web service polls data from HealthVault.
+  	\par 3. The web service checks if new data is retrieved.
   \\ \hline
    Alternate Flows & 
-  	\par 2A: No new weight measurement.
+  	\par 3A: No new weight measurement.
   	\par\hspace{15pt} 1. Go to 2 and poll again.
-  	\par 2B: New weight measurement detected.
+  	\par 3B: New weight measurement detected.
   	\par\hspace{15pt} 1. Send new weight data to integration platform.
   	\par\hspace{15pt} 2. Integration platform receives data.
   	\par\hspace{15pt} 3. Go to 2 and poll again.
