@@ -188,11 +188,11 @@ function resetData() {
     if (isGoingToResetData) {
         $.ajax({
             type: "POST",
-            url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/heart_rate/reset"
+            url: "/nipen/api/human/heart_rate/reset"
         });
         $.ajax({
             type: "POST",
-            url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/weight/reset"
+            url: "/nipen/api/human/weight/reset"
         });
 
         updatePage();
@@ -233,7 +233,7 @@ function addHeartRate(value, date) {
 
     $.ajax({
         type: "POST",
-        url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/heart_rate",
+        url: "/nipen/api/human/heart_rate",
         data: JSON.stringify(json),
         dataType: "json",
         contentType: "application/json; charset=utf-8"
@@ -257,7 +257,7 @@ function addWeight(value, date) {
 
     $.ajax({
         type: "POST",
-        url: "http://mhealthdemo03.cloudapp.net/nipen/api/human/weight",
+        url: "/nipen/api/human/weight",
         data: JSON.stringify(json),
         dataType: "json",
         contentType: "application/json; charset=utf-8"
