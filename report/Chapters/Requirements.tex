@@ -6,7 +6,10 @@
 
 This chapter provides a description of project's stakeholders and requirements, both
 functional and non-functional. Requirements will be presented textually and with the aid of
-some use-case diagrams.
+some use-case diagrams. 
+Functional requirements will be given for our applications.
+The applications consists of: an integration platform (NIPEN), a heart rate and two weight applications that are able to send values to NIPEN, and a front-end (i.e. a web page) that is capable of visualizing the data stored in the integration platform.
+
 
 Throughout this chapter both requirement's priority and complexity have a textual description which can be
 \begin{itemize}
@@ -115,7 +118,7 @@ Priorities can be reviewed based on customer's feedback. We tried to prioritize 
 to the functionality of the system that the customer expressed most interest about. In order to better organize
 our workload we also estimated a complexity for each requirement.
 
-\textbf{Functional requirements for Integration Platform}
+\textbf{Functional requirements for NIPEN}
 
 \begin{table}[H]
 \begin{center}
@@ -124,7 +127,7 @@ our workload we also estimated a complexity for each requirement.
 
   \textbf{ID} & FIP1 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The IP shall support API endpoints for receiving heart rate data
+  \textbf{Description}  & NIPEN shall support API endpoints for receiving heart rate data
                           models expressed as JSON strings.\\
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
@@ -132,7 +135,7 @@ our workload we also estimated a complexity for each requirement.
 
   \textbf{ID} & FIP2 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The IP shall support API endpoints for receiving
+  \textbf{Description}  & NIPEN shall support API endpoints for receiving
                           weight data models expressed as JSON strings.\\
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
@@ -140,7 +143,7 @@ our workload we also estimated a complexity for each requirement.
 
   \textbf{ID} & FIP3 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The IP shall support API endpoints for forwarding
+  \textbf{Description}  & NIPEN shall support API endpoints for forwarding
                           stored heart rate measurements as JSON models.\\
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
@@ -148,7 +151,7 @@ our workload we also estimated a complexity for each requirement.
 
   \textbf{ID} & FIP4 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The IP shall support API endpoints for forwarding
+  \textbf{Description}  & NIPEN shall support API endpoints for forwarding
                           stored weight measurements as JSON models.\\
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
@@ -156,20 +159,20 @@ our workload we also estimated a complexity for each requirement.
   \iffalse
   ID & Description & Difficulty & Priority\\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	& The IP shall support API endpoints for receiving
+  FIP1	& NIPEN shall support API endpoints for receiving
           heart rate data models expressed as JSON strings.		& Med	& High \\
-  FIP2	& The IP shall support API endpoints for receiving
+  FIP2	& NIPEN shall support API endpoints for receiving
           weight data models expressed as JSON strings.				& Med	& High \\
-  FIP3	& The IP shall support API endpoints for forwarding
+  FIP3	& NIPEN shall support API endpoints for forwarding
           stored heart rate measurements as JSON models.			& Med	& High \\
-  FPI4	& The IP shall support API endpoints for forwarding
+  FPI4	& NIPEN shall support API endpoints for forwarding
           stored weight measurements as JSON models.					& Med	& High \\
   \fi
 
   \hline
 \end{tabular}
 \end{center}
-\caption{Functional requirements for Integration Platform}
+\caption{Functional requirements for NIPEN}
 \label{table:reqip}
 \end{table}
 
@@ -183,7 +186,7 @@ our workload we also estimated a complexity for each requirement.
 
   \textbf{ID} & FW1 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The web frontend shall display the data stored by the Integration Platform using charts.\\
+  \textbf{Description}  & The web frontend shall display the data stored by NIPEN using charts.\\
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
@@ -225,7 +228,7 @@ our workload we also estimated a complexity for each requirement.
 
   \textbf{ID} & FHR3 \\
   \hline\noalign{\smallskip}\hline
-  \textbf{Description}  & The application shall forward the data to the IP using its REST endpoint.\\
+  \textbf{Description}  & The application shall forward the data to NIPEN using its REST endpoint.\\
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
   
@@ -262,7 +265,7 @@ our workload we also estimated a complexity for each requirement.
   \textbf{ID} & FHV3 \\
   \hline\noalign{\smallskip}\hline
   %\textbf{Description}  & The application shall forward the data to the IP using the web API. \\
-  \textbf{Description}  & The application shall forward weight measurements to the IP using the web API. \\
+  \textbf{Description}  & The application shall forward weight measurements to NIPEN using the web API. \\
   \textbf{Complexity}   & Low \\
   \textbf{Priority}     & High \\
 
@@ -271,7 +274,7 @@ our workload we also estimated a complexity for each requirement.
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FHV1	& The application shall fetch weight data from HealthVault.						      & Med	& High \\
   FHV2	& The application shall show the user the data it has fetched.              & Low	& Med \\
-  FHV3	& The application shall forward the data to the IP using its REST endpoint. & Med	& High \\
+  FHV3	& The application shall forward the data to NIPEN using its REST endpoint. & Med	& High \\
   \fi
 
   \hline
@@ -298,7 +301,7 @@ our workload we also estimated a complexity for each requirement.
   \textbf{ID} & FHIS2 \\
   \hline\noalign{\smallskip}\hline
   \textbf{Description}  & When on, the applicatin shall fetch weight data from HealthVault and
-                          forward it to the IP using its web API. \\
+                          forward it to NIPEN using its web API. \\
   \textbf{Complexity}   & High \\
   \textbf{Priority}     & High \\
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
@@ -318,7 +321,7 @@ our workload we also estimated a complexity for each requirement.
   \hline\noalign{\smallskip}\noalign{\smallskip}\hline
   FHIS1	& The application shall send weight data to HealthVault.						   & Low	& Low \\
   FHIS2	& The application shall fetch weight data from HealthVault regularly.		       & Med	& High \\
-  FHIS3	& The application shall forward new weight data to the IP using its REST endpoint. & Med	& High \\
+  FHIS3	& The application shall forward new weight data to NIPEN using its REST endpoint. & Med	& High \\
   \hline
 \end{tabular}
 \end{center}
@@ -483,7 +486,121 @@ This would allow the requirements to change without having a big impact on the p
 \label{section:usecases}
 
 This section provides  the different use cases of our applications.
-The section consists of use cases for the front-end, heart rate application, weight application and the HealthVault integration service.
+The section consists of use cases for NIPEN, front-end, heart rate application, weight application and the HealthVault integration service.
+
+\subsection{NIPEN}
+
+A use case diagram for NIPEN is given in figure \ref{figure:use-case-diagram-nipen}.
+The integration platform (i.e. NIPEN) should be able to receive weight and heart rate measurements.
+It should also support API endpoints for retrieving this values.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-nipen.png}
+\caption{Use case diagram - NIPEN}
+\label{figure:use-case-diagram-nipen}
+\end{figure}
+
+In figure \ref{figure:use-case-diagram-nipen-front-end} a use case diagram is given for retrieving values from NIPEN.
+Table \ref{table:use-case-retrieve-heart-rate-weight} gives a textual use case diagram for retrieval of the data values.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-nipen-front-end.png}
+\caption{Use case diagram - Retrieving values from NIPEN}
+\label{figure:use-case-diagram-nipen-front-end}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & \hyperref[table:reqip]{FIP3} and \hyperref[table:reqip]{FIP4}\\ \hline
+  Application & NIPEN \\ \hline
+  Name & Retrieve data from NIPEN \\ \hline
+  Description & Front-end retrieving heart rate and weight measurements from NIPEN. \\ \hline
+  Actor & Front-end \\ \hline
+  Precondition &
+	\par 1. Multiple weight and heart rate measurements are stored on NIPEN.
+	\\ \hline
+  Basic Flow & 
+  	\par 1. The front-end makes and API call to the front-end to receive heart rate measurements.
+  	\par 2. The system sends the heart rate measurements as JSON models to the front-end. 
+  	\par 3. The front-end makes and API call to the front-end to receive weight measurements.
+  	\par 4. The system sends the weight measurements as JSON models to the front-end.
+  	\\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Retrieve heart rate and weight measurements}
+\label{table:use-case-retrieve-heart-rate-weight}
+\end{table}
+
+A use case diagram for retrieval of heart rate values at NIPEN is given in figure \ref{figure:use-case-diagram-nipen-heart-rate}.
+The table below (table \ref{table:use-case-receive-heart-rate}) shows a textual use case for a scenario where NIPEN receives a heart rate measurement.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-nipen-heart-rate.png}
+\caption{Use case diagram - Receiving heart rate measurements at NIPEN}
+\label{figure:use-case-diagram-nipen-heart-rate}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & \hyperref[table:reqip]{FIP1} \\ \hline
+  Application & NIPEN \\ \hline
+  Name & Receiving heart rate measurement \\ \hline
+  Description & Receiving a heart rate measurement at NIPEN from the heart rate application. \\ \hline
+  Actor & Heart Rate Application \\ \hline
+  Basic Flow & 
+  	\par 1. Heart rate application sends a heart rate measurement to NIPEN.
+  	\par 2. NIPEN receives the heart rate measurement.
+  	\par 3. NIPEN stores the values.
+  	\\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Receiving a heart rate measurement at NIPEN}
+\label{table:use-case-receive-heart-rate}
+\end{table}
+
+The use case diagram below (figure \ref{figure:use-case-diagram-nipen-weight}) shows NIPEN receiving weight values from the weight application and HealthVault integration service.
+Table \ref{table:use-case-receive-weight} gives a textual use case for when NIPEN receives values from the weight applications. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{../Figures/use-case-diagram-nipen-weight.png}
+\caption{Use case diagram - Receiving weight measurements at NIPEN}
+\label{figure:use-case-diagram-nipen-weight}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l | p{10cm} }
+  \hline
+  \textbf{Use Case Element} & \textbf{Description} \\ \hline\hline
+  Requirements & \hyperref[table:reqip]{FIP2} \\ \hline
+  Application & NIPEN \\ \hline
+  Name & Receiving weight measurement \\ \hline
+  Description & Receiving a weight measurement at NIPEN from the weight application and HealthVault integration service. \\ \hline
+  Actor & Weight Application and HealthVault Integration Service \\ \hline
+  Basic Flow & 
+  	\par 1. Weight application sends a weight measurement to NIPEN.
+  	\par 2. NIPEN receives the weight measurement.
+  	\par 3. NIPEN stores the values.
+  	\par 4. HealthVault integration platform sends a weight measurement to NIPEN.
+  	\par 5. NIPEN receives the weight measurement.
+  	\par 6. NIPEN stores the values.
+  	\\ \hline
+\end{tabular}
+\end{center}
+\caption{Textual use case - Receiving weight measurements at NIPEN}
+\label{table:use-case-receive-weight}
+\end{table}
+
 
 \subsection{Front-end}
 
@@ -507,17 +624,17 @@ In table \ref{table:use-case-view-data} we present a textual use case for the fr
   Requirements & \hyperref[table:reqfrontend]{FW1}, \hyperref[table:reqip]{FIP3} and \hyperref[table:reqip]{FIP4}\\ \hline
   Application & Front-end \\ \hline
   Name & View data \\ \hline
-  Description & Display the data from the integration platform for the user. \\ \hline
-  Actor & User and Integration Platform \\ \hline
+  Description & Display the data from NIPEN for the user. \\ \hline
+  Actor & User and NIPEN \\ \hline
   Precondition &
-	\par 1. The integration platform has data about the current user.
-	\par 2. The integration platform is online.
+	\par 1. NIPEN has data about the current user.
+	\par 2. NIPEN is online.
 	\par 3. The user is using a computer with a web browser, that is connected to the internet.
 	\\ \hline
   Basic Flow & 
   	\par 1. The user accesses the web page.
-  	\par 2. Front-end requests data from the integration platform.
-  	\par 3. Integration platform sends data to front-end.
+  	\par 2. Front-end requests data from NIPEN.
+  	\par 3. NIPEN sends data to front-end.
   	\par 4. Front-end displays data to user.
   	\\ \hline
   Alternate Flows & 
@@ -603,16 +720,16 @@ the integration platform. Figure \ref{figure:use-case-diagram-send-heart-rate} s
   Application & Heart Rate Application \\ \hline
   Name & Send heart rate \\ \hline
   Description & Send the measured heart rate to the integration platform. \\ \hline
-  Actor & User and Integration Platform \\ \hline
+  Actor & User and NIPEN \\ \hline
   Precondition &
     \par 1. The user has measured his/hers heart rate through the application.
     \par 2. The phone is connected to the internet.
-    \par 3. The integration platform is online.
+    \par 3. NIPEN is online.
   \\ \hline
   Basic Flow & 
   	\par 1. The user clicks on \textit{Send}.
-  	\par 2. The application sends the data to the integration platform.
-  	\par 3. The integration platform receives the data.
+  	\par 2. The application sends the data to the NIPEN.
+  	\par 3. NIPEN receives the data.
   \\ \hline
 \end{tabular}
 \end{center}
@@ -696,15 +813,15 @@ textual use case.
   Application & Weight Application \\ \hline
   Name & Send weight data \\ \hline
   Description & Send the weight data from the phone application into the integration platform. \\ \hline
-  Actor & User and Integration Platform \\ \hline
+  Actor & User and NIPEN \\ \hline
   Precondition &
-    \par 1. The integration platform is online.
+    \par 1. NIPEN is online.
     \par 2. The user has logged in to HealthVault through the app.
   \\ \hline
   Basic Flow & 
     \par 1. The user enters a weight measurement into the weight field.
   	\par 2. The user presses the \textit{Send} button.
-  	\par 3. The integration platform receives the data.
+  	\par 3. NIPEN receives the data.
   \\ \hline
 \end{tabular}
 \end{center}
@@ -778,7 +895,7 @@ Table \ref{table:use-case-start-polling-service} shows a textual use case for th
   Application & HealthVault Integration Service \\ \hline
   Name & Start polling service \\ \hline
   Description & Start the polling service and send data from HealthVault to the integration platform. \\ \hline
-  Actor & User, HealthVault and Integration Platform \\ \hline
+  Actor & User, HealthVault and NIPEN \\ \hline
   Precondition &
     \par 1. The user has logged in to HealthVault through the web service.
     \par 2. The polling service is off.
@@ -792,8 +909,8 @@ Table \ref{table:use-case-start-polling-service} shows a textual use case for th
   	\par 3A: No new weight measurement.
   	\par\hspace{15pt} 1. Go to 2 and poll again.
   	\par 3B: New weight measurement detected.
-  	\par\hspace{15pt} 1. Send new weight data to integration platform.
-  	\par\hspace{15pt} 2. Integration platform receives data.
+  	\par\hspace{15pt} 1. Send new weight data to NIPEN.
+  	\par\hspace{15pt} 2. NIPEN receives data.
   	\par\hspace{15pt} 3. Go to 2 and poll again.
   \\ \hline
 \end{tabular}
