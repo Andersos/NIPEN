@@ -3,19 +3,6 @@
 \label{Sprint4}
 \lhead{Chapter 10. \emph{Sprint 4}}
 
-\section{Goal(s)}
-
-The main goal of this sprint was to finalize and demonstrate a second prototype of the system,
-which included: a) the backend, b) the frontend, c) two Android applications.
-These had to be ready for October the 24th when our customer planned to visit Trondheim.
-
-\section{Planning}
-
-This sprint's plan consisted in one last development effort to complete the second prototype
-before our meeting with our customer and in view of the feature freeze deadline.
-For our colleague in Oslo, we planned documentation exclusively in order
-not to fall behind with the status of the report.
-
 \section{Duration}
 The duration of the sprint was the following:
 \begin{itemize}
@@ -23,46 +10,82 @@ The duration of the sprint was the following:
 \item End: November, 03rd
 \end{itemize}
 
+\section{Planning}
+
+This sprint's plan consisted in one last development effort to complete the second prototype
+before our meeting with the customer and in view of the feature freeze deadline.
+
+Although some refactoring done last sprint did result in a slight improvement to the codebase,
+most of it did not make it make into the master branch because we did not have enough spare resources
+to dedicate to this task, or we would have rather used those for report writing which
+was becoming an increasingly pressing task.
+
+Regarding the collaboration with our colleague in Oslo, we discussed his contribution
+to the project during last sprint in an internal meeting.
+We understood that it would have helped to be specific about what parts
+of the report we expected him to write. We also made a more realistic estimate
+of the amount of time he could dedicate the project being a full-time worker.
+After these considerations, we planned less work for him for this sprint.
+We were explicit about what parts of the report he should have worked on and
+encouraged him to track his time appropriately.
+We tried to make him feel part of the team and we counted on him.
+
+\iffalse
+For our colleague in Oslo, we planned documentation exclusively in order
+not to fall behind with the status of the report.
+
+Talking with him during an internal meeting, we understood that it would have helped to be specific
+about what parts of the report we expected him to write.
+Being cautious about the matter,
+we planned less work for him for the next sprint but we were more explicit about what parts
+of the report he should have worked on and encouraged him to track his time appropriately.
+We tried to make him feel part of the team and we counted on him.
+\fi
+
+\section{Goal(s)}
+
+The main goal of this sprint was to finalize and demonstrate a second prototype of the product,
+which included: a) the backend, b) the frontend, c) two Android applications.
+These had to be ready for October the 24th when our customer planned to visit Trondheim.
+
 \section{Backlog}
 See below the sprint backlog:
 \begin{enumerate}[1.]
 \item \textbf{Project management} included:
 	\begin{itemize}
-		\item \textbf{Weekly startup meeting}
+		\item \textbf{Sprint startup meeting}:
+			included sprint planning and review
 		\item \textbf{Weekly meetings}: 
-			meetings with both the customer and the supervisor. internal meeting with our colleague in Oslo.
+			meetings with both the customer and the supervisor. Internal meeting with our colleague in Oslo
 		\item \textbf{Meeting notes}:
-			taking notes during meetings, reviewing of the notes.
+			taking notes during meetings, reviewing of the notes
 		\item \textbf{Status reports}:
 			for both week 43 and 44
 		\item \textbf{Risk analysis}:
-			updated on a weekly basis, so twice per sprint.
-		\item \textbf{Planning for the next iteration}:
-			prepare a plan for the next iteration
+			updated on a weekly basis
 	\end{itemize}
 	\item \textbf{System development}
-		additional system development to accomodate fixes to the front end.
+		additional system development to accomodate fixes to the front end
 	\item \textbf{Web application development}
 		develop a web application which integrates weight measurements
-		on HealthVault in our system.
+		on HealthVault in our system
 	\item \textbf{Report work}
-		to be done by the team member in Trondheim.
+		to be done by the team member in Trondheim
 	\item \textbf{Additional report work}
-		to be done by the team member in Oslo.
+		to be done by the team member in Oslo
 	\item \textbf{Testing}
-		produce some tests using an automated test suite.
+		perform unit and integration testing
 \end{enumerate}
 
 \section{Results and feedback}
 
-During this sprint we worked mostly on system development, which proceeded smoothly
+During this sprint we worked mostly on development, which proceeded smoothly
 with one exception. Withings integration with HealthVault, which we planned to use for
 our demonstration, was not working as expected: Withings failed to send the data acquired
-by the scale device to HealthVault. Unfortunately, after various attempts, we decided
-to change the scenario for our demonstration. We couldn't fix the problem
-ourselves because we had no control over Withings' system.
+by the scale device to HealthVault. Unfortunately, after various attempts, we were unable to
+solve the problem because we had no control over it.
 
-A second prototype of the system was completed on schedule before our
+A second prototype of the product was completed on schedule before our
 planned meeting with the customer, which would have been on the 24th.
 However, the customer canceled the meeting and proposed to reschedule it for the 30th.
 
@@ -71,16 +94,16 @@ of the feature freeze deadline (M3) by the end of the sprint, we took initiative
 and submitted a new possible application prototype idea to the customer.
 It consisted of a web application which would feature HealthVault integration
 similarly to the Android application.
-The customer expressed his interest in such application because it would have
-used a different technology other than Android. He inquired about its feasibility
-in such a short amount of time (less than two weeks). We were confident that we
-could have re-used some code shipped with HealthVault SDK to minimize the amount
-of code we would have had to write ourselves, so we committed its development.
+The customer expressed his interest in it because it would have used a different
+technology other than Android. He inquired about its feasibility in such a short amount
+of time (less than two weeks). We were confident that we could have re-used some code
+shipped with HealthVault SDK to minimize the amount of code we would have had to write
+ourselves, so we committed its development.
 
 On the 30th of November, very early in the morning the customer sent us a mail
 were he canceled our meeting. However, he was available for a Skype meeting.
 We were able to demonstrate him our product via Skype, including the last application
-prototype which had been developed in one week time. He was very pleased with our work.
+which had been developed in one week time. He was very pleased with our work.
 
 \section{Evaluation}
 
@@ -90,8 +113,15 @@ especially because the project was drawing to an end and timing was becoming tig
 there was no time left to make any big adjustments to the product.
 The feedback from the customer motivated the group to keep up the good work
 and make one big final effort to finish the documentation and prepare a presentation.
+We discussed with the customer about the latter, and agreed to have an additional
+presentation with the customer's colleagues after the 21st of November.
 
 Although the scenario for the demonstration had changed and did not include
-the Withings scale device, the functionality of the application had not,
-so we consider that a very minor issue.
+the Withings scale device anymore, the functionality of the application itself
+had not, so we consider that a very minor issue.
+
+Regarding our collaboration with our colleague in Oslo, he appreciated
+our understanding of his situation and our attempts to plan a more
+appropriate amount of work for him. He managed to contribute
+more effectively during this sprint
 

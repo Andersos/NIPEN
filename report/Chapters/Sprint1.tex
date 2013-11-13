@@ -3,11 +3,49 @@
 \label{Sprint1}
 \lhead{Chapter 7. \emph{Sprint 1}}
 
+\section{Duration}
+The duration of the sprint was the following:
+\begin{itemize}
+\item Start: September, 9th
+\item Milestone M1 (first product prototype): September, 20th
+\item End: September, 22nd
+\end{itemize}
+
+\section{Planning}
+
+After the initial sprint we had come to a general understading of the problem and a 'big picture'
+of what our solution would have consisted of. However, we were unsure about what technologies to use
+for the implementation. To address this matter, we tasked one team member with additional studies and set
+a deadline of four days to choose what technologies to use.% in view of the impending milestone.
+This was done to leave enough time to work on an initial design and implementation of a first product prototype
+which would have included:
+\begin{enumerate}
+\item the frontend, implementing the graphical user interface
+\item the backend, implementing the logic of the API
+\item the database, implementing persistency
+\item an Android application to measure heart rate.
+\end{enumerate}
+in view of the impending deadline.
+
+Last sprint we had identified two measurements to be used in prototype applications.
+We chose to begin implementing an application to measure heart rate because
+we had found an open-source project which covered most of its required functionality,
+allowing us to concentrate on implementing interoperability with our backend (NIPEN).
+
+By the beginning of this sprint we planned to develop, with the following priority
+\begin{enumerate}[1.]
+\item an Android app. to measure heart rate
+\item an Android app. using Withings scale
+\item an eventual third application, still to be defined
+\end{enumerate}
+
+
+
 \section{Goal(s)}
 
-This sprint's goal was the completition of an initial prototype of the system whose functionality
+This sprint's goal was the completition of an initial prototype of the product whose functionality
 had to be demonstrated to the customer; this corresponded to project milestone M1.
-The purpose of such prototype was to act as a proof-of-concept and give the customer
+The purpose of such demonstration was to act as a proof-of-concept and give the customer
 a chance to express some feedback upon which we hoped to start a discussion
 on possible improvements and new features.
 
@@ -28,105 +66,58 @@ Additional goals were the completion of project's planning and documents such as
 \end{figure}
 
 \newpage
-\section{Duration}
-The duration of the sprint was the following:
-\begin{itemize}
-\item Start: September, 9th
-\item Milestone M1 (first system prototype): September, 20th
-\item End: September, 22nd
-\end{itemize}
-
-\section{Planning}
-
-We planned to begin with an initial design and implementation of every part of the system which included:
-\begin{enumerate}
-\item the frontend, implementing the graphical user interface
-\item the backend, implementing the logic of the API
-\item the database, implementing persistency
-\item an Android application to measure heart rate.
-\end{enumerate}
-During the first week development was to be done parallel to studies and documentation.
-The second week we planned to work exclusively on development in view of the impending milestone.
-
-
-%\newpage
 \section{Backlog}
 
 See below the sprint backlog.
 \begin{enumerate}[1.]
-	\item \textbf{M1 First system prototype}:\newline
-		a first prototype of the system to be demonstrated to the customer.
-		%Demonstrated to the customer on September, 20th.
-		%The demonstration was attended by the customer and two team members.
-		%The third team member participated remotely via Skype.
+	\item \textbf{M1 First product prototype}:\newline
+		a first prototype of the product to be demonstrated to the customer
 	\item \textbf{Project management} included:
 		\begin{itemize}
-			\item \textbf{Weekly startup meeting}
+			\item \textbf{Sprint startup meeting}:
+				included sprint planning and review
 			\item \textbf{Weekly meetings}:
-				with both the customer and the supervisor.
+				with both the customer and the supervisor
 				%The meeting with the customer was held on Skype.
 			\item \textbf{Meeting notes}:
-				taking notes during meetings, reviewing of the notes.
+				taking notes during meetings, reviewing of the notes
 			\item \textbf{Status reports}:
 				for both week 37 and 38
 			\item \textbf{Risk analysis}:
-				updated on a weekly basis, so twice per sprint.
+				updated on a weekly basis
 				%The risk analisys was submitted to the supervisor and the customer.
-			\item \textbf{Planning for the next iteration}:
-				prepare a plan for the next iteration.
-				%which would be illustrated and agreed upon on next iteration's startup meeting.
 		\end{itemize}
 	\item \textbf{Additional pre-studies} on relevant technlogies such as:
 	\begin{itemize}
-		\item \textbf{HealthVault}: Microsoft's online health platform.
-		\item \textbf{Apache Camel}: a routing engine for enterprise integration patterns.
-		\item \textbf{Javascript libraries for charts}: to be used in the frontend.
+		\item \textbf{HealthVault}: Microsoft's online health platform
+		\item \textbf{Apache Camel}: a routing engine for enterprise integration patterns
+		\item \textbf{Javascript libraries for charts}: to be used in the frontend
 	\end{itemize}
 	\item \textbf{System development}: initial design and implementation. This accounted for:
 	\begin{itemize}
 		\item \textbf{Backend development}:
-			coding of Spring controllers for API endpoints.
+			coding of Spring controllers for API endpoints
 			%Database coding to implement persistence.
 		\item \textbf{Frontend development}:
 			set up an HTML page that uses AJAX to perform API calls to fetch heart rate measurements
-			and JavaScript to show them using bar charts.
+			and JavaScript to show them using bar charts
 		\item \textbf{Deployment}:
-			of both backend and frontend using a servlet container (Tomcat).
+			of both backend and frontend using a servlet container (Tomcat)
 	\end{itemize}
 	\item \textbf{Heart rate application development}\newline
 		basic implementation of the heart rate application. The application should be able to acquire
-		the user's heart reate and send perform an API call to store the data on the backend.
+		the user's heart reate and send perform an API call to store the data on the backend
 	\item \textbf{Database development}\newline
 		choose a suitable database to use for implementing persistency on the backend.
-		Deploy the database and create a table for the heart rate.
+		Deploy the database and create a table for the heart rate
 	\item \textbf{Testing}\newline
-		perform unit and integration testing for the heart rate application and the backend.
+		perform unit and integration testing for the heart rate application and the backend
 \end{enumerate}
 
 
-%% i actually dont think having a table for this is a good idea. tables can't have much information
-%% also it would require a lot of tweaking to get the estimated/actual times to look reasonable.
-%% maybe a textual description would be better so we can omit some details in favor of others.
-\iffalse
-\begin{table}
-\begin{tabular}{ | l | l | l | l | }
- \hline
-  Story ID & Description & Size & Assignee \\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  33 & Project Management			& 8	& Emanuele  \\
-  12 & M1 First System prototype	& 0 & All		\\
-  45 & Weekly meetings (week 37)	& 6 & All		\\
-  42 & Additional pre-studies		& 5 & Emanuele	\\
-  \hline
-\end{tabular}
-\caption{}
-\label{}
-\end{table}
-\fi
-
 \section{Results and feedback}
 
-Around the end of this sprint, on September 20th, we demonstrated a prototype of the system to
+Around the end of this sprint, on September 20th, we demonstrated a prototype of the product to
 the client which included: a) the frontend, b) the backend, c) an Android application to measure
 heart rate using the phone's camera.
 
@@ -136,18 +127,19 @@ such measurements respectively.
 The measurements were ultimately shown to the user on a webpage (the frontend) using a bar chart.
 %We opted for MySQL as database to implement persistency on the backend due to the familiarity
 %we had with it. We deployed it on the server machine and added a first table so that we could test the web API.
-
 The customer was pleased with the results, stating that they were above his expectations.
+
 We discussed about which features he would like to see implemented next in the product
 and we agreed to prioritise interoperability with HealthVault instead of Withings.
-The reason behind this decision was the fact that interoperability with HealthVault would have
-enabled the product to use third-party devices supported by HealthVault to gather health data.
-Since the number of devices supported by HealthVault is substantial, this was deemed a
-desiderable feature for the product.
+The reason behind this decision was the fact that it would have enabled
+the product to use third-party devices supported by HealthVault to gather health data.
+Since the number of devices supported by HealthVault is substantial
+\footnote{HealthVault supports more than 200 devices in the U.S.), this was deemed a desiderable feature for the product.
+
 The customer asked if the amounts of resources we had at disposal to actually implement
 such interoperability was sufficient and inquired about the general viability of such approach.
 We expressed our confidence about its feasibility and that the resources at hand were sufficient.
-Nevertheless, we set a deadline (10 days) to assess the praticality of this feature in order not to delay
+Nevertheless, we set a deadline (10 days) to assess its praticality in order not to delay
 the general progress of the product.
 Furthermore, we anticipated the customer that next sprint's focus would have been writing documentation
 in view of the mid-term report delivery milestone.

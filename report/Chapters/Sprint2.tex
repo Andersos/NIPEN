@@ -3,12 +3,6 @@
 \label{Sprint2}
 \lhead{Chapter 8. \emph{Sprint 2}}
 
-\section{Goal(s)}
-Having just demonstrated the product to the customer during the previous sprint, the main goal
-for this iteration was to write the report in view of the second milestone deadline for mid-term delivery (M2).
-Additionally we had to assess the feasibility of interoperability of our system with HealthVault
-and begin to add support for weight measurements to the API.
-
 \section{Duration}
 The duration of the sprint was the following:
 \begin{itemize}
@@ -18,26 +12,29 @@ The duration of the sprint was the following:
 
 \section{Planning}
 
-Most of the work planned for this sprint was documentation writing.
+Having just demonstrated the product to the customer during the previous sprint, 
+most of the work planned for this sprint was documentation writing in view of the second milestone.
 This included writing the report itself but also reviewing other documents such as the
-templates, notes and agendas. Although one member of the team would be working remotely
-from another city, we thought it would be easy for him to collaborate in writing the documentation
+templates, notes and agendas.
+
+During last sprint, we agreed with the customer to assess the feasibility of interoperability
+with HealthVault. For this purpose, we tasked one team member to study HealthVault's SDK.
+
+Additionally, we planned to continue with development and add support for weight
+measurements to the API.
+
+Although one member of the team would be working remotely from another city,
+we thought it would be easy for him to collaborate in writing the documentation
 so we did not prepare a separate work plan for him.
 We did, though, schedule an internal meeting with him to be held weekly on Mondays
 to keep in touch and share information about the project's progress.
 
-Because we felt confident that interoperability with HealthVault was possible
-we planned to work on an initial design of a second prototype application to demonstrate it.
 
-%work on the development of a second Android application which would connect
-%to HealtVault in order to retrieve data about user's weight and forward it to our system.
-%For this task we planned to use HealthVault's SDK for Android.
+\section{Goal(s)}
 
-Furthermore, we planned to continue with system development and add support for weight
-measurements to the API.
-
-%We wanted to begin some preliminary work toward the second prototype of the system which would
-%feature HealthVault interoperability. Our plan was to develop an Android application 
+The main goal for this iteration was to write the report in view of the second milestone deadline
+for mid-term delivery (M2). Additional goals were assessing the practicality of interoperability
+with HealthVault and adding support for weight measurements to the API.
 
 \section{Backlog}
 
@@ -45,33 +42,28 @@ See below the sprint backlog.
 \begin{enumerate}[1.]
 	\item \textbf{Project management} included:
 	\begin{itemize}
-		\item \textbf{Weekly startup meeting}
-		\item \textbf{Weekly meetings}
-			meetings with both the customer and the supervisor.
+		\item \textbf{Sprint startup meeting}:
+			included sprint planning and review
+		\item \textbf{Weekly meetings}:
+			with both the customer and the supervisor
 			%*During week 39.we were unable to contact the customer. This was not a problem*
 		\item \textbf{Meeting notes}:
-			taking notes during meetings, reviewing of the notes.
+			taking notes during meetings, reviewing of the notes
 		\item \textbf{Status reports}:
 			for both week 39 and 40
 		\item \textbf{Review templates}:
-			to be adopted for status reports and other documents.
+			to be adopted for status reports and other documents
 		\item \textbf{Risk analysis}:
-			updated on a weekly basis, so twice per sprint.
-			%The risk analisys was submitted to the supervisor and the customer.
-		\item \textbf{Planning for the next iteration}:
-			prepare a plan for the next iteration
-			%which would be illustrated and agreed upon on next iteration's startup meeting.
+			updated on a weekly basis
 	\end{itemize}
 	\item \textbf{Report work}\newline
-		start writing the report, focus on necessary chapters for the mid-term delivery.
-		%This tasks was definitely the biggest of the sprint and accounted for the majority of the work.
-		%We focused on writing the abstract and first chapters required for the mid-term delivery.
+		start writing the report, focus on necessary chapters for the mid-term delivery
 	\item \textbf{HealthVault studies}\newline
 		perform further studies in order to assess the feasibility of developing a prototype
-		application that implemented interoperability with Microsoft's platform.
+		application that implemented interoperability with Microsoft's platform
 	\item \textbf{System development}\newline
-		preliminary development on the backend to accomodate the new weight API.
-	\item \textbf{Application development}\newline
+		preliminary development on the backend to accomodate the new weight API
+	\item \textbf{Weigther application development}\newline
 		initial design and implementation of a prototype application using the weight API.
 		The application needs to connect to HealthVault and retrieve some weight measurements
 		and then send them to the integration platform.
@@ -83,16 +75,17 @@ See below the sprint backlog.
 We wrote a table of contents for the report and parts of the initial chapters as well.
 The table of contents was submitted to the supervisor in order to make sure we weren't leaving out
 any important chapter in our report. The team member who had moved to Oslo was able to contribute
-significantly to the project by writing the report.
+to the project by writing the report.
 
-Studies on HealtVault went smoothly. Our idea for the second prototype application was
-to write another Android application which would fetch some weight measurements from HealthVault
-and send them to our integration platform. We presented this idea to the customer and he agreed on it.
+Studies on HealtVault went smoothly. We were confident that we could fulfill the customer requirest
+and came up with the idea of writing another Android application which would fetch some weight
+measurements from HealthVault and send them to our integration platform.
+We presented this idea to the customer and he agreed on it.
 
 Development has proceeded smoothly. This was also thanks to HealthVault's SDK which greatly
 reduced the amount of code we needed to write ourselves from scratch.
 We used one of the examples provided with the SDK which featured out-of-the-box interoperability
-with HealthVault and added the functionality required to make it interoperable with our system as well.
+with HealthVault and added the functionality required to implement interoperability with NIPEN.
 
 System development also proceeded smoothly and we added support for the weight data to the backend.
 The frontend and the database needed little work to accomodate these additions, so most of the work done on
@@ -108,6 +101,7 @@ and he was able to work indipendently and effeciently. Although he had moved to 
 he didn't start to work right away so he a lot of time to dedicate to the project.
 
 Since we had told the customer that we would be working primarily on the report for this sprint,
-he didn't put any pressure on us to develop new features.
-We were happy that our project was well in schedule with our plan so far.
+he didn't put any pressure on us to develop new features. We actually could not reach to him
+the first week after the demonstration but this has not been an issue at all since we
+knew what to work on. We were happy that our project was well in schedule with our plan so far.
 

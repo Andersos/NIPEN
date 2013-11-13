@@ -1,55 +1,395 @@
-\chapter{Reflection} 
-\label{ch:reflection}
+\chapter{Evaluation} 
+\label{ch:evaluation}
 
-\lhead{Chapter 17. \emph{Reflection}}
+\lhead{Chapter 17. \emph{Evaluation}}
 
- This is our reflection. 
- This chapter contains information about our experiences throughout this project. 
- It covers what we have learned, what went well and what that could have benn done different. 
- We discuss the group dynamics, the customer relations and the supervisor relations.
- 
+In this chapter we evaluate various aspects of this project.
+We discuss what we have learned, what went well and what that could have been done better.
+Additionally, we talk about social dynamics within the group and involved parties.
+
+%Self quantifications is a trending topic in the age of smartphones.
+%We found it very interesting that our client wanted to explore the idea of analysing qunatifiable data about citizen health.
+%Developing a platform for this is a huge and massive task but we did our best in outlining our thought and ideas of how to go forth and %accomplishe something like this.
+
+\section{The product}
+We were happy with our final product and satisfied with the amount of work we could actually accomplish.
+This was thanks to having agreed with the customer on the scope of the problem and by having re-used a
+lot of open-source code.
+
+\subsection{Requirements}
+Table \ref{table:fulfill-req} presents the status of all requirements.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ | c | c | c | c | c | }
+  \hline
+  \textbf{ID} & \textbf{Category} &\textbf{Complexity} & \textbf{Priority} & \textbf{Status}\\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  FIP1	& NIPEN				& Med	& High & Completed \\
+  FIP2	& NIPEN				& Med	& High & Completed \\
+  FIP3	& NIPEN				& Med	& High & Completed \\
+  FPI4	& NIPEN				& Med	& High & Completed \\
+  FW1   & Front-end			& Med	& High & Completed \\
+  FW2   & Front-end			& Low	& Low  & Completed \\
+  FHR1	& Heart rate app	& High	& High & Completed \\
+  FHR2	& Heart rate app	& Low	& High & Completed \\
+  FHR3	& Heart rate app	& Med	& High & Completed \\
+  FHV1	& Weighter app		& Med	& High & Completed \\
+  FHV2	& Weighter app		& Low	& Med  & Completed \\
+  FHV3	& Weighter app		& Low	& High & Completed \\
+
+  FHIS1	& HV\footnote{HealthVault} integration service	& Med   & High & Completed \\
+  FHIS2	& HV integration service	& High  & High & Completed \\
+  FHIS3	& HV integration service	& Low	& Med  & Completed \\
+
+  NF1 & Documentation		& High 	& High	& Completed \\
+  NF2 & Documentation		& Med 	& High	& Completed \\
+  NF3 & Open-source			& Low 	& High	& Completed \\
+  NF4 & Interoperability	& Med	& High	& Completed \\
+  NF5 & Interoperability	& High	& High	& Completed \\
+  NF6 & Accessibility		& Low	& Low	& Completed \\
+
+  \hline
+\end{tabular}
+\end{center}
+\caption{Fulfillment of requirements}
+\label{table:fulfill-req}
+\end{table}
+
+\iffalse
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | c |}
+  \hline
+  \textbf{ID} & \textbf{Complexity} & \textbf{Priority} & \textbf{Status}\\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  FW1	& Med & High & Completed \\
+  FW2	& Low & Low	 & Completed \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Fulfillment of functional requirements for the web front-end}
+\label{table:reqfrontend}
+\end{table}
+
+Functional requirements for Heart rate application, see table
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | c |}
+  \hline
+  \textbf{ID} & \textbf{Complexity} & \textbf{Priority} & \textbf{Status}\\
+  \hline\noalign{\smallskip}\hline
+  FHR1	& High & High & Completed \\
+  FHR2	& Low  & High & Completed \\
+  FHR3	& Med  & High & Completed \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Fulfillment of functional requirements for the heart rate application}
+\label{table:fulfillemntofapp}
+\end{table}
+
+\textbf{Functional requirements for Weight application}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | c |}
+  \hline
+  \textbf{ID} & \textbf{Complexity} & \textbf{Priority} & \textbf{Status}\\
+  \hline\noalign{\smallskip}\hline
+  FHV1	& Med & High & Completed \\
+  FHV2	& Low & Med  & Completed \\
+  FHV3	& Low & High & Completed \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Fulfillemnt of functional requirements for Weight application}
+\label{table:fulfillemntweightapp}
+\end{table}
+
+\textbf{Functional requirements for the HealthVault integration service}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | c |}
+  \hline
+  \textbf{ID} & \textbf{Complexity} & \textbf{Priority} & \textbf{Status} \\
+  \hline\noalign{\smallskip}\hline
+  FHIS1	& Med   & High & Completed \\
+  FHIS2	& High  & High & Completed \\
+  FHIS3	& Low   & Med  & Completed \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Fulfillment of functional requirements for the HealthVault integration service}
+\label{table:fulfillemntweightservice}
+\end{table}
+
+\subsection{Non-funcional requirements}
+This subsection describes the non-functional requirements and their state after the project completion. 
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | c | c |}
+  \hline
+  ID & Category & Complexity & Priority & Status\\
+  \hline\noalign{\smallskip}\hline
+  NF1 & Documentation		& High 	& High	& Completed \\
+  NF2 & Documentation		& Med 	& High	& Completed \\
+  NF3 & Open-source			& Low 	& High	& Completed \\
+  NF4 & Interoperability	& Med	& High	& Completed \\
+  NF5 & Interoperability	& High	& High	& Completed \\
+  NF6 & Accessibility		& Low	& Low	&  Completed \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Fulfillment of non-functional requirements}
+\label{table:fullfilmentnonfunctionalreq}
+\end{table} 
+\fi
+
+\subsection{Product limitations}
+As every software product, our product has some limitations which should be discussed.
+Although we managed to achieve all requirements and both us and the customer were quite happy
+with the product, it is still only a demonstrative prototype and there is much room for improvement.
+What we present here is a list of the most remarkable limitations of our product that
+we consider should also be the focus for further development.
+
+\textbf{API design}\newline
+At the moment the API only supports two types of data models: weight and heart rate measurements
+and only two types of operations on these: create and read.
+The design of an API's data models will have a key role in its success and adoption by
+third-parties. What we proposed are two very simple models which include minimal information.
+A functional system should have a much more extensive and complete API
+which should be thoroughly documented and accompanied by a number of examples and/or libraries.
+Data models should be complete and able to represent a meaningful amount of information,
+and possibily exhibit some degree of interoperability with other estabilished standards.
+Furthermore, the API is not implementing the basic features of persistent storage (CRUD)
+which are necessary for this kind of solution. Only create and read operations are supported,
+whereas update and delete are totally missing. We expect these to be quite easy to implement.
+
+\textbf{Security}\newline
+No part of the system implements any form of security.
+This was done to reduce the complexity of the system due to time contraints and size of the group.
+The customer agreed that security was not a requirement of the system, however it should be noted
+that in a real-world scenario security practices must be appropriate and in place.
+Especially in projects of this type and scale, security will be a critical requirement.
+Chapter \ref{ch:security} described in detail these practices.
+
+\textbf{Multi-user support}\newline
+Some parts of the system such as the API data models, internal data structures and even
+database tables do have a basic support for more than one user. However no security
+is implemented in any place, so all actions are effectively carried out by a single user.
+Naturally, in a real-world scenario that would not be the case and multi-user support will
+be necessary.
+
+\textbf{Deployment}\newline
+At the moment both NIPEN, the database and the front-end are deployed together on single server machine.
+It would be desiderable to deploy these on different machines as that would reduce
+the amount of resources needed for a single machine especially considering a large userbase.
+The actual architecture makes it possible to simply separate the codebase of the backend and the frontend
+and deploy them individually. Also, connecting to a database on a different machine can be
+achieved by simply modifying the connection address.
+
+
 
 \section{The project}
-This was a very exiting project to work on. 
-Self quantifications is a hot and very current topic in the age of smartphones.
-We found it very interesting that our client wanted to explore the idea of analysing qunatifiable data about citizen health.
-Developing a platform for this is a huge and massive task but we did our best in outlining our thought and ideas of how to go forth and accomplishe something like this.
+We were definitely happy with the project's task which led us to study trending topics
+like eHealth and self-quantification. Although we had no previous experiences in designing and developing a web API,
+we found it more and more fun as we developed the product. This resulted in a proactive participation by the group
+in the improvement and proposal of requirements, a process which in turn made the project even more interesting
+for us to work on.
 
-\section{Group dynamics}
- 
- 
+\section{Project management}
+Generally, we are satisfied with our project management.
+Our planning was 
+
+
+\subsection{Development process}
+All in all, we were satisfied with our choice of Scrum and how we adapted
+it to our specific needs (see \ref{section:scrum}).
+%Scrum proved to be a suitable development process for our project.
+
+Two weeks sprints proved to be just the right duration to achieve
+a high-level goal. Additionally, because there were a total of six sprints,
+we had enough chances to adjust our plan to accomodate for changes in requirements.
+
+%Scrum didn't introduce a big overhead and 
+There were however some minor issues with our process.
+
+\textbf{Time tracking}\newline
+Sometimes, although we had tools to conveniently track the the time spent on the project,
+not everybody would do that. This could have led to some planning issues.
+Luckily this wasn't the case and eventually we all got used to report our times correctly.
+
+\textbf{Effort estimates}\newline
+It should be noted that we didn't use any empirical method to estimate the amount of effort
+required to complete an activity: the scrum master would simply make a guess.
+Especially in the beginning when most of the work was field study and the project
+was in the early stages, it was difficult to produce meaningful estimates.
+However, using an online tool for scrum we managed to keep an eye on previous
+estimates and adjust them based on the amount of effort actually required to complete the tasks.
+Furthermore as we became familiar with involved technologies and our own productivity,
+the estimates became more and more accurate.
+
+\textbf{Planning}\newline
+We think that while our planning was good, at some moments our plan maybe have been not.
+Especially in the beginning our plan was not very well structured and this was reflected
+by a somewhat overcrowded sprint backlog. However, our planning became increasingly
+methodical, thanks also to the fact that we were using an iterative approach which
+left a lot of room for improvement, and this resulted in?
+
+\textbf{other?}\newline
+
+\subsection{Group dynamics}
+\label{sec:group}
+
+Group dynamics were definitely a critical aspect of this project.
+It would be safe to say that due to the nature of the project itself, its success is based primarily on group dynamics.
+We are, in fact, a group of people working to deliver a product to another group of people.
+It is easy to convince ourselves that people management in a software process is an essential task for a successful product.
+Any successful software project relies on successful group dynamics because no project can be
+accomplished by a single man.% We understand that people management will be a critical aspect of our process.
+%This encompasses a set of practices, precautions and knowledge which we have taken into consideration and tried our
+%best to make our own.
+
+\begin{description}
+
+\item[Motivate]
+%Motivation 
+A team's commitment will greatly improve many variables in a software project.
+People are inevitably influenced by other people around them, especially when they work together.
+If any member has a low commitment to the project his attitude will influence negatively other team members.
+We tried to 
+
+%A good project manager will motivate the team to work well and gratify members who do so.
+%It is a duty of the project manager to instill a positive and enthusiastic attitude in the team.
+
+%To achieve this task, it is important to identify personality types among a group so that
+%motivation can be more effective. These can be divided into three categories:
+%  \begin{itemize}
+%  \item Self-oriented: the work has the purpose to achieve personal interestes.
+%  \item Task-oriented: the motivation is related to the task itself.
+%  \item Interaction-oriented: the motivation is related to social interaction.
+%  \end{itemize}
+
+%It is desiderable that within a group such personality types are balanced.
+
+In our case, the project manager tried motivating the group by rewarding good jobs
+and outlining the importance of the project itself as a chance to acquire knowledge,
+to get a good grade (academic achievement) and to do something that stimulated further
+research and work in the field.
+
+\item[Cooperation]
+People should be encouraged to work together, share ideas and thoughts.
+We should avoid having one team member whose role is predominant on others'.
+
+During meetings, both internal and external, we had one team member
+act as a meeting leader, guiding the customer, supervisor or other team members through
+the meeting agenda. However, the meeting leader made sure to involve all team members
+in the conversation, asking their opinion on the current topic being discussed
+or in order to let them feel
+When the supervisor or the customer asked questions, he made sure not to be the only one
+answering by inviting other team members to do so.
+
+\item[Size matters]
+The fact that the group consisted of three members definitely played a factor in group dynamics
+and projet management. Though many may see it as a weakness or downside of a group we believe
+in our case it was not, or rather it proved more a strength than a weakness.
+In software development, just like in any other engineering practice assigning many people
+at a task is unlikely to produce better results than a sufficiently small but motivated group.
+%Just like it takes one month to ferment wine, no matter how many people are involved.
+Although having a small team means that flexibility in group composition is absent and
+the technical skill pool is reduced it is important to realize that a small team
+can be more easily motivated and achieve a higher degree of cooperation.
+To do so, care should be taken into not letting any member of the group become
+a 'black sheep'. Team members should respect each others and their respective work,
+nobody should feel less important or cut out of the decision making process.
+
+\item[Distance matters]
+During the project one team member moved to Oslo and got a full-time job.
+This important event required some adjustment to our project management strategy,
+especially regarding
+We thought that the easiest way for him to continue to contribute to the project
+was to 
+
+....
+
+
+
+\end{description}
+
+
+%pregnant woman mistake
+
+%flexibility in group composition is absent.
+%technical skill pool is reduced.
+
+%possibility of better cooperation
+%easily motivated
+
+%black sheep
+
+
 \section{Customer relations}
-This section covers our relations to the customer
-\subsection{Relations}
-We worked good with our customer.
-Most issues we discussed and caim to an agreement of what we wanted to focus on and accomplish.
-Our task was a very open one nad we used some time to figure out a solution all parts could agree on. Ufortunatly we ended up beeing only three people so the task had to be cut back a lot. 
-During the project new ideas and directions caim from the customer.
-We considerd it our job to do our best to deliver what the customer wanted and changed the direction of our project with that of the customer.
-\subsection{Communication}
-Our customer was located in Oslo making it difficult to meet in person every week.
-We arranged it so we could have a skype meeting with him every week.
-Having a meeting via teleconferencing is different than meeting in person.
-For our purpuses these type of meetings were sufficient. 
+This section covers our relations with the customer.
 
- \section{Supervisor relations}
-This section convers our relations to the supervisor. 
 \subsection{Relations}
-The relation with the supervisor was not as extensive as the one with had with the customer.
-The supervisor vent through our notes and watched our progress.
-He helped us head in the right direction and to figure out what we had to do.
-In the beginning we didn't understand what type of reports, minutes and agendas he wanted. 
-After some weeks of meeting with him we started to work out templates  for agendas, minutes and reports. 
-After those first few weeks we started taking notes from every meeting we had.
+We were definitely pleased with our relations with the customer.
+Since our first meeting he was able to explain what would have been the purpose of this project and why
+it was relevant for him. He was able to capture our interest and left the task 'open' enough to be stimulating for us.
+We collaborated in thinking about features that could have made the product more valuable for him.
+The customer was a nice person, smiling and available.
+He gratified us when he thought we were doing a good job and
+that has motivated us to keep it up and work hard. We were glad to be able to work with him.
+
+%Most issues we discussed and caim to an agreement of what we wanted to focus on and accomplish.
+%Our task was a very open one nad we used some time to figure out a solution all parts could agree on. Ufortunatly we ended up beeing only three people so the task had to be cut back a lot. 
+%During the project new ideas and directions caim from the customer.
+%We considerd it our job to do our best to deliver what the customer wanted and changed the direction of our project with that of the customer.
 
 \subsection{Communication}
-We agreed early on to meet our supervisor once a week. 
-Since our customer wanted to have a meeting with us on mondays we arranged it so we could meet our supervisor the as well.
-Since we were already working in a room we had reserved in the library every monday we invited the supervisor to come meet us in this room.
+Since our customer was located in Oslo, we didn't have many chances to meet in person,
+in fact that happened only once. Nevertheless we did have meetings on Skype on a regular weekly basis
+with some exceptions due to his work schedule or personal issues.
+This wasn't a problem and we were able to manage our work pretty well even those
+weeks we didn't hear from him.
+
+%Our customer was located in Oslo making it difficult to meet in person every week.
+%We arranged it so we could have a skype meeting with him every week.
+%Having a meeting via teleconferencing is different than meeting in person.
+%For our purpuses these type of meetings were sufficient. 
+
+\section{Supervisor relations}
+This section covers our relations with the supervisor.
+
+\subsection{Relations}
+%The relation with the supervisor was not as extensive as the one with had with the customer.
+We are happy with our relations with the supervisor.
+He made his role in the project clear to us from the beginning so that we knew
+what we could count on him for and what not.
+We reported him the status of our project weekly, thought the status reports and
+he would always have some feedback on our progress and also make sure to have a proper
+understanding of our plans. His feedback was precious to our project
+and certainly helped us not to miss any important details.
+
+%The supervisor vent through our notes and watched our progress.
+%He helped us head in the right direction and to figure out what we had to do.
+%In the beginning we didn't understand what type of reports, minutes and agendas he wanted. 
+%After some weeks of meeting with him we started to work out templates  for agendas, minutes and reports. 
+%After those first few weeks we started taking notes from every meeting we had.
+
+\subsection{Communication}
+Our communication with the supervisor was regular, on a weekly basis.
+
+%We agreed early on to meet our supervisor once a week. 
+%Since our customer wanted to have a meeting with us on mondays we arranged it so we could meet our supervisor the as well.
+%Since we were already working in a room we had reserved in the library every monday we invited the supervisor to come meet us in this room.
 Mostly every monday we had a meeting with our supervisor to discuss the progress.
 He looked over what we had done and what we planned to do next week.
 The he gave us the feedback he felt was needed.
- 
+
 
 \section{Suggestions for course improvements}
 In all courses there are opportuneties for improvement.

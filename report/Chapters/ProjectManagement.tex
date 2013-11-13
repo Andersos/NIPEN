@@ -10,13 +10,6 @@ This chapter cover project management topics such as planning, organization, ris
 \label{section:planning}
 This section describes the planning of the project including schedule, resources and tool selection.
 
-\iffalse
-\subsection{Project goals}
-* to be merged with project objective in chapter one ? *
-
-The project has various goals. One is the delivery of a report that describes all phases and relevant aspects regarding the development of the project. Another one is the development of the integration platform together with two or three prototype applications which can be used to demonstrate the functionality of the system and possibily stimulate further development of a national integration platform for eHealth.
-\fi
-
 \subsection{Project schedule}
 \label{section:schedule}
 
@@ -30,10 +23,11 @@ and can help us to better monitor its progress. Project's milestones are shown i
   \hline
   Milestone & Date & Description \\
   \hline\noalign{\smallskip}\hline
-  M1 & 20.09.2013 & Basic implementation of the platform and one prototype. \\ 
+  M1 & 20.09.2013 & Basic implementation of the product.
+                    \footnote{Consting of a backend, a frontend and one Android application}\\ 
   M2 & 14.10.2013 & Mid-term report delivery. \\
   M3 & 04.11.2013 & Feature freeze. \\
-  M4 & 21.11.2013 & Project demonstration. Final report delivery. \\
+  M4 & 21.11.2013 & Complete implementation. Project demonstration. Final report delivery. \\
   \hline
 \end{tabular}
 \end{center}
@@ -145,71 +139,6 @@ in the project. The skills are valued on a scale of zero to five based on criter
 \label{table:skillmatrix}
 \end{table}
 
-
-%---
-
-\subsection{Project tools}
-\label{section:tools}
-This section describes the different tools used throught the project.
-
-\begin{description}
-
-\item[Git and GitHub]
-Git is one of the most used version control systems. Although it is mostly used for code, it can be used to manage other types of file such as LaTeX. GitHub is a repository hosting service for Git projects which offers a web-based fronted. We have decided to use Git because of the familiarity we had with it. We used Git for managing both the code and the report.
-
-\item[Scrumdo]
-is a web-based Scrum tool. It has many features such as a Scrum board, stories and iteration management
-as well as time-tracking. It is possibile to export the data on Scrumdo to other formats such as Excel tables.
-Although most of the features are free to use, some of them require a membership. We managed to obtain
-time-limited membership for free after writing to the people running the service. Scrumdo proved an useful tool
-for our project. We used Scrumdo to populate our product and sprint backlogs, size stories, track assignees
-and times, burnout charts.
-
-\item[Sublime Text]
-is a popular, cross-platform editor which offers advanced features.
-We used Sublime Text for editing the report and for coding HTML, JavaScript and CSS.
-
-\item[IntelliJ IDEA]
-A popular, feature-rich Java IDE. We used it to develop Android applications and for Spring coding.
-
-\item[Apache Maven]
-is an open and cross-platform build system for Java projects which, among other things, takes care of dependecies.
-Maven is powerful and well documented and seemed an optimal choice for our project also because of the familiarity
-we had with it.
-
-\item[LaTeX suite]
-LaTeX is a powerful language used to prepare documents which is widely used in academical environments.
-LaTeX takes care of the formatting of the document allowing the writer to focus on the contents, moreover
-LaTeX documents can be written with any text editor and then compiled to PDF documents. We chose LaTeX because
-of its advanced features and the familiarity we had with it.
-
-\item[Google Drive and Google Docs]
-Google Drive is a service which lets you access your files from everywhere and share them with other people.
-It is tightly integrated with Google Docs, a web-based productivity suite. We used Google Drive to share documents
-within the team and with the customer and supervisor.
-Many of the documents and diagrams produced for the project were created using Google Docs.
-Google Drive had the advantage of being freely available and totally cross-platform. Furthermore,
-using Google Drive ensured that everyone had always access to the lastest version of the document.
-
-\item[Violet UML]
-A free, Java (cross-platform) UML editor. Violet UML was used for producing use cases and sequence diagrams.
-
-\item[GanttProject]
-A free, Java (cross-platform) tool for generating Gantt diagrams. We used it to produce a diagram of the work plan.
-
-\item[Skype]
-A popular instant-messaging client that also supports audio and video communication.
-Skype was used throught the project to keep in touch with the customer and team members.
-
-\item[Facebook]
-Facebook is a social networking service. The team created a group on Facebook that was used as a bulleting board for internal communications.
-
-%Balsamiq Mockups looks great, it would be cool to do some mockup with this!!
-%Lucidchart maybe we can opt for a free solution like violet UML.
-
-\end{description}
-
-
 %---
 
 \section{Project organization}
@@ -312,103 +241,6 @@ It helps getting to know each other better.
 \newline\textbf{[15.00 to 15.30] Daily scrum.}\newline
 \newline\textbf{[15.30 to 19.00] Collective work session}\newline
 \end{description}
-
-\subsection{Group dynamics}
-\label{section:dynamics}
-
-* to be moved to evaluation *
-
-Group dynamics are probably the most critical aspect of this project.
-It would be safe to say that due to the nature of the project itself, its success is based primarily on group dynamics.
-We are, in fact, a group of people working to deliver a product to another group of people.
-It is easy to convince ourselves that in this case (and many other) people management is essential for the product
-to be successful. Any successful software project relies on successful group dynamics because no project can be
-accomplished by a single man. We understand that people management is an important part of the process.
-This encompasses a set of practices, precautions and knowledge which we have taken into consideration and tried our
-best to make our own.
-
-\begin{description}
-
-\item[Understand people]
-This is of course a fundamental prerequisite of people management: there can be no people management without
-some kind of understanding.
-
-\item[Lead by Example]
-Everybody should try to give a good example: being enthusiastic about his job and doing it with a positive attitude.
-
-\item[Communicate]
-It's important to give everybody a \'big picture\'.
-
-\item[Motivate]
-A team's commitment will greatly improve many variables in a software project.
-People are inevitably influenced by other people around them, especially when they work together.
-If any member has a low commitment to the project his attitude will influence negatively other team members.
-
-A good project manager will motivate the team to work well and gratify members who do so.
-It is a duty of the project manager to instill a positive and enthusiastic attitude in the team.
-
-To achieve this task, it is important to identify personality types among a group so that
-motivation can be more effective. These can be divided into three categories:
-  \begin{itemize}
-  \item Self-oriented: the work has the purpose to achieve personal interestes.
-  \item Task-oriented: the motivation is related to the task itself.
-  \item Interaction-oriented: the motivation is related to social interaction.
-  \end{itemize}
-
-It is desiderable that within a group such personality types are balanced.
-
-In our case, the project manager tried motivating the group by rewarding good jobs
-and outlining the importance of the project itself as a chance to acquire knowledge,
-to get a good grade (academic achievement) and to do something that stimulated further
-research and work in the field.
-
-\item[Cooperation]
-People should be encouraged to work together, share ideas and thoughts.
-We should avoid having one team member whose role is predominant on others'.
-
-During meetings, both internal and external, we had one team member
-act as a \'meeting leader\', guiding the customer, supervisor or other team members through
-the meeting agenda. However, the project manager made sure to involve all team members
-in the conversation, asking their opinion on the current topic being discussed
-or in order to let them explain their what they did and how.
-When the supervisor or the customer asked questions, he made sure not to be the only one
-answering by inviting other team members to do so.
-
-\item[Size matters]
-The fact that the group is made of three members definitely plays a factor in group dynamics
-and in projet management. Though many may see it as a weakness or downside of a group we believe
-in our case it was not, or rather it proved more a strenght than a weakness.
-In software development, just like in any other engineering practice assigning many people
-at a task is unlikely to produce better results than a sufficiently small but motivated group.
-%Just like it takes one month to ferment wine, no matter how many people are involved.
-Although having a small team means that flexibility in group composition is absent and
-the technical skill pool is reduced it is important to realize that a small team
-can be more easily motivated and achieve a higher degree of cooperation.
-To do so, care should be taken into not letting any member of the group become
-a \'black sheep\'. Team members should respect each others and their respective work,
-nobody should feel less important or cut out of the decision making process.
-
-\item[Distance matters]
-During the project one team member moved to Oslo and got a full-time job.
-This important event required some adjustment to project management strategy.
-
-....
-
-
-
-\end{description}
-
-
-%pregnant woman mistake
-
-%flexibility in group composition is absent.
-%technical skill pool is reduced.
-
-%possibility of better cooperation
-%easily motivated
-
-%black sheep
-
 
 \section{Quality assurance}
 \label{section:qa}
@@ -652,5 +484,65 @@ likelihood and impact levels respectively. See table \ref{table:risks} for risk 
 \caption{Risk analysis (cont.)}
 \end{table}
 
+\newpage
+\subsection{Project tools}
+\label{section:tools}
+This section describes the different tools used throught the project.
 
+\begin{description}
+
+\item[Git and GitHub]
+Git is one of the most used version control systems. Although it is mostly used for code, it can be used to manage other types of file such as LaTeX. GitHub is a repository hosting service for Git projects which offers a web-based fronted. We have decided to use Git because of the familiarity we had with it. We used Git for managing both the code and the report.
+
+\item[Scrumdo]
+is a web-based Scrum tool. It has many features such as a Scrum board, stories and iteration management
+as well as time-tracking. It is possibile to export the data on Scrumdo to other formats such as Excel tables.
+Although most of the features are free to use, some of them require a membership. We managed to obtain
+time-limited membership for free after writing to the people running the service. Scrumdo proved an useful tool
+for our project. We used Scrumdo to populate our product and sprint backlogs, size stories, track assignees
+and times, burnout charts.
+
+\item[Sublime Text]
+is a popular, cross-platform editor which offers advanced features.
+We used Sublime Text for editing the report and for coding HTML, JavaScript and CSS.
+
+\item[IntelliJ IDEA]
+A popular, feature-rich Java IDE. We used it to develop Android applications and for Spring coding.
+
+\item[Apache Maven]
+is an open and cross-platform build system for Java projects which, among other things, takes care of dependecies.
+Maven is powerful and well documented and seemed an optimal choice for our project also because of the familiarity
+we had with it.
+
+\item[LaTeX suite]
+LaTeX is a powerful language used to prepare documents which is widely used in academical environments.
+LaTeX takes care of the formatting of the document allowing the writer to focus on the contents, moreover
+LaTeX documents can be written with any text editor and then compiled to PDF documents. We chose LaTeX because
+of its advanced features and the familiarity we had with it.
+
+\item[Google Drive and Google Docs]
+Google Drive is a service which lets you access your files from everywhere and share them with other people.
+It is tightly integrated with Google Docs, a web-based productivity suite. We used Google Drive to share documents
+within the team and with the customer and supervisor.
+Many of the documents and diagrams produced for the project were created using Google Docs.
+Google Drive had the advantage of being freely available and totally cross-platform. Furthermore,
+using Google Drive ensured that everyone had always access to the lastest version of the document.
+
+\item[Violet UML]
+A free, Java (cross-platform) UML editor. Violet UML was used for producing use cases and sequence diagrams.
+
+\item[GanttProject]
+A free, Java (cross-platform) tool for generating Gantt diagrams. We used it to produce a diagram of the work plan.
+
+\item[Skype]
+A popular instant-messaging client that also supports audio and video communication.
+Skype was used throught the project to keep in touch with the customer and team members.
+
+\item[Facebook]
+Facebook is a social networking service. The team created a group on Facebook that was used as a bulleting board for internal communications.
+
+%Balsamiq Mockups looks great, it would be cool to do some mockup with this!!
+%Lucidchart maybe we can opt for a free solution like violet UML.
+
+\end{description}
 
