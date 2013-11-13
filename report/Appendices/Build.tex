@@ -2,8 +2,43 @@
 \label{AppendixB}
 \lhead{Appendix B. \emph{Build project}} 
 
+\section{Database}
 
-Tomcat 
+Before deploying the NIPEN system it is necessary to set up the database.
+We are running a MySQL server on a ubuntu machine, the version we are using is \textit{5.5.32-0ubuntu0.13.04.1}.
+After the MySQL server is installed the file \textit{database.sql} must be used to set up the database.
+It contains all the database tables we are using in our project.
+The project folder in \textit{nipen\textbackslash src\textbackslash main\textbackslash resources\textbackslash database}, contains a file called \textit{Spring-Datasource.xml}.
+This file contains the database location, user and password.
+This must be set up according to the configurations of the MySQL database.
 
-Android app:
-The APK can be found here: https://github.com/Andersos/NIPEN/tree/master/nipen-heart-rate
+\section{NIPEN and the front-end}
+
+Our back-end and front-end is running on an Apache Tomcat Server 7.0.35, it can be downloaded from the following link: \href{http://tomcat.apache.org/download-70.cgi}{http://tomcat.apache.org/download-70.cgi}.
+By default the manager page of tomcat can be found at the following URL $<$server address$>$/manager.
+On that page it is possible to upload a WAR file on to the server.
+
+To create a WAR file of NIPEN and the front-end, Java compiler and maven must be installed on the system.
+The Java compiler version we are using is 1.7.0\_25.
+We are using Maven 3.1.0, and it can be downloaded on the following page: \href{http://maven.apache.org/download.cgi}{http://maven.apache.org/download.cgi}.
+When maven is installed and configured on the system, we can create a war file of the NIPEN project.
+First we need to locate the \textit{pom.xml} file in the NIPEN folder.
+After that we need to open a command line in that folder and run the command: \begin{verbatim}
+mvn package
+\end{verbatim}
+This will create a target folder that contains the file \textit{nipen.war}.
+When deploying this file on the tomcat server both the back-end (NIPEN) and the front-end (the web page) will be deployed on the server.
+
+\section{HealthVault Integration Service}
+
+This is deployed in the same way as NIPEN, except that this does not need a database.
+Find the folder of the web service that contains the pom file, then run \textit{mvn package}.
+The war file can then be uploaded on to the tomcat server.
+
+\section{Android applications}
+
+To install the android applications it is needed to copy the two apk files on to an android device.
+One apk file for the heart rate application and one for the weight application.
+The applications can then be installed on the android device through the default package installer on the phone.
+However, since these applications are not downloaded from Google Play, a setting needs to be set on the phone to allow instalment of files from unknown sources.
+This setting is usually found under application settings on the android device, and is called \textit{Unknown Sources}.
