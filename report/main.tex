@@ -172,66 +172,27 @@
 
 \abstract{\addtocontents{toc}{\vspace{1em}}
 
-% reworked by emanuele
+This report is the final product for the course TDT4290 Customer driven project. 
+Our customer, The Directorate of Health, Department of the Health Portal, gave us the task of planning, designing, describing and developing a prototype of the National Integration Platform for Citizen Centric eHealth in Norway. 
+The intention of such a platform is to enable citizens’ the ability to publish and fetch information they produce into the government run citizen centric health portal helsenorge.no. 
+By creating this platform The Directorate of Health will digitize the Norwegian health care which is one of their main goals. 
 
-This report was commisioned to describe the design and implementation of a National Integration Platform prototype
-for Citizen Centric eHealth in Norway. Recent years have seen a strong momentum to the development of large-scale
-eHealth solutions to the benefit of healthcare systems and thus citizens. Some examples include ePrescriptions and
-the web portal \textit{helsenorge.no} for citezen centric health. In future years, eHealth will definitely have a key role
-in making healthcare systems more efficient, interoperable and ubiquitous. However national eHealth projects have
-a high degree of complexity given their criticality and scale.
+Recent years a movement called quantified self has started emerging \cite{quantified} leveraging that citizens has smartphones and tablets readily available that are able to capture and store health data. 
+This data together with health information gathered by educated professionals is what The Directorate of Health wants to collect at the eHealth portal.
+However national IT projects usually have a high degree of complexity, security and scaling needs which are central to the design of the platform that makes projects like this difficult. 
 
-The purpose of this work is to study how national eHealth project can leverage the dynamics of the market
-and consumers behaviour by taking advantage of electronic devices such as smartphones and tables.
-These devices are becoming more and more widespread and cheap and can already be
-used to monitor users' health using a number of third-party developed applications.
+Our customer specified that there are two types of stakeholders who are central for the pursuit of this project and that should be the goal of our prototype:
+1. Educated health professionals
+2. Developers.
+The prototype should have a demonstration that is easy for the first group to grasp and also make it appealing and technical for the second group.
 
-This document examines a number of existing similar or related solutions and platforms.
-The solution we propose consists of a web application programming interface to transfer JSON data models representing
-health parameters such as heart rate or weight. A number of Android applications and a web portal have been developed
-to study the feasibility of practical use of such API as an integration platform to collect data from
-various sources like mobile devices and existing third party solutions like Microsoft HealthVault.
-
-The perspective which we analyze is twofold: on one side we are interested in the feasibility of such integration
-platform using the chosen approach.
-%we dont really do that
-%We briefly discuss its scalability both in terms of effort required to support
-%more data models and hardware requirements.
-On the other side we examine the practical scenario from a third party
-developer perspective by taking into consideration the amount of effort required to implement basic
-interoperability functionality into an existing application.
-
-Our results outline the viability of the chosen approach which will however require further work to be suitable
-for a national scale project.
-
-
-% old absract
-
-%A NIP is a platform to collect different user generated eHealth data from third party solutions and services.
-%It also describes the making of the working prototype.
-%The challenges of this prototype is to demonstrate the transfer of personal and/or medical data from different devices and systems.
-%The intention of the platform is to enable citizens the ability to publish information they produce into the government run NIP. 
-
-% emanuele - it is indeed worth noting, but not in the abstract.
-%It is worth noting that security is not a requirement of the prototype.
-
-%To demonstrate these different parts the creation of an Android application (App), a web App and a back-end Application Programming Interface (API) was required. 
-
-%The motivation for working in this project is to innovate and create a new platform that can be used to better understand the health of citizens. 
-%The citizens gather various health data from different locations and devices and in return provide a better understanding of the citizens health. 
-%Together with educated health professionals and doctors this can be a powerful tool for improving the quality of life of the users. 
-%The most interesting part was to figure out how to design a system that can have the high level of security required to transfer personal health information. 
-
-%The demands were to plan, design and describe the NIP and to develop a prototype. 
-%The demonstration of this product is aimed mainly at two groups of people: \\
-%1. Educated health professionals \\
-%2. Developers \\
-%The product should have a demonstration side that is easy for the first group to grasp, understand and form an idea of how it will work while also making it appealing and technical for the second group. 
-
-%The result of this project is first and foremost a working prototype of a NIP. 
-%It is also a web App and an Android app to make the demonstration easier to grasp. 
-%This report is also part of the result which has the purpose of documenting the problem, the process, the workflow and the final products.
-}
+The motivation for working with this project is to innovate and create a new type of platform that can be used to better analyze citizens health. 
+This report examines multiple similar or related solutions for publishing and fetching health data.
+Our proposed solution consists of a web application programming interface (API) to transfer JSON data models representing health data such as heart rate or weight.
+We produced a number of Android applications and a web portal to study the feasibility and practical use of the portal.
+We also integrated our solution with Microsoft HealthVault.
+Our results outline the viability of the chosen approach which will require further work to be suitable for a national scale project.
+The next step for this project should be to analyse the value of the type of data that can be collected in this platform. 
 
 \clearpage % Start a new page
 
@@ -242,14 +203,12 @@ for a national scale project.
 \addtotoc{Preface} 
 
 \preface{\addtocontents{toc}{\vspace{1em}}
-This report is part of the project for the course TDT4290 \textit{Customer Driven Project} at NTNU.
-%The project was executed on behalf of Helsedirektoratet or The Norwegian Directorate of Health.
-The team consisted of three students from NTNU.
+This report is the final product for the course TDT4290 Customer driven project at NTNU. 
+The project was executed on behalf of The Directorate of Health, Department of the Health Portal.
 
-The team would like to thank Meng Zhu for his advices and supervision and the customer
-representative Mr. Helge T. Blindheim for his availability.
-
-%Thank the people from usability/design tests valuable feedback?
+The group consisted of three students from NTNU.
+The team would like to thank Meng Zhu for his advices and supervision.
+We would also like to thank the customer representative Mr. Helge T. Blindheim for his participation and great guidance.
 }
 \clearpage % Start a new page
 
