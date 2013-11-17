@@ -172,27 +172,33 @@
 
 \abstract{\addtocontents{toc}{\vspace{1em}}
 
-This report is the final product for the course TDT4290 Customer driven project. 
-Our customer, The Directorate of Health, Department of the Health Portal, gave us the task of planning, designing, describing and developing a prototype of the National Integration Platform for Citizen Centric eHealth in Norway. 
-The intention of such a platform is to enable citizens’ the ability to publish and fetch information they produce into the government run citizen centric health portal helsenorge.no. 
-By creating this platform The Directorate of Health will digitize the Norwegian health care which is one of their main goals. 
+This report was commisioned to describe the design and implementation of a National Integration Platform prototype
+for Citizen Centric eHealth in Norway. Recent years have seen a strong momentum to the development of large-scale
+eHealth solutions to the benefit of healthcare systems and thus citizens. Some examples include \textit{ePrescriptions} and
+the web portal \textit{helsenorge.no} for citezen centric health. In future years, eHealth will definitely have a key role
+in making healthcare systems more efficient, interoperable and ubiquitous. However national eHealth projects have
+a high degree of complexity given their criticality and scale.
+ 
+The purpose of this work is to study how national eHealth project can leverage the dynamics of the market
+and consumers behaviour by taking advantage of electronic devices such as smartphones and tables.
+These devices are becoming more and more widespread and cheap and can already be
+used to monitor users' health using a number of applications, a trend called \textit{self-quantification}.
+ 
+This document examines a number of existing similar or related solutions and platforms.
+The solution we propose consists of a web application programming interface to transfer JSON data models representing
+health parameters such as heart rate or weight. A number of Android applications and a web portal have been developed
+to study the feasibility of practical use of such API as an implementation of an integration platform to collect data
+from various sources like mobile devices and existing third party solutions like Microsoft HealthVault.
+ 
+The perspective which we analyze is twofold: on one side we are interested in the feasibility of such integration
+platform using the chosen approach.
+On the other side we examine the practical scenario from a third party
+developer perspective by taking into consideration the amount of effort required to implement basic
+interoperability functionality into an existing application.
 
-Recent years a movement called quantified self has started emerging \cite{quantified} leveraging that citizens has smartphones and tablets readily available that are able to capture and store health data. 
-This data together with health information gathered by educated professionals is what The Directorate of Health wants to collect at the eHealth portal.
-However national IT projects usually have a high degree of complexity, security and scaling needs which are central to the design of the platform that makes projects like this difficult. 
+Our results outline the viability of the chosen approach which will however require further work to be suitable
+for a national scale project.
 
-Our customer specified that there are two types of stakeholders who are central for the pursuit of this project and that should be the goal of our prototype:
-1. Educated health professionals
-2. Developers.
-The prototype should have a demonstration that is easy for the first group to grasp and also make it appealing and technical for the second group.
-
-The motivation for working with this project is to innovate and create a new type of platform that can be used to better analyze citizens health. 
-This report examines multiple similar or related solutions for publishing and fetching health data.
-Our proposed solution consists of a web application programming interface (API) to transfer JSON data models representing health data such as heart rate or weight.
-We produced a number of Android applications and a web portal to study the feasibility and practical use of the portal.
-We also integrated our solution with Microsoft HealthVault.
-Our results outline the viability of the chosen approach which will require further work to be suitable for a national scale project.
-The next step for this project should be to analyse the value of the type of data that can be collected in this platform. 
 
 \clearpage % Start a new page
 
@@ -203,12 +209,13 @@ The next step for this project should be to analyse the value of the type of dat
 \addtotoc{Preface} 
 
 \preface{\addtocontents{toc}{\vspace{1em}}
-This report is the final product for the course TDT4290 Customer driven project at NTNU. 
-The project was executed on behalf of The Directorate of Health, Department of the Health Portal.
+This report is part of the project for the course TDT4290 \textit{Customer Driven Project} at NTNU.
+The project was commisioned by The Directorate of Health, Department of the Health Portal.
 
 The group consisted of three students from NTNU.
 The team would like to thank Meng Zhu for his advices and supervision.
-We would also like to thank the customer representative Mr. Helge T. Blindheim for his participation and great guidance.
+We would also like to thank the customer representative Mr. Helge T. Blindheim for proposing such an interesting
+project which we enjoyed and for his precious feedback.% and great guidance.
 }
 \clearpage % Start a new page
 
@@ -247,11 +254,13 @@ We would also like to thank the customer representative Mr. Helge T. Blindheim f
 \textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets \\
 \textbf{DOM} & \textbf{D}ocument \textbf{O}bject \textbf{M}odel \\
 \textbf{HTML} & \textbf{H}yper\textbf{T}ext \textbf{M}arkup \textbf{L}anguage \\
+\textbf{HTTP} & \textbf{H}yper\textbf{T}ext \textbf{T}ransfer \textbf{P}rotocol \\
 \textbf{HV} &  Microsoft's \textbf{H}ealth\textbf{V}ault. \\
 \textbf{IDI} & \textbf{I}nstitutt for \textbf{D}atateknikk og \textbf{I}nformasjonsvitenskap  \\
 \textbf{IP} & \textbf{I}ntegration \textbf{P}latform \\
+\textbf{JS} & \textbf{J}ava\textbf{S}cript \\
 \textbf{JSP} & \textbf{J}ava\textbf{S}erver \textbf{P}ages \\
-\textbf{MVC} & \textbf{M}odel-\textbf{v}iew-\textbf{c}ontroller \\
+\textbf{MVC} & \textbf{M}odel-\textbf{V}iew-\textbf{C}ontroller \\
 % Should we include the english name? Department of Computer and Information Science \\
 \textbf{NIP} & \textbf{N}ational \textbf{I}ntegration \textbf{P}latform \\
 \textbf{NIPEN} & \textbf{N}ational \textbf{I}ntegration \textbf{P}latform for \textbf{e}Health in \textbf{N}orway \\
@@ -291,6 +300,7 @@ We would also like to thank the customer representative Mr. Helge T. Blindheim f
 \input{./Chapters/Testing} 
 \input{./Chapters/Conclusion} 
 \input{./Chapters/Evaluation} 
+\input{./Chapters/Reflection} 
 
 
 %------------------------------
@@ -302,9 +312,9 @@ We would also like to thank the customer representative Mr. Helge T. Blindheim f
 \input{./Appendices/Assignment} % A Assignment 
 \input{./Appendices/Build} % B How to build
 \input{./Appendices/Templates} % C Templates
-\input{./Appendices/Advisor} % D Advisor 
-\input{./Appendices/Customer} % E Customer
-\input{./Appendices/Internal} % F Internal
+%\input{./Appendices/Advisor} % D Advisor 
+%\input{./Appendices/Customer} % E Customer
+%\input{./Appendices/Internal} % F Internal
 \input{./Appendices/TestResults} % Test results
 
 \addtocontents{toc}{\vspace{2em}}

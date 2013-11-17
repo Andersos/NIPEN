@@ -17,8 +17,10 @@ most of the work planned for this sprint was documentation writing in view of th
 This included writing the report itself but also reviewing other documents such as the
 templates, notes and agendas.
 
-During last sprint, we agreed with the customer to assess the feasibility of interoperability
-with HealthVault. For this purpose, we tasked one team member to study HealthVault's SDK.
+During last sprint, we agreed with the customer to prioritise interoperability with
+HealthVault rather than Withings.
+For this purpose, we adjusted our plan accordingly and tasked one team member
+to study HealthVault's SDK in order to determine the complexity of the task.
 
 Additionally, we planned to continue with development and add support for weight
 measurements to the API.
@@ -26,7 +28,7 @@ measurements to the API.
 Although one member of the team would be working remotely from another city,
 we thought it would be easy for him to collaborate in writing the documentation
 so we did not prepare a separate work plan for him.
-We did, though, schedule an internal meeting with him to be held weekly on Mondays
+We did, though, schedule an internal meeting to be held weekly on Mondays
 to keep in touch and share information about the project's progress.
 
 
@@ -36,6 +38,52 @@ The main goal for this iteration was to write the report in view of the second m
 for mid-term delivery (M2). Additional goals were assessing the practicality of interoperability
 with HealthVault and adding support for weight measurements to the API.
 
+
+
+\section{Results and feedback}
+
+We wrote a table of contents for the report and parts of the initial chapters as well.
+The table of contents was submitted to the supervisor in order to make sure we weren't leaving out
+any important chapter in our report. The team member who had moved to Oslo was able to contribute
+to the project by writing the report.
+
+Studies on HealtVault went smoothly. We were confident that we could fulfill the customer requirest
+and came up with the idea of writing another Android application which would fetch some weight
+measurements from HealthVault and send them to our integration platform.
+We presented this idea to the customer after a few days and he agreed on it.
+We then started some preliminary development on it which proceeded smoothly.
+This was also thanks to HealthVault's SDK which greatly reduced the amount of code we needed
+to write ourselves from scratch. We used one of the examples provided with the SDK which featured
+out-of-the-box interoperability with HealthVault and added the functionality required to implement
+interoperability with NIPEN.
+
+System development also proceeded smoothly and we added support for the weight data to the backend.
+The frontend and the database needed little work to accomodate these additions, so most of the work done on
+them was minor tweakings.
+
+\section{Evaluation}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.60]{../Figures/burndownSprint2.png}
+\caption{Iteration burndown chart}
+\label{figure:burndownsprint2}
+\end{figure}
+
+Results for this sprint were positive. We were pleased with how the report was shaping up and
+received good feedback on our structure from the supervisor.
+
+Our plan to let our colleague in Oslo work on the documentation worked out pretty well
+and he was able to work indipendently and effeciently. Although he had moved to Oslo,
+he didn't start to work right away so he a lot of time to dedicate to the project.
+
+Since we had told the customer that we would be working primarily on the report for this sprint,
+he didn't put any pressure on us to develop new features. We actually could not reach to him
+the first week after the demonstration but this has not been an issue at all since we
+knew what to work on. We were happy that our project was well in schedule with our plan so far.
+This iteration burndown chart is shown in figure \ref{figure:burndownsprint2}.
+
+\clearpage
 \section{Backlog}
 
 See below the sprint backlog.
@@ -68,40 +116,3 @@ See below the sprint backlog.
 		The application needs to connect to HealthVault and retrieve some weight measurements
 		and then send them to the integration platform.
 \end{enumerate}
-
-
-\section{Results and feedback}
-
-We wrote a table of contents for the report and parts of the initial chapters as well.
-The table of contents was submitted to the supervisor in order to make sure we weren't leaving out
-any important chapter in our report. The team member who had moved to Oslo was able to contribute
-to the project by writing the report.
-
-Studies on HealtVault went smoothly. We were confident that we could fulfill the customer requirest
-and came up with the idea of writing another Android application which would fetch some weight
-measurements from HealthVault and send them to our integration platform.
-We presented this idea to the customer and he agreed on it.
-
-Development has proceeded smoothly. This was also thanks to HealthVault's SDK which greatly
-reduced the amount of code we needed to write ourselves from scratch.
-We used one of the examples provided with the SDK which featured out-of-the-box interoperability
-with HealthVault and added the functionality required to implement interoperability with NIPEN.
-
-System development also proceeded smoothly and we added support for the weight data to the backend.
-The frontend and the database needed little work to accomodate these additions, so most of the work done on
-them was minor tweakings.
-
-\section{Evaluation}
-
-Results for this sprint were positive. We were pleased with how the report was shaping up and
-received good feedback on our structure from the supervisor.
-
-Our plan to let our colleague in Oslo work on the documentation worked out pretty well
-and he was able to work indipendently and effeciently. Although he had moved to Oslo,
-he didn't start to work right away so he a lot of time to dedicate to the project.
-
-Since we had told the customer that we would be working primarily on the report for this sprint,
-he didn't put any pressure on us to develop new features. We actually could not reach to him
-the first week after the demonstration but this has not been an issue at all since we
-knew what to work on. We were happy that our project was well in schedule with our plan so far.
-

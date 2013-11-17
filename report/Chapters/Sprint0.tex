@@ -14,10 +14,10 @@ The duration of the sprint was the following:
 
 Our first sprint was focused on project planning and preliminary studies.
 We planned to receive some kind of approval on our understanding of the project
-as described by the customer before starting preliminary studies. This was done mainly to avoid
+as described by the customer before starting preliminary studies. This was done mainly to avoid:
 \begin{enumerate}[a)]
 \item planning a solution for a different problem and
-\item wasting resources studying something that would not be relevant for the project.
+\item wasting resources studying something that would not be relevant for the project
 \end{enumerate}
 In an effort to prepare a draft of system requirements to be approved by the customer,
 we planned some brainstorming sessions to pin down a number candidates for health measurements
@@ -36,57 +36,6 @@ relevant technologies and similar solutions as well as:% complete a high-level p
 Additionally, we wanted to decide what software to use to write the report,
 choose and setup development enviroments, SDKs and version control systems in order to be able
 to get going with development and documentation as soon as necessary.
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.60]{../Figures/burndownSprint0.png}
-\caption{Burndown chart Sprint 0}
-\label{figure:burndownsprint0}
-\end{figure}
-
-\newpage
-\section{Backlog}
-
-See below the sprint backlog.
-\begin{enumerate}[1.]
-	\item \textbf{Project planning} for this sprint included:
-		\begin{itemize}
-			\item \textbf{Booking of rooms}:
-				where to hold meetings and work.
-			\item \textbf{Scheduling weekly meetings}:
-				with both the customer and supervisor.
-			\item \textbf{Choice of development process}:
-				candidates are Waterfall and Scrum.
-			\item \textbf{Requirements gathering}:
-				an initial set (draft) of high-level requirements.
-			\item \textbf{Risk analysis}:
-				a first draft.
-		\end{itemize}
-	\item \textbf{Project management} included:
-		\begin{itemize}
-			\item \textbf{Sprint startup meeting}:
-				included sprint planning and review
-			\item \textbf{Weekly meetings}:
-				with both customer and supervisor (from the 26th).
-			\item \textbf{Meeting notes}:
-				taking notes during meetings, reviewing of the notes.
-			\item \textbf{Status reports}:
-				for weeks 35 and 36.
-		\end{itemize}
-	\item \textbf{Read course's compendium}
-	\item \textbf{Preliminary studies}\newline
-		of relevant technologies like databases, web-servers and web APIs.
-	\item \textbf{Identify possibile measurements}\newline
-		to be supported by the system (glucose, weight\ldots).
-	\item \textbf{Preliminary system architecture}\newline
-		brainstorm on a high-level architecture to be submitted to the client for feedback.
-	\item \textbf{Choice and setup of project's tools}\newline
-		such as tools for the report and version control system.
-	\item \textbf{Android environment setup}\newline
-		both IDEs and SDK.
-	\item \textbf{Group dynamics lecture}\newline
-		attendance is mandatory.
-\end{enumerate}
 
 
 \section{Results and feedback}
@@ -117,15 +66,17 @@ In order to ensure we had a proper understanding of the problem we produced a di
 of the product (an \textit{ehealth integration platform}) and submitted it to the customer
 via mail for feedback.
 
+\iffalse
 It consisted of:
 \begin{enumerate}[1.]
 \end{enumerate}
+\fi
 
 We then begun studying relevant technologies and similar solutions and eventually identified
 a number of candidate health measurements and submitted those to the customer as well.
 
-Our idea was to develop three prototype applications, other than the integration
-platform and front-end, to be able to demonstrate how these systems interoperate.
+Our idea was to develop two or three prototype applications, other than the integration
+platform and a front-end, to be able to demonstrate how these systems interoperate.
 Each of these prototypes would have focused on a single health measurement.
 
 We found an agreement with the customer on heart rate and weight measurements which we had
@@ -136,7 +87,7 @@ would be interesting to use for another prototype.
 The customer agreed on these candidates because they were two of the most common measurements.
 
 A possible third application was discussed both internally and with the customer but
-given time and resource constraints of this project we intentionally left it rather vague
+given time and resource constraints we intentionally left it rather vague
 as we were unsure whether we would have had time for that.
 
 By the end of the sprint the customer started mentioning Microsoft's HealthVault and suggesting
@@ -154,6 +105,13 @@ We also chose and setup other tools like:
 
 \section{Evaluation}
 
+\begin{figure}
+\centering
+\includegraphics[scale=0.60]{../Figures/burndownSprint0.png}
+\caption{Iteration burndown chart}
+\label{figure:burndownsprint0}
+\end{figure}
+
 %The sprint generally achieved its expected results.
 At the end of the sprint we had achieved a good understanding of the problem and a good overview on a
 high-level system architecture and requirements. We didn't get as far as we hoped on our studies on some particular
@@ -165,9 +123,55 @@ our reduced technical skill pool. Some difficult topics of study were Apache Cam
 and whether it was desiderable to use these instead of the Spring framework (and why).
 Although by the end of the sprint we came to an agreement on what technologies we need to use
 (database, web server\ldots) we didn't decide on a specific implementation of such technologies
-(Apache Tomcat, Spring, Apache Camel, JAX-RS\ldots).
+(Apache Tomcat, Spring, Apache Camel, JAX-RS\ldots). The burndown chart for this iteration
+(figure \ref{figure:burndownsprint0}) reflects our slow progress in the beginning of the sprint
+and the missing completion of some pre-studies by the end of it.
 
 During this sprint we did not manage to send all the documents the supervisor
 required or they were missing some important detail. However, what we sent
 was sufficient to give him a good understanding of our progress so we
 consider this a minor issue.
+
+\clearpage
+\section{Backlog}
+
+See below the sprint backlog.
+\begin{enumerate}[1.]
+	\item \textbf{Project planning} for this sprint included:
+		\begin{itemize}
+			\item \textbf{Booking of rooms}:
+				where to hold meetings and work
+			\item \textbf{Scheduling weekly meetings}:
+				with both the customer and supervisor
+			\item \textbf{Choice of development process}:
+				candidates are Waterfall and Scrum
+			\item \textbf{Requirements gathering}:
+				an initial set (draft) of high-level requirements
+			\item \textbf{Risk analysis}:
+				a first draft
+		\end{itemize}
+	\item \textbf{Project management} included:
+		\begin{itemize}
+			\item \textbf{Sprint startup meeting}:
+				included sprint planning and review
+			\item \textbf{Weekly meetings}:
+				with both customer and supervisor (from the 26th)
+			\item \textbf{Meeting notes}:
+				taking notes during meetings, reviewing of the notes
+			\item \textbf{Status reports}:
+				for weeks 35 and 36
+		\end{itemize}
+	\item \textbf{Read course's compendium}
+	\item \textbf{Preliminary studies}\newline
+		of relevant technologies like databases, web-servers and web APIs
+	\item \textbf{Identify possibile measurements}\newline
+		to be supported by the system (glucose, weight\ldots)
+	\item \textbf{Preliminary system architecture}\newline
+		brainstorm on a high-level architecture to be submitted to the client for feedback
+	\item \textbf{Choice and setup of project's tools}\newline
+		such as tools for the report and version control system
+	\item \textbf{Android environment setup}\newline
+		both IDEs and SDK
+	\item \textbf{Group dynamics lecture}\newline
+		attendance is mandatory
+\end{enumerate}

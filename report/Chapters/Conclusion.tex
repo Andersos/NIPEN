@@ -1,249 +1,53 @@
-\chapter{Conclusion}
+\chapter{Results and conclusion}
 \label{ch:conclusion}
 \lhead{Chapter 16. \emph{Conclusion}} 
 
-This chapter covers the final state of the project, discussing the fullfilment
-of requirements, limitations of the product and further work.
-%It at also discusses the state of all the requirements of the project.
-%At the end it talks about what the customer should do about future work on this project.
+%This chapter discusses our results.
 
-\iffalse
-\section{Product limitations and further work}
-Although we managed to achieve all requirements and both us and the customer were quite happy
-with the product, it is still only a demonstrative prototype and there is much room for improvement.
-In this section we outline the most noticeable limitations of our product which should be
-the focus of further work.
+%\section{Results}
 
+This project involved designing and developing a number of interoperable systems
+consisting of:
 \begin{itemize}
-\item\textbf{API design}\newline
-At the moment the API only supports two types of resources: weight and heart rate measurements
-and only two types of operations on these: create and read.
-
-The design of an API's data models will have a key role in its success and adoption.
-What we proposed are two very simple models which include minimal information.
-A functional system should have a much more extensive and complete API
-which should be thoroughly documented and available to third-parties.
-Data models should be complete and able to represent a meaningful amount of information,
-and possibily exhibit some degree of interoperability with other standards.
-
-Furthermore, the API is not implementing the basic features of persistent storage (CRUD)
-which are necessary for this kind of solution. Only create and read operations are supported,
-whereas update and delete are totally missing. These should be easy to implement.
-
-\item\textbf{Security}\newline
-No part of the system implements any form of security.
-This was done to reduce the complexity of the system due to time contraints and the size of the group.
-The customer agreed that security was not a non-funtional requirement of the system, however
-in an actual solution security practices in this kind of project must be appropriate and in place.
-Chapter \ref{ch:security} described in detail these practices.
-
-\item\textbf{Multi-user support}\newline
-Some parts of the system such as the API data models, the data structures used internally and even
-the database do have a basic support for more than one user. However no security
-is implemented in any place, so all actions are effectively carried out by a single user.
-Naturally, in a production scenario that would not be the case and multi-user support will
-be necessary.
-
-\item\textbf{Deployment}\newline
-At the moment NIPEN is deployed together with the front-end of the system.
-It would be desiderable to have seperate artifacts for these in order to be able to deploy them
-on different machines. This would dramatically decrease the amount of resources needed on a single
-machine. The actual architecture makes it possible to simply separate the codebase of the two
-and deploy them individually.
+\item an integration platform
+\item a web front-end %using a combination of HTML, CSS, JS, jQuery and AJAX
+\item two Android applications
+\item a web application using JSP
 \end{itemize}
-\fi
+to analyse the feasibility for a national scale eHealth project to leverage
+the wide availability of devices like smartphones and other proprietary solutions like
+HealthVault.
 
-\iffalse
-\section{Fulfillment of requirements}
+We have designed and implemented an integration platform as a Spring based web
+application exposing a JSON based API through which is possibile to exchange data models
+representing health measurements such as heart rate and weight.
+The web application is deployed using Apache Tomcat and implements
+persistency using a MySQL database.
 
-In this section we present the status of requirements at the end of our project.
-%This section discusses how our project fulfills the requirements of the project. 
-%It explains the state of all the requirements and if they were completed. Each requirement had a priority which
-%halped us identify what was important for us to focus on.
+\clearpage
+The remaining systems have been developed to demonstrate:
+\begin{enumerate}[a.]
+\item the functionality of the integration platform by using its API to store and retrieve health measurements
+\item the feasibility of integrating with already existing third-party solutions such as Microsoft's HealthVault
+\item the difficulty for third-party developers to use the API to make they applications interoperable with the integration platform
+\end{enumerate}
 
-\subsection{Functional requirements}
+Our results outline not only the possibility to leverage handheld devices, which we have demonstrated using
+the \textit{Heart rate} application, but also the easiness with which third-party developers can make
+their application interoperable with our implementation of the integration platform.
+In fact, this has been accomplished with less than 100 LOC.
+Additionally, our \textit{Weight} application and \textit{HealthVault integration service}
+have shown how it is possible to integrate information from other solution provides as well.
 
-In this subsection we focus on functional requirements.
-%This subsection describes the functional requirements for the product and their state after the project completion.
-%Our initial requirements were that this platform should both recive and deliver health data. 
-%The requirements were revised during the project with feedback from the customer.
-%The customer felt it was sufficent that the integration platform was able to receive health data and that it was more
-%important to have a good sync with Microsoft HealtVault. 
-%The final product can out receive and deliver health data but there is no authentication on the delivering part in this prototype. 
-
-\textbf{Functional requirements for the Integration Platform}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{ | c | c | c | c | }
-  \hline
-  \textbf{ID} & \textbf{State} & \textbf{Complexity} & \textbf{Priority} \\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	& Completed & Med & Hgih \\
-  FIP2	& Completed & Med & High \\
-  FIP3	& Completed & Med & High \\
-  FPI4	& Completed & Med & High \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{Fulfillment of functional requirements for the Integration platform}
-\label{table:fulfillemntofrequirements}
-\end{table}
-
-
-%% this small summary of the feature shouldn't be here where you talk
-%% about requirements but rather in a 'conclusion' or 'summary' section
-\iffalse
-\subsection{Fulfillment of the functional requirements for the web front-end}
-
-This subsection describes the functional requirements for the web front-end and its state after the project completion. 
-In figure \ref{figure:front-endfinal} the design and final version can be seen. 
-The most import job of the web front-end was to display the data in an informative way.
-We landed on using grafs to display the data. 
-We also tried to make it look like the clients page by using their color scheme.
-
-\begin{figure}[H]
-\centering
-%\includegraphics[scale=0.50]{../Figures/front-endfinal.png}
-\includegraphics[scale=0.4]{../Figures/frontend-main-page.png}
-\caption{Front-end final}
-\label{figure:front-endfinal}
-\end{figure}
-\fi
-
-\textbf{Functional requirements for the web front-end}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{ | c | c | c | c |}
-  \hline
-  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority}\\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FW1	& Completed & Med & High \\
-  FW2	& Completed & Low & Low \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{Fulfillment of functional requirements for the web front-end}
-\label{table:fulfillemntofwebfront-end}
-\end{table}
-
-\iffalse
-\subsection{Fulfillment of functional requirements for the heart rate application}
-
-This subsection describes the functional requirements for the heart rate application and its state after the project completion.
-In figure \ref{figure:appfinal} the design and final version can be seen.
-The app is very simple but functional. 
-The goal of the app was to be able to, with the help of the camera, to capture the heart rate of people.
-Then with the click of a button transmitt the data to NIPEN.
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.20]{../Figures/appfinal.png}
-\caption{Heart rate application final}
-\label{figure:appfinal}
-\end{figure}
-\fi
-
-\textbf{Functional requirements for Heart rate application}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{ | c | c | c | c |}
-  \hline
-  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority} \\
-  \hline\noalign{\smallskip}\hline
-  FHR1	& Completed & High & High \\
-  FHR2	& Completed & Low  & High \\
-  FHR3	& Completed & Med  & High \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{Fulfillment of functional requirements for the heart rate application}
-\label{table:fulfillemntofapp}
-\end{table}
-
-\iffalse
-\subsection{Fulfillment of functional requirements for Weight application}
-
-This subsection describes the functional requirements for the weight application and its state after the project completion.
-In figure \ref{figure:weightapp} the design and final version can be seen.
-The goal of this app was to get weight data from Microsoft HealthVault and send it to NIPEN.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.20]{../Figures/weightappfinal.png}
-\caption{Fulfillment of weight application}
-\label{figure:weightappfinal}
-\end{figure}
-\fi
-
-\textbf{Functional requirements for Weight application}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{ | c | c | c | c |}
-  \hline
-  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority}\\
-  \hline\noalign{\smallskip}\hline
-  FHV1	& Completed & Med & High \\
-  FHV2	& Completed & Low & Med \\
-  FHV3	& Completed & Low & Hgih \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{Fulfillemnt of functional requirements for Weight application}
-\label{table:fulfillemntweightapp}
-\end{table}
-
-\textbf{Functional requirements for the HealthVault integration service}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{ | c | c | c | c |}
-  \hline
-  \textbf{ID} & \textbf{Status} & \textbf{Complexity} & \textbf{Priority}\\
-  \hline\noalign{\smallskip}\hline
-  FHIS1	& Completed & Med	& High \\
-  FHIS2	& Completed & High	& High \\
-  FHIS3	& Completed & Low	& Med \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{Fulfillment of functional requirements for the HealthVault integration service}
-\label{table:fulfillemntweightservice}
-\end{table}
-
-\subsection{Non-funcional requirements}
-This subsection describes the non-functional requirements and its state after the project completion. 
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{ | c | c |p{6.5cm} | c | c |}
-  \hline
-  ID & Category & Description & Priority & Status\\
-  \hline\noalign{\smallskip}\hline
-  NF1 & Documentation & The system shall be thoroughly documented, both at the code level and by the document ‘project report’.
-  & High & Completed \\
-  NF2 & Documentation & Although security and privacy are not requirements for the product they are important topics to be discussed in the documentation.
-  & High & Completed \\
-  NF3 & Open-source	& The product shall be released under a permissive license approved by the product owner.
-  & High & Completed \\
-  NF4 & Interoperability & The system shall provide a good degree of interoperability. Third party application developers should be put in the condition to develop third party (interoperable) solutions rapidly.
-  & High & Completed \\
-  NF5 & Interoperability & A number of two-three prototype applications shall be developed in order to showcase the functionality of the system.
-  & High & Completed \\
-  NF6 & Accessibility & The web-frontend should have a good degree of accessibility. It should have a rather simple design and use a user-provided palette.
-  & Low & Completed \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{Fulfillment of non-functional requirements}
-\label{table:fullfilmentnonfunctionalreq}
-\end{table}
-
-\fi
+Our architectural design choices for the integration platform make it well suited to be scaled up.
+The integration platform in fact, consists of a web application and a database which can
+be deployed separately, reducing the amount of resources needed on a single machine.
+The same applies to the front-end as well because it interacts with the integration
+platform using its API just like any other application and therefore does not rely on being deployed
+on the same machine.
+Furthermore, because we are not employing a classical SOAP client-server architecture but
+a more lean, REST-like one, the implementation can be considered lightweight in term of resources
+and it is easier for application developers to interact with.
 
 
 %%% this is not further work, it looks like a conclusion.
@@ -278,18 +82,9 @@ The total cost of the project can be lowered by this because support for the sys
 It is also possible for some developers to develop proxies for popular third-party applications.
 \fi
 
-\section{Summary}
-In this chapter we reported the status of all project's requirements and outlined the most significant
-limitations of the product which could be the focus of further development efforts.
-%We have also discuessed what the next steps for pursuing the continues development of this platform. 
+%\section{Summary}
 
-The result of our work is a fully functional prototype consisting of:
-\begin{itemize}
-\item an integration platform
-\item a web front-end
-\item a web application
-\item two Android applications
-\end{itemize}
+
 
 %%% this stuff should go in the evaluation chapter
 \iffalse

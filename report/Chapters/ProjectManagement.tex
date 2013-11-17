@@ -4,13 +4,14 @@
 \lhead{Chapter 2. \emph{Project management}}
 \nocite{Sommerville9}
 
-This chapter cover project management topics such as planning, organization, risk management and quality assurance.
+This chapter cover project management topics such as planning, organization,
+risk management, quality assurance and tools selection.
 
 \section{Project planning}
 \label{section:planning}
-This section describes the planning of the project including schedule, resources and tool selection.
+This section describes the planning of the project including schedule and resources.
 
-\subsection{Project schedule}
+\subsection{Schedule}
 \label{section:schedule}
 
 \textbf{Milestones} \newline
@@ -23,11 +24,11 @@ and can help us to better monitor its progress. Project's milestones are shown i
   \hline
   Milestone & Date & Description \\
   \hline\noalign{\smallskip}\hline
-  M1 & 20.09.2013 & Basic implementation of the product.
-                    \footnote{Consting of a backend, a frontend and one Android application}\\ 
+  M1 & 20.09.2013 & Basic implementation of the product. \\
+                    %%\footnote{Consting of a backend, a frontend and one Android application}\\ 
   M2 & 14.10.2013 & Mid-term report delivery. \\
   M3 & 04.11.2013 & Feature freeze. \\
-  M4 & 21.11.2013 & Complete implementation. Project demonstration. Final report delivery. \\
+  M4 & 21.11.2013 & Project demonstration and final report delivery. \\
   \hline
 \end{tabular}
 \end{center}
@@ -63,16 +64,24 @@ Each sprint is described in a seperate chapter.
 \subsection{Work plan}
 \label{section:workplan}
 
-The project work plan is shown in figure \ref{figure:work-splan}.
-*should be complemented by a 'phase' diagram*
+The project work plan is shown in figure \ref{figure:work-plan}.
+Project's phases can bee seen in figure \ref{figure:phase-plan}.
 
 \newpage
+
 \begin{landscape}
-\begin{figure}[h]
-\includegraphics[scale=0.66]{../Figures/gantt-diagram.png}
+\begin{figure}
+\includegraphics[scale=0.5]{../Figures/gantt-diagram.png}
 \caption{Gantt diagram}
-\label{figure:work-splan}
+\label{figure:work-plan}
 \end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.5]{../Figures/phases-diagram.png}
+\caption{Phases diagram}
+\label{figure:phase-plan}
+\end{figure}
+
 \end{landscape}
 
 %---
@@ -140,7 +149,7 @@ in the project. The skills are valued on a scale of zero to five based on criter
 \end{table}
 
 %---
-
+\newpage
 \section{Project organization}
 \label{section:organization}
 
@@ -213,39 +222,11 @@ See \ref{figure:orgdia} for an diagram of how the group is organized.
 \label{table:roles}
 \end{table}
 
-\subsection{Weekly meeting schedule}
-During the early stages of the project the team has agreed on a meeting schedule.
+\newpage
+\section{Management rules}
+\label{section:rules}
 
-\begin{description}
-
-\item[Monday] (from 10 to 19 - 9 hours total) \\
-\textbf{[10.00 - 10.30] Weekly startup meeting}\newline
-At the begin of each week we would review the progress done during the previous one and discuss the plan for the next.
-This meeting actually consisted in a combined sprint planning and review meeting.
-The scrum master prepared a plan for the next sprint and submitted it to other team members for approval.
-%We also discussed any problems encountered.
-%This internal meeting would follow the last Status Report document.
-\newline\textbf{[10.30 to 11.00] Daily scrum.}\newline
-\newline\textbf{[11.00 to 12.00] Customer meeting}\newline
-During the meeting with customer we would discuss with him the work done and share our plan for the next week.
-This was done in order to help us prioritize our work to better suit the customer's interest.
-\newline\textbf{[12.00 to 13.00] Supervisor meeting}\newline
-The group would go through the status report and bring up issues or problems with the project.
-We tried to give the supervisor the best understanding possible of our project especially regarding
-its progress and group dynamics.
-\newline\textbf{[13.00 to 14.00] Lunch}\newline
-The group had lunch together on Mondays. It is good to eat together and chat about things other than the project.
-It helps getting to know each other better.
-\newline\textbf{[14.00 to 19.00] Collective work session}
-\item[Wednesday] (from 15 to 19 - 4 hours total) \\
-\newline\textbf{[15.00 to 15.30] Daily scrum.}\newline
-\newline\textbf{[15.30 to 19.00] Collective work session}\newline
-\end{description}
-
-\section{Quality assurance}
-\label{section:qa}
-
-This section describes what practices we put in use to ensure the quality of the product and the report.
+This section describes management rules and practices we put in use.% to ensure the quality of the product and the report.
 
 \subsection{Quality of the documentation}
 Each document should be reviewed by another person other than the writer.
@@ -262,6 +243,7 @@ We have established templates for the following:
 
 Templates can be found in appendix \ref{AppendixC}.
 
+\iffalse
 \subsection{Standards}
 
 \textbf{Coding style}
@@ -271,14 +253,15 @@ database, comments, function, brackets..
 
 \textbf{File naming}
 *todo*
+\fi
 
 \subsection{Status report}
 As requested, the group submitted a document called 'status report' on a weekly basis.
 The document contained a summary of the all progress made on the project during the week.
-This included what the group had been working on, milestone achieved, meetings summary and eventual problems\ldots
+This included what the group had been working on, milestone achieved, meetings summary and eventual problems.
 The feedback received from the supervisor on our status report was an effective way to monitor and possibily improve
 the quality of our process, making sure we didn't overlook any critical tasks and constituted, in fact, a form of
-quality assurance.
+\textit{quality assurance}.
 %The status report would be sent to the supervisor on Sundays to be discussed on Mondays.
 
 \subsection{Internal meetings}
@@ -295,16 +278,6 @@ could accessed by both the team and the customer. Meetings were held on a weekly
 Skype because the customer was in different city.
 Notably, we didn't write agendas for customer meetings because during each meeting we explicitly
 agreed about the time of our next meeting and implicitely on the topics to be discussed.
-%Because the customer was in different city, meetings were held on Skype.
-%This was done to ensure that we could access that information at a later time if needed
-%and that the customer could review those notes and check if there had been any misunderstanding.
-
-%where the customer could easily access them.
-%to which the customer had access.
-% based on templates found in \ref{AppendixC}.
-%At the end of each meeting, we would agree with the customer about the time of our next meeting.
-
-%agreed on the topics to be discussed next time during our meeting.
 
 \subsection{Supervisor meetings}
 Supervisor meetings were held on a weekly basis.%, on Mondays.
@@ -313,6 +286,34 @@ so that he could make sure we weren't missing any important tasks. The secretary
 during the meeting. These would be stored permanently on Google Drive and attached to our status report and
 meeting agenda and sent to the supervisor for approval.
 Agendas for meetings were sent out one day before the meeting.
+
+\newpage
+\subsection{Weekly meeting}
+During the early stages of the project the team has agreed on a meeting schedule.
+
+\begin{description}
+
+\item[Monday] (from 10 to 19 - 9 hours total) \\
+\textbf{[10.00 - 10.30] Weekly startup meeting}\newline
+At the begin of each week we would review the progress done during the previous one and discuss the plan for the next.
+This meeting actually consisted in a combined sprint planning and review meeting.
+The scrum master prepared a plan for the next sprint and submitted it to other team members for approval.
+\newline\textbf{[10.30 to 11.00] Daily scrum}
+\newline\textbf{[11.00 to 12.00] Customer meeting}\newline
+During the meeting with customer we would discuss with him the work done and share our plan for the next week.
+This was done in order to help us prioritize our work to better suit the customer's interest.
+\newline\textbf{[12.00 to 13.00] Supervisor meeting}\newline
+The group would go through the status report and bring up issues or problems with the project.
+We tried to give the supervisor the best understanding possible of our project especially regarding
+its progress and group dynamics.
+\newline\textbf{[13.00 to 14.00] Lunch}\newline
+The group had lunch together on Mondays. It is good to eat together and chat about things other than the project.
+It helps getting to know each other better.
+\newline\textbf{[14.00 to 19.00] Collective work session}
+\item[Wednesday] (from 15 to 19 - 4 hours total) \\
+\textbf{[15.00 to 15.30] Daily scrum}
+\newline\textbf{[15.30 to 19.00] Collective work session}\newline
+\end{description}
 
 \newpage
 \section{Risk management}
@@ -423,6 +424,8 @@ likelihood and impact levels respectively. See table \ref{table:risks} for risk 
 \label{table:risks}
 \end{table}
 
+\newpage
+
 \begin{table}[h]
 \begin{tabular}{ | l | p{11.5cm} | }
   \hline
@@ -484,8 +487,8 @@ likelihood and impact levels respectively. See table \ref{table:risks} for risk 
 \caption{Risk analysis (cont.)}
 \end{table}
 
-\newpage
-\subsection{Project tools}
+\clearpage
+\section{Project tools}
 \label{section:tools}
 This section describes the different tools used throught the project.
 

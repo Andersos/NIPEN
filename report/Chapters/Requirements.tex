@@ -7,9 +7,6 @@
 This chapter provides a description of project's stakeholders and requirements, both
 functional and non-functional. Requirements will be presented textually and with the aid of
 some use-case diagrams. 
-Functional requirements will be given for our applications.
-The applications consists of: an integration platform (NIPEN), a heart rate and two weight applications that are able to send values to NIPEN, and a front-end (i.e. a web page) that is capable of visualizing the data stored in the integration platform.
-
 
 Throughout this chapter both requirement's priority and complexity have a textual description which can be
 \begin{itemize}
@@ -20,7 +17,7 @@ Throughout this chapter both requirement's priority and complexity have a textua
 
 The use of such terms is described in table \ref{table:priorities} for priorities
 and table \ref{table:complexity} for complexities.
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -39,7 +36,7 @@ and table \ref{table:complexity} for complexities.
 \label{table:priorities}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -108,19 +105,31 @@ any explicit training.
 
 %-----
 
+\section{Requirements}
+
+The product consisted of different, interoperable systems including:
+\begin{enumerate}[1.]
+\item an integration platform, here and thereafter referred to as \textit{NIPEN}
+\item a graphical front-end for NIPEN in the form of a web page
+\item an Android application referred to as simply \textit{Heart rate}
+\item an Android application referred to as simply \textit{Weight}
+\item a web service referred to as \textit{HealthVault integration service}
+\end{enumerate}
+
+Each requirement also had a priority which helped us identify the focus of our work.
+Priorities could be reviewed based on customer's feedback. We tried to prioritize those requirements corresponding
+to the functionality that the customer expressed most interest about. In order to better organize
+our workload we also estimated a complexity for each requirement.
+
 \newpage
-\section{Funcional requirements}
+\subsection{Functional requirements}
 \label{section:functionalreq}
 
 This section contains a description the functional requirements for the product.
-Each requirement also had a priority which helped us identify the focus of our work.
-Priorities can be reviewed based on customer's feedback. We tried to prioritize those requirements corresponding
-to the functionality of the system that the customer expressed most interest about. In order to better organize
-our workload we also estimated a complexity for each requirement.
 
 \textbf{Functional requirements for NIPEN}
 
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -156,19 +165,6 @@ our workload we also estimated a complexity for each requirement.
   \textbf{Complexity}   & Med \\
   \textbf{Priority}     & High \\
 
-  \iffalse
-  ID & Description & Difficulty & Priority\\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  FIP1	& NIPEN shall support API endpoints for receiving
-          heart rate data models expressed as JSON strings.		& Med	& High \\
-  FIP2	& NIPEN shall support API endpoints for receiving
-          weight data models expressed as JSON strings.				& Med	& High \\
-  FIP3	& NIPEN shall support API endpoints for forwarding
-          stored heart rate measurements as JSON models.			& Med	& High \\
-  FPI4	& NIPEN shall support API endpoints for forwarding
-          stored weight measurements as JSON models.					& Med	& High \\
-  \fi
-
   \hline
 \end{tabular}
 \end{center}
@@ -176,10 +172,9 @@ our workload we also estimated a complexity for each requirement.
 \label{table:reqip}
 \end{table}
 
-
 \textbf{Functional requirements for the web frontend}
 
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -205,9 +200,10 @@ our workload we also estimated a complexity for each requirement.
 \end{table}
 
 \newpage
+
 \textbf{Functional requirements for Heart rate application}
 
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -240,10 +236,9 @@ our workload we also estimated a complexity for each requirement.
 \end{table}
 
 
-\newpage
 \textbf{Functional requirements for Weight application}
 
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -284,9 +279,10 @@ our workload we also estimated a complexity for each requirement.
 \label{table:reqweight}
 \end{table}
 
+\newpage
 \textbf{Functional requirements for HealthVault Integration Service}
 
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -339,14 +335,13 @@ our workload we also estimated a complexity for each requirement.
 
 %-----
 \newpage
-\section{Non-functional requirements}
+\subsection{Non-functional requirements}
 \label{section:nonfunctionalreq}
 
 This section outlines non-functional requirements (quality attributes) for the product.
 In order to provide a better overview, we have organized them in categories.
 
-
-\begin{table}[H]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
   \hline
@@ -385,6 +380,23 @@ In order to provide a better overview, we have organized them in categories.
   \textbf{Complexity}		& High \\
   \textbf{Priority}			& High \\
 
+  \textbf{ID} & NF5 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}     & Interoperability \\
+  \textbf{Description}  & A number of two or three prototype applications shall be developed in order to showcase
+                          the functionality of the system \\
+  \textbf{Complexity}   & High \\
+  \textbf{Priority}     & High \\
+  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
+  
+  \textbf{ID} & NF6 \\
+  \hline\noalign{\smallskip}\hline
+  \textbf{Category}     & Accessibility \\
+  \textbf{Description}  & The web-frontend should have a good degree of accessibility.
+                          It should have a rather simple design and use a customer-provided palette. \\
+  \textbf{Complexity}   & Low \\
+  \textbf{Priority}     & Low \\
+
   \hline
 \end{tabular}
 \end{center}
@@ -392,7 +404,8 @@ In order to provide a better overview, we have organized them in categories.
 \label{table:nonfunc}
 \end{table}
 
-\begin{table}[H]
+\iffalse
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{ | r | p{11.5cm} | }
 	\hline
@@ -418,43 +431,6 @@ In order to provide a better overview, we have organized them in categories.
 \end{tabular}
 \end{center}
 \caption{Non-functional requirements (cont.)}
-\end{table}
-
-%% old format table, commented out
-\iffalse
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{ | c | c |p{6.5cm} | c | c |}
-  \hline
-  ID & Category & Description & Difficulty & Priority\\
-  \hline\noalign{\smallskip}\noalign{\smallskip}\hline
-  NF1 & Documentation & The system shall be thoroughly documented by the document project report.
-  & High & High \\
-  \hline
-  NF2 & Documentation & Although security and privacy are not requirements for the product they
-  are important topics to be discussed in the documentation.
-  & Med & High \\
-  \hline
-  NF3 & Open-source	& The product shall be released under a permissive license approved by the product owner.
-  & Low & High \\
-  \hline
-  NF4 & Interoperability & The system shall provide a good degree of interoperability.
-  Third party application developers should be put in the condition to develop third party (interoperable)
-  solutions rapidly.
-  & High & High \\
-  \hline
-  NF5 & Interoperability & A number of two or three prototype applications shall be developed in order to showcase
-  the functionality of the system.
-  & High & High \\
-  \hline
-  NF6 & Accessibility & The web-frontend should have a good degree of accessibility. It should have a rather simple
-  design and use a customer-provided palette.
-  & Low & Low \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{Non-functional requirements}
-\label{table:reqnonfunc}
 \end{table}
 \fi
 
@@ -482,6 +458,7 @@ This would allow the requirements to change without having a big impact on the p
 
 %-----
 
+\newpage
 \section{Use cases}
 \label{section:usecases}
 
