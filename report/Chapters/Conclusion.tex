@@ -6,48 +6,35 @@
 
 %\section{Results}
 
-This project involved designing and developing a number of interoperable systems
-consisting of:
+This project involved designing and developing a number of interoperable systems consisting of:
 \begin{itemize}
 \item an integration platform
 \item a web front-end %using a combination of HTML, CSS, JS, jQuery and AJAX
 \item two Android applications
 \item a web application using JSP
 \end{itemize}
-to analyse the feasibility for a national scale eHealth project to leverage
-the wide availability of devices like smartphones and other proprietary solutions like
-HealthVault.
+to analyse the feasibility for a national scale eHealth project to leverage the wide availability of devices like smartphones and other proprietary solutions like HealthVault.
 
-We have designed and implemented an integration platform as a Spring based web
-application exposing a JSON based API through which is possibile to exchange data models
-representing health measurements such as heart rate and weight.
-The web application is deployed using Apache Tomcat and implements
-persistency using a MySQL database.
+We have designed and implemented an integration platform as a Spring based web application.
+This application exposes a JSON based API through which it is possibile to exchange data models representing health measurements such as heart rate and weight.
+The web application is deployed using Apache Tomcat and implements persistency using a MySQL database.
 
 \clearpage
 The remaining systems have been developed to demonstrate:
 \begin{enumerate}[a.]
 \item the functionality of the integration platform by using its API to store and retrieve health measurements
 \item the feasibility of integrating with already existing third-party solutions such as Microsoft's HealthVault
-\item the difficulty for third-party developers to use the API to make they applications interoperable with the integration platform
+\item the difficulty for third-party developers to use the API to make their applications interoperable with the integration platform
 \end{enumerate}
 
-Our results outline not only the possibility to leverage handheld devices, which we have demonstrated using
-the \textit{Heart rate} application, but also the easiness with which third-party developers can make
-their application interoperable with our implementation of the integration platform.
+Our results outline not only the possibility to leverage handheld devices, which we have demonstrated using the \textit{Heart rate} application, but also the ease with which third-party developers can make their application interoperable with our implementation of the integration platform.
 In fact, this has been accomplished with less than 100 LOC.
-Additionally, our \textit{Weight} application and \textit{HealthVault integration service}
-have shown how it is possible to integrate information from other solution provides as well.
+Additionally, our \textit{Weight} application and \textit{HealthVault integration service} have shown how it is possible to integrate information from other solution provides as well.
 
 Our architectural design choices for the integration platform make it well suited to be scaled up.
-The integration platform in fact, consists of a web application and a database which can
-be deployed separately, reducing the amount of resources needed on a single machine.
-The same applies to the front-end as well because it interacts with the integration
-platform using its API just like any other application and therefore does not rely on being deployed
-on the same machine.
-Furthermore, because we are not employing a classical SOAP client-server architecture but
-a more lean, REST-like one, the implementation can be considered lightweight in term of resources
-and it is easier for application developers to interact with.
+The integration platform in fact, consists of a web application and a database which can be deployed separately, reducing the amount of resources needed on a single machine.
+The same applies to the front-end as well because it interacts with the integration platform using its API just like any other application and therefore does not rely on being deployed on the same machine.
+Furthermore, because we are not employing a classical SOAP client-server architecture but a more lean, REST-like one, the implementation can be considered lightweight in term of resources and it is easier for application developers to interact with.
 
 
 %%% this is not further work, it looks like a conclusion.

@@ -5,8 +5,7 @@
 
 %In this chapter we are going to give a description of the system architecture.
 This chapter describes the system architecure in detail.
-We follow a top-down approach, giving an overview of the architecture and then detailing
-each part in a separate section.
+We follow a top-down approach, giving an overview of the architecture and then detailing each part in a separate section.
 %We start this chapter with an overview, where we give an abstract description of our project.
 %Then we are going to give a more thorough description of each of our applications.
 
@@ -19,8 +18,6 @@ The product consists of multiple, interoperable systems including:% that communi
 \begin{enumerate}[1.]
 	\item an integration platform (\textit{NIPEN})
 	\item a front-end to the integration platform
-	%\item an Android application to measure heart rate
-	%\item an Android application to showcase HealthVault interoperability
 	\item two Android applications
 	\item a web service%to showcase HealthVault interoperability
 \end{enumerate}
@@ -35,13 +32,10 @@ In the following sections we provide a detailed description of the each part of 
 %% we talk about this more in detail in other sections
 NIPEN or NIP is our server application that consists of an API and a database.
 This application is capable of receiving weight and heart rate data and store them in a database.
-It is also able to retrieve data from the database and then send it to our front-end, which then visualizes
-the information sent.
-The next three applications are able to send information to NIP.
+It is also able to retrieve data from the database and then send it to our front-end, which then visualizes the information sent.
 For instance the heart rate application is capable of measuring a heart rate and then send it to the integration platform.
 The two last applications are able to fetch weight data from HealthVault and send it to NIP.
-The main difference between them is that the \textit{Weigh Application} runs on an Android device, while the
-\textit{HealthVault Integration Service} runs on a server or a computer.
+The main difference between them is that the \textit{Weigh Application} runs on an Android device, while the \textit{HealthVault Integration Service} runs on a server or a computer.
 \fi
 
 \iffalse
@@ -68,13 +62,15 @@ And hence security is not necessary.
 
 \section{NIPEN}
 
-NIPEN is the core of our product. It is an implementation of a web API for the storage and retrieval of health information.
+NIPEN is the core of our product. 
+It is an implementation of a web API for the storage and retrieval of health information.
 %To provide such functionality, we had to define a \textit{model} (a representation) of the information itself.
-Together with the customer, we identified two types of health measurements that would be supported by NIPEN:
-heart rate and weight. %why heartrate and weight?
+Together with the customer, we identified two types of health measurements that would be supported by NIPEN: heart rate and weight.
+We chose these because these were common mesurements.
+The phone can with ease messure the heart rate.
+We also had a weight that had wifi capabilities.
 %This choice was motivated by the fact that both are easy to obtain using mobile phones. what about weight?
-For each of these measurements we designed a \textit{model}, that is a digital representation of the information,
-which we describe in detail subsection \ref{subsec:models}.
+For each of these measurements we designed a \textit{model}, that is a digital representation of the information, which we describe in detail subsection \ref{subsec:models}.
 NIPEN is exposing an API that other applications can use to interoperate with it.
 The API is presented in subsection \ref{subsec:api}.
 
@@ -85,8 +81,7 @@ The API is presented in subsection \ref{subsec:api}.
 
 \subsection{Architectural pattern}
 
-A class diagram containing the most important classes and methods of our system is given
-in figure \ref{figure:nipen-class-diagram}.
+A class diagram containing the most important classes and methods of our system is given in figure \ref{figure:nipen-class-diagram}.
 
 \begin{figure}[h]
 \centering
@@ -95,12 +90,14 @@ in figure \ref{figure:nipen-class-diagram}.
 \label{figure:nipen-class-diagram}
 \end{figure}
 
-We are following an MVC (Model-View-Controller) architectural pattern. %% WHY ?
+We are following a MVC (Model-View-Controller) architectural pattern. 
+This pattern is ideal for large-scale, team-based development.
+It reduces code complexity and offers great code reuse. 
 What this means is that we have divided our application into three main parts: models, views and controllers.
 
 \begin{itemize}
 
-\item Model: A model is \iffalse a type of\fi a data structure that is used within an application.
+\item Model: A model is a data structure that is used within an application.
 In our case the models of our application are: Weight and HeartRate.
 %and DataType. sure but it is just an abstract superclass
 This classes are filled with data from the database and are used when sending data to the front-end.
@@ -220,8 +217,7 @@ The list of models is transformed automatically into JSON string with help of th
 Both controllers will respond with an array of JSON strings representing the respective data.
 \fi
 
-When an application makes an HTTP GET request at the URL \verb|/nipen/api/heart_rates| it is returned
-a JSON string representing a collection (array) of all heart rate measurements stored in the database.
+When an application makes an HTTP GET request at the URL \verb|/nipen/api/heart_rates| it is returned a JSON string representing a collection (array) of all heart rate measurements stored in the database.
 See below for an example:
 \begin{lstlisting}[language=json]
 [
@@ -471,8 +467,7 @@ AJAX is asynchronous which means that it can poll data in background without the
 Thus we don't need to update the web page when new data is received at NIPEN.
 The jQuery AJAX function is polling constantly in the background when the client views the page.
 When the front-end detects that new data is received, the JavaScript methods will update the page.
-To detect if the data received from NIPEN is new, we compare the timestamp of the latest value on the web
-page and the data received.
+To detect if the data received from NIPEN is new, we compare the timestamp of the latest value on the web page and the data received.
 If this value is different, the charts and values on the web page needs to be updated.
 This will be done automatically.
 Of course, if data is added with a timestamp that contains a date earlier than the latest, then the web page 
@@ -605,7 +600,7 @@ This is repeated until the user stops the polling service.
 
 When the polling starts the application stores the first timestamp, of the last weight measurement, received from HealthVault.
 After that, for each poll the application compares this timestamp with the timestamp received from HealthVault.
-A new value has been added to HealthVault if the timestamps are not equal.
+A new value will be added to HealthVault if the timestamps are not equal.
 If a new value has been detected, the application creates and sends a JSON string to NIPEN in the same way as the heart rate and weight application.
 The polling service is illustrated in figure \ref{figure:weight-polling-service}.
 
