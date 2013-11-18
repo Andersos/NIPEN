@@ -215,8 +215,8 @@
                 {http://www.idi.ntnu.no/}}
 %-------------------------------------------------                
 \group{\texorpdfstring{%\href{Research Group Web Site URL Here (include http://)} % Your research group's URL
-                {TDT4290 Group 17}} % Your research group's name - this is currently used in the title page 
-                {TDT4290 Group 17}}
+                {Group 17}} % Your research group's name - this is currently used in the title page 
+                {Group 17}}
 %-------------------------------------------------                
 \GROUP{\texorpdfstring{\href{Research Group Web Site URL Here (include http://)} % Your research group's URL
                 {}} % Your research group's name in capitals - this is not currently used anywhere in the template, cite it with \GROUPNAME if you want it
