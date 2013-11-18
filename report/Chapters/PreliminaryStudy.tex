@@ -24,7 +24,7 @@ In this section we give a brief description of two common development methodolog
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Waterfall} \nocite{WaterfallModel}
+\subsection{Waterfall}
 %of Waterfall is its requires tasks to be performed in a sequential order.
 
 The Waterfall development process is a \iffalse classical\fi model proposed in the early 70s.
@@ -63,13 +63,13 @@ Additionally, each phase of the development cycle is expected to produce a good 
 \fi
 
 Waterfall may be suited to large-scale, expensive projects where \'going back\' on design choices is not an option and requirements are clearly established early on and then \'set in stone\'.
-However, many software projects nowadays fail to meet these conditions.
+However, many software projects nowadays fail to meet these conditions. \cite{WaterfallModel}
 % and therefore Waterfall is probably not an appropriate process for them.
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
-\subsection{Scrum Model} \nocite{Compendium}
+\subsection{Scrum Model}
 %cite http://www.mountaingoatsoftware.com/agile/scrum
 
 Scrum is an emerging agile development process which is mostly used in software development.
@@ -98,7 +98,7 @@ A sprint concludes with a sprint \textit{review meeting} where the team evaluate
 
 %If there are any problems the Scrum master is responsible to resolve the problem.
 The whole process is supervised by the \textit{Scrum master} who has the responsability to help other team members to perfom at their best and solve problems that might arise during the process.
-Figure \ref{figure:scrum-workflow} shows the workflow in Scrum.
+Figure \ref{figure:scrum-workflow} shows the workflow in Scrum. \cite{Compendium}
 
 \begin{figure}[h]
 \begin{center}
@@ -174,7 +174,7 @@ What we present in this section are the ones we found most relevant and inspirin
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{HealthVault} \nocite{HealthVault}
+\subsection{HealthVault}
 %http://msdn.microsoft.com/en-us/healthvault/jj128027
 
 HealthVault is Microsoft's online platform to collect, store and monitor personal health information. %It offers a single, central repository of a person's health.
@@ -230,7 +230,7 @@ Basically, a \textit{thing} represents a measurement of some health parameter e.
 %people which could be family doctors or relatives.
 
 Additionally, HealthVault supports exporting of data in industry-standard formats and storage of medical imaging formats such as \textit{DICOM}. 
-The services provides a good degree of availability and redundancy.
+The services provides a good degree of availability and redundancy. \cite{HealthVault}
 
 \begin{figure}[h]
 \begin{center}
@@ -256,7 +256,7 @@ The services provides a good degree of availability and redundancy.
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
-\subsection{human/api} \nocite{HumanAPI}
+\subsection{human/api}
 \label{section:humanapi}
 
 The human/api is a RESTful web API for health data developed by human/api Inc.
@@ -264,7 +264,7 @@ Its aim is to offer a single access point to people's health information in orde
 For this purpose, human/api collects people's health parameters (blood pressure, weight\ldots) from a variety of third-party services (e.g. Withings) and devices (e.g. sensors) and normalizes it.
 The data is then made available through a clean and well documented web API.
 This has the benefit of providing a single service for application developers to authenticate against in order to obtain users' health information, without having to integrate with multiple services individually.
-Additionally, all data is represented using standardized models and format (JSON) of which we present an example below.
+Additionally, all data is represented using standardized models and format (JSON) of which we present an example below. \cite{HumanAPI}
 
 %They have an API that contains multiple different well defined JSON strings for different kinds of human related data.
 %Each JSON string contains all the necessary information that is needed to represent each type of health data.
@@ -289,13 +289,13 @@ Additionally, all data is represented using standardized models and format (JSON
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
-\subsection{android-heart-rate-monitor} \nocite{AndroidHeartRateMonitor}
+\subsection{android-heart-rate-monitor}
 \label{subsec:hr}
 
 android-heart-rate-monitor is an open source (Apache 2.0 license) Android application that can be used to measure the user heart rate. 
 The application uses the phone's camera and flash to compute \'redness\' levels on user's fingertips. 
 These are supposed to increase in correspondance with heartbeats.
-The application computes an average \'redness\' value and uses that to detected heartbeats and calculate a beats per minute (BPM) measurement.
+The application computes an average \'redness\' value and uses that to detected heartbeats and calculate a beats per minute (BPM) measurement. \cite{AndroidHeartRateMonitor}
 
 %According to the author, it takes around thirty seconds to get an accurate reading.
 %It measures the heart rate of the user with help of the camera and flash light on the phone.
@@ -303,11 +303,11 @@ The application computes an average \'redness\' value and uses that to detected 
 %-----------------------------------
 % SUBSECTION 4
 %-----------------------------------
-\subsection{Open eHealth Foundation} \nocite{OpenEHealthFoundation}
+\subsection{Open eHealth Foundation}
 
 The goal of Open eHealth Foundation is to create and share open source software components for the healthcare ICT industry.
 One of their products is an integration platform called Open eHealth Integration Platform (IPF).
-It is based on Apache Camel and has support for connecting systems in the eHealth domain.
+It is based on Apache Camel and has support for connecting systems in the eHealth domain. \cite{OpenEHealthFoundation}
 
 
 %-----------------------------------
@@ -341,36 +341,36 @@ It also contains some other technologies that were needed in the project.
 %-----------------------------------
 \subsection{Server}
 
-\textbf{Java} \nocite{Java}
+\textbf{Java}
 
 Java is a general-purpose programming language, which means that it can be used in a wide variety of application domains.
 It is platform independent, and thus makes it easy to develop software for different operation systems.
 Web programming is one of the domains that Java is used for, hence makes it possible to write a service that runs in the back-end of a website.
 The web services created with Java allows creating a bridge between the database and the front-end. 
-This makes it possible to create a communication between the user and the database at the server.
+This makes it possible to create a communication between the user and the database at the server. \cite{Java}
 
-\textbf{Spring Framework} \nocite{SpringFramework1}\nocite{SpringFramework2}
+\textbf{Spring Framework}
 
 The Spring Framework is an open source application framework and inversion of controll container for Java. 
-We use the Spring framework to set up a RESTful service and to handle the data access from the database. 
+We use the Spring framework to set up a RESTful service and to handle the data access from the database. \cite{SpringFramework1}\cite{SpringFramework2}
 
-\textbf{Apache Tomcat} \nocite{ApacheTomcat}
+\textbf{Apache Tomcat}
 
 Apache Tomcat is an implementation of the JSP (JavaServer Pages) and Java Servlet technologies.
 It makes it possible to deploy and run a website with its services on a server.
-Numerous industries and organizations use the Tomcat server as it has support for large-scale and mission-critical web applications.
+Numerous industries and organizations use the Tomcat server as it has support for large-scale and mission-critical web applications. \cite{ApacheTomcat}
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 \subsection{Database}
 
-\textbf{MySQL} \nocite{MySQL}
+\textbf{MySQL}
 
 MySQL is one of the most widely used relational database management system.
 The MySQL Community Edition is open source and freely available.
 It is developed to handle large databases, support many users at the same time and it is also scalable.
-It makes it possible to store and retrieve data in an efficient and structured manner.
+It makes it possible to store and retrieve data in an efficient and structured manner. \cite{MySQL}
 
 \textbf{MySQL Workbench}
 
@@ -383,68 +383,68 @@ We used MySQL Workbench for database design and deployment both locally (for tes
 %-----------------------------------
 \subsection{Website}
 
-\textbf{HTML5} \nocite{HTML5}
+\textbf{HTML5}
 
 HTML is the standard World Wide Web's markup language, where HTML5 is the newest HTML version as of this writing.
 It is used to structure and visualize web pages on the internet.
-By writing a document with HTML a web browser is later on able to interpret the document and visualize it in a structured manner.
+By writing a document with HTML a web browser is later on able to interpret the document and visualize it in a structured manner. \cite{HTML5}
 
-\textbf{CSS3} \nocite{CSS3}
+\textbf{CSS3}
 
 CSS describes the look and format of a document written in HTML.
 It allows one to use different fonts, colors and adjust the layout of a web page.
 By using CSS and separating it from the HTML, it is possible to allow multiple pages share the same style.
-Thus it is easier to maintain and adapt the web pages to different environments through CSS.
+Thus it is easier to maintain and adapt the web pages to different environments through CSS. \cite{CSS3}
 
-\textbf{Bootstrap} \nocite{Bootstrap}
+\textbf{Bootstrap}
 
 Bootstrap contains HTML and CSS templates for web designers.
-This makes it easier to make a good looking web page without putting too much effort into the design.
+This makes it easier to make a good looking web page without putting too much effort into the design. \cite{Bootstrap}
 
-\textbf{JavaScript} \nocite{JavaScript}
+\textbf{JavaScript}
 
 JavaScript is an interpreted computer programming language that runs in the browser of the user.
 It is allowed to make changes in the HTML DOM, interact with the user, control the browser and communicate asynchronously.
 Since it can communicate with the server asynchronously, it makes the web page more dynamic.
-What this means is that a web page can acquire new information and change the site without reloading.
+What this means is that a web page can acquire new information and change the site without reloading. \cite{JavaScript}
 
-\textbf{jQuery} \nocite{jQuery}
+\textbf{jQuery}
 
 jQuery is a JavaScript library for manipulating and traversing the HTML DOM.
 All the features jQuery contains are also possible to do with pure JavaScript, but jQuery helps the developer to
 implement the different features in an easier way.
 For example it contains predefined methods for event handling and animation.
-It also makes it easier to communicate with the server through AJAX.
+It also makes it easier to communicate with the server through AJAX. \cite{jQuery}
 
-\textbf{Chart.js} \nocite{Chartjs}
+\textbf{Chart.js}
 
 Chart.js is a JavaScript library for creating graphs and charts.
 It helps the developer to visualize data through different types of graphs in an easy manner.
 The library has support for different types of two dimensional data, e.g. value per time.
-It also has the ability to display multiple graphs in the same chart.
+It also has the ability to display multiple graphs in the same chart.  \cite{Chartjs}
 
 %-----------------------------------
 %	SUBSECTION 4
 %-----------------------------------
 \subsection{Mobile Technologies}
 
-\textbf{Android SDK} \nocite{AndroidSDK}
+\textbf{Android SDK}
 
 Android SDK contains the tools necessary for developing, debugging and testing an Android app.
-With the SDK it is possible to write and modify applications for an Android phone.
+With the SDK it is possible to write and modify applications for an Android phone. \cite{AndroidSDK}
 
 %-----------------------------------
 %	SUBSECTION 5
 %-----------------------------------
 \subsection{Other Technologies}
 
-\textbf{Maven} \nocite{Maven}
+\textbf{Maven}
 
 Maven is a software tool for managing a programming project.
 It has the ability to build and compile programming code based on the content of a POM (Project Object Model) file.
-It keeps track of all the frameworks used, and is able to download them before building the project.
+It keeps track of all the frameworks used, and is able to download them before building the project. \cite{Maven}
 
-\textbf{Git} \nocite{Git}
+\textbf{Git}
 
 Git is a version control system that is free and open source.
 This is an important tool to keep track of all the changes made to the source code, it also makes it easier for multiple developers to work on the same source.
@@ -452,7 +452,7 @@ Git makes it easy to roll back changes made to the code, in case something was w
 It also has the possibility to divide the project into different branches.
 Which means that the code can be copied into multiple different places, and developed separately in cases where trying out different solutions is necessary.
 If a good solution is made, the branch can later on be merged together with the main branch.
-It is also possible to have a branch for release versions and a development branch.
+It is also possible to have a branch for release versions and a development branch. \cite{Git}
 
 %-----------------------------------
 %	SUBSECTION 6
@@ -476,17 +476,17 @@ This made it clear for us to use those technologies.
 %In this section we are going to go through some of the testing frameworks used in our project.
 In this section we are going to go through some of the testing frameworks explored during our preliminary study.
 
-\subsection{JUnit} \nocite{JUnit}
+\subsection{JUnit}
 
 JUnit is a Java framework for writing tests. It is also a good tool when using test driven development.
 With help of this framework it is possible to write tests for different parts of the code, then check if it runs as it should.
 It is also possible to use JUnit with Maven.
-When doing so it will first run all the tests, and if the tests are successful the application will be executed.
+When doing so it will first run all the tests, and if the tests are successful the application will be executed. \cite{JUnit}
 
-\subsection{Jasmine} \nocite{Jasmine}
+\subsection{Jasmine}
 
 Jasmine is a framework for testing JavaScript code.	
-It doesn't require a DOM and is also not dependent on any other frameworks.
+It doesn't require a DOM and is also not dependent on any other frameworks. \cite{Jasmine}
 
 \subsection{Conclusion}
 
