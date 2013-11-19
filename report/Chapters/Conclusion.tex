@@ -1,82 +1,94 @@
-\chapter{Results and conclusion}
+\chapter{Conclusion}
 \label{ch:conclusion}
-\lhead{Chapter 14. \emph{Results and conclusion}} 
+\lhead{Chapter 14. \emph{Conclusion}} 
 
-%This chapter discusses our results.
+In this chapter we provide a conclusion for this work and outline some
+starting points for further work.
 
-%\section{Results}
+\section{Conclusion}
 
-This project involved designing and developing a number of interoperable systems consisting of:
-\begin{itemize}
-\item an integration platform
-\item a web front-end %using a combination of HTML, CSS, JS, jQuery and AJAX
-\item two Android applications
-\item a web application using JSP
-\end{itemize}
-to analyse the feasibility for a national scale eHealth project to leverage the wide availability of devices like smartphones and other proprietary solutions like HealthVault.
+We were definitely happy with the project's task which led us to study trending topics
+like eHealth and self-quantification. Although we had no previous experiences in designing and developing a web API,
+we found it interesting and enjoyable. This resulted in a proactive participation by the group
+in the improvement and proposal of requirements, a process which in turn made the project even more interesting
+for us to work on.
 
-We have designed and implemented an integration platform as a Spring based web application.
-This application exposes a JSON based API through which it is possibile to exchange data models representing health measurements such as heart rate and weight.
-The web application is deployed using Apache Tomcat and implements persistency using a MySQL database.
+Preliminary studies have shown a number of existing solutions
 
-\clearpage
-The remaining systems have been developed to demonstrate:
-\begin{enumerate}[a.]
-\item the functionality of the integration platform by using its API to store and retrieve health measurements
-\item the feasibility of integrating with already existing third-party solutions such as Microsoft's HealthVault
-\item the difficulty for third-party developers to use the API to make their applications interoperable with the integration platform
-\end{enumerate}
 
-Our results outline not only the possibility to leverage handheld devices, which we have demonstrated using the \textit{Heart rate} application, but also the ease with which third-party developers can make their application interoperable with our implementation of the integration platform.
-In fact, this has been accomplished with less than 100 LOC.
-Additionally, our \textit{Weight} application and \textit{HealthVault integration service} have shown how it is possible to integrate information from other solution provides as well.
 
 Our architectural design choices for the integration platform make it well suited to be scaled up.
-The integration platform in fact, consists of a web application and a database which can be deployed separately, reducing the amount of resources needed on a single machine.
-The same applies to the front-end as well because it interacts with the integration platform using its API just like any other application and therefore does not rely on being deployed on the same machine.
-Furthermore, because we are not employing a classical SOAP client-server architecture but a more lean, REST-like one, the implementation can be considered lightweight in term of resources and it is easier for application developers to interact with.
+The integration platform in fact, consists of a web application and a database which can be deployed separately,
+reducing the amount of resources needed on a single machine.
+The same applies to the front-end as well because it interacts with the integration platform using its API just like
+any other application and therefore does not rely on being deployed on the same machine.
+Furthermore, because we are not employing a classical SOAP client-server architecture but a more lean, REST-like one,
+the implementation can be considered lightweight in term of resources and it is easier for application developers to interact with.
+
+\section{Further work}
+
+There are certainly many limitation to our product, as described in \ref{subsec:limitations}, which we believe should be
+the focus of further work. In this section we present our suggestions on how to overcome said limitations.
+
+\textbf{API design}
+A functional system should have a much more extensive and complete API which should be
+thoroughly documented and accompanied by a number of examples and libraries which
+would contribute to reduce the development effort for third-parties.
+Data models should be complete and able to represent a meaningful amount of information,
+and possibly exhibit some degree of interoperability with other established standards
+such as HL7\footnote{www.hl7.org}, DICOM and CEN's TC/251.
+
+\textbf{Deployment}
+The actual architecture makes it possible with some slight refactoring to simply separate
+the codebase of the backend and the frontend and deploy them individually on separate machines.
+Also, connecting to a database on a different machine can be achieved by simply
+modifying the connection address.
+
+\iffalse \textbf{Authentication} \fi
 
 
-%%% this is not further work, it looks like a conclusion.
-%%% it should be reworked and moved to the 'summary' subsection below or even better in the
-%%% evaluation chapter together with the 'third-party applications' subsection
-\iffalse
-Our NIPEN implementation and the belonging applications are mostly a proof of concept. 
-The most important task of the client to do next will be to figure out if there is an interest in Helsenorge for this type of system.
-The most important factor for this system is the value it delivers to the educated medical professionals. 
-If this is something that gives the medical professionals additional value and makes it easier for them to understand the patiens health. 
-A cost and benefit analysis of this system needs to be done to analyse the total value this system will give will be an important factor in deciding where to go next.
-The thought is that citizens can collect all types of health data and that even though their measurements might be imprecise that quantity of health data will overall improve the quality.
-This system is definitely possible to implement at a larger scale at a high cost.
-The toughest part will be to convince the medical professionals to start using new methods and systems. 
-Many will be pessimistic for this kind of system knowing that the data at some degree could not be dependent upon.
-The important part to consider then is that even though specific data might be inaccurate it will be a lot easier to analyse trends and get a sense of the citizens habits. 
+\textbf{Authorization}
+Our suggested approach is to implement an OAuth\footnote{www.oauth.net} based authorization mechanism
+for third-parties applications. Users should be able to allow different third party applications limited access
+to their account, for example only to weights measurements.
+%It should not be a problem to apply OAuth to NIPEN.
+%The functionality that NIPEN needs to implement is a capability of registering third party applications.
+Whenever third party applications are registered, they should be associated on the system with a client ID which
+should then be returned to the the application itself.
+When a user allows access to an application an access token representing the level of authorization should be sent
+to the specified application, so it gets partial access to the users NIPEN account.
+At any time users should be able to remove the applications access to NIPEN.
 
-The value of this system can be hard to measure but already many people today do these kinds of measurements and the adaption is increasing. 
-Earlier this year Pew Research Center’s Internet \& American Life Project released their findings of the role of Internet and technology in health and wellness. 
-Their report, Tracking for Health can be found here http://pewinternet.org/Reports/2013/Tracking-for-Health.aspx, is focused on how people self-track.
-In the research paper they found that 7 out of 10 adults track their health.
-While 1 in 5 use technology to log this. 
-What is important to note from the findings they did is that over half of those who keep a record of their health indicate that their tracking and recordkeeping has changed their approach to health.
-The conclusion that can be taken from this is that the act of tracking alone affects the overall health and mindset of the citizen. 
+A summary of how this would work is given in the example below, which illustrates how \iffalse the granting of
+permission\fi authorization would work with our heart rate application:
 
-\subsection{Third-party applications}
+\begin{enumerate}
+\item User starts the heart rate application.
+\item User wants to grant the application access to push heart rate measurements to NIPEN.
+\item User is redirected to the website of NIPEN.
+\item User logs in to NIPEN (with e.g. BankID).
+\item NIPEN asks the user if he wants to grant the heart rate application access to push heart rate data into NIPEN.
+\item If user agrees, an access token is sent to the heart rate application.
+\end{enumerate}
 
-We developed three applications all interacting with our implementation of NIPEN. 
-The idea behind making a portal like this is to open the API up to all developers so the NIP can be interoperable between all platforms, systems, applications and users. 
-The ideal goal is to have a platform that reaches all types of users. 
-The total cost of the project can be lowered by this because support for the system can be done by the developers of the different third-party applications. 
-It is also possible for some developers to develop proxies for popular third-party applications.
-\fi
+With OAuth we should also expand the JSON messages that are sent to NIPEN.
+They should now contain a client ID and an access token. The client ID is used to identify the application
+\iffalse that is pushing values to NIPEN\fi, while the access token
+is used for authorization. A JSON string for a heart rate measurement would now look like this:
 
-%\section{Summary}
+\begin{lstlisting}[language=json]
+{
+	"clientID": 489431,
+	"accessToken": "safDFSAadsffsasdFDSewfaDSFAdsfaewRETrehhgreeErw",
+	"userId":453,
+	"timestamp":"2013-11-05 12:12:38.0",
+	"value":66,
+	"unit":"bpm"
+}
+\end{lstlisting}
 
+This information should be sent in an encrypted format by using https.
 
-
-%%% this stuff should go in the evaluation chapter
-\iffalse
-We are glad we managed to implement every requirement 
-meaning we made a realistic assumptions of what we could accomplish in the given time with the members we had.
-%Although some of the syncronisation did not work ideeal it was not cause by our system but by third-party systems not working ideally. 
-This project is an interesting idea and finding a way to unify the collection of health data of citizens will lead to a better understanding of citizen health and to an \iffalse easier\fi overview of what can be improved for a better quality of life. 
-\fi
+NIPEN will now be able to identify what application is sending data, and is also capable of checking if the application is authorized.
+The user is also able to grant other applications partial access to his/hers account, without giving these applications their credentials.
+Hence, this should be a good way of handling third party applications in NIPEN.
