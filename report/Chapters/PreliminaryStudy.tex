@@ -15,11 +15,6 @@ Additionally, we examine two common development models and explain our reasons b
 Choosing an appropriate development process is vital to any software project.
 It is a choice that has to be made early on because it will influence the planning of the project as well as many other activities. 
 In this section we give a brief description of two common development methodologies we took into consideration for our project and outline the factors that led to chose one instead of the other.
-%We are going to conclude with what type of development methodology we chose and why we chose it.
-%This was one of the first discussions we had before starting the project, since without a good
-%development process a project is often doomed to failure.
-%It is important to divide the work into task and work in a structured manner, in this way we
-%will have a better understanding of where the project is and where it is headed.
 
 %-----------------------------------
 %	SUBSECTION 1
@@ -28,7 +23,7 @@ In this section we give a brief description of two common development methodolog
 %of Waterfall is its requires tasks to be performed in a sequential order.
 
 The Waterfall development process is a \iffalse classical\fi model proposed in the early 70s.
-Waterfall follows a scrict, rigorous top-down approach where all phases of the process are carried out sequentially: before moving to the next phase the preceding ones need to be entirely completed. The project progress is seen as if \'flowing downwards\' through the different phases, hence the name Waterfall. 
+Waterfall follows a strict, rigorous top-down approach where all phases of the process are carried out sequentially: before moving to the next phase the preceding ones need to be entirely completed. The project progress is seen as if \'flowing downwards\' through the different phases, hence the name Waterfall. 
 The development cycle consists of seven distinct phases (see figure \ref{figure:waterfall-model}), each one expected to produce extensive documentation.
 
 %commented out
@@ -83,15 +78,9 @@ Sprints begin with a planning meeting and conclude with a review meeting.
 %initial phase of the project. It can however be changed and adjusted during the development of the product.
 During the sprint planning meeting team members produce a \emph{sprint backlog}: an artifact which defines a set of concrete goals of the sprint and can be seen basically as a \'to-do\' list tasks to be performed.
 Such tasks, which in Scrum's terminology are called \emph{stories} are taken from the \emph{product backlog} which is a prioritized list of the requirements of the product.
-Although a product backlog is usually made during the early stages of the project, it is subject to change in order to accomodate new or modified requirements. 
+Although a product backlog is usually made during the early stages of the project, it is subject to change in order to accommodate new or modified requirements. 
 The person in charge of populating and ordering the product backlog is the \emph{product owner}.
 
-%For each day a daily scrum meeting should be performed.
-%Usually a scrum meeting consists of getting to know what each person did yesterday,
-%what they will do today and if they are facing any problems.
-%A sprint concludes with a sprint review meeting where 
-%An overview of what goals where achieved and which one where not should be made.
-%The meeting can also consist of a demo of the new features implemented. 
 Each day in a sprint begins with a meeting called \emph{daily scrum}. 
 During this meeting which is usually brief, everybody shares the work accomplished since the last daily scrum and their plan for the day, mentioning eventual problems if any. 
 A sprint concludes with a sprint \textit{review meeting} where the team evaluates the work done.
@@ -221,8 +210,6 @@ Basically, a \textit{thing} represents a measurement of some health parameter e.
 </weight>
 \end{lstlisting}
 
-%Additionally it is possible to store and retrieve medical images in \textit{DICOM} format.
-
 %The devices might be weighting scales, step counters, blood glucose monitors and more.
 %While the applications can be different types of mobile, tablet or desktop apps.
 %It is also possible to share the information stored in HealthVault with e.g. family members or a doctor.
@@ -294,7 +281,7 @@ Additionally, all data is represented using standardized models and format (JSON
 
 android-heart-rate-monitor is an open source (Apache 2.0 license) Android application that can be used to measure the user heart rate. 
 The application uses the phone's camera and flash to compute \'redness\' levels on user's fingertips. 
-These are supposed to increase in correspondance with heartbeats.
+These are supposed to increase in correspondence with heartbeats.
 The application computes an average \'redness\' value and uses that to detected heartbeats and calculate a beats per minute (BPM) measurement. \cite{AndroidHeartRateMonitor}
 
 %According to the author, it takes around thirty seconds to get an accurate reading.
@@ -326,6 +313,98 @@ The android-heart-rate-monitor application was used to provide functionality tha
 % starting point for creating the heart rate application that we needed in our project.
 
 
+
+\section{Security concerns}
+
+\subsection{HIPAA - Health Insurance Portability and Accountability Act}
+
+After discussing security with the customer we brought up the topic of HIPAA \cite{HIPAA}. 
+Even though there is no similar act in Norway the customer believed that taking a starting point from HIPAA to discuss the security in NIPEN would be a smart basis. 
+
+\subsubsection{Storage of data}
+When the data is at rest the network should be protected from intrusions.
+The hard drives where the data is stored must be encrypted. \cite{Encryption}
+HIPAA does not specify what type of encryption should be used, they only specify that it should be encrypted.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{../Figures/hipaa.png}
+\caption{HIPAA Compliant Data Center Architecture from www.onlinetech.com}
+\label{figure:HIPAA}
+\end{figure}
+
+\subsubsection{Transportation of data}
+In HIPAA the transportation of data is described that it needs to use Secure Socket Layer. 
+This layer is designed to give communication security over the Internet. \cite{SSL}
+
+\subsubsection{Authentication}
+There are multiple systems already in use today in Norway for authenticating users. 
+Some of the biggest systems are MinId, BankID, Buypass and Commfides.
+The most widespread right now is BankId, with almost 3 million users as of this writing\footnote{\href{https://www.bankid.no/}{https://www.bankid.no/}}.
+It would be worth a consideration to use BankID to authenticate the citizens. 
+The reason behind this is that it is a widespread system and something the citizens are familiar with. 
+
+When considering what type of authentication the medical professionals should use there are multiple factors to consider. 
+Ease of use, efficiency and be able to make an audit trail are some extra factors too consider.
+It might be as successful to develop a separate system of authenticating the health professionals if BankID turns out to be cumbersome and unable to be used in the different situations needed for this system. 
+For HIPAA there needs to be a system to know which information was accessed, when, and by whom. \cite{Audit}
+
+\subsubsection{Giving data to third party systems}
+Not only should this system accept data from third parties. 
+There should also be functionality for exporting data from the system to third party providers. 
+For this to happen there needs to be a system for the end users, the citizens, to understand where and to whom the data is going.
+Any data that is Protected Health Information \cite{PHI}, which is defined as any data classified as health information connected by the patients identifiers, the end user must control how this information is shared. 
+In the end its up to the user who they want to share their data with.
+What could be smart is to introduce a Norwegian certification so that the end user knows that the data providers they want to export their data to follows the rules mentioned in previous subsections. 
+That way it is easier for the user to trust new systems with their sensitive data.
+
+\subsection{OAuth 2.0}
+
+OAuth 2.0 is a protocol that could potentially be used for our integration platform.
+OAuth 1.0 is outdated, and hence we will mainly focus on OAuth 2.0 in this section.
+What this protocol does is that it grants third party applications partial access to a system.
+In our case this could for example be only access to the API concerning heart rates or weights in NIPEN.
+
+%\subsection{What is OAuth?}
+
+Many applications want to have access to an API provider to gain access to a users information.
+However, the user doesn't always want to give his/hers credentials to these applications.
+Lets say that a user wants to have an application that is able to upload images to his/hers facebook account.
+The user doesn't want to give the application the credentials for facebook.
+This would be highly insecure, since once the application has the authentication information of a user it is able to do whatever it wants with the account.
+To handle this we need some kind of protocol, this is where OAuth comes in.
+With OAuth we are able to give a third party application partial access to a system without handing over the credentials of a user.
+This is a token based system, where the application receives a token which grants it access to use some of the systems services.
+
+When a third party app wants to use a system that uses OAuth, it first needs to be registered in that system.
+Under registration the system usually wants some basic information about the application.
+This might include name of the application, a description, logo and etc.
+A redirect URI also needs to be registered.
+This URI needs to use TLS, i.e. must begin with \textit{https}.
+This address is used to send an authentication token from the system to the application.
+After the registration, the application should receive a client ID which is used to identify the application at the system.
+
+Now users should be able to connect the application with theirs account on the system.
+The way it works is that through the application they will be sent to a website of the system the application wants to connect with.
+There the user will be asked if he/she wants to grant permissions to the application.
+If the user agrees, then he/she will be redirected to the applications specified redirect URI with an access token as a parameter.
+The application will now use this token to access the system.
+When the user doesn't want the application to have access to the system any more, he/she can simply disallow the applications access through the systems website.
+
+An example of how OAuth works is given in figure \ref{figure:oauth-in-a-nutshell}.
+In this example we see a website that wants to send images to a users facebook account.
+If the user allows the application access through facebook, then facebook will send an access token to the website.
+Then \textit{www.ImageToFacebook.com} is able to send images to the users account, where the access token is used for authentication.
+The user should be able to disallow the website access at any time on facebooks website. \cite{OAuth}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.0]{../Figures/oauth-in-a-nutshell.png}
+\caption{OAuth in a nutshell}
+\label{figure:oauth-in-a-nutshell}
+\end{figure}
+
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -351,7 +430,7 @@ This makes it possible to create a communication between the user and the databa
 
 \textbf{Spring Framework}
 
-The Spring Framework is an open source application framework and inversion of controll container for Java. 
+The Spring Framework is an open source application framework and inversion of control container for Java. 
 We use the Spring framework to set up a RESTful service and to handle the data access from the database. \cite{SpringFramework1}\cite{SpringFramework2}
 
 \textbf{Apache Tomcat}
