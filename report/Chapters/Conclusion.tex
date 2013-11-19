@@ -7,74 +7,70 @@ starting points for further work.
 
 \section{Conclusion}
 
-We were definitely happy with the project's task which led us to study trending topics
-like eHealth and self-quantification. Although we had no previous experiences in designing and developing a web API,
-we found it interesting and enjoyable. This resulted in a proactive participation by the group
-in the improvement and proposal of requirements, a process which in turn made the project even more interesting
-for us to work on.
+In this document we described the design and implementation of a national integration
+platform prototype and a number of interoperable systems.
 
-Preliminary studies have shown a number of existing solutions
+Preliminary studies have shown a number of similar solutions which have certainly influenced
+this work and our design choices. \verb|human/api| provided a good starting point for API data models,
+but provided restrictions on the sources it could fetch information from.
+HealthVault provided a good example of how we envisioned our product, with the exeception
+of a few details e.g. the language used for the data models.
 
+Our work has outlined some of the most essential functionality an integration platform
+of this kind could offer and assessed its possibility to leverage proprietary
+third-party solutions and modern hand-held devices such as smart-phones.
 
-
-Our architectural design choices for the integration platform make it well suited to be scaled up.
-The integration platform in fact, consists of a web application and a database which can be deployed separately,
-reducing the amount of resources needed on a single machine.
-The same applies to the front-end as well because it interacts with the integration platform using its API just like
-any other application and therefore does not rely on being deployed on the same machine.
-Furthermore, because we are not employing a classical SOAP client-server architecture but a more lean, REST-like one,
-the implementation can be considered lightweight in term of resources and it is easier for application developers to interact with.
+We are confident that our client will find our work valuable for the insight it can provide
+him on the topic and for the use he can make of it in order to stimulate further research
+and development of a technology which we believe will improve the quality of healthcare in years to come.
 
 \section{Further work}
 
-There are certainly many limitation to our product, as described in \ref{subsec:limitations}, which we believe should be
+There are certainly limitations to our product, as described in \ref{subsec:limitations}, which we believe should be
 the focus of further work. In this section we present our suggestions on how to overcome said limitations.
 
-\textbf{API design}
+\textbf{API design}\newline
 A functional system should have a much more extensive and complete API which should be
 thoroughly documented and accompanied by a number of examples and libraries which
 would contribute to reduce the development effort for third-parties.
-Data models should be complete and able to represent a meaningful amount of information,
+Data models should be complete, able to represent a meaningful amount of information
 and possibly exhibit some degree of interoperability with other established standards
-such as HL7\footnote{www.hl7.org}, DICOM and CEN's TC/251.
-
-\textbf{Deployment}
-The actual architecture makes it possible with some slight refactoring to simply separate
-the codebase of the backend and the frontend and deploy them individually on separate machines.
-Also, connecting to a database on a different machine can be achieved by simply
-modifying the connection address.
-
-\iffalse \textbf{Authentication} \fi
+such as HL7\footnote{See www.hl7.org}, DICOM, CEN's TC/251.
 
 
-\textbf{Authorization}
-Our suggested approach is to implement an OAuth\footnote{www.oauth.net} based authorization mechanism
-for third-parties applications. Users should be able to allow different third party applications limited access
-to their account, for example only to weights measurements.
-%It should not be a problem to apply OAuth to NIPEN.
-%The functionality that NIPEN needs to implement is a capability of registering third party applications.
-Whenever third party applications are registered, they should be associated on the system with a client ID which
-should then be returned to the the application itself.
-When a user allows access to an application an access token representing the level of authorization should be sent
-to the specified application, so it gets partial access to the users NIPEN account.
-At any time users should be able to remove the applications access to NIPEN.
+\textbf{API security concerns}\newline
+Users should be able to allow certain third party applications to access
+their data, or parts of it e.g. only to weights measurements.
+In order to do so the system shall have a mean to authenticate third-party applications
+and check their authorization to access a set of user's data.
 
-A summary of how this would work is given in the example below, which illustrates how \iffalse the granting of
-permission\fi authorization would work with our heart rate application:
+Our suggested approach to implement an authorization mechanism for third-parties
+applications is to use OAuth\footnote{See www.oauth.net}.
+To authenticate third party applications, they should be registered on the integration
+platform by their developers and granted a secret client-ID which is to be sent along every
+request being made.
+When an authenticated application request access to user's data, the user
+is prompted to authorize the application.
+Upon successful authorization by the user, the application is provided
+a token representing the level of authorization granted, e.g. what kind of information
+it is allowed access to. Of course, all communication should be encrypted using HTTPS.
 
-\begin{enumerate}
-\item User starts the heart rate application.
-\item User wants to grant the application access to push heart rate measurements to NIPEN.
-\item User is redirected to the website of NIPEN.
-\item User logs in to NIPEN (with e.g. BankID).
-\item NIPEN asks the user if he wants to grant the heart rate application access to push heart rate data into NIPEN.
-\item If user agrees, an access token is sent to the heart rate application.
+A summary of how this would work is given in the example below, which illustrates how this
+process would work with our heart rate application:
+
+\begin{enumerate}[1.]
+\item The developers register the application an receive a client-ID
+\item User starts the heart rate application
+\item The application redirects the user to NIPEN's webpage
+\item NIPEN authenticates the application against its client-ID
+\item The user authenticates himself on NIPEN's website (e.g. using BankID)
+\item The user authorizes the application, granting it access to some specific health information
+\item An access token is sent to the heart rate application
 \end{enumerate}
 
-With OAuth we should also expand the JSON messages that are sent to NIPEN.
-They should now contain a client ID and an access token. The client ID is used to identify the application
-\iffalse that is pushing values to NIPEN\fi, while the access token
-is used for authorization. A JSON string for a heart rate measurement would now look like this:
+This approach involves sending along two additional parameters, client-ID and the access token,
+with every request. This implies that JSON data models should be review to contain both,
+see below an example.
 
 \begin{lstlisting}[language=json]
 {
@@ -87,8 +83,14 @@ is used for authorization. A JSON string for a heart rate measurement would now 
 }
 \end{lstlisting}
 
-This information should be sent in an encrypted format by using https.
 
-NIPEN will now be able to identify what application is sending data, and is also capable of checking if the application is authorized.
-The user is also able to grant other applications partial access to his/hers account, without giving these applications their credentials.
-Hence, this should be a good way of handling third party applications in NIPEN.
+OAuth is a solid solution for securing APIs and is used by major companies such as:
+Facebook, Twitter, Microsoft, Google, Amazon\ldots
+We invite readers to lookup these companies API developers pages for more
+informations.
+
+\textbf{Deployment}\newline
+The actual architecture makes it possible with some slight refactoring to simply separate
+the codebase of the backend and the frontend and deploy them individually on separate machines.
+Also, connecting to a database on a different machine can be achieved by simply
+modifying the connection address.

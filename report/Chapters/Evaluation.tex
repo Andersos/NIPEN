@@ -13,14 +13,18 @@ Additionally, we talk about social dynamics within the group and with involved p
 
 We were happy with our final product and satisfied with the amount of work we could actually accomplish.
 This was thanks to having agreed with the customer on the scope of the problem and by having re-used a
-lot of open-source code.
+lot of open-source code. We were definitely happy with the project's task which led us to study trending topics
+like eHealth and self-quantification. Although we had no previous experiences in designing and developing a web API,
+we found it interesting and enjoyable. This resulted in a proactive participation by the group
+in the improvement and proposal of requirements, a process which in turn made the project even more interesting
+for us to work on.
 
 \subsection{Results}
 
 This project involved designing and developing a number of interoperable systems consisting of:
 \begin{itemize}
 \item an integration platform
-\item a web front-end %using a combination of HTML, CSS, JS, jQuery and AJAX
+\item a web front-end
 \item two Android applications
 \item a web application using JSP
 \end{itemize}
@@ -28,8 +32,8 @@ to analyze the feasibility for a national scale eHealth project to leverage the 
 like smartphones and other proprietary solutions like HealthVault.
 
 We have designed and implemented an integration platform as a Spring based web application.
-This application exposes a JSON based API through which is possible to exchange data models representing health
-measurements such as heart rate and weight.
+This application exposes a JSON based API through which is possible to exchange data models
+representing health measurements such as heart rate and weight.
 The web application is deployed using Apache Tomcat and implements persistence using a MySQL database.
 
 %\clearpage
@@ -43,10 +47,18 @@ The remaining systems have been developed to demonstrate:
 Our results outline not only the possibility to leverage handheld devices, which we have demonstrated
 using the \textit{Heart rate} application, but also the ease with which third-party developers can make
 their application interoperable with our implementation of the integration platform.
-In fact, this has been accomplished with less than 100 LOC.
+In fact, this has been accomplished in both Android applications with less than 100 LOC.
 Additionally, our \textit{Weight} application and \textit{HealthVault integration service} have shown how
 it is possible to integrate information from other solution provides as well.
 
+Our architectural design choices make the platform well suited to be scaled up and
+complemented with security practices. The integration platform in fact, consists
+of a web application and a database which can be deployed separately, reducing the amount of resources
+needed on a single machine. The same applies to the front-end as well because it interacts with the
+integration platform using its API just like any other application and therefore does not rely on being
+deployed on the same machine. Furthermore, because we are not employing a classical SOAP client-server
+architecture but a more lean, REST-like one, the implementation can be considered lightweight in term of
+resources and easier for application developers to interact with.
 
 \subsection{Requirements}
 
@@ -101,28 +113,19 @@ What we present here is a list of the most remarkable limitations of our product
 
 \textbf{API design}\newline
 At the moment the API only supports two types of data models: weight and heart rate measurements.
-%and only two types of operations on these: create and read.
 The design of an API's data models will have a key role in its success and adoption by
 third-parties. What we proposed are two very simple models which include minimal information.
-\iffalse
-A functional system should have a much more extensive and complete API
-which should be thoroughly documented and accompanied by a number of examples and/or libraries.
-Data models should be complete and able to represent a meaningful amount of information,
-and possibly exhibit some degree of interoperability with other established standards.
-\fi
 Furthermore, the API is not implementing the basic features of persistent storage (CRUD)
 which are necessary for this kind of solution. Only create and read operations are supported,
-whereas update and delete are totally missing.% We expect these to be quite easy to implement.
+whereas update and delete are totally missing.
 
 \textbf{Security}\newline
 No part of the system implements any form of security.
 This was done to reduce the complexity of the system due to time constraints and size of the group.
 The customer agreed that security was not a requirement of the system, however in a real-world scenario
 appropriate security practices must be adopted.
-Especially in projects of this type and scale, security will be a critical requirement.
-
-%What we discussed in Chapter \ref{ch:security} is meant to be a starting point to understand
-%what these practices contist of.
+Especially in projects of this type and scale, security will be a critical requirement
+to take into consideration when designing the system and the API as well.
 
 \textbf{Multi-user support}\newline
 Some parts of the system such as the API data models, internal data structures and even
@@ -135,26 +138,8 @@ be necessary.
 At the moment both NIPEN, the database and the front-end are deployed together on single server machine.
 It would be desirable to deploy these on different machines as that would reduce
 the amount of resources needed for a single machine especially considering a large userbase.
-%move to further work
-\iffalse
-The actual architecture makes it possible to simply separate the codebase of the backend and the frontend
-and deploy them individually. Also, connecting to a database on a different machine can be
-achieved by simply modifying the connection address.
-\fi
 
-% move to conclusion
-\iffalse
-\section{The project}
-We were definitely happy with the project's task which led us to study trending topics
-like eHealth and self-quantification. Although we had no previous experiences in designing and developing a web API,
-we found it interesting and enjoyable. This resulted in a proactive participation by the group
-in the improvement and proposal of requirements, a process which in turn made the project even more interesting
-for us to work on.
 
-\section{Project management}
-Generally, we are satisfied with our project management.
-%Our planning was 
-\fi
 
 \section{Development process}
 All in all, we were satisfied with our choice of Scrum and how we adapted
@@ -253,7 +238,7 @@ Although having a small team means that flexibility in group composition is abse
 the technical skill pool is reduced it is important to realize that a small team
 can be more easily motivated and achieve a higher degree of cooperation.
 To do so, care should be taken into not letting any member of the group become
-a \'black sheep\'. Team members should respect each others and their respective work,
+a 'black sheep'. Team members should respect each others and their respective work,
 nobody should feel less important or cut out of the decision making process.
 
 \textbf{Distance matters}\newline
@@ -270,7 +255,7 @@ to be more specific about what parts of the documentation he should have focused
 %\textbf{Relations}\newline
 We were definitely pleased with our relations with the customer.
 Since our first meeting he was able to explain what would have been the purpose of this project and why
-it was relevant for him. He was able to capture our interest and left the task \'open\' enough to be stimulating for us.
+it was relevant for him. He was able to capture our interest and left the task 'open' enough to be stimulating for us.
 We collaborated in thinking about features that could have made the product more valuable for him.
 The customer was a nice person, smiling and available. He gratified us when he thought we were doing a good job and
 that has motivated us to keep it up and work hard. We were glad to be able to work with him.
