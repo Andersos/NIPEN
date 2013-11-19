@@ -51,7 +51,57 @@ Also, our applications are meant to be a prototype to illustrate how a system li
 And hence security is not necessary.
 \fi
 
-\section{Rationale}
+\section{Architectural drivers}
+
+There are multiple architectural drivers that needed to be taken into consideration during our development.
+In this section we will cover all the main drivers.
+
+\subsection{Functional requirements}
+
+\begin{itemize}
+\item\textbf{NIPEN}: 
+From the functional requirements we see that the data that NIPEN receives and sends must be represented as JSON strings.
+
+\item\textbf{Front-end}: 
+The front-end must be capable of visualizing the data that is stored at NIPEN in form of charts. 
+It must also use helsenorge color-palette.
+
+\item\textbf{Heart rate application}: 
+The heart rate application must be able to measure heart rates with a camera. 
+A visualization of the measured values must be shown on a screen.
+The device that is running this application must also be able to forward the heart rates to NIPEN.
+
+\item\textbf{Weight application}: 
+This application must be able to connect and gather weight data from HealthVault.
+It must also be capable of visualizing this data.
+A connection to NIPEN is also required, so it can send weight measurements represented as JSON strings to the platform.
+
+\item\textbf{HealthVault Integration Service}:
+The integration service must be able to fetch weight data from HealthVault and push it to NIPEN.
+Interaction with the user is also required, since he/she should be able to enable and disable this service.
+\end{itemize}
+
+\subsection{Non-functional requirements}
+
+In the non-functional requirements it is specified that the system must provide a good degree of interoperability.
+This implies that third party applications should be able to communicate with NIPEN.
+The visualization of the values stored in the system must have a degree of accessibility.
+A simple design must be taken into consideration as well when displaying these values.
+
+\subsection{Business constraints}
+\label{subsec:business-constraints}
+
+When it comes to business constraints we must take into account that we are only three people.
+We also have a strict time limit and are not able to postpone the deadline.
+
+\subsection{Technical constraints}
+
+The customer didn't give us any specific technical constraints.
+He did however give us a choice between two server technologies we could use.
+The choice consisted between a Windows Server and an Ubuntu Server.
+
+All of our group members did only have android phones, and thus we were restricted to develop mobile applications specificity for this platform.
+% we used android, thus Java etc...
 
 \begin{figure}[h]
 \centering
@@ -611,4 +661,67 @@ The polling service is illustrated in figure \ref{figure:weight-polling-service}
 \label{figure:weight-polling-service}
 \end{figure}
 
-\section{Conclusion}
+\section{Rationale}
+
+We had to make multiple important choices in technologies before starting our development process.
+Why we choose the different solutions is discussed in this section.
+
+\subsection{Evolutionary architecture}
+Duo to the lack of resources and time constraints we needed to apply a sort of evolutionary architecture during our development process.
+In this way we could start of with a simple application and add functionalities to it later on.
+We started of by implementing the functionalities regarding the heart rates. 
+Later on we added support for weights.
+Since an architectural driver was that the system needed to have a degree of interoperability, we were able to develop our front-end, heart rate application and both of our weight applications separately.
+This was accomplished by defining the interfaces, i.e. the data models that are being sent between NIPEN and the applications, early on.
+Because of this it was easy to add applications to the system at a later point.
+
+\subsection{Communication}
+
+Since we are making an integration platform we needed to decide in what way this system should interact with other applications.
+Communication can be performed with a RESTful service or SOAP.
+However, from the functional requirements it was already specified that the system needed to receive and forwards data in form of JSON strings.
+SOAP mainly uses XML and hence a RESTful service was a better choice.
+This type of service doesn't require any specific format of data that is sent or received, whereas SOAP has some strict rules.
+With REST we have the possibility to send raw JSON strings between our applications.
+JSON strings are also easily handled by JavaScript.
+Although we are not implementing all of the methods REST supports we are covering the most important ones, this includes GET and POST for receiving and sending data respectively.
+
+\subsection{Visualization of data}
+
+The functional requirements claimed that we needed a front-end for visualizing the data that NIPEN had gathered.
+A non-functional requirement said that it also needed to have a degree of accessibility.
+Hence we though that a web page would be the best way of visualizing the data.
+A desktop application would not be a good choice, since it would restrict the accessibility.
+Users would then need to download the application in order to view the data.
+We would also need to take into consideration what platforms the application should support.
+Hence it was a much easier solution to use a web page.
+
+The front-end also needed to visualize this data in form of charts.
+Duo to time requirements and lack of resources we decided to use a open source library for this task.
+Hence we chose Chart.js for this task.
+To make it easier for us to develop the front-end we also used jQuery and Bootstrap.
+jQuery was a good choice since we already had some experience with this framework.
+
+\subsection{Server technologies}
+
+The customer gave us a choice between a Windows Server and an Ubuntu Server.
+Since some of us already were familiar with Linux we chose the Ubuntu Server.
+We decided to develop the server application in Java with Spring as a framework for helping us to implement the API endpoints.
+This is because all of us already were familiar with Java, and some of us also had some experience with Spring.
+
+\subsection{Mobile applications}
+
+For the heart rate application we needed a programmable device with an internet connection, a camera and a screen.
+The weight application needed mainly a screen and an internet connection.
+Since all of us already had an android mobile we choose to develop our heart rate and weight application for these devices.
+
+\subsection{Existing solutions}
+
+We are using mainly existing solutions for the application that are sending values into NIPEN.
+This is because of the business constraints covered in subsection \ref{subsec:business-constraints}.
+The reason we chose the selected applications as our base is because they already contained all the main functionality that were needed in our situation.
+The base for the heart rate application was able to measure heart rates.
+It was also developed for Android using Java and Android SDK.
+We were already familiar with these technologies, and hence we thought that this open source application would be a good starting point for our heart rate application.
+The foundation of the weight application and the HealthVault integration service had already implemented communication with HealthVault.
+In addition it was programmed in Java which we already were familiar with.
