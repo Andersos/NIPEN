@@ -527,11 +527,46 @@ Before we started this project we discussed our competencies.
 This was of great help in choosing the right technologies that were going to be used.
 Most of us already had some different degree of experience in most of the technologies mentioned above.
 This made it much easier for us to chose the right set of frameworks and languages to work with.
-For example from table \ref{table:competencies} we can see that all of us were very familiar with Java, Git and SQL.
-This made it clear for us to use those technologies.
+%For example from table \ref{table:competencies} we can see that all of us were very familiar with Java, Git and SQL.
+%This made it clear for us to use those technologies.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 5
+%----------------------------------------------------------------------------------------
+\section{Communication}
+
+Communication is an important functionality of an integration platform.
+In this section we will cover some methods that can be used for interaction between clients and servers. 
+
+\subsection{REST}
+REST stands for Representational State Transfer and is a way of communicating between clients and servers.
+The clients are able to send HTTP requests to a RESTful service by using the following methods:
+
+\begin{itemize}
+\item \textit{GET}: This can be used to list all the elements of a collection, or a specific element if its ID is specified in the URL.
+\item \textit{POST}: Creates a new entry in the collection based on the sent data.
+\item \textit{PUT}: Can be used to replace a collection with the one that is sent as input. If an input is sent that identifies an element in the collection then the element is replaced by the one that is sent. If the element does not exist, then it is created.
+\item \textit{DELETE}: Deletes the entire collection, if an ID is specified then the particular element is deleted.
+\end{itemize}
+
+This type of service does not have any specific requirements for how the format of the data, that is sent, should look like. \cite{REST}
+
+\subsection{SOAP}
+SOAP (Simple Object Access Protocol) is a protocol for exchanging information between web services in a network.
+This protocol mainly uses XML during communication.
+There are some strict rules for how the format of the XML string should look like.
+It needs to contain an envelope and a body, in addition it can also contain a header and a fault.
+The envelope tells that the message that is being sent is a SOAP message, and the body contains the main information that is being sent.
+A header can contain header information, and fault tells if there were some errors during the processing of the message. \cite{SOAP}
+
+\subsection{Conclusion}
+
+Since SOAP uses XML and has strict rules for how the data format should be, we find a RESTful service more appealing for our solution.
+With rest it is possible to send raw JSON strings with a custom defined format.
+JSON strings are much easier to handle and manipulate on a web based front-page, by using JavaScript.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 6
 %----------------------------------------------------------------------------------------
 \section{Testing}
 \label{section:testing}
