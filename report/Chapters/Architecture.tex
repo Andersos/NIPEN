@@ -3,58 +3,33 @@
 
 \lhead{Chapter 5. \emph{System architecture}}
 
-%In this chapter we are going to give a description of the system architecture.
 This chapter describes the system architecure in detail.
 We follow a top-down approach, giving an overview of the architecture and then detailing each part in a separate section.
-%We start this chapter with an overview, where we give an abstract description of our project.
-%Then we are going to give a more thorough description of each of our applications.
 
 \section{Overview}
 
-%In order to study the possibilities of leveraging modern mobile phones in an integration platform
-%we developed a product consisting of multiple, interoperable systems which include:
-The product consists of multiple, interoperable systems including:% that communicate with each other.
-%The applications are listed below:
+The product consists of multiple, interoperable systems including:
 \begin{enumerate}[1.]
 	\item an integration platform (\textit{NIPEN})
 	\item a front-end to the integration platform
 	\item two Android applications
-	\item a web service%to showcase HealthVault interoperability
+	\item a web service
 \end{enumerate}
 
 Figure \ref{figure:architecture} shows the overall system architecture.
-
 In the following sections we provide a detailed description of the each part of the system.
-%an abstract architecture is given of how our applications communicate with each other.
 
-%%
-\iffalse
-%% we talk about this more in detail in other sections
-NIPEN or NIP is our server application that consists of an API and a database.
-This application is capable of receiving weight and heart rate data and store them in a database.
-It is also able to retrieve data from the database and then send it to our front-end, which then visualizes the information sent.
-For instance the heart rate application is capable of measuring a heart rate and then send it to the integration platform.
-The two last applications are able to fetch weight data from HealthVault and send it to NIP.
-The main difference between them is that the \textit{Weigh Application} runs on an Android device, while the \textit{HealthVault Integration Service} runs on a server or a computer.
-\fi
-
-\iffalse
-% * these are some limitations to our product. should we have a separate section maybe in the conclusion for these? *
-We didn't want to make our applications to complicated, duo to time restriction and lack of resources.
-Thus we have only concentrated on one user.
-What this means is that we have not implemented functionality for storing and displaying data for multiple users.
-However our data structures and database tables support more than one user, since they all contain a user ID.
-We have however not implemented any logic to handle several users, this was after all not a requirement.
-In addition our systems doesn't contain any type of security, i.e. no authentication or data encryption.
-The reason for this is that our customer was explicit that security was not a requirement.
-Also, our applications are meant to be a prototype to illustrate how a system like this would work.
-And hence security is not necessary.
-\fi
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{../Figures/architecture.pdf}
+\caption{System architecture}
+\label{figure:architecture}
+\end{figure}
 
 \section{Architectural drivers}
 
-There are multiple architectural drivers that needed to be taken into consideration during our development.
-In this section we will cover all the main drivers.
+In this section we discuss the architectural drivers that have been taken into consideration
+during the design phase.
 
 \subsection{Functional requirements}
 
@@ -91,47 +66,47 @@ A simple design must be taken into consideration as well when displaying these v
 \subsection{Business constraints}
 \label{subsec:business-constraints}
 
-When it comes to business constraints we must take into account that we are only three people.
-We also have a strict time limit and are not able to postpone the deadline.
+We had to take into consideration that unlike other software projects, our deadline is final
+and cannot be postponed. Furthemore, the size of our group put some limitations
+to the complexity of our solution.
+%When it comes to business constraints we must take into account that we are only three people.
+%We also have a strict time limit and are not able to postpone the deadline.
 
 \subsection{Technical constraints}
 
-The customer didn't give us any specific technical constraints.
-He did however give us a choice between two server technologies we could use.
-The choice consisted between a Windows Server and an Ubuntu Server.
+The project didn't have any specific technical constraints.
+However, our choices regarding the deployment platform led inevitably to some technical
+constraints. We were also limited to use freely available software only.
 
-All of our group members did only have android phones, and thus we were restricted to develop mobile applications specificity for this platform.
+%He did however give us a choice between two server technologies we could use.
+%The choice consisted between a Windows Server and an Ubuntu Server.
+
+Additionally, we could only use Android phones for our mobile application prototypes
+since none of us owned other devices. This implied that our mobile applications
+had to use Android-compabitible technologies e.g. the Dalvik virtual machine.
+Upon deciding to support HealthVault, we were limited by its choice of
+technologies as well.
+%All of our group members did only have android phones, and thus we were
+%restricted to develop mobile applications specificity for this platform.
 % we used android, thus Java etc...
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.5]{../Figures/architecture.pdf}
-\caption{System architecture}
-\label{figure:architecture}
-\end{figure}
 
 \section{NIPEN}
 
 NIPEN is the core of our product. 
 It is an implementation of a web API for the storage and retrieval of health information.
-%To provide such functionality, we had to define a \textit{model} (a representation) of the information itself.
 Together with the customer, we identified two types of health measurements that would be supported by NIPEN: heart rate and weight.
+\iffalse
 We chose these because these were common mesurements.
 The phone can with ease messure the heart rate.
 We also had a weight that had wifi capabilities.
-%This choice was motivated by the fact that both are easy to obtain using mobile phones. what about weight?
+\fi
 For each of these measurements we designed a \textit{model}, that is a digital representation of the information, which we describe in detail subsection \ref{subsec:models}.
 NIPEN is exposing an API that other applications can use to interoperate with it.
 The API is presented in subsection \ref{subsec:api}.
 
-%NIPEN is an integration platform for two data types, namely heart rate and weight measurements.
-%By using the HTTP methods GET and POST it is possible to retrieve and store data into NIP, respectively.
-%The following subsection provides a more detailed explaination of how we achieved that.
-%How this works is explained in this subsection.
-
 \subsection{Architectural pattern}
 
-A class diagram containing the most important classes and methods of our system is given in figure \ref{figure:nipen-class-diagram}.
+A class diagram containing the most important classes and methods of our system is shown in figure \ref{figure:nipen-class-diagram}.
 
 \begin{figure}[h]
 \centering
@@ -149,7 +124,6 @@ What this means is that we have divided our application into three main parts: m
 
 \item Model: A model is a data structure that is used within an application.
 In our case the models of our application are: Weight and HeartRate.
-%and DataType. sure but it is just an abstract superclass
 This classes are filled with data from the database and are used when sending data to the front-end.
 They are also used to store data into our database.
 
@@ -207,20 +181,14 @@ A weight model looks pretty much the same (see below), but uses another unit.
 \subsection{Web API}
 \label{subsec:api}
 
-% are we actually using REST?
-% we don't have PUT and DELETE methods, also our entry points are wrong from a REST perspective: different urls
-%A RESTful (Representational State Transfer) service is used when communicating with NIPEN.
 NIPEN exposes a JSON based web API to store and retrieve health information.
 % which other applications can use to interoperate.
-By using a web API, we ensure that the system is accessible to a broad number of users an from a wide
-selection of devices. All that is needed is an internet connection.
+By using a web API, we ensure that the system is accessible to a broad number of users
+an from a wide selection of devices. All that is needed is an internet connection.
 In fact, the API is exposed to the web via a web server, in this case Apache Tomcat 7.
 There were of course a number of alternative web servers we could have used but we sticked
 with Tomcat because we had used it before and it provided all needed functionality.
-Applications can interact with NIPEN by issuing HTTP GET and POST messages to pre-defined URLs
-% to retrieve or store
-%heart rate and weight data models.
-called API endpoints.
+Applications can interact with NIPEN by issuing HTTP GET and POST messages to pre-defined URLs called API endpoints.
 Internally, these methods are handled by Spring \textit{Controllers} which implement the logic of the API.
 Each API endpoint is associated with a resource and an action to be perfomed on it as shown in table \ref{table:api}.
 %What this means is that we are using HTTP methods to request and send data.
@@ -248,26 +216,8 @@ Each API endpoint is associated with a resource and an action to be perfomed on 
 \label{table:api}
 \end{table}
 
-%% reworked the endpoints into a single table.
-\iffalse
-\begin{itemize}
-\item $<$server address$>$/nipen/api/human/heart\_rates
-\item $<$server address$>$/nipen/api/human/weights
-\end{itemize}
-
-The first URL requests all the heart rates, while the second URL requests all the weights stored in the database.
-In figure \ref{figure:retrieve-heart-rates-from-the-database} a sequence diagram is given of how the controller 
-retrieves the data for the user.
-The weight controller works the same way.
-%% maybe too detailed here
-When the controller receives a HTTP GET request, it contacts a data type service which again contacts a
-database handler class.
-The database handler class returns a list of models which is at last returned to the controller.
-The list of models is transformed automatically into JSON string with help of the Spring Framework.
-Both controllers will respond with an array of JSON strings representing the respective data.
-\fi
-
-When an application makes an HTTP GET request at the URL \verb|/nipen/api/heart_rates| it is returned a JSON string representing a collection (array) of all heart rate measurements stored in the database.
+When an application makes an HTTP GET request at the URL \verb|/nipen/api/heart_rates| it is returned a JSON
+string representing a collection (array) of all heart rate measurements stored in the database.
 See below for an example:
 \begin{lstlisting}[language=json]
 [
@@ -291,12 +241,11 @@ See below for an example:
 \label{listing:jsonarray}
 
 Similarly, the application is returned a collection of all weight measurements when making an HTTP GET
-request at: \verb|/nipen/api/weights|. Figure \ref{figure:seqhr} shows
-a sequence diagram for retrieving heart rates.
+request at: \verb|/nipen/api/weights|. Figure \ref{figure:seqhr} shows a sequence diagram for
+retrieving heart rates.
 
 \begin{figure}[h]
 \centering
-%\includegraphics[scale=0.6]{../Figures/retrieve-heart-rates-from-the-database.png}
 \includegraphics[scale=0.8]{../Figures/seqhr.png}
 \caption{Retrieving heart rates from the database}
 \label{figure:seqhr}
@@ -666,7 +615,17 @@ The polling service is illustrated in figure \ref{figure:weight-polling-service}
 We had to make multiple important choices in technologies before starting our development process.
 Why we choose the different solutions is discussed in this section.
 
-\subsection{Evolutionary architecture}
+\subsection{Modular architecture}
+Our choice of a modular architecture, where components could be developed separately,
+allowed us to implement functionality little by little and have demonstrable
+system ready at any time with the use of mockup components if needed.
+This has let us avoid delivering our product all at once, reducing the risk
+of last-minute implementation problems to affect the outcome of the project.
+Additionally, it enabled us to modify the overall system architecture with ease
+if necessary, adding or removing application prototypes.
+
+%Having used a approach were the product was delivered
+\iffalse
 Duo to the lack of resources and time constraints we needed to apply a sort of evolutionary architecture during our development process.
 In this way we could start of with a simple application and add functionalities to it later on.
 We started of by implementing the functionalities regarding the heart rates. 
@@ -674,6 +633,7 @@ Later on we added support for weights.
 Since an architectural driver was that the system needed to have a degree of interoperability, we were able to develop our front-end, heart rate application and both of our weight applications separately.
 This was accomplished by defining the interfaces, i.e. the data models that are being sent between NIPEN and the applications, early on.
 Because of this it was easy to add applications to the system at a later point.
+\fi
 
 \subsection{Communication}
 
@@ -688,13 +648,25 @@ Although we are not implementing all of the methods REST supports we are coverin
 
 \subsection{Visualization of data}
 
+The data gathered by the integration platform had to be shown to users in an intuitive way.
+
+\iffalse
 The functional requirements claimed that we needed a front-end for visualizing the data that NIPEN had gathered.
 A non-functional requirement said that it also needed to have a degree of accessibility.
-Hence we though that a web page would be the best way of visualizing the data.
-A desktop application would not be a good choice, since it would restrict the accessibility.
-Users would then need to download the application in order to view the data.
-We would also need to take into consideration what platforms the application should support.
-Hence it was a much easier solution to use a web page.
+\fi
+
+We figured that a desktop application would have restricted the accessibility
+of the system in a number of ways. Firstly, the user would have had to download
+and install the application. This could be a task that some user are unable to perform.
+Additionally, we would have had to provide support for different platforms such as
+Windows, Mac OSX\ldots.
+Hence, we though that a web page would be the best way to let users visualize
+the data acquired by the system. It permitted us to code the functionality
+once and make it available everywhere.
+
+%Users would then need to download the application in order to view the data.
+%We would also need to take into consideration what platforms the application should support.
+%Hence it was a much easier solution to use a web page.
 
 The front-end also needed to visualize this data in form of charts.
 Duo to time requirements and lack of resources we decided to use a open source library for this task.
