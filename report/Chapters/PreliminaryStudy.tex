@@ -611,11 +611,14 @@ lead to further scalability capabilities and speed.
 REST only requires an HTTP connection.
 
 \textbf{Idempotency and nilpotency}\newline
-\verb|PUT| and \verb|DELETE| methods are idempotent. This means that one nullifies the effects of the other.
-\verb|GET| is nilpotent, meaning that it has no side effects. There are desiderable features considering
-that over a network information gets lost and sent back again and it would not unlikely for an operation
-to be executed twice. Having the possibility to revert changes made to the data could be valuable,
-as well as having a nilpotent operator that has no effect on data itself.
+%\verb|PUT| and \verb|DELETE| methods are idempotent. This means that one nullifies the effects of the other.
+\verb|PUT| and \verb|DELETE| methods are idempotent. 
+This means that after executing these methods once, later execution of this methods will have no effect.
+Because an element can only be replaced or deleted once.
+\verb|GET| is nilpotent, meaning that it has no side effects. There are desirable features considering
+that over a network information is likely to get lost or sent multiple times and it would not unlikely for an operation
+to be executed twice. %Having the possibility to revert changes made to the data could be valuable,
+%as well as having a nilpotent operator that has no effect on data itself.
 
 \textbf{Simplicity}\newline
 REST is simple and that is one big advantage.
