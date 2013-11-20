@@ -28,9 +28,27 @@ In the following sections we provide a detailed description of the each part of 
 
 \section{Architectural drivers}
 
-In this section we discuss the architectural drivers that have been taken into consideration
-during the design phase.
+In this section we discuss the architectural drivers of our design.
 
+Functional requirements did not put any particular constraints to our design choices.
+Regarding our non-functional requirements instead, we were concerned mainly about
+\verb|Scalability|, \verb|Demonstrability| and \verb|Interoperability|.
+
+We had to take into consideration that unlike other software projects, our deadline was final
+and couldn't be postponed. Furthermore, the size of our group put some limitations
+to the complexity of our solution. These were both relevant business constraints.
+
+As for the technical constrains, the project didn't have any specific ones.
+However, our choices regarding the deployment platform led inevitably to some technical
+constraints. We were also limited to use freely available software only.
+
+Additionally, we could only use Android phones for our mobile application prototypes
+since none of us owned other devices. This implied that our mobile applications
+had to use Android-compatible technologies e.g. the Dalvik virtual machine.
+Upon deciding to support HealthVault, we were limited by its choice of
+technologies as well.
+
+\iffalse
 \subsection{Functional requirements}
 
 \begin{itemize}
@@ -55,6 +73,8 @@ A connection to NIPEN is also required, so it can send weight measurements repre
 The integration service must be able to fetch weight data from HealthVault and push it to NIPEN.
 Interaction with the user is also required, since he/she should be able to enable and disable this service.
 \end{itemize}
+
+
 
 \subsection{Non-functional requirements}
 
@@ -89,6 +109,7 @@ technologies as well.
 %All of our group members did only have android phones, and thus we were
 %restricted to develop mobile applications specificity for this platform.
 % we used android, thus Java etc...
+\fi
 
 \section{NIPEN}
 

@@ -54,9 +54,8 @@ However, many software projects nowadays fail to meet these conditions.
 %	SUBSECTION 2
 %-----------------------------------
 \subsection{Scrum Model}
-%cite http://www.mountaingoatsoftware.com/agile/scrum
 
-Scrum is an emerging agile development process which is mostly used in software development.
+Scrum\cite{Compendium}\cite{Scrum} is an emerging agile development process which is mostly used in software development.
 The Scrum approach, which could be described as both iterative and incremental, consists of multiple
 sprints which last from two to four weeks. Sprints begin with a planning meeting and conclude with a review meeting.
 
@@ -75,7 +74,7 @@ A sprint concludes with a sprint \textit{review meeting} where the team evaluate
 %If there are any problems the Scrum master is responsible to resolve the problem.
 The whole process is supervised by the \textit{Scrum master} who has the responsibility to
 help other team members to perform at their best and solve problems that might arise during the process.
-Figure \ref{figure:scrum-workflow} shows the workflow in Scrum. \cite{Compendium}
+Figure \ref{figure:scrum-workflow} shows the workflow in Scrum. 
 
 \begin{figure}[h]
 \begin{center}
@@ -110,7 +109,8 @@ Waterfall is notoriously not a process with a small overhead.
 \end{enumerate}
 
 All in all, Scrum seemed to fit very well the nature of this project.
-We thought that iterating the same activities over and over would have led to a natural improvement of our process and left a lot of possibilities to adjust the requirements and thus the design accordingly.
+We thought that iterating the same activities over and over would lead to a natural improvement of our process
+and at the same time left a lot of possibilities to adjust the requirements and thus the design accordingly.
 However, we made the following adjustment to the process in order to adapt it to our specific case:
 
 \textbf{Daily scrum}\newline
@@ -158,7 +158,7 @@ Thanks to a well documented XML-over-HTTP API and several software development k
 for major mobile platforms and languages, it is easy for third-party developers to implement
 interoperability with HealthVault in their application.
 
-The API defines a set of data called \textit{things}.
+The API defines a set of data models called \textit{things}.
 Basically, a \textit{thing} represents a measurement of some health parameter e.g. heart rate, weight.
 \textit{Things} are represented using XML, see an example below (a weight \textit{thing}).
 
@@ -214,16 +214,16 @@ Figure \ref{figure:hv-page} shows Ola Nordmann HealthVault's web page.
 \subsection{human/api}
 \label{section:humanapi}
 
-The human/api is a RESTful web API for health data developed by human/api Inc.
-Its aim is to offer a single access point to people's health information in order to facilitate developing
-health applications. For this purpose, human/api collects people's health parameters (blood pressure, weight\ldots)
-from a variety of third-party services (e.g. Withings) and devices (e.g. sensors) and normalizes it.
-The data is then made available through a clean and well documented web API.
+The \verb|human/api|\cite{HumanAPI} is a RESTful web API for health data developed by human/api Inc.
+Its aim is to offer a single access point to people's health information in order to facilitate development of
+health applications. For this purpose, \verb|human/api| collects people's health parameters (blood pressure, weight\ldots)
+from a variety of third party services (e.g. Withings) and devices (e.g. sensors) and normalizes it.
+The data is then made available through a clean and well documented web API using standardized models
+and format (JSON) of which we present an example below.
 This has the benefit of providing a single service for application developers to authenticate against in order
 to obtain users' health information, without having to integrate with multiple services individually.
-Additionally, all data is represented using standardized models and format (JSON) of which we present an
-example below. \cite{HumanAPI}
-
+Additionally, \verb|human/api| claims to be HIPAA compliant.
+\newline
 \begin{lstlisting}[language=JSON]
 {
   "id": "string",
@@ -249,9 +249,10 @@ example below. \cite{HumanAPI}
 %-----------------------------------
 \subsection{Open eHealth Foundation}
 
-The goal of Open eHealth Foundation is to create and share open source software components for the healthcare ICT industry.
+The goal of Open eHealth Foundation \cite{OpenEHealthFoundation} is to create and share
+open source software components for the healthcare ICT industry.
 One of their products is an integration platform called Open eHealth Integration Platform (IPF).
-It is based on Apache Camel and has support for connecting systems in the eHealth domain. \cite{OpenEHealthFoundation}
+It is based on Apache Camel and has support for connecting systems in the eHealth domain.
 
 
 %-----------------------------------
@@ -260,9 +261,10 @@ It is based on Apache Camel and has support for connecting systems in the eHealt
 \subsection{Conclusion}
 
 The solutions presented in this subsection were of great influence in our work.
-\verb|human/api| influenced our data models and representation as well as being a good example of how to implement security.
-HealthVault, together with its SDKs proved to be a valuable example of a modern health integration platform.
-We made use of HealthVault SDK to interact with the Microsoft's platform and were able to re-use a large portion of the code shipped as example.
+\verb|human/api| influenced our data models and representation as well providing a good starting
+point for discussion on security concerns. HealthVault, together with its SDKs proved to be 
+valuable example of a modern health integration platform. We made use of HealthVault SDK to
+interact with the Microsoft's platform and were able to re-use a large portion of the code shipped as example.
 
 %The android-heart-rate-monitor application was used to provide functionality that would have
 %taken some effort to implement from scratch.
@@ -464,13 +466,13 @@ Apache Tomcat is a mature, reliable and freely avaialable HTTP web server implem
 under the Apache License 2.0. Additionally, Apache Tomcat runs on a variety of different platforms.
 Numerous companies and organizations use Apache Tomcat for large-scale and mission-critical web applications.
 
-\textbf{Microsoft IIS}\cite{}\newline
+\textbf{Microsoft IIS}\cite{MicrosoftIIS}\newline
 Microsoft Internet Information Services (IIS) is Microsoft's proprietary web server solution.
 It is stable, mature and well documented. It is shipped as an integral part of Windows operative system (sharing thus
 its same license), although a freeware, stand-alone version is also available. Needless to say, Microsoft IIS only
 runs on Windows.
 
-\textbf{Microsoft WCF}\cite{}\newline
+\textbf{Microsoft WCF}\cite{WCFREST}\newline
 Microsoft's WCF is Microsoft's framework for developing applications that communicate over a network.
 WFC uses Microsoft's proprietary .NET framework to develop web applications.
 
@@ -554,7 +556,7 @@ We didn't want, if possible, to limit our product to one single platform so we c
 Additionally, we were limited to those solutions which were freely available to us.
 We tried, when possible, to opt for technologies which were well documented and that we were not
 totally unfamiliar with in order minimize the time we would spend to figure out how to make them work.
-We don't claim that our choices of employed technologies are the 'best' choices possible,
+We don't claim that our choices regarding employed technologies are the 'best' choices possible,
 but we found them appropriate for our case.
 
 \iffalse
@@ -576,8 +578,8 @@ In this section we will cover some methods that can be used for interaction betw
 \subsection{REST}
 \label{subsec:rest}
 
-\cite{REST} REST, is an acronym from Representational State Transfer and is basically an architectural style where clients
-(user agents) make requests of services (endpoints) to servers.
+REST\cite{REST}\cite{WCFREST} , is an acronym from Representational State Transfer and is basically an architectural
+style where clients (user agents) make requests of services to servers.
 
 REST is based on a set of principles:
 \begin{itemize}
@@ -591,7 +593,7 @@ REST is based on a set of principles:
 			\begin{itemize}
 				\item \verb|GET|: returns all the elements of a collection, or a specific element if its ID is specified.
 				\item \verb|POST|: creates a new entry in a collection or a new element.
-				\item \verb|PUT|: is to replace a collection or a particular element in it.
+				\item \verb|PUT|: updates a collection or a particular element in it.
 				\item \verb|DELETE|: deletes an entire collection or a particular element in it.
 			\end{itemize}
 \item Resources can contain link to other resources.
@@ -611,10 +613,9 @@ lead to further scalability capabilities and speed.
 REST only requires an HTTP connection.
 
 \textbf{Idempotency and nilpotency}\newline
-%\verb|PUT| and \verb|DELETE| methods are idempotent. This means that one nullifies the effects of the other.
 \verb|PUT| and \verb|DELETE| methods are idempotent. 
 This means that after executing these methods once, later execution of this methods will have no effect.
-Because an element can only be replaced or deleted once.
+Because an element can only be updated or deleted once.
 \verb|GET| is nilpotent, meaning that it has no side effects. These are desirable features considering
 that over a network information is likely to get lost or sent multiple times and it would not unlikely for an operation
 to be executed twice. %Having the possibility to revert changes made to the data could be valuable,
@@ -623,9 +624,10 @@ to be executed twice. %Having the possibility to revert changes made to the data
 \textbf{Simplicity}\newline
 REST is simple and that is one big advantage.
 
-\subsection{SOAP}\cite{SOAP}
+\subsection{SOAP}
 \label{subsec:soap}
-SOAP (Simple Object Access Protocol) is a protocol for exchanging information between web services in a network.
+SOAP\cite{SOAP} stands for Simple Object Access Protocol. As the name suggests it is a protocol for
+exchanging information between web services in a network.
 SOAP makes heavy use of XML for communication. There are strict rules on how the XML data should be formatted.
 A SOAP message consists of different parts: a header, a body, a fault and an envelope. Some of these
 are mandatory while some are optional. Table \ref{table:soap-message} shows an overview of these parts.
@@ -700,19 +702,19 @@ REST APIs but none of us never had any experience with SOAP.
 \label{section:testing}
 
 %In this section we are going to go through some of the testing frameworks used in our project.
-In this section we are going to go through some of the testing frameworks explored during our preliminary study.
+In this section we present some of the testing frameworks explored during our preliminary study.
 
 \subsection{JUnit}
 
-JUnit is a Java framework for writing tests. It is also a good tool when using test driven development.
+JUnit\cite{JUnit} is a Java framework for writing tests. It is also a good tool when using test driven development.
 With help of this framework it is possible to write tests for different parts of the code, then check if it runs as it should.
 It is also possible to use JUnit with Maven.
-When doing so it will first run all the tests, and if the tests are successful the application will be executed. \cite{JUnit}
+When doing so it will first run all the tests, and if the tests are successful the application will be executed. 
 
 \subsection{Jasmine}
 
-Jasmine is a framework for testing JavaScript code.	
-It doesn't require a DOM and is also not dependent on any other frameworks. \cite{Jasmine}
+Jasmine \cite{Jasmine} is a framework for testing JavaScript code.	
+It doesn't require a DOM and is also not dependent on any other frameworks.
 
 \subsection{Conclusion}
 
