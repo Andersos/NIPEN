@@ -1,3 +1,4 @@
+
 \chapter{Preliminary Studies}
 \label{Preliminary Studies}
 \lhead{Chapter 3. \emph{Preliminary Studies}}
@@ -403,13 +404,10 @@ users account, providing their access token for authorization.
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-\section{Technologies employed}
+\section{Involved technologies}
 \label{section:used-technologies}
 
-In this section we present the technologies we used in our project.
-%We are going to go through what type of technologies we used for
-%the server (back-end), web page (front-end), database and for the development of applications for mobile units. 
-%It also contains some other technologies that were needed in the project.
+In this section we present some relevant technologies we took into consideration for our product.
 
 %-----------------------------------
 %	SUBSECTION 1
@@ -570,14 +568,15 @@ This made it much easier for us to chose the right set of frameworks and languag
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
-\section{Communication}
+\section{Service oriented architectures}
 
-Communication is an important functionality of an integration platform.
+The architecture of the service itself will play an important factor in its scalability and complexity.
 In this section we will cover some methods that can be used for interaction between clients and servers. 
 
 \subsection{REST}\cite{REST}
+\label{subsec:rest}
 
-REST, is an acronym from Representational State Transfer and is basically a software architectural style where clients
+REST, is an acronym from Representational State Transfer and is basically an architectural style where clients
 (user agents) make requests of services (endpoints) to servers.
 
 REST is based on a set of principles:
@@ -603,37 +602,82 @@ What described, results in a number of advantages.
 
 \textbf{Scalability}\newline
 Because RESTful services are stateless, they are generally lightweight in resources and easy to scale up.
+
 \textbf{Caching}\newline
 Requests sent to RESTful services are made using HTTP methods and HTTP \verb|GET| results are cached, this can
 lead to further scalability capabilities and speed.
+
 \textbf{Interoperability}\newline
 REST only requires an HTTP connection.
+
 \textbf{Idempotency and nilpotency}\newline
 \verb|PUT| and \verb|DELETE| methods are idempotent. This means that one nullifies the effects of the other.
 \verb|GET| is nilpotent, meaning that it has no side effects. There are desiderable features considering
 that over a network information gets lost and sent back again and it would not unlikely for an operation
 to be executed twice. Having the possibility to revert changes made to the data could be valuable,
 as well as having a nilpotent operator that has no effect on data itself.
+
 \textbf{Simplicity}\newline
-REST is simple and that is one big advantage over more complex standards.
+REST is simple and that is one big advantage.
 
 \subsection{SOAP}\cite{SOAP}
+\label{subsec:soap}
 SOAP (Simple Object Access Protocol) is a protocol for exchanging information between web services in a network.
-SOAP makes heavy use of XML for communication.
-There are some strict rules on how the XML data should be formatted.
-It needs to contain an envelope and a body, in addition it can also contain a header and a fault.
-The envelope tells that the message that is being sent is a SOAP message, and the body contains the main information
-that is being sent. A header can contain header information, and fault tells if there were some errors during the
-processing of the message. Figure \ref{} shows a SOAP message.
+SOAP makes heavy use of XML for communication. There are strict rules on how the XML data should be formatted.
+A SOAP message constists of different parts: a header, a body, a fault and an envelope. Some of these
+are mandatory while some are optional. Table \ref{table:soap-message} represents
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ | l | l | c | }
+  \hline
+  Part  & Description & Required \\
+  \hline\noalign{\smallskip}\hline
+  Header & Contains header informations & No \\
+  Body   & Represents the body of the message   & Yes \\
+  Fault  & Describes eventual errors occurred during processing  & No \\
+  Envelope & Wraps the whole message & Yes \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{SOAP message parts}
+\label{table:soap-message}
+\end{table}
+
+%It needs to contain an envelope and a body, in addition it can also contain a header and a fault.
+%The envelope tells that the message that is being sent is a SOAP message, and the body contains the main information
+%that is being sent. A header can contain header information, and fault tells if there were some errors during the
+%processing of the message. Figure \ref{} shows a SOAP message.
 
 SOAP has three major characteristics:
+\begin{enumerate}[1.]
+\item it is neautral, in the sense that it doesn't specify a mean to transport data
+\item it is indipendent, meaning that it allows for any programming model
+\item it is extensible
+\end{enumerate}
 
+Furthermore, it has a number of advantages over over other formats like pure XML and JSON:
+\begin{itemize}
+\item SOAP messages can have multiple recipients
+\item parts of a SOAP message can be encrypted to be readable by certains recipients only
+\item SOAP allows to represent more generic data structures
+\item SOAP messages are guaranteed to be delivered
+\end{itemize}
 
 \subsection{Conclusion}
+\label{subsec:soa-conclusion}
+All in all, we found REST more suitable for our product for a number of reasons.
+In the first place, REST is simpler than SOAP and we didn't need all the complexity introduced by the latter.
+Additionally, REST is generally considered more lightweight due to its use of a less verbose data
+represention (JSON vs XML). Both these factors contribute to a better scalability.
+We were sure that REST would be available on any platform since what is needed
+is really only an HTTP library. Furthermore, we all had some kind of experience with
+REST APIs but none of us never had any experience with SOAP.
 
-Since SOAP uses XML and has strict rules for how the data format should be, we find a RESTful service more appealing for our solution.
-With rest it is possible to send raw JSON strings with a custom defined format.
-JSON strings are much easier to handle and manipulate on a web based front-page, by using JavaScript.
+%Since SOAP uses XML and has strict rules for how the data format should be, we find a
+%RESTful service more appealing for our solution.
+%With rest it is possible to send raw JSON strings with a custom defined format.
+%JSON strings are much easier to handle and manipulate on a web based front-page, by using JavaScript.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6

@@ -204,7 +204,7 @@ Each API endpoint is associated with a resource and an action to be perfomed on 
 \begin{tabular}{ | l | l | c | c | }
 	\hline
 	Resource	& URL						& HTTP Method 	& Action \\
-	\hline
+	\hline\noalign{\smallskip}\hline
 	Heart rate	& /nipen/api/heart\_rates	& GET			& Read \\
 	Weight		& /nipen/api/weights		& GET			& Read \\
 	Heart rate	& /nipen/api/heart\_rate	& POST			& Write \\
@@ -490,15 +490,12 @@ What we have added to the application is the last part, i.e. from where the user
 
 \section{Weight application}
 
-The weight application is an Android app that is able to fetch and push data to and from HealthVault,
-as well as sending it over to NIPEN. This application was developed using one of the examples
+The Weight application is an Android application that is capable of fetching and pushing data
+to and from HealthVault, as well as pushing it to NIPEN. This application was developed using one of the examples
 provided with Microsoft's Java SDK for HealthVault\cite{HealthVaultSDK}.
-We are using an existing solution as a base for this application as well.
+%We are using an existing solution as a base for this application as well.
 %, where the features we implemented are the interactions with NIPEN.
-%The base we are using for this application is an example from the HealthVault Java SDK \cite{HealthVaultSDK}.
-%When the SDK is downloaded, it contains a folder named \textit{android}. 
-%This folder again contains a folder \textit{examples} where the base, we are using, is located.
-When the application starts it redirects the user to HealthVault's page to authenticate.
+When the application is started it redirects the user to HealthVault's page for authenticataction.
 If it is the first time the user is using the Weight application, he/she is asked to authorize it to access
 his HealthVault data, after signin in. Upon successful authorization, the application can push and fetch data
 to and from HealthVault.
@@ -524,7 +521,6 @@ This application illustrates how it is possible to connect HealthVault and NIPEN
 
 The HealthVault integration service is capable of synchronizing weight measurements in NIPEN with HealthVault's.
 Similarly to the Weight application, this service was developed from an example in Microsoft's Java SDK for HealthVault.
-%In the SDK folder it is located inside \textit{java-1.4.2} folder.
 The functionality we have implemented into this application is a Java-based polling thread and the actual
 interactions with NIPEN. We have also made some cosmetic changes to the web pages the example provided.
 This application consists of a back-end and a front-end. The latter is a simple web page to control
@@ -592,39 +588,53 @@ A sequence diagram for the integration service is shown in figure \ref{figure:we
 
 \section{Rationale}
 
-We had to make multiple important choices in technologies before starting our development process.
-Why we choose the different solutions is discussed in this section.
+In this section we outline how our architectural and design choices let us fullfil
+the product's architectural drivers.
 
-\subsection{Modular architecture}
+\subsection{Modularization}
 Our choice of a modular architecture, where components could be developed separately,
 allowed us to implement functionality little by little and have demonstrable
 system ready at any time with the use of mockup components if needed.
 This has let us avoid delivering our product all at once, reducing the risk
-of last-minute implementation problems to affect the outcome of the project.
+of last-minute implementation problems affecting the outcome of the project.
 Additionally, it enabled us to modify the overall system architecture with ease
 if necessary, adding or removing application prototypes.
+Separating between the front-end and the back-end allows them to be deployed
+separately contributing to a better scalability of the solution.
 
-%Having used a approach were the product was delivered
 \iffalse
-Duo to the lack of resources and time constraints we needed to apply a sort of evolutionary architecture during our development process.
+Duo to the lack of resources and time constraints we needed to apply a sort of evolutionary
+architecture during our development process.
 In this way we could start of with a simple application and add functionalities to it later on.
 We started of by implementing the functionalities regarding the heart rates. 
 Later on we added support for weights.
-Since an architectural driver was that the system needed to have a degree of interoperability, we were able to develop our front-end, heart rate application and both of our weight applications separately.
-This was accomplished by defining the interfaces, i.e. the data models that are being sent between NIPEN and the applications, early on.
-Because of this it was easy to add applications to the system at a later point.
+Since an architectural driver was that the system needed to have a degree of interoperability,
+we were able to develop our front-end, heart rate application and both of our weight applications separately.
+This was accomplished by defining the interfaces, i.e. the data models that are being sent between
+NIPEN and the applications, early on. Because of this it was easy to add applications to the system at a later point.
 \fi
 
-\subsection{Communication}
+\subsection{Service architecture}
 
-Since we are making an integration platform we needed to decide in what way this system should interact with other applications.
+When designing the web service we had to decide whether to use a SOAP or REST architecture.
+We opted for REST due to various considerations as described in \ref{subsec:soa-conclusion}.
+This choice let us achieve an overall better scalability and reduced the amount of effort
+required to implement similar functionality using a different approach.
+Given our time and resource constrains this fit very well our business constrains.
+
+\iffalse
+Since we are making an integration platform we needed to decide
+in what way this system should interact with other applications.
 Communication can be performed with a RESTful service or SOAP.
-However, from the functional requirements it was already specified that the system needed to receive and forwards data in form of JSON strings.
+However, from the functional requirements it was already specified that the system needed
+to receive and forwards data in form of JSON strings.
 SOAP mainly uses XML and hence a RESTful service was a better choice.
 This type of service doesn't require any specific format of data that is sent or received, whereas SOAP has some strict rules.
 With REST we have the possibility to send raw JSON strings between our applications.
 JSON strings are also easily handled by JavaScript.
-Although we are not implementing all of the methods REST supports we are covering the most important ones, this includes GET and POST for receiving and sending data respectively.
+Although we are not implementing all of the methods REST supports we are covering the most important ones,
+this includes GET and POST for receiving and sending data respectively.
+\fi
 
 \subsection{Visualization of data}
 
@@ -654,6 +664,7 @@ Hence we chose Chart.js for this task.
 To make it easier for us to develop the front-end we also used jQuery and Bootstrap.
 jQuery was a good choice since we already had some experience with this framework.
 
+\iffalse
 \subsection{Server technologies}
 
 The customer gave us a choice between a Windows Server and an Ubuntu Server.
@@ -666,14 +677,25 @@ This is because all of us already were familiar with Java, and some of us also h
 For the heart rate application we needed a programmable device with an internet connection, a camera and a screen.
 The weight application needed mainly a screen and an internet connection.
 Since all of us already had an android mobile we choose to develop our heart rate and weight application for these devices.
+\fi
 
 \subsection{Existing solutions}
 
+Due to the limited amount of resource at hand and given also the fixed deadline for this project,
+we tried to reuse as much code as possible from existing solutions.
+Additionally, when a technologies did not have a clear advantage over one another,
+we sticked with the easier ones and the ones we were familiar with.
+
+\iffalse
 We are using mainly existing solutions for the application that are sending values into NIPEN.
 This is because of the business constraints covered in subsection \ref{subsec:business-constraints}.
-The reason we chose the selected applications as our base is because they already contained all the main functionality that were needed in our situation.
+The reason we chose the selected applications as our base is because they already contained all
+the main functionality that were needed in our situation.
 The base for the heart rate application was able to measure heart rates.
 It was also developed for Android using Java and Android SDK.
-We were already familiar with these technologies, and hence we thought that this open source application would be a good starting point for our heart rate application.
-The foundation of the weight application and the HealthVault integration service had already implemented communication with HealthVault.
-In addition it was programmed in Java which we already were familiar with.
+We were already familiar with these technologies, and hence we thought that this open source
+application would be a good starting point for our heart rate application.
+The foundation of the weight application and the HealthVault integration service had already
+implemented communication with HealthVault. In addition it was programmed in Java which we already were familiar with.
+\fi
+
