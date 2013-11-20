@@ -615,7 +615,7 @@ REST only requires an HTTP connection.
 \verb|PUT| and \verb|DELETE| methods are idempotent. 
 This means that after executing these methods once, later execution of this methods will have no effect.
 Because an element can only be replaced or deleted once.
-\verb|GET| is nilpotent, meaning that it has no side effects. There are desirable features considering
+\verb|GET| is nilpotent, meaning that it has no side effects. These are desirable features considering
 that over a network information is likely to get lost or sent multiple times and it would not unlikely for an operation
 to be executed twice. %Having the possibility to revert changes made to the data could be valuable,
 %as well as having a nilpotent operator that has no effect on data itself.
