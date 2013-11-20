@@ -625,7 +625,7 @@ REST is simple and that is one big advantage.
 SOAP (Simple Object Access Protocol) is a protocol for exchanging information between web services in a network.
 SOAP makes heavy use of XML for communication. There are strict rules on how the XML data should be formatted.
 A SOAP message constists of different parts: a header, a body, a fault and an envelope. Some of these
-are mandatory while some are optional. Table \ref{table:soap-message} represents
+are mandatory while some are optional. Table \ref{table:soap-message} shows an overview of these parts.
 
 \begin{table}[h]
 \begin{center}
@@ -643,6 +643,17 @@ are mandatory while some are optional. Table \ref{table:soap-message} represents
 \caption{SOAP message parts}
 \label{table:soap-message}
 \end{table}
+
+The structure of a SOAP message is illustrated in figure \ref{figure:soap-message}.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.50]{../Figures/SOAP.pdf}
+\end{center}
+\caption{SOAP message structre}
+\label{figure:soap-message}
+\end{figure}
+
 
 %It needs to contain an envelope and a body, in addition it can also contain a header and a fault.
 %The envelope tells that the message that is being sent is a SOAP message, and the body contains the main information
