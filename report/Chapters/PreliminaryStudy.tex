@@ -23,22 +23,13 @@ for our project and outline the factors that led to chose one instead of the oth
 \subsection{Waterfall}
 %of Waterfall is its requires tasks to be performed in a sequential order.
 
-The Waterfall development process is a \iffalse classical\fi model proposed in the early 70s.
-Waterfall follows a strict, rigorous top-down approach where all phases of the process are carried out sequentially: before moving to the next phase the preceding ones need to be entirely completed. The project progress is seen as if 'flowing downwards' through the different phases, hence the name Waterfall. 
-The development cycle consists of seven distinct phases (see figure \ref{figure:waterfall-model}), each one expected to produce extensive documentation.
-
-%commented out
-\iffalse
-\begin{enumerate}
-\item Requirements specification
-\item Design
-\item Construction (implementation or coding)
-\item Integration
-\item Testing and debugging
-\item Installation
-\item Maintenance
-\end{enumerate}
-\fi
+The Waterfall\cite{WaterfallModel} development process is a model proposed in the early 70's.
+It divides the development cycle in seven distinct phases (see figure \ref{figure:waterfall-model}),
+each one expected to produce extensive documentation.
+It follows a strict, rigorous top-down approach where all phases of the process are carried out sequentially:
+before moving to the next phase the preceding ones need to be entirely completed. The progress of project
+is seen as if 'flowing downwards' through the different phases, hence the name Waterfall. 
+%The development cycle consists of seven 
 
 \begin{figure}[h]
 \begin{center}
@@ -49,18 +40,14 @@ The development cycle consists of seven distinct phases (see figure \ref{figure:
 \end{figure}
 
 The model is easily understandable, structured, and disciplined.
-%The clear distinction between project phases make it easier to monitor the progress of the project.
-%it can be very hard to adapt to this kind of development model.
-However, adopting Waterfall in real software projects can be challenging because it requires to be able to foresee, in the early stages of the project, any problem that could arise later on and plan accordingly.
+The clear distinction between project phases make it easier to monitor the progress of the project.
+However, adopting Waterfall in real software projects can be challenging because it requires to be able to
+foresee, in the early stages of the project, any problem that could arise later on and plan accordingly.
 This is often a very hard task that requires great insight and expertise.
 
-\iffalse
-Additionally, each phase of the development cycle is expected to produce a good amount of documentation that will be used for the next phase: documentation is a critical task.
-\fi
-
-Waterfall may be suited to large-scale, expensive projects where 'going back' on design choices is not an option and requirements are clearly established early on and then 'set in stone'.
-However, many software projects nowadays fail to meet these conditions. \cite{WaterfallModel}
-% and therefore Waterfall is probably not an appropriate process for them.
+Waterfall may be suited to large-scale, expensive projects where 'going back' on design choices is not an
+option and requirements are clearly established early on and then 'set in stone'.
+However, many software projects nowadays fail to meet these conditions.
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -106,22 +93,24 @@ Figure \ref{figure:scrum-workflow} shows the workflow in Scrum. \cite{Compendium
 After discussing about possible alternatives, we decided to use Scrum based on the following considerations:
 
 \begin{enumerate}
-\item we didn't have a formal set of requirements from the beginning and we expected their nature to be volatile, that is, subject to change throughout the duration of the project.
+\item we didn't have a formal set of requirements from the beginning and we expected their nature to be volatile,
+that is, subject to change throughout the duration of the project.
 
-\item at the beginning of the project, our knowledge of both the problem and the technologies involved was limited thus it would have been very risky to make decisions we wouldn't be able to adjust later.
+\item at the beginning of the project, our knowledge of both the problem and the technologies involved was
+limited thus it would have been very risky to make decisions we wouldn't be able to adjust later.
 
-\item given the size of the project and of our group, we wanted a development process with a small overhead. Waterfall is notoriously not a process with a small overhead.
+\item given the size of the project and of our group, we wanted a development process with a small overhead.
+Waterfall is notoriously not a process with a small overhead.
 
 \item we had previous working experiences with Scrum, whereas our experience with Waterfall was only theoretical.
 
-\item the customer hinted us to use an agile method.
+\item the customer suggested us to use an agile method.
 
 \end{enumerate}
 
 All in all, Scrum seemed to fit very well the nature of this project.
 We thought that iterating the same activities over and over would have led to a natural improvement of our process and left a lot of possibilities to adjust the requirements and thus the design accordingly.
-
-However, we made some adjustment to the process in order to adapt it to our specific case.
+However, we made the following adjustment to the process in order to adapt it to our specific case:
 
 \textbf{Daily scrum}\newline
 We performed daily scrum on days we planned to work together: Mondays and Wednesdays.
@@ -140,17 +129,15 @@ This section describes existing solutions which have helped us get a better over
 and design patterns used to solve this kind of problem. 
 What we present in this section are the ones we found most relevant and inspiring for our work.
 
-%The following technologies were a good inspiration source and help in our project,
-%as they already were similar or did contain components that our application also would contain.
-
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{HealthVault}
 %http://msdn.microsoft.com/en-us/healthvault/jj128027
 
-HealthVault is Microsoft's online platform to collect, store and monitor personal health information. %It offers a single, central repository of a person's health.
-One of its most interesting features is interoperability with third-party solutions which are, in HealthVault terminology and in this subsection hereafter, referred to as \textit{Apps}.
+HealthVault\cite{HealthVault} is Microsoft's online platform to collect, store and monitor personal health information. 
+One of its most interesting features is interoperability with third-party solutions which are,
+in HealthVault terminology and in this subsection hereafter, referred to as \textit{Apps}.
 
 Examples of Apps include:
 \begin{itemize}
@@ -160,15 +147,17 @@ Examples of Apps include:
 \end{itemize}
 
 At the moment of writing, HealthVault supports more than 300 applications and 80 devices (in the U.S.).
-Apps are used to populate a user's health record by collecting health measurements and parameters and, in turn, make use of such information to provide services.
+Apps are used to populate a user's health record by collecting health measurements and parameters and, in turn,
+make use of such information to provide services.
 In order to connect to HealthVault, third-party applications need to be authorized by the user upon first use. 
-Authorization can be restricted to a specific set of data: e.g. an App may be authorized to access weight and glucose records but not others (allergies, pregnancies\ldots).
+Authorization can be restricted to a specific set of data: e.g. an App may be authorized to access weight and
+glucose records but not allergies and pregnancies.
 
-%See figure \ref{} for a diagram showing the different authentication and authorization steps.
+Thanks to a well documented XML-over-HTTP API and several software development kits (SDK)
+for major mobile platforms and languages, it is easy for third-party developers to implement
+interoperability with HealthVault in their application.
 
-Interoperability is achieved through an XML-over-HTTP API which, together with several software development kits (SDK) for major mobile platforms and languages enables developers to build HealthVault-enabled applications with ease.
-
-In HealthVault a single data measurement is called \textit{thing}.
+The API defines a set of data called \textit{things}.
 Basically, a \textit{thing} represents a measurement of some health parameter e.g. heart rate, weight.
 \textit{Things} are represented using XML, see an example below (a weight \textit{thing}).
 
@@ -193,14 +182,9 @@ Basically, a \textit{thing} represents a measurement of some health parameter e.
 </weight>
 \end{lstlisting}
 
-%The devices might be weighting scales, step counters, blood glucose monitors and more.
-%While the applications can be different types of mobile, tablet or desktop apps.
-%It is also possible to share the information stored in HealthVault with e.g. family members or a doctor.
-%It's possibile to selectively share health information with other
-%people which could be family doctors or relatives.
-
-Additionally, HealthVault supports exporting of data in industry-standard formats and storage of medical imaging formats such as \textit{DICOM}. 
-The services provides a good degree of availability and redundancy. \cite{HealthVault}
+Additionally, HealthVault supports exporting of data in industry-standard formats and storage of medical
+imaging formats such as \textit{DICOM} and provides a degree of availability and redundancy.
+Figure \ref{figure:hv-page} shows Ola Nordmann HealthVault's web page.
 
 \begin{figure}[h]
 \begin{center}
@@ -230,17 +214,14 @@ The services provides a good degree of availability and redundancy. \cite{Health
 \label{section:humanapi}
 
 The human/api is a RESTful web API for health data developed by human/api Inc.
-Its aim is to offer a single access point to people's health information in order to facilitate developing health applications.
-For this purpose, human/api collects people's health parameters (blood pressure, weight\ldots) from a variety of third-party services (e.g. Withings) and devices (e.g. sensors) and normalizes it.
+Its aim is to offer a single access point to people's health information in order to facilitate developing
+health applications. For this purpose, human/api collects people's health parameters (blood pressure, weight\ldots)
+from a variety of third-party services (e.g. Withings) and devices (e.g. sensors) and normalizes it.
 The data is then made available through a clean and well documented web API.
-This has the benefit of providing a single service for application developers to authenticate against in order to obtain users' health information, without having to integrate with multiple services individually.
-Additionally, all data is represented using standardized models and format (JSON) of which we present an example below. \cite{HumanAPI}
-
-%They have an API that contains multiple different well defined JSON strings for different kinds of human related data.
-%Each JSON string contains all the necessary information that is needed to represent each type of health data.
-%For example heart rate is defined by an id, user id, time, value and unit in the following way:
-
-%See below an example of an blood pressure measurement as represented in human/api using JSON.
+This has the benefit of providing a single service for application developers to authenticate against in order
+to obtain users' health information, without having to integrate with multiple services individually.
+Additionally, all data is represented using standardized models and format (JSON) of which we present an
+example below. \cite{HumanAPI}
 
 \begin{lstlisting}[language=JSON]
 {
@@ -259,16 +240,8 @@ Additionally, all data is represented using standardized models and format (JSON
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
-\subsection{android-heart-rate-monitor}
-\label{subsec:hr}
 
-android-heart-rate-monitor is an open source (Apache 2.0 license) Android application that can be used to measure the user heart rate. 
-The application uses the phone's camera and flash to compute 'redness' levels on user's fingertips. 
-These are supposed to increase in correspondence with heartbeats.
-The application computes an average 'redness' value and uses that to detected heartbeats and calculate a beats per minute (BPM) measurement. \cite{AndroidHeartRateMonitor}
 
-%According to the author, it takes around thirty seconds to get an accurate reading.
-%It measures the heart rate of the user with help of the camera and flash light on the phone.
 
 %-----------------------------------
 % SUBSECTION 4
@@ -290,97 +263,135 @@ The solutions presented in this subsection were of great influence in our work.
 HealthVault, together with its SDKs proved to be a valuable example of a modern health integration platform.
 We made use of HealthVault SDK to interact with the Microsoft's platform and were able to re-use a large portion of the code shipped as example.
 
-%Our integration platform needs to send and receive information. 
-%With help of the Human API we found out how the structure of this information should be.
-The android-heart-rate-monitor application was used to provide functionality that would have taken some effort to implement from scratch.
-% starting point for creating the heart rate application that we needed in our project.
-
+%The android-heart-rate-monitor application was used to provide functionality that would have
+%taken some effort to implement from scratch.
 
 
 \section{Security concerns}
 
+This section describes our studies about security.
+
 \subsection{HIPAA - Health Insurance Portability and Accountability Act}
 
-After discussing security with the customer we brought up the topic of HIPAA \cite{HIPAA}. 
-Even though there is no similar act in Norway the customer believed that taking a starting point from HIPAA to discuss the security in NIPEN would be a smart basis. 
-
-\subsubsection{Storage of data}
-When the data is at rest the network should be protected from intrusions.
-The hard drives where the data is stored must be encrypted. \cite{Encryption}
-HIPAA does not specify what type of encryption should be used, they only specify that it should be encrypted.
-
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-\includegraphics[scale=0.50]{../Figures/hipaa.png}
-\caption{HIPAA Compliant Data Center Architecture from www.onlinetech.com}
+\includegraphics[scale=0.50]{../Figures/hipaa2.png}
+\caption{HIPAA logo}
 \label{figure:HIPAA}
 \end{figure}
 
-\subsubsection{Transportation of data}
-In HIPAA the transportation of data is described that it needs to use Secure Socket Layer. 
-This layer is designed to give communication security over the Internet. \cite{SSL}
+HIPAA\cite{HIPAA} is an american act which, among other things, establishes some standards
+for electronic health care. The \textit{privacy regulations} in HIPAA require
+that a set of practices and precautions is put in place when trasferring, sharing
+and handling health information electronically.
+After discussing security with the customer we brought up the topic of HIPAA.
+Even though there is no similar act in Norway, the customer believed that it could have been
+valuable to discuss it and take it as starting point for our considerations about security. 
 
-\subsubsection{Authentication}
-There are multiple systems already in use today in Norway for authenticating users. 
+\textbf{Storage of data}\newline
+HIPAA specifies that the hard drives used to store data must be encrypted and
+kept safe from unauthorized physical access. HIPAA does not specify what type
+of encryption should be used.
+
+\textbf{Transfer of data}\newline
+Data transfer should be carried out using a Secure Socket Layer\cite{SSL}
+to prevent access by unauthorized people by means of encryption.
+
+\textbf{Backup of data}\newline
+Data should be backed-up in a exact and retrievable copies.
+The frequency of backups should be appropriate for the data itself
+taking into consideration how often is said data being updated and how it is being
+used.
+
+\textbf{Logging}\newline
+Data access has to be logged in order to be able to monitor who
+has accessed what and when.
+
+\textbf{Security breaches}\newline
+If a security breach happens, people whose data could have been compromised
+should be notified. Depending on the severity of the breach, which could be
+based on the amount of information disclosed or their sensibility,
+a public announcement must be made.
+
+\textbf{Authorization}\newline
+HIPAA specifies that the user must be able to authorize access to his data,
+which must be requested specifying not only the data itself, but also
+an expiration for the requested authorization, its purpose and all parties
+which request such authorization.
+
+\subsection{Authentication}
+
+There are multiple systems already in use in Norway for authenticating users. 
 Some of the biggest systems are MinId, BankID, Buypass and Commfides.
-The most widespread right now is BankId, with almost 3 million users as of this writing\footnote{\href{https://www.bankid.no/}{https://www.bankid.no/}}.
-It would be worth a consideration to use BankID to authenticate the citizens. 
-The reason behind this is that it is a widespread system and something the citizens are familiar with. 
+The most widespread is BankID, with almost 3 million users at the moment
+writing\footnote{See https://www.bankid.no}.
+It would be worth considering to use BankID to authenticate citizens because
+it is already adopted by most of them.
 
-When considering what type of authentication the medical professionals should use there are multiple factors to consider. 
-Ease of use, efficiency and be able to make an audit trail are some extra factors too consider.
-It might be as successful to develop a separate system of authenticating the health professionals if BankID turns out to be cumbersome and unable to be used in the different situations needed for this system. 
-For HIPAA there needs to be a system to know which information was accessed, when, and by whom. \cite{Audit}
-
-\subsubsection{Giving data to third party systems}
-Not only should this system accept data from third parties. 
-There should also be functionality for exporting data from the system to third party providers. 
-For this to happen there needs to be a system for the end users, the citizens, to understand where and to whom the data is going.
-Any data that is Protected Health Information \cite{PHI}, which is defined as any data classified as health information connected by the patients identifiers, the end user must control how this information is shared. 
-In the end its up to the user who they want to share their data with.
-What could be smart is to introduce a Norwegian certification so that the end user knows that the data providers they want to export their data to follows the rules mentioned in previous subsections. 
-That way it is easier for the user to trust new systems with their sensitive data.
 
 \subsection{OAuth 2.0}
 
-OAuth 2.0 is a protocol that could potentially be used for our integration platform.
-OAuth 1.0 is outdated, and hence we will mainly focus on OAuth 2.0 in this section.
-OAuth is used to authorize third party applications access to a system.
-In our case this could for example be only access to the API concerning heart rates or weights in NIPEN.
+OAuth 2.0\cite{OAuth} is a standard for authorization. %third-party applications to access data on a system.
+%securing that could potentially be used for our integration platform.
+%OAuth 1.0 is outdated, and hence we will mainly focus on OAuth 2.0 in this section.
+%OAuth is used to authorize third party applications access to a system.
+%In our case this could for example be only access to the API concerning heart rates or weights in NIPEN.
 
 %\subsection{What is OAuth?}
 
-Many applications want to have access to an API provider to gain access to a users information.
-However, the user doesn't always want to give his/hers credentials to these applications.
-Lets say that a user wants to have an application that is able to upload images to his/hers facebook account.
-The user doesn't want to give the application the credentials for facebook.
-This would be highly insecure, since once the application has the authentication information of a user it is able to do whatever it wants with the account.
-To handle this we need some kind of protocol, this is where OAuth comes in.
-With OAuth we are able to give a third party application partial access to a system without handing over the credentials of a user.
-This is a token based system, where the application receives a token which grants it access to use some of the systems services.
+The scenario where an application wants to interact with an API provider to obtain information
+about a user is becoming more and more common: think of Facebook and all the applications that use data
+which Facebook provides. It would certainly be a bad idea for a user to share his account credentials
+with many third-party applications because doing so would enable them to do what they want with it.
 
-When a third party app wants to use a system that uses OAuth, it first needs to be registered in that system.
-Under registration the system usually wants some basic information about the application.
-This might include name of the application, a description, logo and etc.
-A redirect URI also needs to be registered.
-This URI needs to use TLS, i.e. must begin with \textit{https}.
-This address is used to send an authentication token from the system to the application.
-After the registration, the application should receive a client ID which is used to identify the application at the system.
+\iffalse
+% the user doesn't always want to give his/hers credentials to these applications.
+Lets say that a user wants user an application that is able to upload images to his/hers
+Facebook account but doesn't feel confident about giving the applications his Facebook credentials.
+%The user doesn't want to give the application the credentials for facebook.
+This would be highly insecure, since once the application has the authentication information
+of a user it is able to do whatever it wants with the account.
+\fi
 
+OAuth tries to solve this kind of problem authorizing third-party applications to access
+user's information, or part of it, on a server without providing any account credentials.
+
+For this purpose third-party application developers need to register their application
+with the API provider. This might include name of the application, a description, logo\ldots
+This is to allow applications to be authenticated and controlled by the API provider itself.
+Upon registration, a client-ID to be used for authentication is assigned to the application.
+
+Then, in order to be authorized to access some user's data, the application redirects the
+user to the API provider's page where he can authenticate himself without actually providing
+any credentials to the application. Then he proceeds to authorize the application to access (or not)
+a specific set of data. The application is finally returned a token representing the level
+of authorization granted. Authorization can be revoked by the user at any time.
+
+
+%For this purpose it makes use of a token based system, where the application receives a token specifying
+%the authorization level granted to it by the user.
+
+%A redirect URI also needs to be registered.
+%This URI needs to use TLS, i.e. must begin with \textit{https}.
+%This address is used to send an authentication token from the system to the application.
+%After the registration, the application should receive a client ID which is used to identify the application at the system.
+\iffalse
 Now users should be able to connect the application with theirs account on the system.
 The way it works is that through the application they will be sent to a website of the system the application wants to connect with.
 There the user will be asked if he/she wants to grant permissions to the application.
 If the user agrees, then he/she will be redirected to the applications specified redirect URI with an access token as a parameter.
 The application will now use this token to access the system.
 When the user doesn't want the application to have access to the system any more, he/she can simply disallow the applications access through the systems website.
+\fi
 
 An example of how OAuth works is given in figure \ref{figure:oauth-in-a-nutshell}.
-In this example we see a website that wants to send images to a users facebook account.
-If the user allows the application access through facebook, then facebook will send an access token to the website.
-Then \textit{www.ImageToFacebook.com} is able to send images to the users account, where the access token is used for authentication.
-The user should be able to disallow the website access at any time on facebooks website. \cite{OAuth}
+In this example we see a website that wants to send images to a user's Facebook account.
+If the user authorizes the application through Facebook, then Facebook will send an access
+token to the website. Then \textit{www.ImageToFacebook.com} will be able to send images to the
+users account, providing their access token for authorization.
+%The user should be able to disallow the website access at any time on Facebooks website. 
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=1.0]{../Figures/oauth-in-a-nutshell.png}
 \caption{OAuth in a nutshell}
@@ -392,51 +403,49 @@ The user should be able to disallow the website access at any time on facebooks 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-\section{Used Technologies}
+\section{Technologies employed}
 \label{section:used-technologies}
 
-This section contains the technologies we used in our project.
-We are going to go through what type of technologies we used for the server (back-end), web page (front-end), database and for the development of applications for mobile units. 
-It also contains some other technologies that were needed in the project.
+In this section we present the technologies we used in our project.
+%We are going to go through what type of technologies we used for
+%the server (back-end), web page (front-end), database and for the development of applications for mobile units. 
+%It also contains some other technologies that were needed in the project.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Server}
+\subsection{Programming languages}
 
-\textbf{Java}
+\textbf{Java}\cite{Java}\newline
+Java is a general-purpose programming language that it can be used in a wide variety of application domains.
+It is platform independent, and thus makes it easy to develop software once and deploy it on different operative systems.
+Web programming is one of the domains that Java is used in, making it possible to write a service
+that runs in the back-end of a website (using JSP).
+%The web services created with Java allows creating a bridge between the database and the front-end. 
+%This makes it possible to create a communication between the user and the database at the server.
 
-Java is a general-purpose programming language, which means that it can be used in a wide variety of application domains.
-It is platform independent, and thus makes it easy to develop software for different operation systems.
-Web programming is one of the domains that Java is used for, hence makes it possible to write a service that runs in the back-end of a website.
-The web services created with Java allows creating a bridge between the database and the front-end. 
-This makes it possible to create a communication between the user and the database at the server. \cite{Java}
-
-\textbf{Spring Framework}
-
-The Spring Framework is an open source application framework and inversion of control container for Java. 
-We use the Spring framework to set up a RESTful service and to handle the data access from the database. \cite{SpringFramework1}\cite{SpringFramework2}
-
-\textbf{Apache Tomcat}
-
-Apache Tomcat is an implementation of the JSP (JavaServer Pages) and Java Servlet technologies.
-It makes it possible to deploy and run a website with its services on a server.
-Numerous industries and organizations use the Tomcat server as it has support for large-scale and mission-critical web applications. \cite{ApacheTomcat}
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 \subsection{Database}
+In this section we present those technologies related to database development.
 
-\textbf{MySQL}
-
+\textbf{MySQL}\cite{MySQL}\newline
 MySQL is one of the most widely used relational database management system.
-The MySQL Community Edition is open source and freely available.
-It is developed to handle large databases, support many users at the same time and it is also scalable.
-It makes it possible to store and retrieve data in an efficient and structured manner. \cite{MySQL}
+The Community Edition of MySQL is open source and freely available.
+It is developed to handle large databases and support many users at the same time.%. and it is also scalable.
+It makes it possible to store and retrieve data in an efficient and structured manner. 
 
-\textbf{MySQL Workbench}
+\textbf{Microsoft SQL server}\newline
+Microsoft proprietary SQL server implementation. Needless to say, it only runs of Microsoft
+Windows. A freeware \textit{Express} version is available.
 
+\textbf{Apache Derby}\newline
+Apache Derby is a relational database management system developed by the Apache foundation
+and released under the Apache License 2.0.
+
+\textbf{MySQL Workbench}\newline
 MySQL Workbench is a free-to-use tool which allows to easily manage MySQL databases.
 We used MySQL Workbench for database design and deployment both locally (for testing) and remotely (production).
 
@@ -444,61 +453,82 @@ We used MySQL Workbench for database design and deployment both locally (for tes
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
-\subsection{Website}
+\subsection{Web development}
+In this section we present those technologies related to web development.
 
-\textbf{HTML5}
+\textbf{Spring Framework}\cite{SpringFramework1}\cite{SpringFramework2}\newline
+The Spring Framework is an a Java-based application framework and inversion of control container.
+Spring is widely used and freely available under Apache License 2.0\footnote{See http://www.apache.org/licenses/LICENSE-2.0}.
+%We use the Spring framework to set up a RESTful service and to handle the data access from the database. 
 
-HTML is the standard World Wide Web's markup language, where HTML5 is the newest HTML version as of this writing.
-It is used to structure and visualize web pages on the internet.
-By writing a document with HTML a web browser is later on able to interpret the document and visualize it in a structured manner. \cite{HTML5}
+\textbf{Apache Tomcat}\cite{ApacheTomcat}\newline
+Apache Tomcat is a mature, reliable and freely avaialable HTTP web server implementation licensed
+under the Apache License 2.0. Additionally, Apache Tomcat runs on a variety of different platforms.
+Numerous companies and organizations use Apache Tomcat for large-scale and mission-critical web applications.
 
-\textbf{CSS3}
+\textbf{Microsoft IIS}\cite{}\newline
+Microsoft Internet Information Services (IIS) is Microsoft's proprietary web server solution.
+It is stable, mature and well documented. It is shipped as an integral part of Windows operative system (sharing thus
+its same license), although a freeware, stand-alone version is also available. Needless to say, Microsoft IIS only
+runs on Windows.
 
+\textbf{Microsoft WCF}\cite{}\newline
+Microsoft's WCF is Microsoft's framework for developing applications that communicate over a network.
+WFC uses Microsoft's proprietary .NET framework to develop web applications.
+
+\textbf{HTML5}\cite{HTML5}\newline
+HTML is the standard World Wide Web's markup language, HTML5 being the latest HTML version at the moment of writing.
+It is used to structure and visualize web pages on the internet. By writing a document with HTML a
+web browser is later on able to interpret the document and visualize it in a structured manner. 
+
+\textbf{CSS3}\cite{CSS3}\newline
 CSS describes the look and format of a document written in HTML.
 It allows one to use different fonts, colors and adjust the layout of a web page.
-By using CSS and separating it from the HTML, it is possible to allow multiple pages share the same style.
-Thus it is easier to maintain and adapt the web pages to different environments through CSS. \cite{CSS3}
+By using CSS and separating it from the HTML, it is possible to allow multiple pages share the same style
+making them easier to maintain and adapt to different environments. 
 
-\textbf{Bootstrap}
-
+\textbf{Bootstrap}\cite{Bootstrap}\newline
 Bootstrap contains HTML and CSS templates for web designers.
-This makes it easier to make a good looking web page without putting too much effort into the design. \cite{Bootstrap}
+This makes it easier to make a good looking web page without putting too much effort into the design.
 
-\textbf{JavaScript}
-
+\textbf{JavaScript}\cite{JavaScript}\newline
 JavaScript is an interpreted computer programming language that runs in the browser of the user.
 It is allowed to make changes in the HTML DOM, interact with the user, control the browser and communicate asynchronously.
 Since it can communicate with the server asynchronously, it makes the web page more dynamic.
-What this means is that a web page can acquire new information and change the site without reloading. \cite{JavaScript}
+What this means is that a web page can acquire new information and change the site without reloading.
 
-\textbf{jQuery}
-
+\textbf{jQuery}\cite{jQuery}\newline
 jQuery is a JavaScript library for manipulating and traversing the HTML DOM.
-All the features jQuery contains are also possible to do with pure JavaScript, but jQuery helps the developer to
-implement the different features in an easier way.
-For example it contains predefined methods for event handling and animation.
-It also makes it easier to communicate with the server through AJAX. \cite{jQuery}
+All the features available in jQuery are achieved using pure JavaScript, but jQuery helps
+the developer to implement the different features in an easier way:
+e.g. it contains predefined methods for event handling and animation.
+It also makes it easier to communicate with the server through AJAX. 
 
-\textbf{Chart.js}
-
+\textbf{Chart.js}\cite{Chartjs}\newline
 Chart.js is a JavaScript library for creating graphs and charts.
-It helps the developer to visualize data through different types of graphs in an easy manner.
+It helps the developer to easily visualize data through different types of graphs.
 The library has support for different types of two dimensional data, e.g. value per time.
-It also has the ability to display multiple graphs in the same chart.  \cite{Chartjs}
+It also has the ability to display multiple graphs in the same chart. 
 
-%-----------------------------------
-%	SUBSECTION 4
-%-----------------------------------
+
 \subsection{Mobile Technologies}
+In this section we present those technologies related to mobile development.
 
-\textbf{Android SDK}
+\textbf{Android SDK}\cite{AndroidSDK}\newline
+The Android SDK contains the tools necessary for developing, debugging and testing a Android applications.
+%With the SDK it is possible to write and modify applications for an Android phone.
 
-Android SDK contains the tools necessary for developing, debugging and testing an Android app.
-With the SDK it is possible to write and modify applications for an Android phone. \cite{AndroidSDK}
+\textbf{android-heart-rate-monitor}\cite{AndroidHeartRateMonitor}\newline
+\label{subsec:hr}
+android-heart-rate-monitor is an open source (Apache 2.0 license) Android application that can be used to measure
+the user heart rate. The application uses the phone's camera and flash to compute 'redness' levels on user's fingertips. 
+These are supposed to increase in correspondence with heartbeats. The application computes an average 'redness' value
+and uses that to detected heartbeats and calculate a beats per minute (BPM) measurement.
 
-%-----------------------------------
-%	SUBSECTION 5
-%-----------------------------------
+
+%% redudant with tools section. they are tools not really 'technologies'
+
+\iffalse
 \subsection{Other Technologies}
 
 \textbf{Maven}
@@ -516,19 +546,26 @@ It also has the possibility to divide the project into different branches.
 Which means that the code can be copied into multiple different places, and developed separately in cases where trying out different solutions is necessary.
 If a good solution is made, the branch can later on be merged together with the main branch.
 It is also possible to have a branch for release versions and a development branch. \cite{Git}
+\fi
 
-%-----------------------------------
-%	SUBSECTION 6
-%-----------------------------------
 \subsection{Conclusion}
 
+There were, of course, a number of alternatives to most of these technologies and the whole
+report wouldn't be enough to describe them all. The reasons behind our choices have been very practical.
+We didn't want, if possible, to limit our product to one single platform so we chose to avoid Microsoft's solutions.
+Additionally, we were limited to those solutions which were freely available to us.
+We tried, when possible, to opt for technologies which were well documented and that we were not
+totally unfamiliar with in order minimize the time we would spend to figure out how to make them work.
+We don't claim that our choices of employed technologies are the 'best' choices possible,
+but we found them appropriate for our case.
+
+\iffalse
 We chose the technologies specified above based on our earlier experience and what we found most appropriate for our solution.
 Before we started this project we discussed our competencies.
 This was of great help in choosing the right technologies that were going to be used.
 Most of us already had some different degree of experience in most of the technologies mentioned above.
 This made it much easier for us to chose the right set of frameworks and languages to work with.
-%For example from table \ref{table:competencies} we can see that all of us were very familiar with Java, Git and SQL.
-%This made it clear for us to use those technologies.
+\fi
 
 %----------------------------------------------------------------------------------------
 %	SECTION 5
@@ -538,26 +575,59 @@ This made it much easier for us to chose the right set of frameworks and languag
 Communication is an important functionality of an integration platform.
 In this section we will cover some methods that can be used for interaction between clients and servers. 
 
-\subsection{REST}
-REST stands for Representational State Transfer and is a way of communicating between clients and servers.
-The clients are able to send HTTP requests to a RESTful service by using the following methods:
+\subsection{REST}\cite{REST}
 
+REST, is an acronym from Representational State Transfer and is basically a software architectural style where clients
+(user agents) make requests of services (endpoints) to servers.
+
+REST is based on a set of principles:
 \begin{itemize}
-\item \textit{GET}: This can be used to list all the elements of a collection, or a specific element if its ID is specified in the URL.
-\item \textit{POST}: Creates a new entry in the collection based on the sent data.
-\item \textit{PUT}: Can be used to replace a collection with the one that is sent as input. If an input is sent that identifies an element in the collection then the element is replaced by the one that is sent. If the element does not exist, then it is created.
-\item \textit{DELETE}: Deletes the entire collection, if an ID is specified then the particular element is deleted.
+\item Clients interact with resources. The term 'resource' refers to anything that can have a name and a representation.
+      A resource is addressed via a unique Uniform Resource Identifier (URI).
+\item All informations regarding a resource are contained in the resource itself: resources are self-descriptive.
+      Because all information needed to process a request on any resource is contained in the resource itself,
+      the services can be stateless.
+\item Resources can be accessed by client using HTTP methods such as \verb|GET|, \verb|POST|, \verb|PUT| and \verb|DELETE|.
+      Each of these methods corresponds to an operation:
+			\begin{itemize}
+				\item \verb|GET|: returns all the elements of a collection, or a specific element if its ID is specified.
+				\item \verb|POST|: creates a new entry in a collection or a new element.
+				\item \verb|PUT|: is to replace a collection or a particular element in it.
+				\item \verb|DELETE|: deletes an entire collection or a particular element in it.
+			\end{itemize}
+\item Resources can contain link to other resources.
 \end{itemize}
 
-This type of service does not have any specific requirements for how the format of the data, that is sent, should look like. \cite{REST}
+This type of service does not have any specific requirements on how the data should be formatted or what it should look like.
+What described, results in a number of advantages.
 
-\subsection{SOAP}
+\textbf{Scalability}\newline
+Because RESTful services are stateless, they are generally lightweight in resources and easy to scale up.
+\textbf{Caching}\newline
+Requests sent to RESTful services are made using HTTP methods and HTTP \verb|GET| results are cached, this can
+lead to further scalability capabilities and speed.
+\textbf{Interoperability}\newline
+REST only requires an HTTP connection.
+\textbf{Idempotency and nilpotency}\newline
+\verb|PUT| and \verb|DELETE| methods are idempotent. This means that one nullifies the effects of the other.
+\verb|GET| is nilpotent, meaning that it has no side effects. There are desiderable features considering
+that over a network information gets lost and sent back again and it would not unlikely for an operation
+to be executed twice. Having the possibility to revert changes made to the data could be valuable,
+as well as having a nilpotent operator that has no effect on data itself.
+\textbf{Simplicity}\newline
+REST is simple and that is one big advantage over more complex standards.
+
+\subsection{SOAP}\cite{SOAP}
 SOAP (Simple Object Access Protocol) is a protocol for exchanging information between web services in a network.
-This protocol mainly uses XML during communication.
-There are some strict rules for how the format of the XML string should look like.
+SOAP makes heavy use of XML for communication.
+There are some strict rules on how the XML data should be formatted.
 It needs to contain an envelope and a body, in addition it can also contain a header and a fault.
-The envelope tells that the message that is being sent is a SOAP message, and the body contains the main information that is being sent.
-A header can contain header information, and fault tells if there were some errors during the processing of the message. \cite{SOAP}
+The envelope tells that the message that is being sent is a SOAP message, and the body contains the main information
+that is being sent. A header can contain header information, and fault tells if there were some errors during the
+processing of the message. Figure \ref{} shows a SOAP message.
+
+SOAP has three major characteristics:
+
 
 \subsection{Conclusion}
 

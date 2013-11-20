@@ -14,7 +14,7 @@ Preliminary studies have shown a number of similar solutions which have certainl
 this work and our design choices. \verb|human/api| provided a good starting point for API data models,
 but provided restrictions on the sources it could fetch information from.
 HealthVault provided a good example of how we envisioned our product, with the exeception
-of a few details e.g. the language used for the data models.
+of a few details e.g. the language used for data models.
 
 Our work has outlined some of the most essential functionality an integration platform
 of this kind could offer and assessed its possibility to leverage proprietary
@@ -22,7 +22,7 @@ third-party solutions and modern hand-held devices such as smart-phones.
 
 We are confident that our client will find our work valuable for the insight it can provide
 him on the topic and for the use he can make of it in order to stimulate further research
-and development of a technology which we believe will improve the quality of healthcare in years to come.
+and development in a field which we believe will improve the quality of healthcare in years to come.
 
 \section{Further work}
 
@@ -46,13 +46,11 @@ and check their authorization to access a set of user's data.
 
 Our suggested approach to implement an authorization mechanism for third-parties
 applications is to use OAuth\footnote{See www.oauth.net}.
-To authenticate third party applications, they should be registered on the integration
+To authenticate third-party applications, they should be registered on the integration
 platform by their developers and granted a secret client-ID which is to be sent along every
-request being made.
-When an authenticated application request access to user's data, the user
-is prompted to authorize the application.
-Upon successful authorization by the user, the application is provided
-a token representing the level of authorization granted, e.g. what kind of information
+request being made. When an authenticated application request access to user's data, the user
+is prompted to authorize the application. Upon successful authorization by the user, the application
+is provided a token representing the level of authorization granted, e.g. what kind of information
 it is allowed access to. Of course, all communication should be encrypted using HTTPS.
 
 A summary of how this would work is given in the example below, which illustrates how this

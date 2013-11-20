@@ -66,8 +66,8 @@ A simple design must be taken into consideration as well when displaying these v
 \subsection{Business constraints}
 \label{subsec:business-constraints}
 
-We had to take into consideration that unlike other software projects, our deadline is final
-and cannot be postponed. Furthemore, the size of our group put some limitations
+We had to take into consideration that unlike other software projects, our deadline was final
+and couldn't be postponed. Furthemore, the size of our group put some limitations
 to the complexity of our solution.
 %When it comes to business constraints we must take into account that we are only three people.
 %We also have a strict time limit and are not able to postpone the deadline.
@@ -255,24 +255,8 @@ When an HTTP POST operation is performed on either \verb|/nipen/api/weight| or \
 \verb|/nipen/api/heart_rate| then the JSON payload will be translated into a MVC model and
 stored into the database. See figure \ref{figure:seqw} for a sequence diagram.
 
-\iffalse
-\begin{itemize}
-\item $<$server address$>$/nipen/api/human/heart\_rate
-\item $<$server address$>$/nipen/api/human/weight
-\end{itemize}
-
-With the POST method a JSON string with the specified data type needs to be sent. 
-How the controller handles this message is shown in figure \ref{figure:pushing-weight-into-NIPEN}.
-The diagram shows an example of how to push a weight value into NIPEN.
-The application works the same way when pushing a heart rate value into the system.
-When the application receives the JSON string, it first needs to parse it into its respective model class.
-After that it is sent to a service class which then sends it to a database handler class.
-This class stores the value into the database.
-\fi
-
 \begin{figure}[h]
 \centering
-%\includegraphics[scale=0.55]{../Figures/pushing-weight-into-NIPEN.png}
 \includegraphics[scale=0.8]{../Figures/seqw.png}
 \caption{Pushing a weight value into NIPEN}
 \label{figure:seqw}
@@ -286,17 +270,10 @@ Although there were some alternative database implementations we opted for MySQL
 because we were familiar with it and it offered all the features we needed.
 %We are using a MySQL database for data storage.
 The whole database is very simple and consists of two tables only: one for each supported health measurement.
-%one for heart rate and one for weight.
-%The heart rate table is shown in figure \ref{figure:heart-rate-database-diagram}
-%and the weight table in figure \ref{figure:weight-database-diagram}.
 The tables are shown in figure \ref{figure:heart-rate-database-diagram} (heart rate)
 and \ref{figure:weight-database-diagram} (weight).
 Although the tables are identical, we didn't want to merge them because it would 
 have been a bad idea generally, making queries more expensive on large amounts of data.
-
-%As we can see the tables are identical, the only difference is the name.
-%The reason we didn't merge this tables is to separate the data, and it is also more efficient.
-%It would require more resources to separate the data if they all were in one table.
 
 \begin{figure}[h]
 \centering
@@ -316,12 +293,8 @@ Access to the database in NIPEN is implemented by two classes: HeartRateDAO and 
 Both provide functionality to read and write entries from/to the respective table in the database.
 Having only one access point to the database is generally a good practice because it permits to
 identify errors more easily as they can only be in one place.
-%We have created separate classes for accessing the database through our server application.
-%One for heart rate (HeartRateDAO) and one for weight (WeightDAO).
-%This two classes contain a method for inserting and a method for fetching data from the database.
 The data that is fetched from the database is ordered by timestamp, so that other applications
 don't have to sort it themselves.
-%In this way the other parts of the system doesn't need to sort the data afterwards.
 
 %------
 
@@ -329,14 +302,13 @@ don't have to sort it themselves.
 \section{Front-end}
 \label{subsec:front-end}
 
-The main functionality of the front-end is to visualize the data stored by NIPEN.%the Integration Platform.
+The main functionality of the front-end is to visualize the data stored by NIPEN.
 This is accomplished by using a regular web-page consisting of HTML, CSS and JavaScript. HTML and CSS are used for structuring and giving a nice design to the web page. With help of JavaScript we are able to make the page dynamic.
 
 \subsection{Design and Visualization}
 
 One of the requirements given by the customer was that the front-end should use helsenorge.no color palette
 (see figure \ref{figure:helsenorge-color-palette}).
-%That is the front-end should use the colors shown in figure \ref{figure:helsenorge-color-palette}.
 The front-end should show how helsenorge.no could represent the data from the integration platform. 
 Since it would somehow mimic that page, we though that our web page should look similar to helsenorge.no. 
 Hence we didn't only use the colors from the given palette, but tried as well to create a similar structure.
@@ -477,15 +449,15 @@ In this scenario the user must manually refresh the web page.
 
 The heart rate application is an application for Android mobile devices.
 It's purpose is twofold: on one side it demonstrates the praticality of gathering health parameters using mobile phones,
-on the other, it shows how easily these can be intregrated with NIPEN. % memorized, stored ?
+on the other, it shows how easily these can be integrated by NIPEN. % memorized, stored ?
 The application was developed using an open source project called \verb|android-heart-rate-monitor| described
 in subsection \ref{subsec:hr} which features an algorithm to measure heart rate using the phone's camera.
 %We are using the open source  \cite{AndroidHeartRateMonitor} app as our base to our hart rate application.
-Not having to implement such functionality ourselves allowed us to dedicate time to other tasks.
+Not having to implement such functionality ourselves allowed us to dedicate more time to other tasks.
 Being only three people on a large project like this, we though that it would be great idea.
 %The existing android heart rate monitor app is capable of measuring a users heart rate.
-We have extended the application to be able to send measurements to NIPEN.
-To do so, the application constructs a valid JSON string representing an heart rate model and then
+We have extended the application to be able to make NIPEN API calls.
+To do so, the application constructs a valid JSON string representing a heart rate model and then
 sends an HTTP POST message to the appropriate API endpoint containing the JSON string as payload.
 
 %% this is mostly okay but too long to be this detailed.
@@ -518,23 +490,23 @@ What we have added to the application is the last part, i.e. from where the user
 
 \section{Weight application}
 
-The weight application is an Android app that is able to fetch and push data to and from HealthVault, as well as
-it is it capable of pushing data to NIPEN.
-We are also using an existing solution as a base for this application, where the features we implemented are
-the interactions with NIPEN.
-The base we are using for this application is an example from the HealthVault Java SDK \cite{HealthVaultSDK}.
-When the SDK is downloaded, it contains a folder named \textit{android}. 
-This folder again contains a folder \textit{examples} where the base, we are using, is located.
+The weight application is an Android app that is able to fetch and push data to and from HealthVault,
+as well as sending it over to NIPEN. This application was developed using one of the examples
+provided with Microsoft's Java SDK for HealthVault\cite{HealthVaultSDK}.
+We are using an existing solution as a base for this application as well.
+%, where the features we implemented are the interactions with NIPEN.
+%The base we are using for this application is an example from the HealthVault Java SDK \cite{HealthVaultSDK}.
+%When the SDK is downloaded, it contains a folder named \textit{android}. 
+%This folder again contains a folder \textit{examples} where the base, we are using, is located.
+When the application starts it redirects the user to HealthVault's page to authenticate.
+If it is the first time the user is using the Weight application, he/she is asked to authorize it to access
+his HealthVault data, after signin in. Upon successful authorization, the application can push and fetch data
+to and from HealthVault.
 
-When the application starts it asks the user to sign in to HealthVault.
-If this is the first time the user uses this application he/she is asked to add this application to HealthVault,
-after the sign in process.
-When the user grants permission to the application, it is allowed to push and fetch data to and from HealthVault.
-
-How the application works (after login) is illustrated in figure \ref{figure:sending-weight-to-healthvault-and-nipen}.
-The functionality we implemented is the construction of the JSON string and the sending of the data to NIPEN.
-This is developed almost exactly as the heart rate application, and hence is not further explained here.
-The only difference is that we are creating a weight measurement instead of a heart rate.
+The flow of the application (after login) is illustrated in figure \ref{figure:sending-weight-to-healthvault-and-nipen}.
+%The functionality we implemented is the construction of the JSON string and the sending of the data to NIPEN.
+%This is developed almost exactly as the heart rate application, and hence is not further explained here.
+%The only difference is that we are creating a weight measurement instead of a heart rate.
 
 \begin{figure}[h]
 \centering
@@ -543,28 +515,30 @@ The only difference is that we are creating a weight measurement instead of a he
 \label{figure:sending-weight-to-healthvault-and-nipen}
 \end{figure}
 
-This application illustrates that it is possible to connect HealthVault into NIPEN.
-If the user adds this application to HealthVault, it has access to all the weight values the user has added to the HealthVault account.
-Thus it is possible to thereafter send the values into NIPEN.
+This application illustrates how it is possible to connect HealthVault and NIPEN.
+%If the user adds this application to HealthVault, it has access to all the weight values
+%the user has added to the HealthVault account and its possible at the same time to send those to NIPEN.
+% Thus it is possible to thereafter send the values into NIPEN.
 
 \section{HealthVault Integration Service}
 
-The HealthVault integration service is capable of retrieving values from HealthVault and send new values into NIPEN. 
-As the weight application, this service uses an example in the HealthVault Java SDK \cite{HealthVaultSDK} as its base.
-In the SDK folder it is located inside \textit{java-1.4.2} folder.
-The functionality we have implemented into this application is a polling service and the interactions with NIPEN.
-We have also made some cosmetic changes to the web pages the example provided.
-
-This application consists of a back-end and a front-end.
-What this means is that it consists of a web page and a server application.
-The server application is handling the interactions with HealthVault and NIPEN, while the front-end creates a display for the user as well as it processes the users requests.
-
-We have completely changes the look of the front-end of this application.
+The HealthVault integration service is capable of synchronizing weight measurements in NIPEN with HealthVault's.
+Similarly to the Weight application, this service was developed from an example in Microsoft's Java SDK for HealthVault.
+%In the SDK folder it is located inside \textit{java-1.4.2} folder.
+The functionality we have implemented into this application is a Java-based polling thread and the actual
+interactions with NIPEN. We have also made some cosmetic changes to the web pages the example provided.
+This application consists of a back-end and a front-end. The latter is a simple web page to control
+the behavior of the service (on/off), the back-end is a Java-based server application which handles
+interaction with HealthVault and NIPEN.
+%What this means is that it consists of a web page and a server application.
+%The server application is handling the interactions with HealthVault and NIPEN, 
+%while the front-end creates a display for the user as well as it processes the users requests.
+%We have completely changed the look of the front-end of this application.
+Figure \ref{figure:webservice-login} shows how the web page looks like.
 When the user opens the web page, he/she is asked to login into HealthVault.
-The procedure for the login is the same as the weight application.
-Figure \ref{figure:webservice-login} shows how the login page looks like.
-After the user has signed in, a web page is shown where it is possible to start/stop the polling service.
-Is is also possible tof push weight data into HealthVault. 
+The procedure for the login is the same described for the Weight application.
+After the user has signed in, it is possible to start/stop the integration service.
+Is is also possible, mostly for debugging and demonstrability purposes, to push weight measurements into HealthVault. 
 This is illustrated in figure \ref{figure:webservice-not-polling} and \ref{figure:webservice-polling}.
 
 \begin{figure}[H]
@@ -577,31 +551,37 @@ This is illustrated in figure \ref{figure:webservice-not-polling} and \ref{figur
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{../Figures/webservice-not-polling.png}
-\caption{HealthVault Integration Service not polling page}
+\caption{HealthVault Integration Service (disabled)}
 \label{figure:webservice-not-polling}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{../Figures/webservice-polling.png}
-\caption{HealthVault Integration Service polling page}
+\caption{HealthVault Integration Service (enabled)}
 \label{figure:webservice-polling}
 \end{figure}
 
-When the user has signed in to HealthVault through the application, an authentication token is sent from HealthVault.
-This token is received and stored in the web service.
-What this token does is that it allows the application to fetch weight data from HealthVault.
-After the sign in the user can start the polling service.
-When the user requests the application to start polling, a thread is created on the back-end.
-This thread starts fetching data from HealthVault on a regular basis.
+When the user has signed in to HealthVault through the application, an authorization token
+is sent from HealthVault. This token is received and stored by the web service which
+will send it back to HealthVault along its requests to access weight measurements.
+The token is in fact representing the level of authorization (what kind of data) the application
+was granted acces to by the user.
+%What this token does is that it allows the application to fetch weight data from HealthVault.
+After logging in the user can start the integration service.
+When the service is enabled, a thread is created on the machine hosting the service.
+Said thread starts fetching data from HealthVault at given intervals.
 Every time the application receives data it waits 1 second and then fetches again.
-This is repeated until the user stops the polling service.
+This is repeated until the user disables the service.
 
-When the polling starts the application stores the first timestamp, of the last weight measurement, received from HealthVault.
-After that, for each poll the application compares this timestamp with the timestamp received from HealthVault.
-A new value will be added to HealthVault if the timestamps are not equal.
-If a new value has been detected, the application creates and sends a JSON string to NIPEN in the same way as the heart rate and weight application.
-The polling service is illustrated in figure \ref{figure:weight-polling-service}.
+When the service is started, it the timestamp of the last weight measurement retrieved from HealthVault.
+Every time new data is fetched from HealthVault, the service compares the timestamps to see if there is new measurement.
+If that is the case, the measurements is sent to NIPEN and the timestamp is updated.
+%After that, for each poll the application compares this timestamp with the timestamp received from HealthVault.
+%A new value will be added to HealthVault if the timestamps are not equal.
+%If a new value has been detected, the application creates and sends a JSON string to NIPEN
+%in the same way as the heart rate and weight application.
+A sequence diagram for the integration service is shown in figure \ref{figure:weight-polling-service}.
 
 \begin{figure}[h]
 \centering
