@@ -26,6 +26,7 @@ In the following sections we provide a detailed description of the each part of 
 \label{figure:architecture}
 \end{figure}
 
+\newpage
 \section{Architectural drivers}
 
 In this section we discuss the architectural drivers of our design.
@@ -129,13 +130,6 @@ The API is presented in subsection \ref{subsec:api}.
 
 A class diagram containing the most important classes and methods of our system is shown in figure \ref{figure:nipen-class-diagram}.
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.5]{../Figures/NIPEN-class-diagram.png}
-\caption{NIPEN class diagram}
-\label{figure:nipen-class-diagram}
-\end{figure}
-
 We are following a MVC (Model-View-Controller) architectural pattern. 
 This pattern is ideal for large-scale, team-based development.
 It reduces code complexity and offers great code reuse. 
@@ -157,6 +151,14 @@ In our application the controllers are called when a HTTP GET or HTTP POST reque
 The controllers work as an interface that connects the applications we have developed with our back-end.
 
 \end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{../Figures/NIPEN-class-diagram.png}
+\caption{NIPEN class diagram}
+\label{figure:nipen-class-diagram}
+\end{figure}
+\clearpage
 
 \subsection{Data models}
 \label{subsec:models}
@@ -283,7 +285,7 @@ stored into the database. See figure \ref{figure:seqw} for a sequence diagram.
 \label{figure:seqw}
 \end{figure}
 
-
+\clearpage
 \subsection{Database}
 
 In order to implement persistence of health information we are using a MySQL database.
@@ -607,6 +609,7 @@ A sequence diagram for the integration service is shown in figure \ref{figure:we
 \label{figure:weight-polling-service}
 \end{figure}
 
+\clearpage
 \section{Rationale}
 
 In this section we outline how our architectural and design choices let us fullfil
